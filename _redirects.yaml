@@ -1,0 +1,15 @@
+redirects:
+- from: /chrome-developer-tools/docs/overview
+  to: /chrome-developer-tools/
+
+- from: /chrome-developer-tools/docs/scripts
+  to: /chrome-developer-tools/docs/javascript-debugging
+
+- from: /chrome-developer-tools/docs/scripts-breakpoints
+  to: /chrome-developer-tools/docs/javascript-debugging
+
+- from: /chrome-developer-tools/docs/scripts-exceptions
+  to: /chrome-developer-tools/docs/javascript-debugging
+
+- from: /chrome-developer-tools/docs/using-timeline
+  to: /chrome-developer-tools/docs/timeline

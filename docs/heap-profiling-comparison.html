@@ -1,0 +1,86 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Verifying Action Cleanness</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+
+
+{% framebox height="1000px" %}
+<script type="text/javascript" src="/chrome-developer-tools/docs/heap-profiling-comparison-files/script.js"></script>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+<p>This page demonstrates how action cleanness can be verified using
+the Heap
+Profiler. By <em>cleanness</em>, we mean that after starting and
+completing (or canceling) the action, no garbage is left. If an action
+leaves garbage, multiple invocations of it may result in excessive
+memory usage.</p>
+
+<p>Below is the source code of the script, for reference:</p>
+
+<pre class="prettyprint">
+function Item(x)
+{
+  this.x = x;
+}
+
+Item.prototype = {
+  clone: function()
+  {
+    return new Item(this.x);
+  }
+};
+
+function action()
+{
+  for (var i = 0; i < data.length - 1; ++i) {
+    line = new Array(data[i].length);
+    for (var j = 0, l = data[i].length; j < l; ++j)
+      line[j] = data[i][j].clone();
+    for (var j = 0, l = data[i].length; j < l; ++j) {
+      data[i][j] = data[i + 1][j].clone();
+      data[i + 1][j] = line[j].clone();
+    }
+  }
+}
+
+var data = new Array(10);
+for (var i = 0; i < data.length; ++i) {
+  data[i] = new Array(1000);
+  for (var j = 0, l = data[i].length; j < l; ++j)
+    data[i][j] = new Item(i * l + j);
+}
+
+</pre>
+
+<p>Try this:
+<ul>
+  <li>Take a heap snapshot</li>
+
+  <li>Press the button: <button id="doAction" onclick="action()">Action!</button></li>
+
+  <li>Take another snapshot</li>
+
+  <li>Open the <strong>Comparison</strong> view</li>
+</ul></p>
+
+<p>The view will show how objects count has changed between two
+snapshots. In this example it can be seen that some
+garbage <code>Item</code> objects are left from the last loop
+iteration. They must be explicitly dereferenced on action completion
+in order to fix the leak.</p>
+
+<p>You can also take multiple snapshots, and compare them arbitrarily
+(not necessary to complete the last one with the previous one.)</p>
+
+{% endframebox %}
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+</html>
+

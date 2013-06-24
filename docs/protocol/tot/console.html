@@ -1,0 +1,786 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+ <head>
+ <title>tot: Console</title>
+ <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+ <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+ </head>
+ <body>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href='#commands'">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-clearMessages" href="#command-anchor">clearMessages</a>
+ </li>
+ 
+ <li>
+ <a href="#command-disable" href="#command-anchor">disable</a>
+ </li>
+ 
+ <li>
+ <a href="#command-enable" href="#command-anchor">enable</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ <li>
+ <a href='#events'">Notifications</a>
+ <ol>
+ 
+ <li>
+ <a href="#event-messageAdded" href="#command-anchor">messageAdded</a>
+ </li>
+ 
+ <li>
+ <a href="#event-messageRepeatCountUpdated" href="#command-anchor">messageRepeatCountUpdated</a>
+ </li>
+ 
+ <li>
+ <a href="#event-messagesCleared" href="#command-anchor">messagesCleared</a>
+ </li>
+ 
+ </ol>
+ </li>
+ </li>
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-CallFrame">CallFrame</a>
+ </li>
+ 
+ <li>
+ <a href="#type-ConsoleMessage">ConsoleMessage</a>
+ </li>
+ 
+ <li>
+ <a href="#type-StackTrace">StackTrace</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div><!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>Console domain defines methods and events for interaction with the JavaScript console. Console collects messages created by means of the <a href='http://getfirebug.com/wiki/index.php/Console_API'>JavaScript Console API</a>. One needs to enable this domain using <code>enable</code> command in order to start receiving the console messages. Browser collects messages issued while console domain is not enabled as well and reports them using <code>messageAdded</code> notification upon enabling.</p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-clearMessages"></a>
+ <h4>Console.clearMessages</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Console.clearMessages"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Clears console messages collected in the browser.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-disable"></a>
+ <h4>Console.disable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Console.disable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Disables console domain, prevents further console messages from being reported to the client.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-enable"></a>
+ <h4>Console.enable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Console.enable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Enables console domain, sends the messages collected so far to the client by means of the <code>messageAdded</code> notification.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+ 
+ <div class="protocol-group">
+ <a name="events"></a>
+ <h3>Notifications</h3>
+ 
+ <div class="protocol-item">
+ <a name="event-messageAdded"></a>
+ <h4>Console.messageAdded</h4>
+ <div class="summary">
+ {<br>
+ "method": "Console.messageAdded",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"message"</span>: &lt;<a href="#type-ConsoleMessage">ConsoleMessage</a>&gt;
+ 
+ <br>}
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Issued when new console message is added.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ message
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-ConsoleMessage">ConsoleMessage</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Console message that has been added.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-messageRepeatCountUpdated"></a>
+ <h4>Console.messageRepeatCountUpdated</h4>
+ <div class="summary">
+ {<br>
+ "method": "Console.messageRepeatCountUpdated",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"count"</span>: &lt;integer&gt;
+ 
+ <br>}
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Issued when subsequent message(s) are equal to the previous one(s).</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ count
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New repeat count value.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-messagesCleared"></a>
+ <h4>Console.messagesCleared</h4>
+ <div class="summary">
+ {<br>
+ "method": "Console.messagesCleared"
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Issued when console is cleared. This happens either upon <code>clearMessages</code> command or after page navigation.</p>
+ 
+ </div>
+ </div>
+  <!-- for events -->
+ </div>
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-CallFrame"></a>
+ <h4>CallFrame: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ columnNumber
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript script column number.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ functionName
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript function name.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ lineNumber
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript script line number.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript script name or url.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-ConsoleMessage"></a>
+ <h4>ConsoleMessage: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ level
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ <span>enumerated</span>
+ string
+ 
+ [
+ 
+ "debug"
+ , 
+ 
+ "error"
+ , 
+ 
+ "log"
+ , 
+ 
+ "warning"
+ 
+ 
+ ]
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Message severity.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ line
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Line number in the resource that generated this message.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ networkRequestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="network.html#type-RequestId">Network.RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the network request associated with this message.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ parameters
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ array of <a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Message parameters in case of the formatted message.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ repeatCount
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Repeat count for repeated messages.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ source
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ <span>enumerated</span>
+ string
+ 
+ [
+ 
+ "appcache"
+ , 
+ 
+ "console-api"
+ , 
+ 
+ "css"
+ , 
+ 
+ "javascript"
+ , 
+ 
+ "network"
+ , 
+ 
+ "other"
+ , 
+ 
+ "rendering"
+ , 
+ 
+ "security"
+ , 
+ 
+ "storage"
+ , 
+ 
+ "xml"
+ 
+ 
+ ]
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Message source.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ stackTrace
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-StackTrace">StackTrace</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript stack trace for assertions and error messages.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ text
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Message text.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ <span>enumerated</span>
+ string
+ 
+ [
+ 
+ "assert"
+ , 
+ 
+ "clear"
+ , 
+ 
+ "dir"
+ , 
+ 
+ "dirxml"
+ , 
+ 
+ "endGroup"
+ , 
+ 
+ "log"
+ , 
+ 
+ "profile"
+ , 
+ 
+ "profileEnd"
+ , 
+ 
+ "startGroup"
+ , 
+ 
+ "startGroupCollapsed"
+ , 
+ 
+ "table"
+ , 
+ 
+ "timing"
+ , 
+ 
+ "trace"
+ 
+ 
+ ]
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Console message type.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ URL of the message origin.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-StackTrace"></a>
+ <h4>StackTrace: <var>array of <a href="#type-CallFrame">CallFrame</a></var></h4>
+ 
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div><!-- API PAGE -->
+</div>
+ </body>
+</html>

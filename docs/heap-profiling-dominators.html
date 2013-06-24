@@ -1,0 +1,84 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Finding Accumulation Points</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+
+
+{% framebox height="950px" %}
+<script type="text/javascript" src="//developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators-files/script.js"></script>
+<link rel="stylesheet" type="text/css" href="//developers.google.com/chrome-developer-tools/css/local_extensions.css"/>
+
+<p>This page demonstrates how accumulation points can be detected
+using the Heap
+Profiler.</p>
+
+<p>Below is the source code of the script, for reference:</p>
+
+<pre class="prettyprint">
+function CollectionItem(s)
+{
+  this.s = s;
+}
+
+function Collection()
+{
+  this.items = [];
+}
+
+Collection.prototype = {
+  add: function(item)
+  {
+    this.items.push(item);
+  },
+
+  item: function(index)
+  {
+    return this.items[index];
+  }
+}
+
+function createCollection(count)
+{
+  var collection = new Collection();
+  for (var i = 0; i < count; ++i)
+    collection.add(new CollectionItem(i.toString()));
+  return collection;
+}
+
+var holder1 = [createCollection(10000), createCollection(15000)];
+var holder2 = [holder1[0]];
+
+</pre>
+
+<p>Using the <strong>Dominators</strong> view, it's easy to spot
+collection objects that are small by themselves but retain lots of
+memory.  In the <strong>Dominators</strong> view, find the
+<code>DOMWindows</code> node (usually, the topmost one) and expand
+it. Look at the top two child nodes (by default nodes are sorted
+by their retained size). The first one is a system wrapper
+around the <code>holder1</code> array. The second one is the
+<code>Collection</code> node. Both of them have
+small shallow size, but big retained size, due to a fact that
+they hold lots of <code>CollectionItem</code>
+objects.</p>
+
+<p>Note that the <strong>Dominators</strong> reveals dependencies
+between objects, not their references. For example, one of
+the <code>Collection</code> objects is shared between two arrays, thus
+it is not retained by any of them, but by the <code>DOMWindows</code>
+object.</p>
+
+<p>To see, how an object is actually referenced, click on it, and
+  look at the lower panel that shows retaining paths.</p>
+
+{% endframebox %}
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+</html>
+

@@ -1,0 +1,145 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Memory Analysis 101</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+
+
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+
+<p>This is an introduction to memory analysis. Terms and notions
+described here are used in the Heap Profiler UI and the corresponding
+documentation. You need to be familiar with them to use the tool
+effecively.</p>
+
+<h2 id="common_terms">Common Terms</h2>
+
+<p>This section describes common terms used in memory analysis,
+and is applicable to a variety of memory profiling tools for different
+languages. If you already have experience with, say, Java or .Net
+memory profilers, chances are high that you are familiar with
+them.</p>
+
+<h3 id="object_sizes">Object Sizes</h3>
+
+<p>Memory can be held by an object in two ways: directly by the object
+itself, and implicitly by holding references to other objects, and
+thus preventing them from being automatically disposed by a garbage
+collector (<em>GC</em> for short).</p>
+
+<p>The size of memory that is held by the object itself is
+called <em>shallow size</em>. Typical JavaScript objects have some
+memory reserved for their description and for storing immediate
+values.</p>
+
+<p>Usually, only arrays and strings can have significant shallow
+sizes. However, strings often have their main storage in renderer
+memory, exposing only a small wrapper object on the JavaScript heap.</p>
+
+<p>Nevertheless, even a small object can hold a large amount of memory
+indirectly, by preventing other objects from being disposed by the
+automatic garbage collection process. The size of memory that will be
+freed, when the object itself is deleted, and its dependent objects
+made unreachable from GC roots, is called <em>retained size</em>.</p>
+
+<h3 id="retaining_paths">Retaining Paths</h3>
+
+<p>The heap is a network of interconnected objects. In the mathematical
+world, this structure is called a graph. A graph is constructed
+from <em>nodes</em> connected by means of <em>edges</em>. Both nodes
+and edges have labels: nodes (objects) are labelled using the name of
+the constructor function that was used to build them, edges are
+labelled using the names of properties.</p>
+
+<p>The sequence of edges that needs to be traversed in order to reach
+one object from another, is called a <em>path</em>. Usually, we are
+only interested in <em>simple</em> paths, i.e. paths that do not go
+through the same node twice.</p>
+
+<p>We call a <em>retaining path</em> any path from GC roots to a
+particular object. If there are no such paths, the object is called
+<em>unreachable</em> and is subject to disposal during garbage
+collection.</p>
+
+<h3 id="dominators">Dominators</h3>
+
+<p>The dominator of an object <strong>A</strong> is an object that
+exists in every simple path from the root to the
+object <strong>A</strong>. That means, having the dominator object
+removed from the heap (with all its references being cut), the
+object <strong>A</strong> will become unreachable from GC roots, and will be
+disposed.</p>
+
+<p>Dominator objects comprise a tree structure, because each object
+has exactly one dominator. A dominator of an object may lack direct
+references to an object it dominates, that is, the dominators tree is
+not a spanning tree of the graph.</p>
+
+<p>Collection-like objects may retain big amounts of memory, when
+they dominate other objects. Such nodes of the tree are called
+<em>accumulation points</em>.</p>
+
+<h2 id="v8_specifics">V8 Specifics</h2>
+
+<p>In this section we describe some memory-related topics that
+only correspond to the V8 JavaScript virtual machine. Reading them might
+help to understand why heap snapshots look this way.</p>
+
+<h3 id="primitive_objects">JavaScript Object Representation</h3>
+
+<p>Numbers can be presented either as immediate 31-bit integer values
+(they are called <em>small integers</em>, or <em>SMIs</em> for short),
+or as heap objects (called <em>heap numbers</em>). The latter are used
+for values that can't fit into the SMI form, e.g. doubles, or for
+cases when a value needs to be <em>boxed</em>, e.g. for setting
+properties on it.</p>
+
+<p>String content can be either stored in the VM heap, or externally
+in the renderer's memory. Content received from the Web (e.g. scripts
+sources) doesn't get copied onto the VM heap, instead, a wrapper object is
+created and used to access external storage.</p>
+
+<p>When two strings are concatenated, their contents are initially
+stored separately, and are joined only logically, using an object
+called <em>cons string</em>. Joining of the cons string contents is
+performed only when it's needed, e.g. when a substring of a joined
+string needs to be constructed.</p>
+
+<p>Arrays are used extensively in the V8 VM for storing large amounts of
+data. Dictionaries (sets of key-value pairs) are backed up by arrays.
+Thus, arrays are the basic building block for JavaScript objects.  A
+typical JavaScript object posesses two arrays: one for storing named
+properties, another for storing numeric elements. In the case when the
+number of properties is very small, they can be stored internally in
+the JavaScript object itself.</p>
+
+<p>A <em>map</em> object describes object kind and its layout. For example,
+maps are used to describe implicit object hierarchies, as described
+<a href="/v8/design.html#prop_access">here</a>.</p>
+
+<h3 id="object_groups">Object Groups</h3>
+
+<p>Each native <em>objects group</em> is made up from objects that hold
+mutual references to each other. Consider for example a DOM subtree,
+where every node has a link to its parent and links to the next child and
+next sibling, thus forming a connected graph. Note that native objects
+are not represented in the JavaScript heap &mdash; that's why they
+have zero size. Instead, <em>wrapper objects</em> are created. Each
+wrapper object holds a reference to the corresponding native object,
+for redirecting commands to it. In its own turn, an object group holds
+wrapper objects. However, this doesn't create an uncollectable cycle,
+as GC is smart enough to release object groups whose wrappers are no
+longer referenced. But forgetting to release a single wrapper will
+hold the whole group and associated wrappers.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  </body>
+</html>
+

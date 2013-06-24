@@ -1,0 +1,314 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Mobile emulation</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+  <style>
+img {
+    border:1px solid #ccc;
+}
+ </style>
+
+<h4><strong>Contents</strong></h4>
+
+<ul>
+<li><a href="#emulate-touch-events">Emulating Touch Events</a></li>
+<li><a href="#emulate-device-viewports">Emulating Device Viewports</a></li>
+<li><a href="#device-geolocation-overrides">Device Geolocation Overrides</a></li>
+<li><a href="#device-orientation-overrides">Device Orientation Overrides</a></li>
+<li><a href="#css-media-type-emulation">CSS Media Type Emulation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+
+<p>The mobile web has evolved to enable increasingly sophisticated applications,
+which we often wish to debug during development on the desktop. The DevTools
+include support for a number of features that can help with this which we will
+walk through in this section.</p>
+
+
+<p class="note"><b>Note</b>: Some of our documentation may be ahead of the stable version of Chrome. If you are unable to locate a feature listed, we recommend trying <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> which contains the latest version of the DevTools.</p>
+
+
+<h2 id="emulate-touch-events">Emulating Touch Events</h2>
+
+<p>Touch is an input method that's difficult to test on the desktop, since most
+desktops don't have touch input. Having to test on mobile can lengthen your
+development cycle, since every change you make needs to be pushed out to a
+server and then loaded on the device.</p>
+
+<p>A solution to this problem is to simulate touch events on your development
+machine. For single-touches, the Chrome DevTools supports single<a href="http://www.w3.org/TR/touch-events/">
+</a><a href="http://www.w3.org/TR/touch-events/">touch
+event</a> emulation to make it easier to debug
+mobile applications on the desktop.</p>
+
+<p><strong>To enable support for touch event emulation:</strong></p>
+
+<ol>
+<li>Click on the Settings cog <img src="mobile-emulation/image_38.png"/> and open up the Overrides panel</li>
+<li>Scroll down and check "Enable touch events"</li>
+<li>Reload your page</li>
+</ol>
+
+
+<p><div class="screenshot"><img width="720" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"/></img></p>
+
+<p>Your mouse actions will now also trigger the relevant touch events: <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>.</p>
+
+<p class="note"><b>Notes</b>:</p>
+
+<ul>
+<li>Enabling "Emulate touch events" does not disable mouse events, it only adds
+touch as another option we can debug with.</li>
+<li>Feature detects such as <code><a href="http://modernizr.com">Modernizr.touch</a></code> will now
+succeed on page refresh.</li>
+<li>This feature, like many other overrides, will only work while the DevTools are
+open.</li>
+</ul>
+
+
+<p><strong>Debugging touch events</strong></p>
+
+<ol>
+<li>Open up the<a href="http://paulirish.com/demo/multi"> </a><a href="http://paulirish.com/demo/multi">Canvas Fingerpaint
+Demo</a></li>
+<li>Navigate to the Sources panel</li>
+<li>Expand the "Event Listener Breakpoints" sub-panel</li>
+<li>Check the "touchstart" and "touchmove" events under "Touch"</li>
+<li>Move your cursor over the paint area</li>
+<li>The debugger should successfully pause on the <span class=
+  "source-code">draw()</span> method</li>
+</ol>
+
+
+<p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
+
+
+<p><strong>Multi-touch</strong></p>
+
+<p>Multi-touch events can be simulated if you have a device with touch input, such
+as a modern Apple MacBook. For further assistance with multi-touch event
+simulation, see <a href="http://www.html5rocks.com/en/mobile/touch/">Multi-touch web
+development</a>.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="emulate-device-viewports">Emulating Device Viewports</h2>
+
+<p>It's often easier to start prototyping on the desktop and then tackle the
+mobile-specific parts on the devices you intend to support. Device emulation can
+make this process more straightforward.</p>
+
+<p>The DevTools support for device emulation includes native <strong>User Agent and
+dimension overriding</strong>. This allows developers to debug mobile browsers on
+different devices and operating systems via the Overrides menu.</p>
+
+<p><div class="screenshot"><img width="550" src="mobile-emulation/image_3.png" alt="Viewport Overrides"/></div></p>
+
+<p>Now you can emulate the exact device metrics of devices like the Galaxy Nexus
+and the iPhone to test your media query-driven design.</p>
+
+<p><strong>Emulating The User Agent</strong></p>
+
+<ol>
+<li>Navigate to the <a href="http://www.google.com/intl/en/chrome/browser/mobile/">
+</a><a href="http://www.google.com/intl/en/chrome/browser/mobile/">Chrome for
+mobile</a> homepage</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "User Agent"</li>
+<li>Select "Android 2.3 - Nexus S"</li>
+</ol>
+
+
+<p>The result is that first, the User Agent string for the current page changes
+to <em>Android 2.3</em>. Next, the <em>Device Metrics </em> option has been
+automatically enabled and the <em>Screen resolution</em> and <em>Font
+scale factor</em> fields set to those emulating the chosen device.</p>
+
+
+
+<p>This allows you to emulate and debug CSS media query breakpoints for devices
+with ease.</p>
+
+<p>Before:<br/>
+
+<div class="screenshot"><img width="700" src="mobile-emulation/image_4.png" alt="Before user agent and device metric emulation have been applied"/></div></p>
+
+<p>After:<br/>
+<div class="screenshot"><img width="420" src="mobile-emulation/image_5.png" alt="After user agent and device metric emulation are applied"/></div></p>
+
+
+<p><img src="mobile-emulation/image_6.png"/>, the
+last button under <em>Screen resolution</em> allows us to swap the values of dimensions
+currently set, should you wish to change the width for the height.</p>
+
+<p><div class="screenshot"><img width="481" src="mobile-emulation/image_7.png" alt="Screen resolution"/></div></p>
+
+<p>Should you require further customization, <em>Device metrics</em> can be changed at
+will, with or without the use of a <em>User Agent</em> set.</p>
+
+<p><div class="screenshot"><img width="445" src="mobile-emulation/image_8.png" alt="Manually changing the screen resolution values"/></div></p>
+
+<p>Additionally, the <em>Fit in window</em> option will rescale the area available to the
+page to exclude the area occupied by the DevTools.</p>
+
+<p><div class="screenshot"><img width="438" src="mobile-emulation/image_9.png" alt="Fit in window will rescale the area available to the page"/></div></p>
+
+<p class="note"><b>Notes</b>:</p>
+
+<ul>
+<li>At present, Font scale factor will only set the text zoom. There are however
+plans to change this in the future to better emulate mobile devices using text
+autosizing and real device pixel ratio emulation. Until then, the current
+state will never be 100% accurate and may exhibit some visual artifacts and
+unexpected behavior when scaling the page.</li>
+<li>Device media queries (e.g <code>@media only screen and (min-device-width:768px){}</code>) will also be enabled according to the values defined
+here. There is presently no other way those can be mimicked.</li>
+<li>The DevTools window must be kept open in order for the touch events to occur.
+If you close the window you will go back to normal mouse events.</li>
+<li>If you would like to contribute patches to support new devices, please see our
+<a href="http://code.google.com/chrome/devtools/docs/contributing.html">contribution
+docs</a>.</li>
+</ul>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="device-geolocation-overrides">Device Geolocation Overrides</h2>
+
+<p>When working with HTML5 geolocation support in an application, it can be useful
+to debug the output received when using different values for longitude and
+latitude.</p>
+
+<p>The DevTools support both overriding position values for <em>navigator.geolocation
+</em>and simulating geolocation not being available via the Overrides menu.</p>
+
+<p><div class="screenshot"><img src="mobile-emulation/image_10.png"/></div></p>
+
+<p><strong>Overriding geolocation positions</strong></p>
+
+<ol>
+<li>Navigate to the<a href="http://html5demos.com/geo">
+</a><a href="http://html5demos.com/geo">Geolocation</a> demo</li>
+<li>Allow the page access to your position. This should hopefully be accurate.</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "Override Geolocation" then enter in Lat = 41.4949819 and Lat =
+-0.1461206</li>
+</ol>
+
+
+<p><div class="screenshot"><img src="mobile-emulation/image_11.png"/></div></p>
+
+<ol>
+<li>Refresh the page. The demo will now use your overridden positions for
+geolocation</li>
+</ol>
+
+
+<p><div class="screenshot"><img src="mobile-emulation/image_12.png"/></div></p>
+
+<ol>
+<li>Now check the "Emulate position unavailable" option</li>
+<li>Refresh the page. The demo will now inform you that finding your location
+failed</li>
+</ol>
+
+
+<p><div class="screenshot"><img src="mobile-emulation/image_13.png"/></div></p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="device-orientation-overrides">Device Orientation Overrides</h2>
+
+<p>Many new mobile devices are now shipping with accelerometers, gyroscopes,
+compasses and other hardware designed to determine capture motion and
+orientation data.</p>
+
+<p>Web browsers are providing increasingly more access to that new hardware,
+including such examples as the<a href="http://dev.w3.org/geo/api/spec-source-orientation">
+</a><a href="http://dev.w3.org/geo/api/spec-source-orientation">HTML5
+DeviceOrientation</a> events.
+These events provide developers with information about the orientation, motion
+and acceleration of the device.</p>
+
+<p>If your application is taking advantage of device orientation events, it can
+also be useful to override the values received by these events during debugging
+to avoid the need to test them on a physical mobile device.</p>
+
+<p><strong>Overriding orientation values</strong></p>
+
+<ol>
+<li>Navigate to the<a href="http://www.html5rocks.com/en/tutorials/device/orientation/deviceorientationsample.html">
+</a><a href="http://www.html5rocks.com/en/tutorials/device/orientation/deviceorientationsample.html">Device
+Orientation</a>
+demo</li>
+<li>You should see a standard HTML5 logo along with the current orientation
+values listed above it</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "Override Device Orientation"</li>
+<li>You will see three fields α - how much the device has been rotated around the
+z-axis, β - how much the device is tilted left-to-right and γ - how much its
+tilted front-to-back.</li>
+<li>Change the values to the following:
+
+<ol>
+<li>α - 0</li>
+<li>β - 60</li>
+<li>γ - 60</li>
+</ol>
+</li>
+</ol>
+
+
+<p><div class="screenshot"><img width="401" src="mobile-emulation/image_14.png" alt="Enabling device orientation overrides"/></div></p>
+
+<p>We have altered the left/right tilt and front/back tilt, in this case resulting
+in our application being emulated as rotating in a clockwise direction.</p>
+
+<p><div class="screenshot"><img width="369" src="mobile-emulation/image_15.png" alt="Device orientation allows us to emulate the directions a device may be turned" /></div></p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="css-media-type-emulation">CSS Media Type Emulation</h2>
+
+<p>CSS media types allow us to apply different styles to a page depending on the
+medium it is being used through (e.g print, screen, tv, braille and so on).</p>
+
+<p><strong>Emulating media types</strong></p>
+
+<ol>
+<li>Navigate to <a href="http://www.html5rocks.com/en/mobile/high-dpi/">HTML5 Rocks</a></li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Enable "Emulate CSS media" and select the "print" media type option from the drop-down
+box.</li>
+<li>The page will adjust to using a stylesheet for the chosen CSS media type if
+one is available</li>
+</ol>
+
+
+<p>Before:</p>
+<p><div class="screenshot"><img width="700" src="mobile-emulation/emulatecss_before.jpg" alt="Before enabling CSS media type emulation"/></div></p>
+<p>After:</p>
+<p><div class="screenshot"><img width="700" src="mobile-emulation/emulatecss_after.jpg" alt="After enabling CSS media type emulation"/></div></p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<p><strong>Q: How do you handle bandwidth throttling?</strong><br/>
+A: The DevTools don't support a solution for this, however we recommend using
+<a href="http://www.charlesproxy.com/">Charles</a> proxy which handles this excellently.</p>
+
+<p><strong>Q: Do the DevTools support remote debugging?</strong><br/>
+A: Yes. Please see our <a href="/chrome/mobile/docs/debugging">remote debugging</a>
+documentation for more information.</p>
+
+<p><strong>Q: Are there other mobile or emulation features in the DevTools that are worth
+noting?</strong><br/>
+A: Yes. The media query that surrounds a given rule is declared in the Styles
+panel above it.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+</body>
+</html>

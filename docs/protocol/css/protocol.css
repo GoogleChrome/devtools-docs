@@ -1,0 +1,108 @@
+.property {
+  padding-top: 1em;
+  padding-left: 2em;
+}
+
+h3, h4 {
+  pointer-events: none;
+}
+
+h4 {
+  padding-bottom: .4em;
+}
+
+.optional {
+  color: rgb(125, 125, 125);
+}
+
+div.description {
+  margin-left: 2em;
+}
+
+div.parameters > div {
+  padding-top: 1ex;
+}
+
+.summary {
+  font-family: "Courier New", courier, monospace;
+  padding: 0.5em 0.5em 0.5em 2em;
+  text-indent: -1.5em;
+  margin-top: 1em;
+  background-color: #DAF4E5;
+  border: 1px solid #93D9A4;
+}
+
+.summary div {
+  margin-bottom: 0.5em;
+}
+
+dd {
+  margin-bottom: 0.75em;
+}
+
+ol li {
+  margin-top: 1em;
+}
+
+.protocol-group .protocol-item {
+  margin-bottom: 2em;
+}
+
+.protocol-item .protocol-item {
+  margin-bottom: 0px;
+}
+
+div#toc {
+  margin: 5px 20px;
+  padding: 5px;
+  background-color: #EFEFEF;
+  border: 1px solid #BBB;
+  float: right;
+}
+
+#toc h2 {
+  font-weight:bold;
+  font-size:100%;
+  margin:0;
+  border:none !important;
+  padding:0;
+  background-color: transparent;
+}
+
+#toc p {
+  font-weight: bold;
+  margin: 0px;
+}
+
+#toc ol {
+  margin:1em 0 0 0;
+  padding:0;
+  list-style:none
+}
+
+#toc ol li {
+  margin:.4em 0 0 1em;
+  padding:0
+}
+
+#toc ol li ol {
+  margin:0;
+  padding:0
+}
+
+#toc ol li ol li {
+  padding:0;
+  margin:.1em 0 0 1em;
+  font-weight:normal;
+  list-style:none
+}
+
+.protocol-group .specific {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.protocol-group div.value {
+  padding-top: .5em;
+  padding-bottom: .1em;
+}

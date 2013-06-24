@@ -1,0 +1,38 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Breakpoints</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+
+<!-- js was here -->
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+<h2 id="js">Testing XHR requests</h2>
+
+{% framebox height="500px" %}
+<script>
+function loadDynamicScript() {
+  var request = new XMLHttpRequest();
+  request.open('GET','/chrome-developer-tools/docs/scripts-breakpoints-files/dynamicScript.js', true);
+  request.send();
+  request.onreadystatechange = function() {
+    if (request.readyState != 4)
+      return;
+    eval(request.responseText);
+  }
+}
+</script>
+  <button id="loadDynamicScriptButton" onclick="loadDynamicScript()">Load
+  dynamic script</button>
+
+{% endframebox %}
+
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+</html>
+

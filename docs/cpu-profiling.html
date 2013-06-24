@@ -1,0 +1,79 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Profiling JavaScript performance</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+  </head>
+  <body>
+
+
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+
+<p>This tutorial explains how to collect and explore CPU profiles.</p>
+
+<p class="note"><b>Note:</b> If you are a Web Developer and want to get the
+latest version of Developer Tools, you should use the Google Chrome release
+from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Developer
+Channel</a>.</p>
+
+<p>Using Google Chrome, open the <a href="http://v8.googlecode.com/svn/data/benchmarks/v7/run.html" target=
+"_blank">V8 Benchmark Suite</a> page. Click the <strong>Start
+profiling</strong> button. The circle changes to red. Now return to
+the V8 Benchmark Suite page, and either press
+<strong>F5</strong> or click the browser's <strong>Reload</strong> button
+to reload the page.</p>
+
+<p>When the page has completed reloading, a score for the benchmark tests
+is shown. Return to the Developer Tools window and click the <strong>Stop
+profiling</strong> button. The circle changes to gray.
+  <div class="screenshot"><img src="/chrome-developer-tools/docs/cpu-profiling-files/profiling_cpu_1.png"></div>This
+  <strong>Bottom Up</strong> view lists functions by impact on performance.
+  It also enables you to examine the calling paths to those functions.
+</p>
+
+<p>Now select the <strong>Top Down</strong> view by clicking the Bottom Up
+/ Top Down selection button. Then click the small arrow to the left of
+<strong>(program)</strong> in the <strong>Function</strong> column. The
+<strong>Top Down</strong> view shows an overall picture of the calling
+structure, starting at the top of the call stack.</p>
+
+<p class="note"><b>Note:</b> You can click the <strong>Percentage</strong> button to view absolute
+times.</p>
+
+<p>Select one of the functions in the <strong>Function</strong> column,
+then click the <strong>Focus selected function</strong> button (the Eye
+icon on the right).
+  <div class="screenshot"><img src="/chrome-developer-tools/docs/cpu-profiling-files/focus_selected_function.png"></div>This
+  filters the profile to show only the selected function and its callers.
+  Click the <strong>Reload</strong> button at the bottom-right of the
+  window to restore the profile to its original state.
+</p>
+
+<p>Select one of the functions in the <strong>Function</strong> column,
+then click the <strong>Exclude selected function</strong> button (the X
+icon). Depending on the function you selected, you should see something
+like this:
+  <div class="screenshot"><img src="/chrome-developer-tools/docs/cpu-profiling-files/exclude_selected_function.png"></div>The
+  <strong>Exclude selected function</strong> button removes the selected
+  function from the profile and charges its callers with the excluded
+  function's total time. Click the <strong>Reload</strong> button to
+  restore the profile to its original state.
+</p>
+
+<p>You can record multiple profiles. Click the <strong>Start
+profiling</strong> button, reload the V8 Benchmark page, then click the
+<strong>Stop profiling</strong> button.
+  <div class="screenshot"><img src="/chrome-developer-tools/docs/cpu-profiling-files/two_profiles.png"></div>The sidebar on the
+  left lists your recorded profiles, the tree view on the right shows the
+  information gathered for the selected profile.
+</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  </body>
+</html>
+
