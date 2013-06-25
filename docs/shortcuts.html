@@ -2,9 +2,9 @@
 <html devsite>
   <head>
     <title>Keyboard Shortcuts</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css">
+    <meta name="project_path" value="../_project.yaml" />
+    <meta name="book_path" value="../_book.yaml" />
+    <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
   </head>
   <body>
 
@@ -36,7 +36,7 @@
       <p> To access the developer tools, on any web page or app in Google Chrome you can use one of these options: </p>
 
       <ul>
-        <li> Select the <b> Hot dog menu </b> <img src="shortcuts-files/toolsmenu.png" width="29" height="29" alt="Tools Menu"> at the top-right of your browser window, then select <b> Tools </b> > <b> Developer tools </b>.</li>
+        <li> Select the <b> Hot dog menu </b> <img src="shortcuts-files/toolsmenu.png" width="29" height="29" alt="Tools Menu"> at the top-right of your browser window, then select <b> Tools </b> &gt; <b> Developer tools </b>.</li>
         <li> Right-click on any page element and select <b> Inspect element </b></li>
       </ul>
 
@@ -70,15 +70,7 @@
         </tbody>
       </table>
 
-      <p> To view the list of shortcuts: type <span class="kbd">?</span> when the Developer Tools window is open. Pressing <span class="kbd">Esc</span> will close this window.</p>
-
-
-    <p class="note">
-      <strong>Note:</strong> The Shortcuts cog in the DevTools Settings does not include search shortcuts as well as a few others on some panels,
-      which are included in this document along with a few other useful Chrome shortcuts.
-    </p>
-
-
+      <p> To open up the General Settings dialog type <span class="kbd">?</span> or <span class="kbd">F1</span> when the Developer Tools window is open. Press <span class="kbd">Esc</span> to close the Settings dialog.</p>
 
       <section>
         <h2 id="all-panels"> All Panels </h2>
@@ -93,17 +85,10 @@
               <th> Mac </th>
             </tr>
             <tr>
-              <td> Open Shortcut Help             </td>
+              <td> Show General Settings Dialog </td>
               <td> <span class="kbd">?</span>, <span class="kbd">F1</span> </td>
               <td> <span class="kbd">?</span> </td>
             </tr>
-            <!--
-            Moved to Experiments and enabled in settings
-            <tr>
-              <td> Jump to panel 1-8              </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">1-8</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">1-8</span> </td>
-            </tr> -->
             <tr>
               <td> Next Panel                     </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">]</span> </td>
@@ -125,7 +110,12 @@
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">[</span> </td>
             </tr>
             <tr>
-              <td> Toggle Console                 </td>
+              <td> Jump to Panel 1-8 (<em>when Enabled in General Settings</em>) </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">1-8</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">1-8</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle Console / Close Settings Dialog when Open </td>
               <td> <span class="kbd">Esc</span> </td>
               <td> <span class="kbd">Esc</span> </td>
             </tr>
@@ -140,7 +130,7 @@
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">R</span> </td>
             </tr>
             <tr>
-              <td> Focus Search Box               </td>
+              <td> Text Search within Current File or Panel </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">F</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">F</span> </td>
             </tr>
@@ -148,6 +138,11 @@
               <td> Text Search Across All Sources </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">F</span> </td>
+            </tr>
+            <tr>
+              <td> Search by Filename (<em>except on Timeline</em>) </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span>, <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span>, <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
             </tr>
             <tr>
               <td> Restore Default Text Size      </td>
@@ -200,14 +195,14 @@
               <td> <span class="kbd">Right</span>, <span class="kbd">Left</span> </td>
             </tr>
             <tr>
-              <td> Expand Node                    </td>
-              <td> <span class="kbd">Double-Click on tag</span> </td>
-              <td> <span class="kbd">Double-Click on tag</span> </td>
+              <td> Expand Node </td>
+              <td> <span class="kbd">Double-click on tag</span> </td>
+              <td> <span class="kbd">Double-click on tag</span> </td>
             </tr>
             <tr>
-              <td> Edit Attribute                 </td>
-              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-Click on attribute</span> </td>
-              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-Click on attribute</span> </td>
+              <td> Edit Attribute </td>
+              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-click on attribute</span> </td>
+              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-click on attribute</span> </td>
             </tr>
             <tr>
               <td> Hide Element                   </td>
@@ -242,14 +237,14 @@
               <th> Mac </th>
             </tr>
             <tr>
-              <td> Edit Rule                              </td>
-              <td> <span class="kbd">Double-Click</span> </td>
-              <td> <span class="kbd">Double-Click</span> </td>
+              <td> Edit Rule </td>
+              <td> <span class="kbd">Double-click</span> </td>
+              <td> <span class="kbd">Double-click</span> </td>
             </tr>
             <tr>
-              <td> Insert New Property                    </td>
-              <td> <span class="kbd">Double-Click on whitespace</span> </td>
-              <td> <span class="kbd">Double-Click on whitespace</span> </td>
+              <td> Insert New Property </td>
+              <td> <span class="kbd">Double-click on whitespace</span> </td>
+              <td> <span class="kbd">Double-click on whitespace</span> </td>
             </tr>
             <tr>
               <td> View Auto-Complete Suggestions         </td>
@@ -293,7 +288,6 @@
           <img src="shortcuts-files/attributes.png" alt="Element Pseudostates" />
           Emulate an element's pseudo state (<code>:active</code>, <code>:hover</code>, <code>:focus</code>, <code>:visited</code>)
         </p>
-
         <p>
           <img src="shortcuts-files/plus.png" alt="Adding style selectors" />
           Add new style selectors
@@ -313,8 +307,8 @@
             </tr>
             <tr>
               <td> Pause / Resume Script Execution      </td>
-              <td> <span class="kbd">F8</span>, <span class="kbd">Ctrl</span> + <span class="kbd">/</span> </td>
-              <td> <span class="kbd">F8</span>, <span class="kbd">Cmd</span> + <span class="kbd">/</span> </td>
+              <td> <span class="kbd">F8</span> </td>
+              <td> <span class="kbd">F8</span> </td>
             </tr>
             <tr>
               <td> Step Over Next Function Call         </td>
@@ -342,19 +336,24 @@
               <td> <span class="kbd">Opt</span> + <span class="kbd">,</span> </td>
             </tr>
             <tr>
-              <td> Evaluate Selection                   </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
-            </tr>
-            <tr>
               <td> Toggle Breakpoint Condition          </td>
               <td> <span class="kbd">Click on line number</span>, <span class="kbd">Ctrl</span> + <span class="kbd">B</span> </td>
               <td> <span class="kbd">Click on line number</span>, <span class="kbd">Cmd</span> + <span class="kbd">B</span> </td>
             </tr>
             <tr>
               <td> Edit Breakpoint Condition            </td>
-              <td> <span class="kbd">Right-Click on line number</span> </td>
-              <td> <span class="kbd">Right-Click on line number</span> </td>
+              <td> <span class="kbd">Right-click on line number</span> </td>
+              <td> <span class="kbd">Right-click on line number</span> </td>
+            </tr>
+            <tr>
+              <td> Delete Text on Current Line </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">D</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">D</span> </td>
+            </tr>
+            <tr>
+              <td> Save Changes to Local Modifications </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">S</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">S</span> </td>
             </tr>
             <tr>
               <td> Go to Line                           </td>
@@ -362,19 +361,29 @@
               <td> <span class="kbd">Cmd</span> + <span class="kbd">L</span> </td>
             </tr>
             <tr>
-              <td> Fuzzy Search Files in Project        </td>
+              <td> Search by Filename </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
             </tr>
             <tr>
-              <td> Fuzzy Search Source Member (function or selector) </td>
+              <td> Go to Member </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle Console and Evaluate Code Selected in Sources Panel </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
             </tr>
             <tr>
               <td> Run Snippet </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Enter</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle Comment </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">/</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">/</span> </td>
             </tr>
           </tbody>
         </table>
@@ -382,12 +391,10 @@
           <img src="shortcuts-files/pauseOnExceptionsButton.png" alt="Pause on Exception Button" />
           Don't Pause on Exceptions
         </p>
-
         <p>
           <img src="shortcuts-files/pauseOnUncaughtExceptionsButton.png" alt="Pause on All Exceptions" />
           Pause on All Exceptions (including those caught within try/catch blocks)
         </p>
-
         <p>
           <img src="shortcuts-files/pauseOnUncaughtErrorsButton.png" alt="Pause on Uncaught Exceptions" />
           Pause on Uncaught Exceptions (usually the one you want)
@@ -406,17 +413,17 @@
               <th> Mac </th>
             </tr>
             <tr>
-              <td> Start / Stop recording       </td>
+              <td> Start / Stop Recording       </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
             </tr>
             <tr>
-              <td> Save timeline data           </td>
+              <td> Save Timeline Data           </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">S</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">S</span> </td>
             </tr>
             <tr>
-              <td> Load timeline data           </td>
+              <td> Load Timeline Data           </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
             </tr>
@@ -436,56 +443,13 @@
               <th> Mac </th>
             </tr>
             <tr>
-              <td> Start / Stop recording       </td>
+              <td> Start / Stop Recording       </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
             </tr>
           </tbody>
         </table>
       </section>
-
-
-      <section>
-        <h2 id="search-shortcuts"> Search Shortcuts </h2>
-
-        <p> Find or navigate to specific files, methods or line numbers in an web app within the Sources panel. </p>
-
-        <table>
-          <tbody>
-            <tr>
-              <th></th>
-              <th> Windows / Linux </th>
-              <th> Mac </th>
-            </tr>
-            <tr>
-              <td> Search Scripts, Stylesheets and Snippets by Filename   </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
-            </tr>
-            <tr>
-              <td> Text Search Within Current File                        </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">F</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">F</span> </td>
-            </tr>
-            <tr>
-              <td> Text Search Across all Sources                         </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">F</span> </td>
-            </tr>
-            <tr>
-              <td> Launch Line Number Dialog when Viewing a File          </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">K</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">L</span> </td>
-            </tr>
-            <tr>
-              <td> Evaluate Code Selected in Scripts in the Console       </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
 
       <section>
         <h2 id="console"> Console </h2>
@@ -523,22 +487,12 @@
               <td> <span class="kbd">Down</span> </td>
             </tr>
             <tr>
-              <td> Previous Command                     </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">P</span> </td>
-              <td> <span class="kbd">Opt</span> + <span class="kbd">P</span> </td>
-            </tr>
-            <tr>
-              <td> Next Command                         </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">N</span> </td>
-              <td> <span class="kbd">Opt</span> + <span class="kbd">N</span> </td>
-            </tr>
-            <tr>
               <td> Clear History                        </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">L</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">K</span>, <span class="kbd">Opt</span> + <span class="kbd">L</span> </td>
             </tr>
             <tr>
-              <td> Multiline entry                      </td>
+              <td> Multi-line Entry                      </td>
               <td> <span class="kbd">Shift</span> + <span class="kbd">Enter</span> </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Return</span> </td>
             </tr>
@@ -550,10 +504,10 @@
           </tbody>
         </table>
 
-        <p> Right clicking on console: </p>
+        <p> Right-clicking on console: </p>
 
         <ul>
-          <li> <code>XMLHTTPRequest</code> logging: Turn on to view the XHR log </li>
+          <li> XMLHTTPRequest logging: Turn on to view the XHR log </li>
           <li> Preserve log upon navigation </li>
           <li> Filter: Hide and unhide messages from script files </li>
         </ul>
@@ -563,6 +517,8 @@
       <section>
         <h2 id="other-shortcuts"> Other Chrome Shortcuts </h2>
 
+        <p>Here are some additional Chrome shortcuts which are useful for general use within the browser not specific to the DevTools. <a href="http://goo.gl/PsTNm">View all Chrome shortcuts</a> for Windows, Mac, and Linux. </p>
+
         <table>
           <tbody>
             <tr>
@@ -571,64 +527,67 @@
               <th> Mac </th>
             </tr>
             <tr>
-              <td> Find Next                                  </td>
+              <td> Find Next </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">G</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">G</span> </td>
             </tr>
             <tr>
-              <td> Find Previous                              </td>
+              <td> Find Previous </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">G</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">G</span> </td>
             </tr>
             <tr>
-              <td> Open a new window in incognito mode        </td>
+              <td> Open a New Window in Incognito Mode </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">N</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">N</span> </td>
             </tr>
             <tr>
-              <td> Toggle bookmarks bar on and off            </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">B</span> </td>
-              <td> <span class="kbd">Shift</span> + <span class="kbd">Cmd</span> + <span class="kbd">B</span> </td>
+              <td> Toggle Bookmarks Bar On and Off </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span> </td>
             </tr>
             <tr>
-              <td> View the History page                      </td>
+              <td> View the History Page </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">H</span> </td>
               <td> <span class="kbd">Cmd</span> + <span class="kbd">Y</span> </td>
             </tr>
             <tr>
-              <td> View the Downloads page                    </td>
+              <td> View the Downloads Page </td>
               <td> <span class="kbd">Ctrl</span> + <span class="kbd">J</span> </td>
-              <td> <span class="kbd">Shift</span> + <span class="kbd">Cmd</span> + <span class="kbd">J</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">J</span> </td>
             </tr>
             <tr>
-              <td> View the Task manager                      </td>
+              <td> View the Task Manager </td>
               <td> <span class="kbd">Shift</span> + <span class="kbd">ESC</span> </td>
               <td> <span class="kbd">Shift</span> + <span class="kbd">ESC</span> </td>
             </tr>
             <tr>
-              <td> Previous page in a tabs browsing history   </td>
-              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">←</span> </td>
-              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">←</span> </td>
+              <td> Next Page in a Tabs Browsing History </td>
+              <td> <span class="kbd">Alt</span> + <span class="kbd">Right</span> </td>
+              <td> <span class="kbd">Alt</span> + <span class="kbd">Right</span> </td>
             </tr>
             <tr>
-              <td> Places a '?' in the address bar. Type a search term after the '?' <br />to perform a search using your default search engine </td>
-              <td> <span class="kbd">Ctrl</span> + <span class="kbd">K</span>, <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">K</span>, <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
-            </tr>
-            <tr>
-              <td> Highlight content in the web address area  </td>
-              <td> <span class="kbd">F6</span>, <span class="kbd">Ctrl</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
-              <td> <span class="kbd">Cmd</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
-            </tr>
+              <td> Previous Page in a Tabs Browsing History </td>
+              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">Left</span> </td>
+              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">Left</span> </td>
+             </tr>
+             <tr>
+               <td> Highlight Content in the Web Address Area </td>
+               <td> <span class="kbd">F6</span>, <span class="kbd">Ctrl</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
+               <td> <span class="kbd">Cmd</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
+             </tr>
+             <tr>
+               <td> Places a ? in the address bar for performing a keyword <br />
+                  search using your default search engine </td>
+               <td> <span class="kbd">Ctrl</span> + <span class="kbd">K</span>, <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
+               <td> <span class="kbd">Cmd</span> + <span class="kbd">K</span>, <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
+             </tr>
           </tbody>
         </table>
-        <p> <a href="http://goo.gl/PsTNm">View all Chrome shortcuts</a> for Windows, Mac, and Linux. </p>
+
       </section>
 
       <p class="backtotop"><a href="#top">Back to top</a></p>
-
-  </body>
-</html>
 
   </body>
 </html>
