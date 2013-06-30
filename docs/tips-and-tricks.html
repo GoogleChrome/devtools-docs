@@ -96,7 +96,7 @@ body.docs .screenshot, body.docs .border {
 img{
   max-width:950px;
 }
-</style> 
+</style>
 
 
 <p>There are many <strong>power tools</strong> at your disposal when using the DevTools, some of which are more obvious than others. In this guide, we will highlight some of those great tools, tips and tricks that are less well known. Read on and learn about those capabilities you might not know yet!</p>
@@ -247,9 +247,7 @@ img{
 
 <h3 id="console-table">Support for the console.table command</h3>
 
-<p>Canary adds support for the <code>console.table</code> command which you may have seen in Firebug previously. This command logs any supplied data using a tabular layout.</p>
-
-<p>Some examples of how to use it include:</p>
+<p>This command logs any supplied data using a tabular layout. Some examples of how to use it include:</p>
 
 <pre>
 console.table([{a:1, b:2, c:3}, {a:"foo", b:false, c:undefined}]);
@@ -261,10 +259,10 @@ console.table([[1,2,3], [2,3,4]]);
 <p>There is also an optional 'columns' parameter which takes the form of an array of strings. Below, we define a family object containing many "Person"s and can then choose which columns we would like displayed using it:</p>
 
 <p><pre>
-function Person(firstName, lastName, age) { 
-  this.firstName = firstName; 
-  this.lastName = lastName; 
-  this.age = age; 
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
 }
 
 var family = {};
@@ -305,7 +303,7 @@ console.log("%cBlue!", "color: blue;");
 
 <pre>
 console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
-</pre> 
+</pre>
 
 <p><img src="tips-and-tricks/image_13.png"  width="800px" /></p>
 
@@ -992,7 +990,7 @@ Object("hello")
 <p><img src="tips-and-tricks/websocketdemo.png"  /></p>
 
 <p>Green reflects messages sent by your client. WebSocket inspection is useful has it allows you to inspect both the WebSocket handshake as well as individual WebSocket frames.</p>
-  
+
 
 <p><a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#1">More: Wait, DevTools Could Do That? | Igvita.com</a></p>
 
