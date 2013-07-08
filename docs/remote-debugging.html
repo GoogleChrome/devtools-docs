@@ -13,57 +13,199 @@
 
 <h4><strong>Contents</strong></h4>
 
-<ul>
-<li><a href="#remote-debugging">Remote Debugging</a>
-<ol>
-<li><a href="#installing-androidsdk">Install the Android SDK</a>
-</li>
-</li>
-<li><a href="#enable-usb-debugging">Enable USB debugging on your device</a></li>
-<li><a href="#connect-device-via-usb">Connect your device via USB</a></li>
-</ol>
-</li>
-<li><a href="#notes">Notes</a></li>
-</ul>
-
+   <ul>
+    <li> <a href="#remote-debugging-overview"> Remote debugging overview </a> </li>
+    <li> <a href="#remote-debugging-beta"> Remote debugging with Chrome and ADBPlugin</a> 
+    <ul>
+     <li> <a href="#install-adbplugin"> 1. Install ADBPlugin </a> </li>
+     <li> <a href="#enable-usb-debugging"> 2. Enable USB debugging on your device </a> </li>
+     <li> <a href="#connect-device-via-usb"> 3. Connect your device via USB </a> </li>
+     <li> <a href="#start-debugging-with-adbplugin"> 4. Start debugging with ADBPlugin </a> </li>
+     <li> <a href="#debug-your-app"> 5. Debug your Application </a> </li>
+     <li> <a href="#notes"> Notes </a> </li>
+    </ul>
+    </li>
+    <li> <a href="#remote-debugging-stable"> Remote debugging with Chrome Stable </a> 
+    <ul>
+     <li> <a href="#installing-androidsdk"> 1. Install the Android SDK </a> </li>
+     <li> <a href="#enable-usb-debugging-stable"> 2. Enable USB debugging on your device </a> </li>
+     <li> <a href="#connect-device-via-usb-stable"> 3. Connect your device via USB </a> </li>
+    </ul> 
+    </li>
+    <li> <a href="#reverse-port-forwarding"> Reverse Port Forwarding </a>
+     <ul>
+      <li> <a href="#connect-your-mobile-device"> 1. Connect your mobile device </a> </li>
+      <li> <a href="#enable-reverse-port-forwarding"> 2. Enable reverse port forwarding </a> </li>
+      <li> <a href="#add-a-port-forwarding-rule"> 3. Add a port forwarding rule</a> </li>
+      <li> <a href="#profit"> 4. Profit </a> </li>
+     </ul>
+   </ul>
 
 <p class="note"><b>Note</b>: For information on the interaction protocol we use
 for our remote debugging, please see the <a href="/chrome-developer-tools/docs/debugger-protocol">Debugger Protocol</a>
 documentation and <a href="http://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>.</p>
 
-<h2 id="remote-debugging">Remote Debugging</h2>
+<h2 id="remote-debugging-overview">Remote debugging overview</h2>
 
 <p>The experience of your web content on mobile operates very differently than what
-users experience on the desktop.  The Chrome DevTools allow you to inspect,
+users experience on the desktop.  The Google Chrome DevTools allow you to inspect,
 debug, and analyze the on-device experience with the full suite of tools you're
-used to, meaning you can use the tools in your desktop Chrome to debug a page on
-mobile Chrome.</p>
+used to, meaning you can use the Chrome DevTools on your development machine to debug a page on
+your mobile device.</p>
 
-<p>Debugging occurs over USB and as long as your mobile device is connected, you
-can view and change HTML, scripts and styles until you get a bug-free page that
+<p><div class="screenshot"><img width="722" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/remote-debug-overview.png"/></div></p>
+
+<p>Debugging occurs over USB and as long as your mobile device is connected to your development 
+machine, you can view and change HTML, scripts and styles until you get a bug-free page that
 behaves perfectly on all devices.</p>
 
-<p class="note"><b>Note</b>: Both <a href="https://www.google.com/intl/en/chrome/browser/mobile/android.html">Chrome for Android</a>
-and <a href="http://blog.chromium.org/2013/01/beta-channel-arrives-for-android-phones.html">Chrome Beta for Android</a>
-support USB debugging.</p>
+<p>A streamlined version of the debugging process is available in preview versions of Chrome 
+(including the the Chrome Beta and Dev update channels and Chrome Canary). Stable versions of Chrome require a few extra steps. Follow the steps for your version of Chrome:</p>
 
-<p><div class="screenshot"><img width="700" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/image_0.jpg"/></div></p>
+<ul>
+<li>Chrome Beta, Dev or Canary. See <a href="remote-debugging-beta">Remote debugging with Chrome and ADBPlugin</a></li>
+<li>Chrome Stable. See <a href="remote-debugging-stable">Remote debugging with Chrome Stable</a></li>
+</ul>
 
-<p>The following video walks through the debugging process:</p>
+<p>When debugging a web application served from your development machine, you can use 
+<a href="#reverse-port-forwarding">reverse port forwarding</a> to allow the mobile device to access a site from the development machine 
+over USB.</p>
 
-<p><object width="480" height="270">
-<param name="movie" value="https://www.youtube.com/v/s4zpL4VBbuU">
-<param name="wmode" value="transparent">
-<embed src="https://www.youtube.com/v/s4zpL4VBbuU" type="application/x-shockwave-flash" wmode="transparent" width="480" height="270"></object></p>
+<h2 id="remote-debugging-beta">Remote debugging with Chrome and ADBPlugin</h2>
 
-<p><strong>To start debugging, you need to have:</strong></p>
+<p><strong>To start debugging, you need:</strong></p>
+
+<ul>
+<li>An Android phone or tablet with <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Chrome for Android</a> or <a href="https://play.google.com/store/apps/details?id=com.chrome.beta">Chrome Beta for Android</a> installed from Google Play.</li>
+<li>A USB cable to plug in your device. (Windows users will also need to install an <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">appropriate USB device driver</a>.)</li>
+<li><a href="https://www.google.com/intl/en/chrome/browser/beta.html">Chrome Beta</a>,
+<a href="http://www.chromium.org/getting-involved/dev-channel">Chrome Dev</a>, or 
+<a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>
+installed on your development machine.</li>
+<li><a href="#install-adbplugin">ADBPlugin</a> installed as a Chrome extension on your development machine.</li>
+</ul>
+<aside class="note">If you're using a stable release of Chrome, see <a href="remote-debugging-stable">Remote debugging with Chrome Stable</a>.</aside>
+
+
+<h3 id="install-adbplugin">1. Install ADBPlugin</h3>
+
+<p>ADBPlugin is a Chrome extension that simplifies the process of setting up remote debugging. ADBPlugin includes the Android Debug Bridge (ADB), which lets you debug the device over USB from your development machine. It provides the following features:</p>
+<ul>
+<li>Bundles ADB so you don't have to install the full Android SDK.</li>
+<li>Provides a UI for easily starting and stopping the ADB daemon, and viewing connected devices.</li>
+</ul>
+
+Visit <a href="https://github.com/GoogleChrome/ADBPlugin/#readme" target="_blank">ADBPlugin on github</a> to download and install ADBPlugin.
+
+<h3 id="enable-usb-debugging">2. Enable USB debugging on your device</h3>
+
+<p>In order to debug over USB, you need to setup your Android device for
+development.
+Enable USB debugging on your device then system to detect your device as mentioned in the
+guide.</p>
+
+<p><strong>To enable USB debugging:</strong></p>
+
+<ul>
+<li>On most devices running Android 3.2 or older, you can find the option under
+<strong>Settings > Applications > Development.</strong></li>
+<li>On Android 4.0 and newer, it's in <strong>Settings > Developer </strong>options.</li>
+<li>On Android 4.2 and newer, Developer options is hidden by default. To make it
+available, go to <strong>Settings > About phone</strong> and tap Build number seven times.
+Return to the previous screen to find Developer options.</li>
+</ul>
+
+<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="/chrome-developer-tools/docs/remote-debugging/image_4.png"/></div></p>
+
+<p>If you are developing on Windows, you need to install the appropriate USB driver for your device. See <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">OEM USB Drivers</a> on the Android Developers site.</p>
+
+<p>For more information see <a href="http://developer.android.com/tools/device.html#setting-up">Setting up a Device for Development</a> on the Android Developers site.</p>
+
+<h3 id="connect-device-via-usb">3. Connect your device via USB</h3>
+
+<ol>
+<li>Connect your mobile device to the development machine using a USB cable. </li>
+<li>On the mobile device, launch Chrome. Open <b>Settings > Advanced > Developer Tools</b>
+and check the <b>Enable USB Web debugging</b> option as shown here:</li>
+
+<p><div class="screenshot"><img width="220" alt="Enable USB Web Debugging in Chrome for Android" src="/chrome-developer-tools/docs/remote-debugging/image_5.png"/></div></p>
+</ol>
+
+<h3 id="start-debugging-with-adbplugin">4. Start debugging with ADBPlugin </h3>
+
+<p>When ADBPlugin is installed, a gray Android menu icon appears beside the Chrome menu.</p>
+
+<p><strong>To start debugging:</strong></p>
+
+<ol>
+<li><p>Click the Android icon, then click <b>Start ADB</b>.</p>
+
+<p><img class="screenshot" width="149" alt="ADBPlugin menu" src="/chrome-developer-tools/docs/remote-debugging/adb-plugin-menu.png"/></p>
+
+<p>Once ADB has started, the menu icon turns green and displays the number of currently connected devices, if any.</p>
+
+<p><img class="screenshot" width="149" alt="ADBPlugin menu" src="/chrome-developer-tools/docs/remote-debugging/adb-plugin-menu-active.png"/></p>
+
+</li>
+<li>Click <b>View Devices</b> to open the <b>chrome://inspect</b> page that displays each connected device and its tabs.</li>
+<li>Find the mobile device tab you want to debug and Click the <b>inspect</b> link next to its URL.</li>
+</ol>
+
+<p>If you <em>don't</em> see any connected devices:</p>
+
+<ul>
+<li>Check that your device is connected to USB.</li>
+<li>Ensure your device is listed as available by issuing the <code>adb devices</code>
+command. If not, check that you have USB debugging enabled on your
+device.</li>
+<li>Ensure that USB debugging is enabled in the Chrome for Android settings.</li>
+</ul>
+
+<h3 id="debug-your-app">5. Debug Your Application</h3>
+
+<p><div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/elements-panel.png"/></div></p>
+
+<p>For example, inspect an element in the page you have selected and 
+the element highlights in Chrome mobile on your device in real time.</p>
+
+<p><div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="/chrome-developer-tools/docs/remote-debugging/image_9.png"/></div></p>
+
+<p>Similarly, editing scripts or executing commands from the DevTools console 
+affects the page being inspected on your device. You can also also use all of 
+the other panels, such as 
+<a href="/chrome-developer-tools/docs/timeline">Timeline</a> and
+<a href="/chrome-developer-tools/docs/profiles">Profiles</a>.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+<li>You may notice that the version of the DevTools you have access to during
+remote debugging differs to the version you have running on your development machine. This is
+because the tools are synchronized with the Chrome version on the Android
+device being used.</li>
+<li>Because we're connected over USB, you can keep the device on a real cellular
+network, and view the network waterfall in the Network panel under actual
+network conditions</li>
+<li>The hardware on mobile devices often runs your content much slower, so use the
+<a href="/chrome-developer-tools/docs/timeline">Timeline</a> to analyze how to optimize
+rendering and CPU for the best effect.</li>
+<li>If you're running a web server on your development machine, and network restrictions prevent 
+your mobile device from accessing the server, see 
+<a href="#reverse-port-forwarding">reverse port forwarding</a></li>.
+</ul>
+
+<h2 id="remote-debugging-stable">Remote debugging with Chrome Stable</h2>
+
+<aside class="note">These steps work for all versions of Chrome. If you have a preview version of Chrome you can follow the streamlined process described in <a href="remote-debugging-beta">Remote debugging with Chrome and ADBPlugin</a>.</aside>
+
+<p><strong>To start debugging, you need:</strong></p>
 
 <ul>
 <li>An Android phone or tablet with <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Google Chrome for Android</a> installed from Google Play.</li>
 <li>A USB cable to plug in your device. (Windows users will also need to install an <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">appropriate USB device driver</a>.)</li>
-<li>The <a href="http://developer.android.com/sdk/index.html#download" target="_blank">Android SDK</a> installed on your host system.</li>
+<li>The <a href="http://developer.android.com/sdk/index.html#download" target="_blank">Android SDK</a> installed on your development machine.</li>
 <li><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>
-installed on the system you wish to use as your debugging host.</li>
+installed on your development machine .</li>
 </ul>
 
 <h3 id="installing-androidsdk">1. Install the Android SDK</h3>
@@ -78,7 +220,7 @@ a command-line tool included in Platform Tools (<code>&lt;sdk&gt;/platform-tools
 
 <p>For convenience, add Platform Tools to your <code>PATH</code> environment variable. If on Mac, run the following command from your terminal: <code>export PATH=$PATH:/&lt;path-to-SDK&gt;/platform-tools/</code>.</p>
 
-<h3 id="enable-usb-debugging">2. Enable USB debugging on your device</h3>
+<h3 id="enable-usb-debugging-stable">2. Enable USB debugging on your device</h3>
 
 <p>In order to debug over USB, you need to setup your Android device for
 <a href="http://developer.android.com/tools/device.html">development</a>. Enable USB
@@ -98,10 +240,10 @@ Return to the previous screen to find Developer options.</li>
 
 <p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="/chrome-developer-tools/docs/remote-debugging/image_4.png"/></div></p>
 
-<h3 id="connect-device-via-usb">3. Connect your device via USB</h3>
+<h3 id="connect-device-via-usb-stable">3. Connect your device via USB</h3>
 
 <ol>
-<li>Connect your mobile device to the host using a USB cable. </li>
+<li>Connect your mobile device to the development machine using a USB cable. </li>
 <li>Ensure your device is listed as available by issuing the <code>adb devices</code>
 command. If not, please check that you have USB debugging enabled on your
 device.</li>
@@ -110,7 +252,7 @@ and check the <strong>Enable USB Web debugging</strong> option as shown here:</l
 
 <p><div class="screenshot"><img width="220" alt="Enable USB Web Debugging in Chrome for Android" src="/chrome-developer-tools/docs/remote-debugging/image_5.png"/></div></p>
 
-<li>Issue the following command in the terminal or console on your host machine
+<li>Issue the following command in the terminal or console on your development machine
 to enable port forwarding:<br/>
 <code>adb forward tcp:9222 localabstract:chrome_devtools_remote</code></li>
 
@@ -119,7 +261,7 @@ to enable port forwarding:<br/>
 <p class="note"><b>Note</b>: If you get a "device not found" error, run the <code>adb kill-server</code> command to
 resolve.</p>
 
-<li>Now open desktop Chrome and navigate to
+<li>On your development machine, open Chrome and navigate to
 <a href="http://localhost:9222">localhost:9222</a>.<br/></li>
 <li>You will be presented with the set of thumbnails for pages currently open in
 tabs on your mobile Chrome. Choose the page you would like to debug.</li>
@@ -127,52 +269,84 @@ tabs on your mobile Chrome. Choose the page you would like to debug.</li>
 <p><div class="screenshot"><img width="700" alt="Inspectable pages" src="/chrome-developer-tools/docs/remote-debugging/image_7.png"/></div></p>
 
 <li>You can now start debugging and profiling mobile content in the DevTools on
-your desktop.</li>
+your development machine.</li>
 </ol>
 
+<p>See <a href="#debug-your-app">Debug your Application</a> for tips on getting started debugging your mobile application.</p>
 
-<p><div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/inspection.jpg"/></div></p>
+<h2 id="reverse-port-forwarding">Reverse Port Forwarding</h2>
 
-<p>For example, inspect an element in the page you have selected and you will
-notice the element highlight in Chrome mobile on your device in real time.</p>
+<p>Commonly you have a web server running on your local development machine, and you want to 
+connect to that site from your device. If the mobile device and the development machine are 
+on the same network, this is straightforward. But this may be difficult in some cases, like 
+on a restricted corporate network.</p>
 
-<p><div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="/chrome-developer-tools/docs/remote-debugging/image_9.png"/></div></p>
-
-<p>Similarly, editing scripts or executing commands from the DevTools console will
-also apply to the page being inspected on your device, as seen below.</p>
-
-<p><div class="screenshot"><img width="400" alt="Code execution on a remote device" src="/chrome-developer-tools/docs/remote-debugging/image_10.png"/></div></p>
-
-<p>You will also find that panels like the Timeline tab and Profiling also work as
-expected.</p>
-
-<p><div class="screenshot"><img width="700" alt="Timeline Frames mode" src="/chrome-developer-tools/docs/remote-debugging/timelineframes.jpg"/></div></p>
-
-<h2 id="notes">Notes</h2>
+<p>A new feature in Chrome for Android called "reverse port forwarding" makes this simple to do. 
+It works by creating a listening TCP port on your mobile device that maps to a particular TCP 
+port on your development machine. The traffic through the forwarded port travels over USB, so 
+it doesn't depend on the mobile device's network configuration.</p>
+ 
+<p>To use this feature you need:</p>
 
 <ul>
-<li>You may notice that the version of the DevTools you have access to during
-remote debugging differs to the version you have running on desktop. This is
-because the tools are syncronized with the Chrome version on the Android
-device being used.</li>
-<li>Because we're connected over USB, you can keep the device on a real cellular
-network, and view the actual network waterfall in Network panel under actual
-network conditions</li>
-<li>The hardware on mobile devices often runs your content much slower, so use the
-<a href="/chrome-developer-tools/docs/timeline">Timeline</a> to analyze how to optimize
-rendering and CPU for the best effect.</li>
-
+<li>Chrome Canary installed on your development system</li>
+<li>Android Debug Bridge (ADBPlugin or full Android SDK) installed on your development system</li>
+<li>Chrome for Android beta installed on your device</li>
 </ul>
 
-<p class="note"><b>Note</b>: For information on the interaction protocol we use
-for our remote debugging, please see the <a href="/chrome-developer-tools/docs/debugger-protocol">Debugger Protocol</a>
-documentation and <a href="http://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>.</p>
+<p>This procedure assumes that you already have remote debugging configured as described in 
+<a href="#remote-debugging-beta">Remote debugging with Chrome and ADBPlugin</a> or 
+<a href="#remote-debugging-stable">Remote debugging with Chrome Stable</a>.</p>
 
+<h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
+<ol>
+<li>Connect your device to your development machine over USB.</li>
+<li>Stop all instances of Chrome currently running on the mobile device.</li>
+<li>Open Chrome for Android Beta.</li> 
+<li>Go to  <b>Settings</b> &gt; </b>Developer Tools</b>, and turn on <b>Enable USB Web Debugging</b>.</li>
+<li>Start ADB on your development machine:
+<ul>
+<li>If you're using ADBPlugin, click the ADB icon and click <b>Start ADB</b>. You should see the icon turn green and display a number indicating the number of devices connected.</li>
+<li>If you're not using ADBPlugin, open a terminal and run adb devices. You should see the IDs of your connected device(s) listed.</li>
+</ul>
+</li>
+</ol>
+
+<h3 id="enable-reverse-port-forwarding">2. Enable reverse port forwarding</h3>
+Perform the following steps on Chrome on your development machine:
+<ol>
+<li>Open <b>chrome://flags</b>, turn on <b>Enable Developer Tools experiments</b> and 
+     restart Chrome.
+<div class="screenshot"><img width="768" alt="chrome://flags page" src="/chrome-developer-tools/docs/remote-debugging/chrome-flags.png"/></div>
+</li>
+<li>Open <b>chrome://inspect</b>. You should see your mobile device and a list of its open tabs.
+</li>
+<li>Click <b>Inspect</b> next to any of the sites listed.</li>
+<li>In the DevTools window that opens, open the <b>Settings</b> panel.</li>
+<li>Under <b>Experiments</b>, turn on <b>Enable reverse port forwarding</b>. 
+<div class="screenshot"><img width="670" alt="Experiments panel in Developer Tools settings" src="/chrome-developer-tools/docs/remote-debugging/settings-experiments.png"/></div>
+</li>
+<li>Close the DevTools window and return to <b>chrome://inspect</b>.</li>
+</ol>
+
+<h3 id="add-a-port-forwarding-rule">3. Add a port forwarding rule</h3>
+<ol>
+<li>Click the <b>Inspect</b> link again to open DevTools, and open <b>Settings</b> again. You should see a new <b>Port forwarding</b> tab.</li>
+<li>Click <b>Port Forwarding</b>.</li>
+<li>In the Device port field, enter the port number the Android should device listen on (defaults to 8080).
+<div class="screenshot"><img width="670" alt="Port Forwarding panel in Developer Tools settings" src="/chrome-developer-tools/docs/remote-debugging/settings-forwarding.png"/></div>
+</li>
+<li>In the Target field, append the port number where your web application is running on localhost.</li>
+</ol>
+
+<h3 id="profit">4. Profit</h3>
+
+<p>In Chrome for Android, open localhost:&lt;device-port-number&gt;, where 
+&lt;device-port-number&gt; is the value you entered in the Device port field (default is 8080).
+You should see the content being served by your development machine.</p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
 </body>
 </html>
-
-
 
