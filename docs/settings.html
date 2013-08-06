@@ -261,31 +261,34 @@
         </div>
 
 
-        <h4>Auto-reload CSS upon Sass save</h4>
-        <p>This requires setting will not be visible unless the experiment for <strong>Sass stylesheet debugging</strong> installing <strong>SASS</strong> along with <strong>Compass</strong> (<em>or another similar tool</em>) watch your SASS files for changes and recompile the CSS on the fly, in addition to enabling the <strong>Source Maps</strong> setting.</p>
+	<h4 id="css-source-maps">Enable CSS source maps</h4>
+	
+	<p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
 
-        <div class="screenshot">
-          <img src="settings-files/sass-auto-reload.png">
-        </div>
+	<p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
 
-        <p>To install SASS and Compass you can run the following commands, assuming you have Ruby installed.</p>
+	<aside class="note"><strong>Note:</strong> In Chrome 29 and earlier, this is experimental setting called 
+	<b>Support for Sass</b> or <b>Sass stylesheet debugging</b>. The experimental setting is not visible unless 
+	the <strong>Sass stylesheet debugging</strong> experiment is enabled.</aside>
 
-        <pre><code>
-          sudo gem install sass --pre<br />
-          sudo gem install compass
-        </code></pre>
+        <h4>Auto-reload generated CSS</h4>
 
-        <p>With SASS and Compass installed, the <em>magic encantation</em> you must run to watch your changes update live is:</p>
+	<p>Only used if <b>Enable CSS source maps</b> is turned on. Determines whether generated CSS files should
+        be reloaded when the source file is saved.</p>
 
-        <p><code>sass --watch --compass --sourcemap css/sass/style.scss:css/style.css</code></p>
+	<p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
 
-        <dl>
-          <dt><strong>Timeout (ms):</strong> <code>1000</code></dt>
-          <dd>Control the length of delay in milliseconds between when you save a change to a <code>.scss</code> file and the when the browser refreshes the <code>.css</code> file and visible to you on the page. The default value here may soon be increased to 1500ms soon since this seems a little too fast.</dd>
-        </dl>
+	<aside class="note"><p><strong>Note:</strong> In Chrome 29 and earlier this appears as 
+	<b>Auto-reload CSS on Sass save</b>, and is 
+	not visible unless the <strong>Sass stylesheet debugging</strong> experiment is enabled.</p>
+	 <p>An additional setting, 
+	<strong>Timeout</strong> specifies the delay in milliseconds between the time you update a source file and the time 
+	the browser reloads the generated CSS file. The timeout is no longer required in Chrome 30.</p></aside>
 
+        <h4>Indentation</h4>
 
-        <h4>Indentation:</h4>
+        <p>Specifies how code is indented when editing in DevTools:</p>
+
         <ul>
           <li>2 spaces</li>
           <li>4 spaces</li>
@@ -293,7 +296,6 @@
           <li>Tab character</li>
         </ul>
 
-        <p>Many developers have different preferences for how to indent their code. Most text-editors these days provide a way to define this and so does DevTools. From this select menu you can control how the code within DevTools should be indented.</p>
 
 
         <h4>Show whitespace characters</h4>
@@ -375,7 +377,7 @@
 
         <h2 id="port-forwarding">Port forwarding</h2>
 
-        <p><a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=14m45s">Port Forwarding</a> allows you to create a TCP port listener on your device which you can map to a TCP port here that will be accessible from the host machine.</p>
+        <p><a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=14m45s">Port Forwarding</a> allows you to create a TCP port listener on your device which you can map to a TCP port on your development machine.</p>
 
         <p><strong>Device port:</strong> <code>8080</code></p>
 
@@ -387,6 +389,8 @@
 
         <p class="note"><strong>Note:</strong> You must enable this feature in the Settings pane &gt; <a href="#portfowarding">Experiments tab</a> to be able to use it. Once enabled, you will be able to access the Port Forwarding tab in the Settings pane.</p>
 
+	<p>See <a href="/chrome-developer-tools/docs/remote-debugging#reverse-port-forwarding">Reverse Port Forwarding</a> 
+	for more information.</p>
 
         <h2 id="experiments">Experiments</h2>
 
@@ -450,8 +454,13 @@
 
 
         <h4>Sass stylesheet debugging</h4>
-        <p><a href="http://www.youtube.com/watch?v=bqfoYaKCYUI#t=4m30s">Working with SASS</a>.</p>
 
+	<p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
+
+	<p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
+
+	<aside class="note"><strong>Note:</strong> In Chrome 30 and later, this setting is no longer experimental.
+        See <a href="#css-source-maps"><b>Enable CSS source maps</b></a> in the <b>General</b> settings.</aside>
 
         <h4>CSS Regions Support</h4>
         <p><a href="http://dev.w3.org/csswg/css3-regions/">CSS Regions</a> allows a block of semantically marked-up text to automatically flow into elements. Turn this setting on to <a href="http://www.html5rocks.com/en/tutorials/regions/adobe/">start making use</a> of this feature.</p>

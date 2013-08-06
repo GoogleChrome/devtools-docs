@@ -1,45 +1,48 @@
 sidebar_style: wide
 toc:
-- title: "Authoring & Development Workflow"
+- title: "Authoring and Development Workflow"
   path: /chrome-developer-tools/docs/authoring-development-workflow
-- title: "Editing Styles & DOM"
+- title: "Editing Styles and the DOM"
   path: /chrome-developer-tools/docs/elements
   section:
   - title: "Styles"
     path: /chrome-developer-tools/docs/elements-styles
+  - title: "Working with CSS Preprocessors"
+    path: /chrome-developer-tools/docs/css-preprocessors
+    status: experimental
 - title: "Managing Application Storage"
   path: /chrome-developer-tools/docs/resource-panel
-- title: "Evaluating network performance"
+- title: "Evaluating Network Performance"
   path: /chrome-developer-tools/docs/network
 - title: "Debugging JavaScript"
   path: /chrome-developer-tools/docs/javascript-debugging
-- title: "Performance Profiling With The Timeline"
+- title: "Performance Profiling with the Timeline"
   path: /chrome-developer-tools/docs/timeline
   section:
-  - title: "Demo: Finding forced synchronous layouts"
+  - title: "Demo: Finding Forced Synchronous Layouts"
     path: /chrome-developer-tools/docs/demos/too-much-layout
-- title: "Profiling JavaScript performance"
+- title: "Profiling JavaScript Performance"
   path: /chrome-developer-tools/docs/cpu-profiling
 - title: "Profiling Memory Performance"
   path: /chrome-developer-tools/docs/heap-profiling
   section:
   - title: "Memory Analysis 101"
     path: /chrome-developer-tools/docs/memory-analysis-101
-  - title: "Heap profiler demos"
+  - title: "Heap Profiler Demos"
     section:
     - title: "Gathering Scattered Objects"
       path: /chrome-developer-tools/docs/heap-profiling-summary
-    - title: "Verifying action cleanness"
+    - title: "Verifying Action Cleanness"
       path: /chrome-developer-tools/docs/heap-profiling-comparison
-    - title: "Exploring the heap contents"
+    - title: "Exploring the Heap Contents"
       path: /chrome-developer-tools/docs/heap-profiling-containment
     - title: "Uncovering DOM Leaks"
       path: /chrome-developer-tools/docs/heap-profiling-dom-leaks
-    - title: "Finding accumulation points"
+    - title: "Finding Accumulation Points"
       path: /chrome-developer-tools/docs/heap-profiling-dominators
 - title: "Mobile Emulation"
   path: /chrome-developer-tools/docs/mobile-emulation
-- title: "Using The Console"
+- title: "Using the Console"
   path: /chrome-developer-tools/docs/console
   section:
   - title: "Console API Reference"
@@ -48,14 +51,14 @@ toc:
     path: /chrome-developer-tools/docs/commandline-api
 - title: "Keyboard Shortcuts"
   path: /chrome-developer-tools/docs/shortcuts
-- title: "Tips And Tricks"
+- title: "Tips and Tricks"
   path: /chrome-developer-tools/docs/tips-and-tricks
 - title: "Settings"
   path: /chrome-developer-tools/docs/settings
 - title: "Remote Debugging on Android"
   path: /chrome-developer-tools/docs/remote-debugging
   section:
-  - title: "Debugging protocol"
+  - title: "Debugging Protocol"
     path: /chrome-developer-tools/docs/debugger-protocol
     section:
     - title: "1.0"
@@ -119,6 +122,8 @@ toc:
         path: /chrome-developer-tools/docs/protocol/tot/timeline
 - title: "Additional Resources"
   section:
+  - title: "Clean Testing Environment"
+    path: /chrome-developer-tools/docs/clean-testing-environment
   - title: "Videos"
     path: /chrome-developer-tools/docs/videos
   - title: "Blog posts"
