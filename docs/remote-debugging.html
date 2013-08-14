@@ -4,7 +4,7 @@
     <title>Remote Debugging on Android</title>
     <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
     <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage" /> 
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage" />
     <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
   </head>
   <body>
@@ -16,7 +16,7 @@
 
    <ul>
     <li> <a href="#remote-debugging-overview"> Remote debugging overview </a> </li>
-    <li> <a href="#remote-debugging"> Remote debugging with the ADB Chrome extension</a> 
+    <li> <a href="#remote-debugging"> Remote debugging with the ADB Chrome extension</a>
     <ul>
      <li> <a href="#install-adbplugin"> 1. Install the ADB extension</a> </li>
      <li> <a href="#enable-usb-debugging"> 2. Enable USB debugging on your device </a> </li>
@@ -49,13 +49,13 @@ your mobile device.</p>
 
 <p><div class="screenshot"><img width="722" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/remote-debug-overview.png"/></div></p>
 
-<p>Debugging occurs over USB and as long as your mobile device is connected to your development 
+<p>Debugging occurs over USB and as long as your mobile device is connected to your development
 machine, you can view and change HTML, scripts and styles until you get a bug-free page that
 behaves perfectly on all devices.</p>
 
 
-<p>When debugging a web application served from your development machine, you can use 
-<a href="#reverse-port-forwarding">reverse port forwarding</a> to allow the mobile device to access a site from the development machine 
+<p>When debugging a web application served from your development machine, you can use
+<a href="#reverse-port-forwarding">reverse port forwarding</a> to allow the mobile device to access a site from the development machine
 over USB. Reverse port forwarding requires Chrome 29 or later on the development machine, Chrome 28 or later on the mobile device.</p>
 
 <h2 id="remote-debugging">Remote debugging with the ADB Chrome extension</h2>
@@ -69,8 +69,8 @@ over USB. Reverse port forwarding requires Chrome 29 or later on the development
 <li>The <a href="#install-adbplugin">ADB</a> Chrome extension installed on your development machine.</li>
 </ul>
 
-<aside class="note"><strong>Note: </strong> If you are already using the legacy remote debugging workflow, or are 
-using an earlier version of Chrome, see 
+<aside class="note"><strong>Note: </strong> If you are already using the legacy remote debugging workflow, or are
+using an earlier version of Chrome, see
 <a href="/chrome-developer-tools/docs/remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
 
 <h3 id="install-adbplugin">1. Install the ADB extension</h3>
@@ -82,15 +82,15 @@ using an earlier version of Chrome, see
 </ul>
 
 <div style="margin-bottom: 1.5em;">
-<button height="61" class="button button-blue" id="install-button" onclick='chrome.webstore.install("https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage", function(e) { document.getElementById("install-button").innerText = "Extension Installed"; }, function(e) { alert(e); });'>Install ADB Chrome Extension</button>
+<!-- <button height="61" class="button button-blue" id="install-button" onclick='chrome.webstore.install("https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage", function(e) { document.getElementById("install-button").innerText = "Extension Installed"; }, function(e) { alert(e); });'>Install ADB Chrome extension</button> -->
 <a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">
-<img style="vertical-align: middle;" alt="Chrome Web Store logo" src="/chrome-developer-tools/docs/remote-debugging/cws.png" />
-</a>
+<img style="vertical-align: middle;" alt="Chrome Web Store logo" src="/chrome-developer-tools/docs/remote-debugging/cws.png" /></a>
+<a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">Install the ADB Chrome extension</a>
 </div>
 
-<aside class="note">The Chrome Web Store installation process does not work on Windows 8. If you have any trouble 
-installing from the Chrome Web Store, see the 
-<a href="https://github.com/GoogleChrome/ADBPlugin/#readme" target="_blank">ADB extension repo on github</a> 
+<aside class="note">The Chrome Web Store installation process does not work on Windows 8. If you have any trouble
+installing from the Chrome Web Store, see the
+<a href="https://github.com/GoogleChrome/ADBPlugin/#readme" target="_blank">ADB extension repo on github</a>
 for details on how to download and install the extension manually.</aside>
 
 <h3 id="enable-usb-debugging">2. Enable USB debugging on your device</h3>
@@ -168,14 +168,14 @@ device.</li>
 
 <p><div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/elements-panel.png"/></div></p>
 
-<p>For example, inspect an element in the page you have selected and 
+<p>For example, inspect an element in the page you have selected and
 the element highlights in Chrome mobile on your device in real time.</p>
 
 <p><div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="/chrome-developer-tools/docs/remote-debugging/image_9.png"/></div></p>
 
-<p>Similarly, editing scripts or executing commands from the DevTools console 
-affects the page being inspected on your device. You can also also use all of 
-the other panels, such as 
+<p>Similarly, editing scripts or executing commands from the DevTools console
+affects the page being inspected on your device. You can also also use all of
+the other panels, such as
 <a href="/chrome-developer-tools/docs/timeline">Timeline</a> and
 <a href="/chrome-developer-tools/docs/profiles">Profiles</a>.</p>
 
@@ -192,23 +192,23 @@ network conditions</li>
 <li>The hardware on mobile devices often runs your content much slower, so use the
 <a href="/chrome-developer-tools/docs/timeline">Timeline</a> to analyze how to optimize
 rendering and CPU for the best effect.</li>
-<li>If you're running a web server on your development machine, and network restrictions prevent 
-your mobile device from accessing the server, see 
+<li>If you're running a web server on your development machine, and network restrictions prevent
+your mobile device from accessing the server, see
 <a href="#reverse-port-forwarding">reverse port forwarding</a></li>.
 </ul>
 
 <h2 id="reverse-port-forwarding">Reverse Port Forwarding (Experimental)</h2>
 
-<p>Commonly you have a web server running on your local development machine, and you want to 
-connect to that site from your device. If the mobile device and the development machine are 
-on the same network, this is straightforward. But this may be difficult in some cases, like 
+<p>Commonly you have a web server running on your local development machine, and you want to
+connect to that site from your device. If the mobile device and the development machine are
+on the same network, this is straightforward. But this may be difficult in some cases, like
 on a restricted corporate network.</p>
 
-<p>A new feature in Chrome for Android called "reverse port forwarding" makes this simple to do. 
-It works by creating a listening TCP port on your mobile device that maps to a particular TCP 
-port on your development machine. The traffic through the forwarded port travels over USB, so 
+<p>A new feature in Chrome for Android called "reverse port forwarding" makes this simple to do.
+It works by creating a listening TCP port on your mobile device that maps to a particular TCP
+port on your development machine. The traffic through the forwarded port travels over USB, so
 it doesn't depend on the mobile device's network configuration.</p>
- 
+
 <p>To use this feature you need:</p>
 
 <ul>
@@ -217,14 +217,14 @@ it doesn't depend on the mobile device's network configuration.</p>
 <li>Chrome for Android 28 or later installed on your device</li>
 </ul>
 
-<p>This procedure assumes that you already have remote debugging configured as described in 
-<a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or 
+<p>This procedure assumes that you already have remote debugging configured as described in
+<a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or
 
 <h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
 <ol>
 <li>Connect your device to your development machine over USB.</li>
 <li>Stop all instances of Chrome currently running on the mobile device.</li>
-<li>Open Chrome for Android.</li> 
+<li>Open Chrome for Android.</li>
 <li>Go to  <b>Settings</b> &gt; </b>Developer Tools</b>, and turn on <b>Enable USB Web Debugging</b>.</li>
 <li>Start ADB on your development machine:
 <ul>
@@ -237,7 +237,7 @@ it doesn't depend on the mobile device's network configuration.</p>
 <h3 id="enable-reverse-port-forwarding">2. Enable reverse port forwarding</h3>
 Perform the following steps on Chrome on your development machine:
 <ol>
-<li>Open <b>about:flags</b>, turn on <b>Enable Developer Tools experiments</b> and 
+<li>Open <b>about:flags</b>, turn on <b>Enable Developer Tools experiments</b> and
      restart Chrome.
 <div class="screenshot"><img width="768" alt="about:flags page" src="/chrome-developer-tools/docs/remote-debugging/chrome-flags.png"/></div>
 </li>
@@ -245,7 +245,7 @@ Perform the following steps on Chrome on your development machine:
 </li>
 <li>Click <b>Inspect</b> next to any of the sites listed.</li>
 <li>In the DevTools window that opens, open the <b>Settings</b> panel.</li>
-<li>Under <b>Experiments</b>, turn on <b>Enable reverse port forwarding</b>. 
+<li>Under <b>Experiments</b>, turn on <b>Enable reverse port forwarding</b>.
 <div class="screenshot"><img width="670" alt="Experiments panel in Developer Tools settings" src="/chrome-developer-tools/docs/remote-debugging/settings-experiments.png"/></div>
 </li>
 <li>Close the DevTools window and return to <b>about:inspect</b>.</li>
@@ -263,14 +263,14 @@ Perform the following steps on Chrome on your development machine:
 
 <h3 id="profit">4. Profit</h3>
 
-<p>In Chrome for Android, open localhost:&lt;device-port-number&gt;, where 
+<p>In Chrome for Android, open localhost:&lt;device-port-number&gt;, where
 &lt;device-port-number&gt; is the value you entered in the Device port field (default is 8080).
 You should see the content being served by your development machine.</p>
 
 <aside class="note">Prior to Chrome 29, reverse port forwarding was not fully functional.
 If you experience issues with reverse port forwarding, make sure you're using Chrome 29 or later.
-If the port forwarding rule doesn't appear to be taking effect, adding a second, duplicate port forwarding 
-rule sometimes resolves the issue in earlier versions of Chrome. 
+If the port forwarding rule doesn't appear to be taking effect, adding a second, duplicate port forwarding
+rule sometimes resolves the issue in earlier versions of Chrome.
 </aside>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
