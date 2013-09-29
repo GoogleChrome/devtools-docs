@@ -9,7 +9,7 @@ The Command Line API is a collection of functions for performing common tasks wi
 
 ## $_ ##
 
-Returns the value of the most recently evaluated expression. In the following example, a simple expression is evaluated. The `$_` property is then evaluated, which contains the same value:  
+Returns the value of the most recently evaluated expression. In the following example, a simple expression is evaluated. The `$_` property is then evaluated, which contains the same value:
 
 <img src="commandline-api-files/last_expression.png" class="screenshot"/>
 
@@ -78,7 +78,7 @@ Copies a string representation of the specified object to the clipboard.
 
 ## dir(object)
 
-Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's [`console.dir()`](console-api#consoledirobject) method. 
+Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's [`console.dir()`](console-api#consoledirobject) method.
 
 The following example shows the difference between evaluating `document.body` directly in the command line, and using `dir()` to display the same element.
 
@@ -121,7 +121,7 @@ You can further expand each of these objects to explore their properties:
 
 ## keys(object)
 
-Returns an array containing the names of the properties belonging to the specified object. To get the associated values of the same properties, use [values()](#valuesobject). 
+Returns an array containing the names of the properties belonging to the specified object. To get the associated values of the same properties, use [values()](#valuesobject).
 
 For example, suppose your application defined the following object:
 
@@ -132,7 +132,7 @@ For example, suppose your application defined the following object:
 
 Assuming `player1` was defined in the global namespace (for simplicity), typing `keys(player1)` and `values(player1)` in the Console would result in the following:
 
-![Example of keys() and values() methods](commandline-api-files/keys-values2.png)
+<img src="commandline-api-files/keys-values2.png" style="max-width:100%" alt="Example of keys() and values() methods">
 
 ## monitorEvents(object[, events])
 
@@ -169,7 +169,7 @@ Below is sample output after typing two characters in the text field:
 
 ## profile([name])
 
-Starts a JavaScript CPU profiling session with an optional name. To complete the profile call [`profileEnd()`](#profileendname). 
+Starts a JavaScript CPU profiling session with an optional name. To complete the profile call [`profileEnd()`](#profileendname).
 
 To start profiling:
 
