@@ -1,0 +1,43 @@
+text {
+	font-size: 12px;
+	font-family: Arial;
+	text-shadow: 1px 1px 2px #000;
+	fill: #fff;
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-opacity: 0.6;
+  width:100px;
+}
+
+.node.selected, .node.dominated, .node.dominator  {
+  stroke: #eee;
+  stroke-width: 10px;
+}
+
+.node.dominated {
+  width: 90px;
+}
+
+.node.dominator {
+  width: 110px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 120px;
+  padding: 2px 6px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}

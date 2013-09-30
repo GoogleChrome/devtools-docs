@@ -1,0 +1,81 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>Example 4</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+</head>
+
+<body>
+  {% framebox height="400px" %}
+  <h1>Example 4: Detached nodes</h1>
+
+  <p>Watch nodes evolution in memory timeline</p>
+
+  <p>Take heap snapshots and find detached nodes</p>
+
+  <p><button onclick="createDetachedNodes()">Create detached nodes</button></p>
+
+  <p><button onclick="cleanNodes()">Clean detached nodes</button></p>
+  <script>
+  'use strict';
+
+var frags = [];
+
+function createFrag() {
+    var i, frag, div, buf;
+    frag = document.createDocumentFragment();
+    for (i = 0; i < 50; i++) {
+        div = document.createElement('div');
+        buf = document.createTextNode(i + ' - ' + new Date().toTimeString());
+        div.appendChild(buf);
+        frag.appendChild(div);
+    }
+    frags.push(frag);
+}
+
+function createDetachedNodes() {
+    var i;
+    for (i = 0; i < 10; i++) {
+        createFrag();
+    }
+}
+
+function cleanNodes() {
+    frags.length = 0;
+}
+</script>
+</script>
+{% endframebox %} 
+  <hr>
+  <pre>
+'use strict';
+
+var frags = [];
+
+function  createFrag() {
+    var i, frag, div;
+    frag = document.createDocumentFragment();
+    for(i = 0; i &lt; 50; i++) {
+        div = document.createElement("div");
+        div.appendChild(document.createTextNode(i + " - " + new Date().toTimeString()));
+        frag.appendChild(div);
+    }
+    frags.push(frag);
+}
+
+function createDetachedNodes() {
+    var i;
+    for(i = 0; i &lt; 10; i++) {
+        createFrag();
+    }
+}
+
+function cleanNodes() {
+    frags.length = 0;
+}
+</pre>
+</body>
+</html>
