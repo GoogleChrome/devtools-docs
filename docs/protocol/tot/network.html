@@ -82,10 +82,6 @@
  </li>
  
  <li>
- <a href="#event-requestServedFromMemoryCache" href="#command-anchor">requestServedFromMemoryCache</a>
- </li>
- 
- <li>
  <a href="#event-requestWillBeSent" href="#command-anchor">requestWillBeSent</a>
  </li>
  
@@ -171,9 +167,9 @@
  
  "result": {<br>
  
- &nbsp;&nbsp;"<span class="specific">result</span>": &lt;boolean&gt;
+ &nbsp;&nbsp;"<span class="specific">result</span>": &lt;boolean&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -233,9 +229,9 @@
  
  "result": {<br>
  
- &nbsp;&nbsp;"<span class="specific">result</span>": &lt;boolean&gt;
+ &nbsp;&nbsp;"<span class="specific">result</span>": &lt;boolean&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -393,9 +389,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;"<span class="specific">requestId</span>": &lt;<a href="#type-RequestId">RequestId</a>&gt;
+ &nbsp;&nbsp;"<span class="specific">requestId</span>": &lt;<a href="#type-RequestId">RequestId</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  <!-- RESPONSE -->
@@ -407,9 +403,9 @@
  
  &nbsp;&nbsp;"<span class="specific">body</span>": &lt;string&gt;,<br>
  
- &nbsp;&nbsp;"<span class="specific">base64Encoded</span>": &lt;boolean&gt;
+ &nbsp;&nbsp;"<span class="specific">base64Encoded</span>": &lt;boolean&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -517,9 +513,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;"<span class="specific">cacheDisabled</span>": &lt;boolean&gt;
+ &nbsp;&nbsp;"<span class="specific">cacheDisabled</span>": &lt;boolean&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  <!-- RESPONSE -->
@@ -579,9 +575,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;"<span class="specific">headers</span>": &lt;<a href="#type-Headers">Headers</a>&gt;
+ &nbsp;&nbsp;"<span class="specific">headers</span>": &lt;<a href="#type-Headers">Headers</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  <!-- RESPONSE -->
@@ -641,9 +637,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;"<span class="specific">userAgent</span>": &lt;string&gt;
+ &nbsp;&nbsp;"<span class="specific">userAgent</span>": &lt;string&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  <!-- RESPONSE -->
@@ -715,9 +711,9 @@
  
  &nbsp;&nbsp;<span class="specific">"dataLength"</span>: &lt;integer&gt;,<br>
  
- &nbsp;&nbsp;<span class="specific">"encodedDataLength"</span>: &lt;integer&gt;
+ &nbsp;&nbsp;<span class="specific">"encodedDataLength"</span>: &lt;integer&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -844,9 +840,9 @@
  
  &nbsp;&nbsp;<span class="specific">"errorText"</span>: &lt;string&gt;,<br>
  
- &nbsp;&nbsp;<span class="specific">"canceled"</span>: &lt;boolean&gt;
+ &nbsp;&nbsp;<span class="specific">"canceled"</span>: &lt;boolean&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -969,9 +965,9 @@
  
  &nbsp;&nbsp;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
  
- &nbsp;&nbsp;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;
+ &nbsp;&nbsp;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -1044,9 +1040,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;
+ &nbsp;&nbsp;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -1087,187 +1083,6 @@
  </div>
  
  <div class="protocol-item">
- <a name="event-requestServedFromMemoryCache"></a>
- <h4>Network.requestServedFromMemoryCache</h4>
- <div class="summary">
- {<br>
- "method": "Network.requestServedFromMemoryCache",<br>
- 
- "params": {<br>
- 
- &nbsp;&nbsp;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
- 
- &nbsp;&nbsp;<span class="specific">"loaderId"</span>: &lt;<a href="#type-LoaderId">LoaderId</a>&gt;,<br>
- 
- &nbsp;&nbsp;<span class="specific">"documentURL"</span>: &lt;string&gt;,<br>
- 
- &nbsp;&nbsp;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;,<br>
- 
- &nbsp;&nbsp;<span class="specific">"initiator"</span>: &lt;<a href="#type-Initiator">Initiator</a>&gt;,<br>
- 
- &nbsp;&nbsp;<span class="specific">"resource"</span>: &lt;<a href="#type-CachedResource">CachedResource</a>&gt;
- 
- <br>}
- 
- <div>}</div>
- </div>
- <div class="description">
- <p>Fired when HTTP request has been served from memory cache.</p>
- 
- <!-- PARAMETERS -->
- <h4>Parameters</h4>
- <div class="parameters">
- 
- <div><span class="value">
- <strong>
- <var>
-
- requestId
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- <a href="#type-RequestId">RequestId</a>
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- Request identifier.
- 
- </div>
-</span>
-</div>
- 
- <div><span class="value">
- <strong>
- <var>
-
- loaderId
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- <a href="#type-LoaderId">LoaderId</a>
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- Loader identifier.
- 
- </div>
-</span>
-</div>
- 
- <div><span class="value">
- <strong>
- <var>
-
- documentURL
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- string
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- URL of the document this request is loaded for.
- 
- </div>
-</span>
-</div>
- 
- <div><span class="value">
- <strong>
- <var>
-
- timestamp
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- <a href="#type-Timestamp">Timestamp</a>
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- Timestamp.
- 
- </div>
-</span>
-</div>
- 
- <div><span class="value">
- <strong>
- <var>
-
- initiator
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- <a href="#type-Initiator">Initiator</a>
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- Request initiator.
- 
- </div>
-</span>
-</div>
- 
- <div><span class="value">
- <strong>
- <var>
-
- resource
-
- <!-- TYPE -->
- <div style="display:inline">
- (
- 
- 
- <a href="#type-CachedResource">CachedResource</a>
- 
- )
- </div>
- </var>
- </strong>
- <div class="description">
- Cached resource data.
- 
- </div>
-</span>
-</div>
- 
- </div>
- 
- </div>
- </div>
- 
- <div class="protocol-item">
  <a name="event-requestWillBeSent"></a>
  <h4>Network.requestWillBeSent</h4>
  <div class="summary">
@@ -1288,9 +1103,9 @@
  
  &nbsp;&nbsp;<span class="specific">"initiator"</span>: &lt;<a href="#type-Initiator">Initiator</a>&gt;,<br>
  
- &nbsp;&nbsp;<span class="specific">"redirectResponse"</span>: &lt;<a href="#type-Response">Response</a>&gt;
+ &nbsp;&nbsp;<span class="specific">"redirectResponse"</span>: &lt;<a href="#type-Response">Response</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -1491,9 +1306,9 @@
  
  &nbsp;&nbsp;<span class="specific">"type"</span>: &lt;<a href="page.html#type-ResourceType">Page.ResourceType</a>&gt;,<br>
  
- &nbsp;&nbsp;<span class="specific">"response"</span>: &lt;<a href="#type-Response">Response</a>&gt;
+ &nbsp;&nbsp;<span class="specific">"response"</span>: &lt;<a href="#type-Response">Response</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>

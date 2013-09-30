@@ -181,9 +181,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;<span class="specific">"message"</span>: &lt;<a href="#type-ConsoleMessage">ConsoleMessage</a>&gt;
+ &nbsp;&nbsp;<span class="specific">"message"</span>: &lt;<a href="#type-ConsoleMessage">ConsoleMessage</a>&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -232,9 +232,9 @@
  
  "params": {<br>
  
- &nbsp;&nbsp;<span class="specific">"count"</span>: &lt;integer&gt;
+ &nbsp;&nbsp;<span class="specific">"count"</span>: &lt;integer&gt;<br>
  
- <br>}
+ }
  
  <div>}</div>
  </div>
@@ -384,6 +384,32 @@
  <strong>
  <var>
 
+ scriptId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript script id.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
  url
 
  <!-- TYPE -->
@@ -413,6 +439,32 @@
  <a name="type-ConsoleMessage"></a>
  <h4>ConsoleMessage: <var>object</var></h4>
  
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ column
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Column number in the resource that generated this message.
+ 
+ </div>
+</span>
+
+ </div>
  
  <div class="property">
  <span class="value">
@@ -583,6 +635,9 @@
  , 
  
  "css"
+ , 
+ 
+ "deprecation"
  , 
  
  "javascript"
