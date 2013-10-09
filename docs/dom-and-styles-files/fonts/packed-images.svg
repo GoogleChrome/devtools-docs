@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2012 by original authors @ fontello.com</metadata>
+<defs>
+<font id="packed-images" horiz-adv-x="1000" >
+<font-face font-family="packed-images" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="stop-circled" unicode="&#xe803;" d="M0 350q0 207 146 353t353 146 353-146 146-353-146-353-353-146-353 146-146 353z m250-250l500 0 0 500-500 0 0-500z" horiz-adv-x="1000" />
+<glyph glyph-name="stop" unicode="&#xe802;" d="M0-25l0 750 750 0 0-750-750 0z" horiz-adv-x="750" />
+<glyph glyph-name="play-circled2" unicode="&#xe801;" d="M0 350q0 207 146 353t353 146 353-146 146-353-146-353-353-146-353 146-146 353z m115 0q0-158 113-271t271-113 271 113 113 271-113 271-271 113-271-113-113-271z m260-250l0 500 375-250z" horiz-adv-x="1000" />
+<glyph glyph-name="play-circled" unicode="&#xe800;" d="M0 350q0 207 146 353t353 146 353-146 146-353-146-353-353-146-353 146-146 353z m375-250l375 250-375 250 0-500z" horiz-adv-x="1000" />
+<glyph glyph-name="pause-circled" unicode="&#xe805;" d="M0 350q0 207 146 353t353 146 353-146 146-353-146-353-353-146-353 146-146 353z m275-260l152 0 0 519-152 0 0-519z m297 0l152 0 0 519-152 0 0-519z" horiz-adv-x="1000" />
+<glyph glyph-name="pause" unicode="&#xe804;" d="M0-25l0 750 312 0 0-750-312 0z m437 0l0 750 312 0 0-750-312 0z" horiz-adv-x="750" />
+</font>
+</defs>
+</svg>
