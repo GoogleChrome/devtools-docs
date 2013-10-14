@@ -9,7 +9,6 @@ toc:
     path: /chrome-developer-tools/docs/elements-styles
   - title: "Working with CSS Preprocessors"
     path: /chrome-developer-tools/docs/css-preprocessors
-    status: experimental
 - title: "Managing Application Storage"
   path: /chrome-developer-tools/docs/resource-panel
 - title: "Evaluating Network Performance"
