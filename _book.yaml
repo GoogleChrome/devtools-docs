@@ -23,11 +23,9 @@ toc:
     path: /chrome-developer-tools/docs/demos/too-much-layout
 - title: "Profiling JavaScript Performance"
   path: /chrome-developer-tools/docs/cpu-profiling
-- title: "Profiling Memory Performance"
-  path: /chrome-developer-tools/docs/heap-profiling
+- title: "JavaScript Memory Profiling"
+  path: /chrome-developer-tools/docs/javascript-memory-profiling
   section:
-  - title: "Memory Analysis 101"
-    path: /chrome-developer-tools/docs/memory-analysis-101
   - title: "Heap Profiler Demos"
     section:
     - title: "Gathering Scattered Objects"
@@ -61,6 +59,27 @@ toc:
   - title: "Debugging Protocol"
     path: /chrome-developer-tools/docs/debugger-protocol
     section:
+    - title: "1.1"
+      path: /chrome-developer-tools/docs/protocol/1.1/index
+      section:
+      - title: "Console"
+        path: /chrome-developer-tools/docs/protocol/1.1/console
+      - title: "Debugger"
+        path: /chrome-developer-tools/docs/protocol/1.1/debugger
+      - title: "DOM"
+        path: /chrome-developer-tools/docs/protocol/1.1/dom
+      - title: "DOM Debugger"
+        path: /chrome-developer-tools/docs/protocol/1.1/domdebugger
+      - title: "Input"
+        path: /chrome-developer-tools/docs/protocol/1.1/input
+      - title: "Network"
+        path: /chrome-developer-tools/docs/protocol/1.1/network
+      - title: "Page"
+        path: /chrome-developer-tools/docs/protocol/1.1/page
+      - title: "Runtime"
+        path: /chrome-developer-tools/docs/protocol/1.1/runtime
+      - title: "Timeline"
+        path: /chrome-developer-tools/docs/protocol/1.1/timeline
     - title: "1.0"
       path: /chrome-developer-tools/docs/protocol/1.0/index
       section:
