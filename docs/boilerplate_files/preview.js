@@ -12,18 +12,24 @@
 	}
 
 	// let's ajax it in
-	var content = jQuery('<div>').load(file, function(){
+	var content = jQuery('<div>').load(file, function(res){
+
+	        var self = $(this), ext = file.split(".");
+                
+	        if(ext[ext.length - 1] == "md")
+	        self[0].innerHTML = markdown.toHTML(res);
+	        self.prependTo('#gc-content')
 
 		// muck with the content
 		if (!listing) return;
 
-		$(this).find('a[href]')
+		self.find('a[href]')
 			.filter('a[href$="/"]').closest('li').remove().end().end()
 			.attr('href', function(el, oldattr){
 				link.href = oldattr;
 				return location.pathname + '?' + link.pathname.replace(/\/docs\//,'');
 			});
 
-	}).prependTo('#gc-content');
+	});
 
 }());
