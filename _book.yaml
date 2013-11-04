@@ -9,7 +9,6 @@ toc:
     path: /chrome-developer-tools/docs/elements-styles
   - title: "Working with CSS Preprocessors"
     path: /chrome-developer-tools/docs/css-preprocessors
-    status: experimental
 - title: "Managing Application Storage"
   path: /chrome-developer-tools/docs/resource-panel
 - title: "Evaluating Network Performance"
@@ -141,13 +140,13 @@ toc:
         path: /chrome-developer-tools/docs/protocol/tot/timeline
 - title: "Additional Resources"
   section:
-  - title: "Clean Testing Environment"
+  - title: "Creating a clean testing environment"
     path: /chrome-developer-tools/docs/clean-testing-environment
   - title: "Videos"
     path: /chrome-developer-tools/docs/videos
   - title: "Blog posts"
     path: /chrome-developer-tools/docs/blog-posts
-  - title: "Forum"
+  - title: "Mailing list"
     path: https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools
 - title: "Contributing"
   path: /chrome-developer-tools/docs/contributing

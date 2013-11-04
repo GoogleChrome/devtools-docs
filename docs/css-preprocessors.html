@@ -79,38 +79,18 @@ You can start a web server to serve the contents of the current directory like t
 </li>
 </ul>
 
-<p>Currently Sass is the only preprocessor that supports CSS source maps, so this document describes how to work with Sass. Working with other preprocessors should be similar. For more information on the status of source map support in other
-preprocessors, see <a href="#toc-css-preprocessor-support">CSS preprocessor support</a>.</p>
-
 <h2 id="toc-enabling-css-source-maps">Enabling CSS source maps</h2>
 
-<p>In Chrome 30 and later, CSS source maps are enabled by default. You can choose to
+<p>CSS source maps are enabled by default. You can choose to
 enable automatic reloading of generated CSS files. </p>
 
-<p><strong>To enable CSS source maps and CSS reload (Chrome 30 and later):</strong></p>
+<p><strong>To enable CSS source maps and CSS reload:</strong></p>
 
 <ol>
 <li><p>Open DevTools Settings and click <b>General</b>.</p></li>
 <li><p>Turn on <b>Enable CSS source maps</b> and <b>Auto-reload generated CSS</b>.</p></li>
 </ol>
 
-<p>In Chrome 29 and earlier, CSS source maps are included in DevTools experiments and must be enabled explicitly.</p>
-
-<p><strong>To enable CSS source maps and CSS reload (Chrome 29 or earlier):</strong></p>
-
-<ol>
-<li><p>Open <b>about:flags</b> in Chrome.</p></li>
-<li><p>Turn on <b>Enable Developer Tools experiments</b>.</p></li>
-<li><p>Restart Chrome.</p></li>
-<li><p>Open DevTools Settings and click <b>Experiments</b>.</p></li>
-<li><p>Turn on <b>Support for Sass</b> (or <b>Sass stylesheet debugging</b>, depending on the browser version you're using).</p></li>
-<li><p>Click <b>General</b>.</p></li>
-<li><p>Turn on <b>Auto-reload CSS upon Sass save</b>.</p>
-<p>If necessary, you can adjust the <b>Timeout</b> setting, which specifies the delay between the time you
-update a source file and the time that the browser reloads the CSS files. <b>Timeout</b> is specified in milliseconds,
-and defaults to 1000 (1 second).</p>
-<p>This timeout is eliminated in newer versions of Chrome.</p></li>
-</ol>
 
 <h2 id="toc-using-css-source-maps">Using Sass with CSS source maps</h2>
 
@@ -132,8 +112,9 @@ and defaults to 1000 (1 second).</p>
 <ul>
 <li>Sass: As described above, this is supported in the prerelease version of Sass.</li>
 <li>Compass: Uses Sass internally but doesn't support source maps yet. Support is scheduled for a future release. See <a href="https://github.com/chriseppstein/compass/issues/1293">Issue 1293</a>.</li>
-<li>Less: Under development. See <a href="https://github.com/less/less.js/issues/1050">issue #1050</a>.</li>
+<li>Less: Implemented in 1.5.0. See <a href="https://github.com/less/less.js/issues/1050#issuecomment-25566463">issue #1050</a> for details and usage patterns.</li>
 <li>Stylus: Under consideration. See <a href="https://github.com/LearnBoost/stylus/issues/1072">issue #1072</a>.</li>
+<li>Autoprefixer: In development. See <a href="https://github.com/ai/autoprefixer/issues/37">issue #37</a> where a fork with support is mentioned.</li>
 </ul>
 
 <h2 id="toc-how-css-source-maps-work">How CSS source maps work</h2>
