@@ -138,6 +138,13 @@ toc:
         path: /chrome-developer-tools/docs/protocol/tot/runtime
       - title: "Timeline"
         path: /chrome-developer-tools/docs/protocol/tot/timeline
+- title: "Integrating with DevTools"
+  path: /chrome-developer-tools/docs/integrating
+  section:
+  - title: "Sample DevTools Extensions"
+    path: /chrome-developer-tools/docs/sample-extensions
+  - title: "Sample Debugging Protocol Clients"
+    path: /chrome-developer-tools/docs/debugging-clients
 - title: "Additional Resources"
   section:
   - title: "Creating a clean testing environment"

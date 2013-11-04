@@ -26,13 +26,20 @@
      <li> <a href="#notes"> Notes </a> </li>
     </ul>
     </li>
-    <li> <a href="#reverse-port-forwarding"> Reverse Port Forwarding (Experimental)</a>
+    <li> <a href="#debugging-webviews">Debugging Android WebViews </a>
+     <ul>
+      <li> <a href="#configure-webview"> Configure WebViews for debugging</a> </li>
+      <li> <a href="#open-webview"> Open a WebView in DevTools </a> </li>
+     </ul>
+    </li>
+    <li> <a href="#reverse-port-forwarding"> Reverse port forwarding (experimental)</a>
      <ul>
       <li> <a href="#connect-your-mobile-device"> 1. Connect your mobile device </a> </li>
       <li> <a href="#enable-reverse-port-forwarding"> 2. Enable reverse port forwarding </a> </li>
       <li> <a href="#add-a-port-forwarding-rule"> 3. Add a port forwarding rule</a> </li>
       <li> <a href="#profit"> 4. Profit </a> </li>
      </ul>
+    </li>
    </ul>
 
 <p class="note"><b>Note</b>: For information on the interaction protocol we use
@@ -105,10 +112,10 @@ guide.</p>
 <ul>
 <li>On most devices running Android 3.2 or older, you can find the option under
 <strong>Settings > Applications > Development.</strong></li>
-<li>On Android 4.0 and newer, it's in <strong>Settings > Developer </strong>options.</li>
-<li>On Android 4.2 and newer, Developer options is hidden by default. To make it
-available, go to <strong>Settings > About phone</strong> and tap Build number seven times.
-Return to the previous screen to find Developer options.</li>
+<li>On Android 4.0 and newer, it's in <strong>Settings > Developer options</strong>.</li>
+<li>On Android 4.2 and newer, <strong>Developer options</strong> is hidden by default. To make it
+available, go to <strong>Settings > About phone</strong> and tap <strong>Build number</strong> seven times.
+Return to the previous screen to find <strong>Developer options</strong>.</li>
 </ul>
 
 <p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="/chrome-developer-tools/docs/remote-debugging/image_4.png"/></div></p>
@@ -197,6 +204,66 @@ your mobile device from accessing the server, see
 <a href="#reverse-port-forwarding">reverse port forwarding</a></li>.
 </ul>
 
+<h2 id="debugging-webviews">Debugging Android WebViews</h2>
+
+<p>
+Starting Android 4.4 (KitKat), you can use the DevTools to debug the contents of 
+Android WebViews inside native Android applications. Debugging WebViews requires:
+</p>
+
+<ul>
+<li>An Android device or emulator running Android 4.4 or later, with USB debugging enabled as 
+    described in 
+    <a href="#enable-usb-debugging"> 2. Enable USB debugging on your device </a>. </li>
+<li>Chrome 30 or later. Enhanced WebView debugging UI is available in Chrome 31 or later.</li>
+<li>An Android application with a WebView configured for debugging.</li>
+</ul>
+
+<h3 id="configure-webview">Configure WebViews for debugging</h3>
+
+<p>The <strong>Enable USB web debugging</strong> setting in Chrome doesn't affect WebViews. To 
+debug the contents of your WebView, you need to enable it programmatically from within your application by calling 
+<a href="http://developer.android.com/reference/android/webkit/WebView.html#setWebContentsDebuggingEnabled(boolean)">
+setWebContentsDebuggingEnabled</a>, a static method on the <code>WebView</code> class.</p>
+
+<pre>
+if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    WebView.setWebContentsDebuggingEnabled(true);
+}
+</pre>
+
+<p>This setting applies to all of the application's WebViews. Note that web debugging is <b>not</b> affected
+by the state of the <code>debuggable</code> flag in the application's manifest. If you want to enable web debugging only
+when <code>debuggable</code> is <code>true</code>, test the flag at runtime.</p>
+
+<pre>
+if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    if ( 0 != ( getApplcationInfo().flags &= ApplicationInfo.FLAG_DEBUGGABLE ) ) {
+        WebView.setWebContentsDebuggingEnabled(true);
+    }
+}
+</pre>
+
+<h3 id="open-webview">Open a WebView in DevTools</h3>
+
+<p>To debug a WebView in DevTools:</p>
+
+<ol>
+<li><p>Connect your mobile device to the development machine using a USB cable. 
+<p>When connecting your device to your development machine, you may see
+an alert on the device requesting permission for USB debugging from this computer.</p></li>
+<p>To avoid seeing this alert each time you debug, check <b>Always allow from this computer</b> and click <b>OK</b>.</p></li>
+<li>In Chrome on your development machine, open <b>about:inspect</b>.</li>
+<li>You should see the name of your application and a list of debuggable WebViews. Click the <code>inspect</code> link
+next to one of the tabs to inspect the WebView's contents in DevTools.</li>
+</ol>
+
+<aside class="note"><b>Note:</b> In Chrome 31 and later, the <b>about:inspect</b> page provides a graphic representing the WebView's 
+size and position relative to the device's screen. Prior to Chrome 31, the <b>about:inspect</b> page only supplies the WebView's title. 
+Setting a title on all of your WebViews simpifies the process of picking the correct WebView.</aside>
+
+<div class="screenshot"><img src="remote-debugging/about-inspect-webview.gif"></div>
+
 <h2 id="reverse-port-forwarding">Reverse Port Forwarding (Experimental)</h2>
 
 <p>Commonly you have a web server running on your local development machine, and you want to
@@ -219,6 +286,7 @@ it doesn't depend on the mobile device's network configuration.</p>
 
 <p>This procedure assumes that you already have remote debugging configured as described in
 <a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or
+<a href="/chrome-developer-tools/docs/remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</p>
 
 <h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
 <ol>
@@ -235,6 +303,10 @@ it doesn't depend on the mobile device's network configuration.</p>
 </ol>
 
 <h3 id="enable-reverse-port-forwarding">2. Enable reverse port forwarding</h3>
+
+<aside class="note"><b>Note:</b> In Chrome 31 and later, port forwarding is no longer experimental. It can be enabled and configured 
+directly from the <strong>Devices</strong> tab of the <b>about:inspect</b> page.</aside>
+
 Perform the following steps on Chrome on your development machine:
 <ol>
 <li>Open <b>about:flags</b>, turn on <b>Enable Developer Tools experiments</b> and
