@@ -1,0 +1,3359 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+ <head>
+ <title>draft-0.1: DOM</title>
+ <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+ <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+ </head>
+ <body>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href='#commands'">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-getAttributes" href="#command-anchor">getAttributes</a>
+ </li>
+ 
+ <li>
+ <a href="#command-getDocument" href="#command-anchor">getDocument</a>
+ </li>
+ 
+ <li>
+ <a href="#command-getOuterHTML" href="#command-anchor">getOuterHTML</a>
+ </li>
+ 
+ <li>
+ <a href="#command-hideHighlight" href="#command-anchor">hideHighlight</a>
+ </li>
+ 
+ <li>
+ <a href="#command-highlightNode" href="#command-anchor">highlightNode</a>
+ </li>
+ 
+ <li>
+ <a href="#command-highlightRect" href="#command-anchor">highlightRect</a>
+ </li>
+ 
+ <li>
+ <a href="#command-moveTo" href="#command-anchor">moveTo</a>
+ </li>
+ 
+ <li>
+ <a href="#command-querySelector" href="#command-anchor">querySelector</a>
+ </li>
+ 
+ <li>
+ <a href="#command-querySelectorAll" href="#command-anchor">querySelectorAll</a>
+ </li>
+ 
+ <li>
+ <a href="#command-removeAttribute" href="#command-anchor">removeAttribute</a>
+ </li>
+ 
+ <li>
+ <a href="#command-removeNode" href="#command-anchor">removeNode</a>
+ </li>
+ 
+ <li>
+ <a href="#command-requestChildNodes" href="#command-anchor">requestChildNodes</a>
+ </li>
+ 
+ <li>
+ <a href="#command-requestNode" href="#command-anchor">requestNode</a>
+ </li>
+ 
+ <li>
+ <a href="#command-resolveNode" href="#command-anchor">resolveNode</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setAttributeValue" href="#command-anchor">setAttributeValue</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setAttributesAsText" href="#command-anchor">setAttributesAsText</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setNodeName" href="#command-anchor">setNodeName</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setNodeValue" href="#command-anchor">setNodeValue</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setOuterHTML" href="#command-anchor">setOuterHTML</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ <li>
+ <a href='#events'">Notifications</a>
+ <ol>
+ 
+ <li>
+ <a href="#event-attributeModified" href="#command-anchor">attributeModified</a>
+ </li>
+ 
+ <li>
+ <a href="#event-attributeRemoved" href="#command-anchor">attributeRemoved</a>
+ </li>
+ 
+ <li>
+ <a href="#event-characterDataModified" href="#command-anchor">characterDataModified</a>
+ </li>
+ 
+ <li>
+ <a href="#event-childNodeCountUpdated" href="#command-anchor">childNodeCountUpdated</a>
+ </li>
+ 
+ <li>
+ <a href="#event-childNodeInserted" href="#command-anchor">childNodeInserted</a>
+ </li>
+ 
+ <li>
+ <a href="#event-childNodeRemoved" href="#command-anchor">childNodeRemoved</a>
+ </li>
+ 
+ <li>
+ <a href="#event-documentUpdated" href="#command-anchor">documentUpdated</a>
+ </li>
+ 
+ <li>
+ <a href="#event-setChildNodes" href="#command-anchor">setChildNodes</a>
+ </li>
+ 
+ </ol>
+ </li>
+ </li>
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-HighlightConfig">HighlightConfig</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Node">Node</a>
+ </li>
+ 
+ <li>
+ <a href="#type-NodeId">NodeId</a>
+ </li>
+ 
+ <li>
+ <a href="#type-RGBA">RGBA</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div><!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>This domain exposes DOM read/write operations. Each DOM Node is represented with its mirror object that has an <code>id</code>. This <code>id</code> can be used to get additional information on the Node, resolve it into the JavaScript object wrapper, etc. It is important that client receives DOM events only for the nodes that are known to the client. Backend keeps track of the nodes that were sent to the client and never sends the same node twice. It is client's responsibility to collect information about the nodes that were sent to the client.<p>Note that <code>iframe</code> owner elements will return corresponding document elements as their child nodes.</p></p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-getAttributes"></a>
+ <h4>DOM.getAttributes</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.getAttributes",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">attributes</span>": &lt;array of string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Returns attributes for the specified node.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to retrieve attibutes for.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ attributes
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ array of string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ An interleaved array of node attribute names and values.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-getDocument"></a>
+ <h4>DOM.getDocument</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.getDocument"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">root</span>": &lt;<a href="#type-Node">Node</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Returns the root DOM node to the caller.</p>
+ 
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ root
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Node">Node</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resulting node.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-getOuterHTML"></a>
+ <h4>DOM.getOuterHTML</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.getOuterHTML",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">outerHTML</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Returns node's HTML markup.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to get markup for.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ outerHTML
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Outer HTML markup.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-hideHighlight"></a>
+ <h4>DOM.hideHighlight</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.hideHighlight"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Hides DOM node highlight.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-highlightNode"></a>
+ <h4>DOM.highlightNode</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.highlightNode",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">highlightConfig</span>": &lt;<a href="#type-HighlightConfig">HighlightConfig</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Highlights DOM node with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the node to highlight.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ highlightConfig
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-HighlightConfig">HighlightConfig</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ A descriptor for the highlight appearance.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-highlightRect"></a>
+ <h4>DOM.highlightRect</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.highlightRect",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">x</span>": &lt;integer&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">y</span>": &lt;integer&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">width</span>": &lt;integer&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">height</span>": &lt;integer&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">color</span>": &lt;<a href="#type-RGBA">RGBA</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">outlineColor</span>": &lt;<a href="#type-RGBA">RGBA</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Highlights given rectangle. Coordinates are absolute with respect to the main frame viewport.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ x
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ X coordinate
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ y
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Y coordinate
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ width
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Rectangle width
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ height
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Rectangle height
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ color
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The highlight fill color (default: transparent).
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ outlineColor
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The highlight outline color (default: transparent).
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-moveTo"></a>
+ <h4>DOM.moveTo</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.moveTo",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">targetNodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">insertBeforeNodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Moves node into the new container, places it before the given anchor.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to drop.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ targetNodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the element to drop into.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ insertBeforeNodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Drop node before given one.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New id of the moved node.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-querySelector"></a>
+ <h4>DOM.querySelector</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.querySelector",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">selector</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Executes <code>querySelector</code> on a given node.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to query upon.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ selector
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Selector string.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Query selector result.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-querySelectorAll"></a>
+ <h4>DOM.querySelectorAll</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.querySelectorAll",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">selector</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeIds</span>": &lt;array of <a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Executes <code>querySelectorAll</code> on a given node.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to query upon.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ selector
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Selector string.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeIds
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ array of <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Query selector result.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-removeAttribute"></a>
+ <h4>DOM.removeAttribute</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.removeAttribute",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">name</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Removes attribute with given name from an element with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the element to remove attribute from.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Name of the attribute to remove.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-removeNode"></a>
+ <h4>DOM.removeNode</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.removeNode",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Removes node with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to remove.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-requestChildNodes"></a>
+ <h4>DOM.requestChildNodes</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.requestChildNodes",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Requests that children of the node with given id are returned to the caller in form of <code>setChildNodes</code> events.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to get children for.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-requestNode"></a>
+ <h4>DOM.requestNode</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.requestNode",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">objectId</span>": &lt;<a href="runtime.html#type-RemoteObjectId">Runtime.RemoteObjectId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Requests that the node is sent to the caller given the JavaScript node object reference. All nodes that form the path from the node to the root are also sent to the client as a series of <code>setChildNodes</code> notifications.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ objectId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="runtime.html#type-RemoteObjectId">Runtime.RemoteObjectId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript object id to convert into node.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Node id for given object.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-resolveNode"></a>
+ <h4>DOM.resolveNode</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.resolveNode",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">objectGroup</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">object</span>": &lt;<a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Resolves JavaScript node object for given node id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to resolve.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ objectGroup
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Symbolic group name that can be used to release multiple objects.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ object
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript object wrapper for given node.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setAttributeValue"></a>
+ <h4>DOM.setAttributeValue</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.setAttributeValue",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">name</span>": &lt;string&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">value</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets attribute for an element with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the element to set attribute for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attribute name.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ value
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attribute value.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setAttributesAsText"></a>
+ <h4>DOM.setAttributesAsText</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.setAttributesAsText",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">text</span>": &lt;string&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">name</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets attributes on element with given id. This method is useful when user edits some existing attribute value and types in several attribute name/value pairs.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the element to set attributes for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ text
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Text with a number of attributes. Will parse this text using HTML parser.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attribute name to replace with new attributes derived from text in case text parsed successfully.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setNodeName"></a>
+ <h4>DOM.setNodeName</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.setNodeName",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">name</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets node name for a node with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to set name for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New node's name.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New node's id.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setNodeValue"></a>
+ <h4>DOM.setNodeValue</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.setNodeValue",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">value</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets node value for a node with given id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to set value for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ value
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New node's value.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setOuterHTML"></a>
+ <h4>DOM.setOuterHTML</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOM.setOuterHTML",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">nodeId</span>": &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">outerHTML</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets node HTML markup, returns new node id.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node to set markup for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ outerHTML
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Outer HTML markup to set.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+ 
+ <div class="protocol-group">
+ <a name="events"></a>
+ <h3>Notifications</h3>
+ 
+ <div class="protocol-item">
+ <a name="event-attributeModified"></a>
+ <h4>DOM.attributeModified</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.attributeModified",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"name"</span>: &lt;string&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"value"</span>: &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when <code>Element</code>'s attribute is modified.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has changed.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attribute name.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ value
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attribute value.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-attributeRemoved"></a>
+ <h4>DOM.attributeRemoved</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.attributeRemoved",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"name"</span>: &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when <code>Element</code>'s attribute is removed.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has changed.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Local attribute name.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-characterDataModified"></a>
+ <h4>DOM.characterDataModified</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.characterDataModified",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"characterData"</span>: &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Mirrors <code>DOMCharacterDataModified</code> event.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has changed.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ characterData
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New text value.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-childNodeCountUpdated"></a>
+ <h4>DOM.childNodeCountUpdated</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.childNodeCountUpdated",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"childNodeCount"</span>: &lt;integer&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when <code>Container</code>'s child node count has changed.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has changed.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ childNodeCount
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ New node count.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-childNodeInserted"></a>
+ <h4>DOM.childNodeInserted</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.childNodeInserted",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"parentNodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"previousNodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"node"</span>: &lt;<a href="#type-Node">Node</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Mirrors <code>DOMNodeInserted</code> event.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ parentNodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has changed.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ previousNodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ If of the previous siblint.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ node
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Node">Node</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Inserted node data.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-childNodeRemoved"></a>
+ <h4>DOM.childNodeRemoved</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.childNodeRemoved",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"parentNodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodeId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Mirrors <code>DOMNodeRemoved</code> event.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ parentNodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Parent id.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the node that has been removed.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-documentUpdated"></a>
+ <h4>DOM.documentUpdated</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.documentUpdated"
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when <code>Document</code> has been totally updated. Node ids are no longer valid.</p>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-setChildNodes"></a>
+ <h4>DOM.setChildNodes</h4>
+ <div class="summary">
+ {<br>
+ "method": "DOM.setChildNodes",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"parentId"</span>: &lt;<a href="#type-NodeId">NodeId</a>&gt;,<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"nodes"</span>: &lt;array of <a href="#type-Node">Node</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when backend wants to provide client with the missing DOM structure. This happens upon most of the calls requesting node ids.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ parentId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Parent node id to populate with children.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ nodes
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ array of <a href="#type-Node">Node</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Child nodes array.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+  <!-- for events -->
+ </div>
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-HighlightConfig"></a>
+ <h4>HighlightConfig: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ borderColor
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The border highlight fill color (default: transparent).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ contentColor
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The content box highlight fill color (default: transparent).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ marginColor
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The margin highlight fill color (default: transparent).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ paddingColor
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-RGBA">RGBA</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The padding highlight fill color (default: transparent).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ showInfo
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Whether the node info tooltip should be shown (default: false).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Node"></a>
+ <h4>Node: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ attributes
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ array of string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Attributes of the <code>Element</code> node in the form of flat array <code>[name1, value1, name2, value2]</code>.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ childNodeCount
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Child count for <code>Container</code> nodes.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ children
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ array of <a href="#type-Node">Node</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Child nodes of this node when requested with children.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ documentURL
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Document URL that <code>Document</code> or <code>FrameOwner</code> node points to.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ internalSubset
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>DocumentType</code>'s internalSubset.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ localName
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Node</code>'s localName.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Attr</code>'s name.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-NodeId">NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Node identifier that is passed into the rest of the DOM messages as the <code>nodeId</code>. Backend will only push node with given <code>id</code> once. It is aware of all requested nodes and will only fire DOM events for nodes known to the client.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ nodeName
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Node</code>'s nodeName.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ nodeType
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Node</code>'s nodeType.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ nodeValue
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Node</code>'s nodeValue.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ publicId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>DocumentType</code>'s publicId.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ systemId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>DocumentType</code>'s systemId.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ value
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ <code>Attr</code>'s value.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-NodeId"></a>
+ <h4>NodeId: <var>integer</var></h4>
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-RGBA"></a>
+ <h4>RGBA: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ a
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The alpha component, in the [0-1] range (default: 1).
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ b
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The blue component, in the [0-255] range.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ g
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The green component, in the [0-255] range.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ r
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ The red component, in the [0-255] range.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div><!-- API PAGE -->
+</div>
+ </body>
+</html>

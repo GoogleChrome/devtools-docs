@@ -1,0 +1,370 @@
+{% extends "_templates/projectpage_v2.html" %}
+
+{# This is the index.html file for your docset's Project Page. #}
+
+{# The "extends" line above imports the standard template file. You must have the /content/en/_templates #}
+{# directory checked out in your client for this to work! Run:  #}
+{# g4 client -a //depot/google3/googledata/devsite/content/en/_templates/... #}
+{# and then 'g4 sync' #}
+
+
+{% block metatags %}
+{# USE THIS BLOCK FOR META TAGS THAT SHOULD APPEAR IN <HEAD> IF ANY. #}
+<meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+<meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{% endblock %}
+
+
+
+{% block variables %}
+{# USE THIS BLOCK FOR YOUR VARIABLES, IF ANY. YOU MAY USE 'SETVAR' AND/OR 'INCLUDE' HERE. #}
+{% include "chrome-developer-tools/_local_variables.html" %}
+{% endblock %}
+
+
+
+{% block carouselcontrol %}
+{%setvar carouselenabled %}1{%endsetvar%} {# SETTING THIS VARIABLE TO 0 DISABLES THE CAROUSEL COMPLETELY. #}
+
+{# THE CAROUSEL SHOWS UP TO 5 SLIDES. "1" MEANS ON, "0" MEANS OFF. #}
+{%setvar carousel1enabled%}1{%endsetvar%}
+{%setvar carousel2enabled%}1{%endsetvar%}
+{%setvar carousel3enabled%}1{%endsetvar%}
+{%setvar carousel4enabled%}0{%endsetvar%}
+{%setvar carousel5enabled%}0{%endsetvar%}
+
+{# USE THESE VARIABLES TO CONFIGURE EACH SLIDE YOU ARE USING. IGNORE THE ONES YOU REMOVED FROM ABOVE. #}
+{# link: the page the red button will link to #}
+{# image: the 1128x367 pixel image to display #}
+{# imgalt: alt text for accessibility #}
+{# header: text to overlay in the upper-left #}
+{# summary: (longer) text to overlay in the bottom-left #}
+{# button: text to show on the button, if you don't like "Learn more" #}
+{# darkpic: 0/1 boolean, determines what colour text should be used for the overlays #}
+
+
+{%setvar carousel1link%}/chrome-developer-tools/docs/elements{%endsetvar%}
+{%setvar carousel1image%}/chrome-developer-tools/images/slide8.jpg{%endsetvar%}
+{%setvar carousel1imgalt%}Developer Tools{%endsetvar%}
+{%setvar carousel1header%}Debug the Web.{%endsetvar%}
+{%setvar carousel1summary%}Inspect, debug and optimize Web applications.{%endsetvar%}
+{%setvar carousel1button%}Start now{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
+{%setvar carousel1darkpic%}1{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
+
+{%setvar carousel2link%}http://youtu.be/3pxf3Ju2row?t=28m53s{%endsetvar%}
+{%setvar carousel2image%}/chrome-developer-tools/images/slide3.jpg{%endsetvar%}
+{%setvar carousel2imgalt%}Developer Tools{%endsetvar%}
+{%setvar carousel2header%}Optimize your apps.{%endsetvar%}
+{%setvar carousel2summary%}Get rid of jank, deliver smooth apps.{%endsetvar%}
+{%setvar carousel2button%}Watch video{%endsetvar%}
+{%setvar carousel2darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
+
+{%setvar carousel3link%}/chrome-developer-tools/docs/profiles{%endsetvar%}
+{%setvar carousel3image%}/chrome-developer-tools/images/slide2.jpg{%endsetvar%}
+{%setvar carousel3imgalt%}Developer Tools{%endsetvar%}
+{%setvar carousel3header%}Profile your apps.{%endsetvar%}
+{%setvar carousel3summary%}Profile CPU, memory and CSS.{%endsetvar%}
+{%setvar carousel3button%}Learn more{%endsetvar%}
+{%setvar carousel3darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
+
+{%setvar carousel4link%}/time-travel-stefanoc/guide/forward{%endsetvar%}
+{%setvar carousel4image%}/time-travel-stefanoc/images/slide4.jpg{%endsetvar%}
+{%setvar carousel4imgalt%}White light{%endsetvar%}
+{%setvar carousel4header%}Brilliant!{%endsetvar%}
+{%setvar carousel4summary%}Oh yes! Humans with that little something extra that makes you
+simply <em>brilliant!!</em>{%endsetvar%}
+{%setvar carousel4button%}{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
+{%setvar carousel4darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
+
+{%setvar carousel5link%}/time-travel-stefanoc/terms{%endsetvar%}
+{%setvar carousel5image%}/time-travel-stefanoc/images/slide5.jpg{%endsetvar%}
+{%setvar carousel5imgalt%}Galaxy{%endsetvar%}
+{%setvar carousel5header%}See the stars.{%endsetvar%}
+{%setvar carousel5summary%}Advanced features let you steer clear of black holes. Unless you're
+into that sort of thing...{%endsetvar%}
+{%setvar carousel5button%}{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
+{%setvar carousel5darkpic%}1{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
+
+{% endblock %}
+
+
+
+{% block features %}
+
+{%setvar featurecolumns%}0{%endsetvar%} {# NUMBER OF COLUMNS FOR UNDER-CAROUSEL PROMOS: 0, 1, 2, 3, OR 4. #}
+
+
+
+{%setvar feature1%}
+{# HTML FOR PROMO BOX 1 (IF USED). MULTI-LINE OK. #}
+<h3>Get up to speed</h3>
+<p>Our new "Discover DevTools" course is live on <a href="http://discover-devtools.codeschool.com/">CodeSchool</a>!<font color="red"><sup> NEW</sup></font></p>
+{%endsetvar%}
+
+
+{%setvar feature2%}
+{# HTML FOR PROMO BOX 2 (IF USED). MULTI-LINE OK. #}
+<h3>Keep informed</h3>
+<p>Read our <a href="/chrome-developer-tools/docs/blog-posts">blogs</a>, browse the <a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">forum</a> or check the Chrome Developers <a href="https://plus.google.com/102860501900098846931/posts">G+</a> page</p>
+{%endsetvar%}
+
+
+{%setvar feature3%}
+{# HTML FOR PROMO BOX 3 (IF USED). MULTI-LINE OK. #}
+<h3>Events</h3>
+<p>API Office Hours are held on the 15th day of every month in 2937. Join us then!</p>
+{%endsetvar%}
+
+{%setvar feature4%}
+{# HTML FOR PROMO BOX 4 (IF USED). MULTI-LINE OK. #}
+<h3>Allons-y!</h3>
+<p>I leave the words scattered throughout time and space. The Bad Wolf API extensions make it possible.</p>
+{%endsetvar%}
+
+<style>
+/*override*/
+body.docs h2 a{
+	text-decoration:none;
+	color:#222;
+}
+body.docs h2 a:visted{
+	color:#222;
+}
+</style>
+<h2>Overview</h2>
+
+<p>The Chrome Developer Tools (DevTools for short), are a set web authoring and debugging tools
+built into Google Chrome. The DevTools provide web developers deep access into the
+internals of the browser and their web application. This overview of the DevTools 
+points out the most popular and useful
+features. If you haven't used the DevTools before, start here.
+Even if you're an experienced web developer, you might pick up some tips.</p>
+
+<p class="note"><strong>Note:</strong> If you are a web developer and want to get the latest version of
+DevTools, you should use <a href="https://tools.google.com/dlpage/chromesxs">Google Chrome Canary</a>.</p>
+
+<h2>How to access the DevTools</h2>
+
+<p>To access the DevTools, open a web page or web app in Google Chrome. Then take
+one of the following actions:</p>
+
+<ul>
+<li>Select the <strong>Chrome menu</strong> <img src="images/chrome-menu.png"/> at the top-right of your browser window, then select
+<strong>Tools</strong> > <strong>Developer tools</strong>.</li>
+<li>Right-click on any page element and select <strong>Inspect element</strong>.</li>
+</ul>
+
+
+<p>There are several useful shortcuts for opening the DevTools:</p>
+
+<ul>
+<li>Use <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">I</span> (or <span class="kbd">Cmd</span>+<span class="kbd">Opt</span>+<span class="kbd">I</span> on Mac) to open the DevTools.</li>
+<li>Use <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">J</span> (or <span class="kbd">Cmd</span>+<span class="kbd">Opt</span>+<span class="kbd">J</span> on Mac) to open the DevTools and bring
+focus to the Console.</li>
+<li>Use <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">C</span> (or <span class="kbd">Cmd</span>+<span class="kbd">Shift</span>+<span class="kbd">C</span> on Mac) to open the DevTools in Inspect Element mode, or toggle Inspect Element mode if the DevTools are already open.</li>
+</ul>
+
+
+<p>For your day-to-day workflow, <a href="/chrome-developer-tools/docs/shortcuts">learning the
+shortcuts</a> will save you time.</p>
+
+<h2>The DevTools window</h2>
+
+<p>The DevTools are organised into task-oriented groups in the toolbar at the top
+of the window. Each toolbar item and corresponding panel let you work with a
+specific type of page or app information, including DOM elements, resources, and
+sources.</p>
+
+<p><img  class="screenshot" src="images/image03.png"/></p>
+
+<p>Overall, there are eight main groups of tools available view Developer Tools:
+Elements, Resources, Network, Sources, Timeline, Profiles, Storage, Audits, and
+Console. You can use the <span class="kbd">Ctrl</span>+<span class="kbd">[</span> and <span class="kbd">Ctrl</span>+<span class="kbd">]</span> shortcuts to move
+between panels.</p>
+
+<h2><a href="/chrome-developer-tools/docs/elements">Inspecting the DOM and styles</a></h2>
+
+<p>The <strong><a href="/chrome-developer-tools/docs/elements">Elements</a></strong> panel lets you see
+everything in one DOM tree, and allows inspection and on-the-fly editing of DOM
+elements. You will often visit the Elements tabs when you need to identify the
+HTML snippet for some aspect of the page. For example, you may be curious if an
+image has an HTML id attribute, and what that attribute's value is.</p>
+<a href="/chrome-developer-tools/docs/elements">
+<p><img  class="screenshot" src="images/image07.png"/></p>
+</a>
+<p><a href="/chrome-developer-tools/docs/elements">Read more about inspecting the DOM and styles</a></p>
+
+<h2><a href="/chrome-developer-tools/docs/console">Working with the console</a></h2>
+
+<p>The JavaScript <a href="/chrome-developer-tools/docs/console">Console</a> provides two
+primary functions for developers testing web pages and applications:</p>
+
+<ul>
+<li>A place to log diagnostic information using methods provided by the <a href="/chrome-developer-tools/docs/console-api">Console
+API</a>, such as
+<a href="/chrome-developer-tools/docs/console-api#consolelogobject_object">console.log()</a>,
+or <a href="/chrome-developer-tools/docs/console-api#consoleprofilelabel">console.profile()</a>.</li>
+<li>A shell prompt where you can enter commands and interact with the document and
+the Chrome DevTools. You can evaluate expressions directly in the Console, and
+can also use the methods provided by the <a href="/chrome-developer-tools/docs/commandline-api">Command Line
+API</a>, such as
+<a href="/chrome-developer-tools/docs/commandline-api#selector">$()</a> command for
+selecting elements, or
+<a href="/chrome-developer-tools/docs/commandline-api#profile">profile()</a> to start the
+CPU profiler.</li>
+</ul>
+
+<a href="/chrome-developer-tools/docs/console">
+<p><img  class="screenshot" src="images/image06.png"/></p>
+</a>
+
+
+<p><a href="/chrome-developer-tools/docs/console">Read more about working with the console</a></p>
+
+<h2><a href="/chrome-developer-tools/docs/javascript-debugging">Debugging JavaScript</a></h2>
+
+<p>As the <strong>complexity</strong> of JavaScript applications increase, developers need
+powerful debugging tools to help quickly discover the cause of an issue and fix
+it efficiently. The Chrome DevTools include a number of useful tools to help
+make <strong>debugging </strong>JavaScript less painful.</p>
+
+<a href="/chrome-developer-tools/docs/javascript-debugging">
+<p><img  class="screenshot" src="images/image14.png"/></p>
+</a>
+
+<p><a href="/chrome-developer-tools/docs/javascript-debugging">Read more about how to debug JavaScript with the DevTools</a></p>
+
+<h2><a href="/chrome-developer-tools/docs/network">Improving network performance</a></h2>
+
+<p>The <strong>Network</strong> panel provides insights into resources that are requested and
+downloaded over the network in real time. Identifying and addressing those requests taking longer than expected is an essential step in optimizing your page.</p>
+
+<a href="/chrome-developer-tools/docs/network">
+<p><img  class="screenshot" src="images/image09.png"/></p>
+</a>
+
+<p><a href="/chrome-developer-tools/docs/network">Read more about how to improve your network performance</a></p>
+
+<p><strong>Audits</strong></p>
+
+<p>The Audit panel can analyze a page as it loads and provide suggestions and
+optimizations for decreasing page load time and increase perceived (and real)
+responsiveness. For further insight, we recommend also installing the <a href="https://developers.google.com/speed/pagespeed/">PageSpeed</a> extension.</p>
+
+<h2><a href="/chrome-developer-tools/docs/timeline">Improving rendering performance</a></h2>
+
+<p>The <strong>Timeline</strong> panel gives you a complete overview of where time is spent when
+loading and using your web app or page. All events, from loading resources to
+parsing JavaScript, calculating styles, and repainting are plotted on a
+timeline.</p>
+
+<a href="/chrome-developer-tools/docs/timeline">
+<p><img  class="screenshot" src="images/image04.png"/></p>
+</a>
+
+<p><a href="/chrome-developer-tools/docs/timeline">Read more about how to improve rendering performance</a></p>
+
+<h2><a href="/chrome-developer-tools/docs/profiles">JavaScript &amp; CSS performance</a></h2>
+
+<p>The <strong>Profiles</strong> panel lets you profile the execution time and memory usage of a
+web app or page. The <strong>Profiles</strong> panel includes a few profilers: a <strong>CPU
+profiler, </strong>a <strong>JavaScript profiler</strong> and a <strong>Heap profiler</strong>. These help you to
+understand where resources are being spent, and so help you to optimize your
+code:</p>
+
+<ul>
+<li>The <strong>CPU profiler</strong> shows where execution time is spent in your page's
+JavaScript functions.</li>
+<li>The <strong>Heap profiler</strong> shows memory distribution by your page's JavaScript
+objects and related DOM nodes.</li>
+<li>The <strong>JavaScript </strong>profile shows where execution time is spent in your scripts</li>
+</ul>
+
+<a href="/chrome-developer-tools/docs/profiles">
+<p><img class="screenshot" src="images/image11.png"/></p>
+</a>
+
+<p><a href="/chrome-developer-tools/docs/profiles">Read more about using how to improve JavaScript and CSS performance</a></p>
+
+<h2><a href="/chrome-developer-tools/docs/resources">Inspecting storage</a></h2>
+
+<p>The <strong>Resources</strong> panel lets you inspect resources that are loaded in the
+inspected page. It lets you interact with HTML 5 Database, Local Storage,
+Cookies, AppCache, etc.</p>
+
+<a href="/chrome-developer-tools/docs/resources">
+<p><img  class="screenshot" src="images/image01.png"/></p>
+</a>
+
+<p><a href="/chrome-developer-tools/docs/resources">Read more about inspecting storage resources</a></p>
+
+
+<h2>Further reading</h2>
+
+<p>There are several other areas of the DevTools documentation that you might find of benefit to review. These include:</p>
+
+<ul>
+<li><a href="/chrome-developer-tools/docs/heap-profiling">Heap Profiling</a></li>
+<li><a href="/chrome-developer-tools/docs/cpu-profiling">CPU Profiling</a></li>
+<li><a href="/chrome-developer-tools/docs/mobile-emulation">Mobile Emulation</a></li>
+<li><a href="/chrome-developer-tools/docs/remote-debugging">Remote Debugging</a></li>
+<li><a href="/chrome-developer-tools/docs/videos">DevTools Videos</a></li>
+</ul>
+
+<h2>Further resources</h2>
+
+
+<table class="columns">
+  <tr>
+    <td>
+<h3>Get more</h3>
+
+<p>To more tips on the DevTools watch our regular show <a href="http://www.youtube.com/watch?v=ktwJ-EDiZoU&amp;list=PLNYkxOF6rcIBQ8j3J_PyM8JLAGKqZRByw">The
+Breakpoint</a>
+on YouTube.</p>
+
+<p><a href="http://www.youtube.com/watch?v=ktwJ-EDiZoU&amp;list=PLNYkxOF6rcIBQ8j3J_PyM8JLAGKqZRByw"><img class="screenshot" src="images/image08.png" width="370px"/></a></p>
+
+<p>You can also follow us on <a href="http://twitter.com/ChromiumDev">@ChromiumDev</a> or ask a question using the <a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">forums</a>.</p>
+
+<p><a href="http://twitter.com/ChromiumDev"><img class="screenshot" src="images/image13.png" width="370px"/></a></p>
+
+<p>or checkout the Google Chrome Developers
+<a href="https://plus.google.com/+GoogleChromeDevelopers/posts">G+</a> page.</p>
+
+<p><a href="https://plus.google.com/+GoogleChromeDevelopers/posts"><img  class="screenshot" src="images/image00.png" width="370px"/></a></p>
+
+    </td>
+    <td>
+
+<h3>Take the course</h3>
+<p>Explore and master the DevTools with our free "Discover DevTools" coursen on <a href="http://discover-devtools.codeschool.com/">Code School</a>. </p>
+
+<p><a href="http://discover-devtools.codeschool.com/"><img src="images/image15.png" width="370px"/></a></p>
+
+<h3>Get involved</h3>
+
+<p>To submit a bug or a feature request on DevTools, please use issue tracker at
+<a href="http://crbug.com/">http://crbug.com</a>. Please also mention "DevTools" in the bug
+summary.</p>
+
+<p><a href="http://crbug.com/"><img  class="screenshot" src="images/image02.png" width="200px"/></a></p>
+
+<p>Anyone can also help make the DevTools better be directly
+<a href="/chrome-developer-tools/docs/contributing">contributing</a> back to the source.</p>
+
+
+<h3>Debugging extensions</h3>
+
+<p>Looking to use the DevTools to debug Chrome extensions? Watch <a href="http://www.youtube.com/watch?v=IP0nMv_NI1s">Developing and
+Debugging extensions</a> or read the
+<a href="https://developer.chrome.com/extensions/tut_debugging.html">Debugging</a>
+tutorial.</p>
+
+    </td>
+  </tr>
+</table>
+
+{% endblock %}
+

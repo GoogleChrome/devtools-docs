@@ -1,0 +1,315 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+ <head>
+ <title>draft-0.1: Timeline</title>
+ <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+ <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+ </head>
+ <body>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href='#commands'">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-start" href="#command-anchor">start</a>
+ </li>
+ 
+ <li>
+ <a href="#command-stop" href="#command-anchor">stop</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ <li>
+ <a href='#events'">Notifications</a>
+ <ol>
+ 
+ <li>
+ <a href="#event-eventRecorded" href="#command-anchor">eventRecorded</a>
+ </li>
+ 
+ </ol>
+ </li>
+ </li>
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-TimelineEvent">TimelineEvent</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div><!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>Timeline provides its clients with instrumentation records that are generated during the page runtime. Timeline instrumentation can be started and stopped using corresponding commands. While timeline is started, it is generating timeline event records.</p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-start"></a>
+ <h4>Timeline.start</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Timeline.start",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">maxCallStackDepth</span>": &lt;integer&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Starts capturing instrumentation events.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ maxCallStackDepth
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Samples JavaScript stack traces up to <code>maxCallStackDepth</code>, defaults to 5.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-stop"></a>
+ <h4>Timeline.stop</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Timeline.stop"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Stops capturing instrumentation events.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+ 
+ <div class="protocol-group">
+ <a name="events"></a>
+ <h3>Notifications</h3>
+ 
+ <div class="protocol-item">
+ <a name="event-eventRecorded"></a>
+ <h4>Timeline.eventRecorded</h4>
+ <div class="summary">
+ {<br>
+ "method": "Timeline.eventRecorded",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"record"</span>: &lt;<a href="#type-TimelineEvent">TimelineEvent</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired for every instrumentation event while timeline is started.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ record
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-TimelineEvent">TimelineEvent</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timeline event record data.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+  <!-- for events -->
+ </div>
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-TimelineEvent"></a>
+ <h4>TimelineEvent: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ children
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ array of <a href="#type-TimelineEvent">TimelineEvent</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Nested records.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ data
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ object
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Event data.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Event type.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div><!-- API PAGE -->
+</div>
+ </body>
+</html>

@@ -1,0 +1,83 @@
+  <head>
+    <title>Uncovering DOM Leaks</title>
+  </head>
+  <body>
+
+
+{% framebox height="600px" %}
+<script type="text/javascript" src="/chrome-developer-tools/docs/heap-profiling-dom-leaks-files/script.js"></script>
+<script type="text/javascript">document.body.onload = start;</script>
+
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+<p>This page demonstrates how leaking of DOM nodes can be uncovered
+using the Heap
+Profiler.</p>
+
+<p>Below is the source code of the script, for reference:</p>
+
+<pre class="prettyprint">
+function start()
+{
+  var p = document.getElementById("p");
+  detached = document.createElement("div");
+  p.appendChild(detached);
+  p.removeChild(detached);
+  fill();
+}
+
+function fill()
+{
+  for (var i = 0; i < 25; ++i) {
+    var div = document.createElement('div');
+    div.data = new Array(10000);
+    for (var j = 0, l = div.data.length; j < l; ++j)
+      div.data[j] = j.toString();
+    detached.appendChild(div);
+  }
+}
+</pre>
+
+<p>Try this:
+<ul>
+  <li>Take a heap snapshot</li>
+
+  <li>Open the <strong>Summary</strong> view</li>
+
+  <li>Find the <code>Detached DOM tree</code> entry, expand it</li>
+
+  <li>Alternatively, open the <strong>Containment</strong> view</li>
+
+  <li>Expand the <code>(Native objects)</code> entry,
+  locate the <code>Detached DOM tree</code> entry there</li>
+</ul></p>
+
+<p id="p">In this example, a DOM node is detached from the tree, but
+it still holds DOM wrapper objects (<code>HTMLDivElement</code>
+objects) that reference script data, effectively preventing the data
+from being collected.</p>
+
+<p>DOM trees can be found in <strong>Summary</strong> and
+  <strong>Containment</strong> views. Note that the number of entries
+displayed for DOM subtrees is the number of native DOM nodes it
+contains, not the number of wrapper objects it holds.</p>
+
+<p>By tracing paths to window objects, it can be observed, that the
+detached DOM tree is referenced as the native link from the DOM
+wrapper stored in the <code>detached</code> window property. To
+confirm this, do the following:
+<ul>
+  <li>Expand the <code>Detached DOM tree</code> entry</li>
+
+  <li>Click on any of its <code>HTMLDivElement</code> descendants</li>
+
+  <li>Select <strong>to window objects</strong> on the top of the <strong>Retaining paths</strong> view</li>
+</ul>
+</p>
+{% endframebox %}
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+

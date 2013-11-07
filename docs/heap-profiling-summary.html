@@ -1,0 +1,73 @@
+  <head>
+    <title>Gathering Scattered Objects</title>
+  </head>
+  <body>
+
+
+{% framebox height="1000px" %}
+<script src="//developers.google.com/chrome-developer-tools/docs/heap-profiling-summary-files/script.js"></script>
+<script type="text/javascript">document.body.onload = init;</script>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+<p>This page demonstrates how an overview of the space occupied by the
+objects of the same kind can be evaluated using
+the Heap
+Profiler</a>.</p>
+
+<p>Below is the source code of the script, for reference:</p>
+
+<pre class="prettyprint">
+function Item(x)
+{
+  this.x = x;
+}
+
+function numbers()
+{
+  var result = new Array(10000);
+  for (var i = 0, l = result.length; i < l; ++i)
+    result[i] = new Item(i);
+  return new Item(result);
+}
+
+function strings()
+{
+  var result = new Array(10000);
+  for (var i = 0, l = result.length; i < l; ++i)
+    result[i] = new Item(i.toString());
+  return new Item(result);
+}
+
+function init()
+{
+  numberCache = numbers();
+  stringCache = strings();
+  documentCache = new Item(document.body.textContent.toLowerCase());
+}
+
+</pre>
+
+<p>Try this:
+<ul>
+  <li>Take a heap snapshot</li>
+
+  <li>Open the <strong>Summary</strong> view</li>
+</ul></p>
+
+<p>Objects of the same kind can be scattered among application data,
+and unintentionally, form a significant group, wasting memory. The
+<strong>Summary</strong> view helps to discover excessive
+instantiations.</p>
+
+<p>For example, <code>Item</code> objects are used for different
+storage purposes among application code. All objects are grouped in
+the <strong>Summary</strong> view, regardless of their origin, and
+statistics for them is provided.</p>
+
+{% endframebox %}
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+

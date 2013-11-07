@@ -1,0 +1,44 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul.tabs {
+	border-bottom: 1px solid #000;
+	background-color: #eee;
+}
+ul.tabs li{
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: -1px;
+	cursor: pointer;
+}
+ul.tabs li.active {
+	padding: 9px;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-bottom: 1px solid #fff;
+}
+.gallery {
+	overflow: hidden;
+	width: 426px;
+}
+.gallery ul {
+	padding: 0;
+	margin: 0;
+	width: 9000px;
+}
+.gallery li{
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	transition: all 1s ease-in-out;
+}
+.gallery img{
+	width: 426px;
+}

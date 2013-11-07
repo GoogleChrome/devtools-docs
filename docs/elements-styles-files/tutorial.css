@@ -1,0 +1,21 @@
+#computed_styles_test {
+  border: 2px solid black;
+  background-color: #EEE;
+  padding: 4px;
+  color: green;
+  opacity: 0.8;
+}
+
+#test_styles {
+  border: 2px solid black;
+  background-color: #EEE;
+  padding: 4px;
+  color: green;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  worder: clue;
+}
+
+#test_styles::after {
+  content: " (Inspect Me)";
+}

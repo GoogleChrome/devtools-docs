@@ -1,0 +1,83 @@
+  <head>
+    <title>Exploring the Heap Contents</title>
+  </head>
+  <body>
+
+
+{% framebox %}
+<script type="text/javascript" src="/chrome-developer-tools/docs/heap-profiling-containment-files/script.js"></script>
+<script type="text/javascript">document.body.onload = init;</script>
+<div style="float:right;width:70px;height:30px;overflow:hidden;" id="iframe-host"></div>
+{% endframebox %}
+
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
+
+<p>This page demonstrates how object contents can be explored using
+the Heap
+Profiler. The entire contents can be viewed, regardless of the
+current context (as opposed to how debugger works). Moreover, it is
+possible to inspect variables of closures, and peek into objects
+internals.</p>
+
+<p>Below is the source code of the script, for reference:</p>
+
+<pre class="prettyprint">
+function createClosure(a, b, c)
+{
+  var d = a + b;
+  return function() { return c + d; };
+}
+
+var closure = createClosure("a", "b", "c");
+closure.a = "property a";
+closure.d = "property d";
+
+var consString = "aaa / " + document.URL + document.inputEncoding;
+
+var top_in_page = "inside page";
+
+function init()
+{
+  var iframe = document.createElement("iframe");
+  iframe.setAttribute("src", "heap-profiling-containment-files/iframe.html");
+  document.getElementById("iframe-host").appendChild(iframe);
+}
+
+</pre>
+
+<p>Try this:
+<ul>
+  <li>Take a heap snapshot</li>
+
+  <li>Open the <strong>Containment</strong> view</li>
+</ul></p>
+
+<p>The <strong>Containment</strong> view shows several top-level
+entries, including <code>DOMWindow</code> objects.  By expanding
+a <code>DOMWindow</code> object, it is possible to examine all of its
+properties. This page contains several <code>iframe</code>, and it has its
+own <code>DOMWindow</code> object.</p>
+
+<p>There are several interesting things to explore in the <code>DOMWindow</code>
+object of the page:
+<ul>
+  <li>Find and expand the <code>closure</code> property. It will show
+the contents of the closure, as well as properties of the closure
+object itself. Color coding is used to distinguish closure variables
+from properties.</li>
+  <li>Find and expand the <code>consString</code> property. It will
+    exhibit, that a concatenated string is stored as a linked list of
+    its parts.</li>
+</ul>
+
+<p>Simultaneously, you can view contents of an iframe
+   without the need to switch
+  contexts.</p>
+
+
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </body>
+
