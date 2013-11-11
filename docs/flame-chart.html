@@ -35,26 +35,6 @@
     background-color: #F9E5E5;
     border-left-color: #C33;
   }
-  body.docs pre {
-    background: #FAF7F7;
-    white-space: pre-line;
-    margin: 0 0 1.5em;
-    padding: 0;
-    vertical-align: top;
-    display: inline-block;
-  }
-  code {
-    background: #FAF7F7;
-    border: 1px solid #DDD;
-    display: inline-block;
-    line-height: 1em;
-    padding: 1.5px 2px;
-  }
-  pre code {
-    border: 0;
-    padding: 0 10px 12px;
-    margin: 0;
-  }
   </style>
 
 
@@ -64,9 +44,8 @@
 
   <p>By analyzing and understanding function call progression visually you can gain a better understanding of the execution paths within your app.</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart00.png">
-  </div>
+
+  <img src="flame-chart-files/flamechart00.png">
   <a href="http://letsfreecongress.com">http://letsfreecongress.com</a>
 
 
@@ -74,9 +53,7 @@
 
   <p>When zoomed out you can identify repetitive patterns that could be optimized, or more importantly, you're able to spot outliers or unexpected executions much easier.</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart01.png">
-  </div>
+  <img src="flame-chart-files/flamechart01.png">
   <a href="http://hellorun.helloenjoy.com/">http://hellorun.helloenjoy.com/</a>
 
 
@@ -84,24 +61,21 @@
 
   <p>Other JavaScript profiling reports data that is aggregated <em>over time</em>, whereas the Flame Chart reports data <em>by time</em>. This means when you see events happen, you are able to drill into the time scale of them and really get some perspective on execution times. For example, when you see big streaks of yellow in the Timeline, this is the perfect way to see track down the issue so you can fix it.</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart02.png">
-  </div>
+  <img src="flame-chart-files/flamechart02.png">
   <a href="http://hellorun.helloenjoy.com/">http://hellorun.helloenjoy.com/</a>
 
 
   <p>You may even want to do a Timeline recording simultaneously while you do a recording with the JavaScript Profiler. Here’s a snippet you can use to do this:</p>
 
-  <pre><code>
-  (function() {
-    console.timeline();
-    console.profile();
-    setTimeout(function() {
-        console.timelineEnd();
-        console.profileEnd();
-    }, 3000);
-  })();
-  </code></pre>
+  <pre class="prettyprint">
+    <code>(function() {
+      console.timeline();
+      console.profile();
+      setTimeout(function() {
+          console.timelineEnd();
+          console.profileEnd();
+      }, 3000);
+    })();</code></pre>
 
   <p class="note"><strong>Note</strong>: The horizontal axis is time and vertical axis is the call stack. The wider the function calls are the more expensive they are as they are taken over a period of Time. The call stack is shown on the Y axis and the height of the stack isn't as important unless it is also wide.</p>
 
@@ -116,23 +90,17 @@
 
   <p>In the profile view, select the Flame Chart visualization from the select menu at the bottom of the DevTools.</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart03.jpg">
-  </div>
+  <img src="flame-chart-files/flamechart03.jpg">
 
   <p class="note"><strong>Note</strong>: For increased accuracy of profiling times enable <strong>High resolution CPU profiling</strong> in the DevTools flame-chart under Profiling. When enabled, you can zoom into the graph to view it by a tenth of a millisecond even.</p>
 
   <p>Across the top of the panel is an overview that shows the entire recording. You are able to zoom in on a specific region of the overview by selecting it with your mouse as shown below, and you can also pan left and right by clicking on the white area and dragging your mouse. The Details view timescale shrinks accordingly.</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart04.png">
-  </div>
+  <img src="flame-chart-files/flamechart04.png">
 
   <p>In the Details view, a <strong>call stack</strong> is represented as a stack of function "blocks". A block that sits atop another was called by the lower function block. Hovering over a given block displays its function name and timing data:</p>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart05.jpg">
-  </div>
+  <img src="flame-chart-files/flamechart05.jpg">
 
   <ul>
     <li><strong>Name</strong> — The name of the function.</li>
@@ -142,9 +110,7 @@
     <li><strong>Aggregated total time</strong> — Aggregate total time for all invocations of the function, including functions called by this function.</li>
   </ul>
 
-  <div class="screenshot">
-    <img src="flame-chart-files/flamechart06.png">
-  </div>
+  <img src="flame-chart-files/flamechart06.png">
 
   <p>Clicking a function block opens its containing JavaScript file in the Sources panel, at the line where the function is defined.</p>
 
