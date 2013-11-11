@@ -9,7 +9,6 @@ toc:
     path: /chrome-developer-tools/docs/elements-styles
   - title: "Working with CSS Preprocessors"
     path: /chrome-developer-tools/docs/css-preprocessors
-    status: experimental
 - title: "Managing Application Storage"
   path: /chrome-developer-tools/docs/resource-panel
 - title: "Evaluating Network Performance"
@@ -23,11 +22,9 @@ toc:
     path: /chrome-developer-tools/docs/demos/too-much-layout
 - title: "Profiling JavaScript Performance"
   path: /chrome-developer-tools/docs/cpu-profiling
-- title: "Profiling Memory Performance"
-  path: /chrome-developer-tools/docs/heap-profiling
+- title: "JavaScript Memory Profiling"
+  path: /chrome-developer-tools/docs/javascript-memory-profiling
   section:
-  - title: "Memory Analysis 101"
-    path: /chrome-developer-tools/docs/memory-analysis-101
   - title: "Heap Profiler Demos"
     section:
     - title: "Gathering Scattered Objects"
@@ -61,6 +58,27 @@ toc:
   - title: "Debugging Protocol"
     path: /chrome-developer-tools/docs/debugger-protocol
     section:
+    - title: "1.1"
+      path: /chrome-developer-tools/docs/protocol/1.1/index
+      section:
+      - title: "Console"
+        path: /chrome-developer-tools/docs/protocol/1.1/console
+      - title: "Debugger"
+        path: /chrome-developer-tools/docs/protocol/1.1/debugger
+      - title: "DOM"
+        path: /chrome-developer-tools/docs/protocol/1.1/dom
+      - title: "DOM Debugger"
+        path: /chrome-developer-tools/docs/protocol/1.1/domdebugger
+      - title: "Input"
+        path: /chrome-developer-tools/docs/protocol/1.1/input
+      - title: "Network"
+        path: /chrome-developer-tools/docs/protocol/1.1/network
+      - title: "Page"
+        path: /chrome-developer-tools/docs/protocol/1.1/page
+      - title: "Runtime"
+        path: /chrome-developer-tools/docs/protocol/1.1/runtime
+      - title: "Timeline"
+        path: /chrome-developer-tools/docs/protocol/1.1/timeline
     - title: "1.0"
       path: /chrome-developer-tools/docs/protocol/1.0/index
       section:
@@ -120,15 +138,22 @@ toc:
         path: /chrome-developer-tools/docs/protocol/tot/runtime
       - title: "Timeline"
         path: /chrome-developer-tools/docs/protocol/tot/timeline
+- title: "Integrating with DevTools"
+  path: /chrome-developer-tools/docs/integrating
+  section:
+  - title: "Sample DevTools Extensions"
+    path: /chrome-developer-tools/docs/sample-extensions
+  - title: "Sample Debugging Protocol Clients"
+    path: /chrome-developer-tools/docs/debugging-clients
 - title: "Additional Resources"
   section:
-  - title: "Clean Testing Environment"
+  - title: "Creating a clean testing environment"
     path: /chrome-developer-tools/docs/clean-testing-environment
   - title: "Videos"
     path: /chrome-developer-tools/docs/videos
   - title: "Blog posts"
     path: /chrome-developer-tools/docs/blog-posts
-  - title: "Forum"
+  - title: "Mailing list"
     path: https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools
 - title: "Contributing"
   path: /chrome-developer-tools/docs/contributing

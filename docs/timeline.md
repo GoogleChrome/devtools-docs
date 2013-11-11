@@ -1,4 +1,4 @@
-Project: /chrome-developer-tools/_project.yaml 
+Project: /chrome-developer-tools/_project.yaml
 Book: /chrome-developer-tools/_book.yaml
 
 # Performance profiling with the Timeline #
@@ -68,7 +68,7 @@ You may notice regions of a frame that are light-gray or clear (hollow). These r
 
 * Activity that was not instrumented by DevTools
 * Idle time between display refresh cycles.
- 
+
 The frames in the recording below show both un-instrumented activity and idle time.
 
 ![](timeline-images/clear-frames.png)
@@ -86,7 +86,7 @@ The average frame rate and its standard deviation represented are displayed alon
 
 ![](timeline-images/average.png)
 
-### Memory mode 
+### Memory mode
 
 The Memory view shows you a graph of memory used by your application
 over time and maintains a counter of the number of documents, DOM
@@ -136,7 +136,7 @@ A common task is to record a page loading from the initial network request. Keyb
 4.  Stop the recording when the page has finished loading (look for the red [event marker](#domcontentloaded_and_load_event_markers)).
 
 Your recording should look something like the following. The first
-record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response record for the corresponding HTTP response, followed by one or more Receive Data records, a Finish Loading record, and a Parse HTML record. 
+record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response record for the corresponding HTTP response, followed by one or more Receive Data records, a Finish Loading record, and a Parse HTML record.
 
 ![](timeline-images/image06.png)
 
@@ -202,8 +202,8 @@ of detecting and fixing these kinds of performance issues.
 Events in Timeline recordings sometimes are nested visually beneath another event. You expand the "parent" event to view its nested "child" events. There are two reasons why the Timeline nests events:
 
 *  Synchronous events that occurred during the processing of an event that occurred previously. Each event internally generates two atomic events, one for the start and one for the end, that are converted to a single "continuous" event. Any other events that occur between these two atomic events become children of the outer event.
-*  Asynchronous events that occurred as a result of another event when [glue mode](#about_glue_mode) is enabled. 
- 
+*  Asynchronous events that occurred as a result of another event when [glue mode](#about_glue_mode) is enabled.
+
 Note: Glue mode is automatically disabled in [Frames mode](#frames_mode).
 
 The following screenshot shows an example of nested synchronous events. In this case, Chrome was parsing some HTML (the Parse HTML event) when it found several external resources that needed to be loaded. Those requests were made before Chrome has finished the parsing, so the Send Request events are displayed as children of the Parse HTML event.
@@ -255,7 +255,7 @@ To make analyzing records easier, you can “zoom in” on a section of the time
 To zoom in on a Timeline section, do one of the following:
 
 * In the overview region, drag out a Timeline selection with your mouse.
-* Adjust the gray sliders in the ruler area. 
+* Adjust the gray sliders in the ruler area.
 
 Here are some more tips for working with Timeline selections:
 
@@ -269,7 +269,7 @@ Here are some more tips for working with Timeline selections:
 
 ### Saving and loading recordings ###
 
-You can save a Timeline recording as a JSON file, and later open it in the Timeline. 
+You can save a Timeline recording as a JSON file, and later open it in the Timeline.
 
 **To save a Timeline recording:**
 
@@ -286,11 +286,11 @@ You can save a Timeline recording as a JSON file, and later open it in the Timel
 ### User-produced Timeline events ###
 
 Applications can add their own events to Timeline recordings. You can use the
-[console.timeStamp()](https://devsite.googleplex.com/chrome-developer-tools/docs/console-api#consoletimestamplabel) method to add an atomic event to a recording, or the
-[console.time()](https://devsite.googleplex.com/chrome-developer-tools/docs/console-api#consoletimelabel) and
-[console.timeEnd()](https://devsite.googleplex.com/chrome-developer-tools/docs/console-api#consoletimeendlabel) methods
-to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](https://developers.google.com/chrome-developer-tools/docs/console#marking_the_timeline) in
-[Using the Console](https://developers.google.com/chrome-developer-tools/docs/console) for more information.
+[console.timeStamp()](console-api#consoletimestamplabel) method to add an atomic event to a recording, or the
+[console.time()](console-api#consoletimelabel) and
+[console.timeEnd()](console-api#consoletimeendlabel) methods
+to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console#marking_the_timeline) in
+[Using the Console](console) for more information.
 
 
 ![](timeline-images/adding-result.png)
@@ -320,7 +320,7 @@ When this option is enabled, light gray bars appear above the Timeline records,
     }
 </style>
 
-This section lists and describes the individual types of records that are generated during a recording, organized by type, and their properties. 
+This section lists and describes the individual types of records that are generated during a recording, organized by type, and their properties.
 
 ### Common event properties ###
 
@@ -390,7 +390,7 @@ Request Method
 :   HTTP method used for the request (GET or POST, for example).
 
 Status Code
-:   HTTP response code 
+:   HTTP response code
 
 MIME Type
 :   MIME type of the requested resource.

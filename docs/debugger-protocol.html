@@ -32,11 +32,14 @@ done below.</p>
 
 <h2 id="protocol">Protocol</h2>
 <p>Interaction protocol consists of JSON commands that are sent to the page and
-events that the page is generating. We define this protocol in WebKit
-("upstream") so that any WebKit-based browser supported it.</p>
+events that the page is generating. We define this protocol in Blink
+("upstream") so that any Blink-based browser supported it.</p>
 
 <p>
 <ul>
+  <li>As of Google Chrome M31, we commit to supporting the version
+<a href="/chrome-developer-tools/docs/protocol/1.1/index">1.1</a> of the protocol. All
+subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
   <li>As of Google Chrome M18, we commit to supporting the version
 <a href="/chrome-developer-tools/docs/protocol/1.0/index">1.0</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.0.</li>
@@ -55,8 +58,8 @@ Protocol backwards compatibility is defined as follows:
 </ul>
 </p>
 
-<p>There also is a <a href="/chrome-developer-tools/docs/protocol/tot/index">tip-of-tree</a> reversion of the
-protocol that reflects present state of the protocol in WebKit repository. You can
+<p>There also is a <a href="/chrome-developer-tools/docs/protocol/tot/index">tip-of-tree</a> version of the
+protocol that reflects present state of the protocol in Blink repository. You can
 use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
 builds at your own risk. Note that unless tip of the tree revision is promoted to the
 draft, there is no backwards compatibility support guaranteed for the capabilities it
@@ -115,14 +118,14 @@ instrumenting them.</p>
 protocol that does not require client WebSocket implementation.</p>
 
 <p>Remote debugging is especially useful when debugging remote
-instances of the browser or attaching to the embedded devices. WebKit port
+instances of the browser or attaching to the embedded devices. Blink port
 owners are responsible for exposing debugging connections to the external
 users.</p>
 
 <h2 id="extension">Using debugger extension API</h2>
-<p>In order to allow third parties experimenting with the protocol, we introduced
-<a href="http://code.google.com/chrome/extensions/trunk/experimental.debugger.html">
-chrome.experimental.debugger</a> extension API that exposes this JSON message
+<p>To allow third parties to interact with the protocol, we introduced
+<a href="https://developer.chrome.com/extensions/debugger.html">
+chrome.debugger</a> extension API that exposes this JSON message
 transport interface. As a result, you can not only attach to the remotely
 running Chrome instance, but also instrument it from its own extension.</p>
 

@@ -1,0 +1,961 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+ <head>
+ <title>1.1: Page</title>
+ <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+ <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
+ </head>
+ <body>
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href='#commands'">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-clearGeolocationOverride" href="#command-anchor">clearGeolocationOverride</a>
+ </li>
+ 
+ <li>
+ <a href="#command-disable" href="#command-anchor">disable</a>
+ </li>
+ 
+ <li>
+ <a href="#command-enable" href="#command-anchor">enable</a>
+ </li>
+ 
+ <li>
+ <a href="#command-navigate" href="#command-anchor">navigate</a>
+ </li>
+ 
+ <li>
+ <a href="#command-reload" href="#command-anchor">reload</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setGeolocationOverride" href="#command-anchor">setGeolocationOverride</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ <li>
+ <a href='#events'">Notifications</a>
+ <ol>
+ 
+ <li>
+ <a href="#event-domContentEventFired" href="#command-anchor">domContentEventFired</a>
+ </li>
+ 
+ <li>
+ <a href="#event-frameAttached" href="#command-anchor">frameAttached</a>
+ </li>
+ 
+ <li>
+ <a href="#event-frameDetached" href="#command-anchor">frameDetached</a>
+ </li>
+ 
+ <li>
+ <a href="#event-frameNavigated" href="#command-anchor">frameNavigated</a>
+ </li>
+ 
+ <li>
+ <a href="#event-loadEventFired" href="#command-anchor">loadEventFired</a>
+ </li>
+ 
+ </ol>
+ </li>
+ </li>
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-Frame">Frame</a>
+ </li>
+ 
+ <li>
+ <a href="#type-FrameId">FrameId</a>
+ </li>
+ 
+ <li>
+ <a href="#type-ResourceType">ResourceType</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div><!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>Actions and events related to the inspected page belong to the page domain.</p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-clearGeolocationOverride"></a>
+ <h4>Page.clearGeolocationOverride</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.clearGeolocationOverride"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Clears the overriden Geolocation Position and Error.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-disable"></a>
+ <h4>Page.disable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.disable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Disables page domain notifications.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-enable"></a>
+ <h4>Page.enable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.enable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Enables page domain notifications.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-navigate"></a>
+ <h4>Page.navigate</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.navigate",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">url</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Navigates current page to the given URL.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ URL to navigate the page to.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-reload"></a>
+ <h4>Page.reload</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.reload",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">ignoreCache</span>": &lt;boolean&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">scriptToEvaluateOnLoad</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Reloads given page optionally ignoring the cache.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ ignoreCache
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ If true, browser cache is ignored (as if the user pressed Shift+refresh).
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ scriptToEvaluateOnLoad
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ If set, the script will be injected into all frames of the inspected page after reload.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setGeolocationOverride"></a>
+ <h4>Page.setGeolocationOverride</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Page.setGeolocationOverride",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">latitude</span>": &lt;number&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">longitude</span>": &lt;number&gt;,<br>
+ 
+ &nbsp;&nbsp;"<span class="specific">accuracy</span>": &lt;number&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Overrides the Geolocation Position or Error.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ latitude
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Mock longitude
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ longitude
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Mock latitude
+ 
+ </div>
+</span>
+</div>
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ accuracy
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Mock accuracy
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+ 
+ <div class="protocol-group">
+ <a name="events"></a>
+ <h3>Notifications</h3>
+ 
+ <div class="protocol-item">
+ <a name="event-domContentEventFired"></a>
+ <h4>Page.domContentEventFired</h4>
+ <div class="summary">
+ {<br>
+ "method": "Page.domContentEventFired",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"timestamp"</span>: &lt;number&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ 
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-frameAttached"></a>
+ <h4>Page.frameAttached</h4>
+ <div class="summary">
+ {<br>
+ "method": "Page.frameAttached",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"frameId"</span>: &lt;<a href="#type-FrameId">FrameId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when frame has been attached to its parent.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ frameId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-FrameId">FrameId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the frame that has been attached.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-frameDetached"></a>
+ <h4>Page.frameDetached</h4>
+ <div class="summary">
+ {<br>
+ "method": "Page.frameDetached",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"frameId"</span>: &lt;<a href="#type-FrameId">FrameId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when frame has been detached from its parent.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ frameId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-FrameId">FrameId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Id of the frame that has been detached.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-frameNavigated"></a>
+ <h4>Page.frameNavigated</h4>
+ <div class="summary">
+ {<br>
+ "method": "Page.frameNavigated",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"frame"</span>: &lt;<a href="#type-Frame">Frame</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired once navigation of the frame has completed. Frame is now associated with the new loader.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ frame
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Frame">Frame</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame object.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-loadEventFired"></a>
+ <h4>Page.loadEventFired</h4>
+ <div class="summary">
+ {<br>
+ "method": "Page.loadEventFired",<br>
+ 
+ "params": {<br>
+ 
+ &nbsp;&nbsp;<span class="specific">"timestamp"</span>: &lt;number&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div><span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ 
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+  <!-- for events -->
+ </div>
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-Frame"></a>
+ <h4>Frame: <var>object</var></h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ id
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame unique identifier.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ loaderId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="network.html#type-LoaderId">Network.LoaderId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the loader associated with this frame.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ mimeType
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame document's mimeType as determined by the browser.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ name
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame's name as specified in the tag.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ parentId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Parent frame identifier.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ securityOrigin
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame document's security origin.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Frame document's URL.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-FrameId"></a>
+ <h4>FrameId: <var>string</var></h4>
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-ResourceType"></a>
+ <h4>ResourceType: <var>enumerated string</var></h4>
+ 
+ 
+ <div class="property">
+ [
+ 
+ "<strong><var>Document</var></strong>"
+ , 
+ 
+ "<strong><var>Font</var></strong>"
+ , 
+ 
+ "<strong><var>Image</var></strong>"
+ , 
+ 
+ "<strong><var>Other</var></strong>"
+ , 
+ 
+ "<strong><var>Script</var></strong>"
+ , 
+ 
+ "<strong><var>Stylesheet</var></strong>"
+ , 
+ 
+ "<strong><var>WebSocket</var></strong>"
+ , 
+ 
+ "<strong><var>XHR</var></strong>"
+ 
+ 
+ ]
+ </div>
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div><!-- API PAGE -->
+</div>
+ </body>
+</html>

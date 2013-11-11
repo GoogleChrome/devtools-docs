@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {"name": "GC", "group": 0,  "dominates": [1, 3, 11], "dominatedBy": 0},
+    {"name": "#1", "group": 1,  "dominates": [2, 4, 5],  "dominatedBy": 0},
+    {"name": "#2", "group": 2,  "dominates": [],         "dominatedBy": 1},
+    {"name": "#3", "group": 1,  "dominates": [7],        "dominatedBy": 0},
+    {"name": "#4", "group": 2,  "dominates": [],         "dominatedBy": 1},
+    {"name": "#5", "group": 3,  "dominates": [6],        "dominatedBy": 1},
+    {"name": "#6", "group": 4,  "dominates": [],         "dominatedBy": 5},
+    {"name": "#7", "group": 2,  "dominates": [8, 9, 10], "dominatedBy": 3},
+    {"name": "#8", "group": 3,  "dominates": [],         "dominatedBy": 7},
+    {"name": "#9", "group": 3,  "dominates": [],         "dominatedBy": 7},
+    {"name": "#10", "group": 4, "dominates": [],         "dominatedBy": 7},
+    {"name": "#11", "group": 5, "dominates": [],         "dominatedBy": 1}
+  ],
+  "links": [
+    {"source": 0, "target": 1, "value": 8},
+    {"source": 1, "target": 2, "value": 8},
+    {"source": 0, "target": 3, "value": 8},
+    {"source": 1, "target": 4, "value": 8},
+    {"source": 2, "target": 5, "value": 8},
+    {"source": 4, "target": 5, "value": 8},
+    {"source": 5, "target": 6, "value": 8},
+    {"source": 3, "target": 7, "value": 8},
+    {"source": 7, "target": 8, "value": 8},
+    {"source": 7, "target": 9, "value": 8},
+    {"source": 8, "target": 10, "value": 8},
+    {"source": 9, "target": 10, "value": 8},
+    {"source": 6, "target": 11, "value": 8},
+    {"source": 10, "target": 11, "value": 8}
+  ]
+}
