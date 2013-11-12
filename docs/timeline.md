@@ -73,6 +73,8 @@ The frames in the recording below show both un-instrumented activity and idle ti
 
 ![](timeline-images/clear-frames.png)
 
+<p class="note">Want more details on the empty white space within the bars? Read <a href="https://plus.google.com/+NatDuca/posts/BvMgvdnBvaQ?e=-RedirectToSandbox">Chrome Engineer Nat Duca's explanation</a>, which describes how you can evaluate if you were bottlnecked by the GPU. </p>
+
 #### Viewing frame rate statistics ###
 
 The average frame rate and its standard deviation represented are displayed along the bottom of the Timeline panel for the selected frame range. If you hover over the average frame rate, a pop-up appears with additional information about the frame selection:
