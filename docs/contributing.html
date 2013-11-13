@@ -1,13 +1,13 @@
-<p>Project: /chrome-developer-tools/<em>project.yaml
-Book: /chrome-developer-tools/</em>book.yaml</p>
+<head>
+  <title>Contributing to Chrome DevTools</title>
+</head>
+<body>
 
 <h1>Contributing to Chrome DevTools</h1>
 
 <p>There are many ways you can improve the productivity of your fellow developers. 
 That could be by sharing what you know or helping out with documenting features 
 or writing a patch to improve the tools we all use. </p>
-
-<p>[[TOC]]</p>
 
 <h2>How can you help?</h2>
 
@@ -65,7 +65,7 @@ folks have already done this, giving us a colorpicker, a file picker
 and other features, all contributed by developers just like you.</p>
 
 <p>IRC channel on <a href="http://webchat.freenode.net/?channels=blink">Freenode</a>: 
-<strong>#<em>*</strong>chrome-devtools <strong>and *</em>#blink</strong></p>
+<b>#chrome-devtools</b> and <b>#blink</b></p>
 
 <p>In this guide, we'll cover how to get set up and running locally so you can 
 start developing and contributing to the DevTools. You may also find it helpful 
@@ -133,9 +133,9 @@ When remote debugging the front-end part of the API, <code>InspectorBackendComma
 is generated on the fly by front-end code. For more information, read the <a href="http://www.chromium.org/developers/how-tos">Chromium How-tos</a>.
 </p>
 
-<p><strong>Install depot<em>tools</strong><br/>
+<p><strong>Install depot_tools</strong><br/>
 You will need to <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools">install the 
-depot</em>tools</a> in 
+depot_tools</a> in 
 order to upload your patch once your changes are completed. The 
 <strong><a href="http://dev.chromium.org/developers/how-tos/depottools">depot_tools</a></strong> are a 
 package of scripts used to manage checkouts and code reviews, and it includes 
@@ -177,11 +177,11 @@ Chromium. These are available for all platforms.</p>
 <p>There are a couple of <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line 
 flags</a> (or 
 switches) that are needed when running Chromium for developing DevTools.<br/>
-<strong><br/>
-<em>*<a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Running Canary with 
+<br/>
+<a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Running Canary with 
 flags</a>:<br/>
 <br/>
-*</em>On Windows</strong></p>
+<strong>On Windows</strong></p>
 
 <ol>
 <li><strong>Right-click</strong> on your "Google Chrome Canary" icon</li>
@@ -200,91 +200,92 @@ flags</a>:<br/>
 you can see the full value while adding the flags with a space between each one 
 to the end of the path. Then paste the entire line into the field.</p>
 
-**On OS X<br/>
-**Run Canary in the terminal with the flags added at the end of the path to the 
+<strong>On OS X</strong>
+<br/>
+Run Canary in the terminal with the flags added at the end of the path to the 
 program.<br/>
 <br/>
-`/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary 
---remote-debugging-port=9222 --n`[`o-first-run 
---remote-debugging-frontend="http:`](http://localhost:8090/front-end/inspector.html)`//localhost:8000/front_end/inspector.html" 
---user-data-dir=blink/chromeServerProfile`<br/>
+<code>
+/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" --user-data-dir=blink/chromeServerProfile</code>
 <br/>
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as 
 shown in above.</p>
 
 <br/>
-**On Linux:<br/>
-**Run the chromium-browser command with the flags added after it:<br/>
+<strong>On Linux:</strong><br/>
+Run the chromium-browser command with the flags added after it:<br/>
 
-`chromium-browser --remote-debugging-port=9222 --no-first-run 
+<code>chromium-browser --remote-debugging-port=9222 --no-first-run 
 --remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" 
---user-data-dir=blink/chromeServerProfile`<br/>
+--user-data-dir=blink/chromeServerProfile</code><br/>
+<br/>
 
-**What do these switches do?**
-
-* `--user-data-dir=blink/chromeServerProfile`<br/>
+<strong>What do these switches do?</strong>
+<br/>
+<ul>
+<li> <code>--user-data-dir=blink/chromeServerProfile</code><br/>
   This specifies where the browser will look for all of its state. This can be a 
   relative path to the directory that you're running the web server from which 
-  should be blink/Source.
+  should be blink/Source.</li><br/>
 
-* `--remote-debugging-port=9222`<br/>
+<li> <code>--remote-debugging-port=9222</code><br/>
   Enables remote debug over HTTP on the specified port. This is the port used 
-  when running localhost.
-* `--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"`<br/>
+  when running localhost.</li><br/>
+<li> <code>--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"</code><br/>
   Uses a custom front-end URL for remote debugging. The port in the URL should 
   match the port number used for the running the local web server and the path 
   should point to the correct location of the inspector.html file assuming that 
-  your web server is running from the Source directory.
-* `--no-first-run`<br/>
-  Skip First Run tasks, whether or not it's actually the First Run.
-
+  your web server is running from the Source directory.</li><br/>
+<li> <code>--no-first-run</code><br/>
+  Skip First Run tasks, whether or not it's actually the First Run.</li><br/>
+</ul><br/>
 These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a [full list of command line switches](http://peter.sh/experiments/chromium-command-line-switches/) and what they do. 
 
-Adjust the path to `chromeServerProfile` to be some writable directory in your system. This refers to the `--user-data-dir` flag value mentioned above, which specifies a directory where the browser profile will be stored. You may wish to adjust the actual location of this profile directory to be something other than the `blink` folder.
-
-### Step 3: Inspector inception
-
+Adjust the path to <code>chromeServerProfile</code> to be some writable directory in your system. This refers to the <code>--user-data-dir</code> flag value mentioned above, which specifies a directory where the browser profile will be stored. You may wish to adjust the actual location of this profile directory to be something other than the <code>blink</code> folder.
+<P>
+<h3>Step 3: Inspector inception</h3>
+<P>
 Once Canary is open go to any web page (the page doesn't matter because you're 
 not going to use it for anything). Open up the DevTools for the page, and undock <img src="contributing-files/image03.png" alt="undock DevTools"/> from the window so it is in a separate window.<br/>
-
+<P>
 Next, open a new tab or launch another instance of Chrome (either Chrome Stable 
-or Canary) and go to [http://localhost:9222](http://localhost:9222).
-
+or Canary) and go to <a href ="http://localhost:9222">http://localhost:9222</a>.
+<P>
 Here you will see a grid menu of every page that is currently open which you are 
 able to inspect and debug.
-
+<P>
 <img src="contributing-files/image01.png" alt="Inspectable pages" width="700"/> 
-
+<P>
 This grid menu is served by a small web server running inside the first instance 
-of Canary which the `--remote-debugging-port=9222` parameter was passed into. 
+of Canary which the <code>--remote-debugging-port=9222</code> parameter was passed into. 
 Since the web server is running from your local git repo in the 
-`/blink/Source/devtools` directory, so the files within the devtools folder will 
+<code>/blink/Source/devtools</code> directory, so the files within the devtools folder will 
 be used for the inspector you see when clicking any of one these pages.
-
+<P>
 Clicking on the Developer Tools thumbnail opens up a second instance of the 
 DevTools, which is inspecting the first undocked DevTools instance.
-
+<P>
 <img src="contributing-files/image00.png" alt="inspector inception" width="700"/> 
-
+<P>
 Nice job, so far!
-
+<P>
 Notice that the URL address of the second DevTools instance points to 
-[http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html). 
+<a href ="http://localhost:8000/front_end/inspector.html">http://localhost:8000/front_end/inspector.html</a>
 This is because of the command line parameter 
-`--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html`
+<code>--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"</code>
 that was passed into the first instance, before running Canary. It connects to 
 your local repo through a websocket, which you may notice, is part of the URL 
-`?ws=localhost:9222/devtools/`.
+<code>?ws=localhost:9222/devtools/</code>.
 
 Now you can [start 
 contributing](http://dev.chromium.org/developers/contributing-code) and 
 developing the DevTools front-end code located in the directory 
-`/blink/Source/devtools/front_end`.<br/><br/>
+<code>/blink/Source/devtools/front_end</code>.<br/><br/>
 
-
-### Step 4: Pick a ticket
-
+<P>
+<h3>Step 4: Pick a ticket</h3>
+<P>
 Now that you are ready to dig into the code and start developing the DevTools 
 source, head over to [http://crbug.com](http://crbug.com) and find the ticket 
 for your change and leave a comment saying you will be writing a patch for it. 
