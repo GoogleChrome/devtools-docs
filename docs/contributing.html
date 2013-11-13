@@ -1,0 +1,493 @@
+<p>Project: /chrome-developer-tools/<em>project.yaml
+Book: /chrome-developer-tools/</em>book.yaml</p>
+
+<h1>Contributing to Chrome DevTools</h1>
+
+<p>There are many ways you can improve the productivity of your fellow developers. 
+That could be by sharing what you know or helping out with documenting features 
+or writing a patch to improve the tools we all use. </p>
+
+<p>[[TOC]]</p>
+
+<h2>How can you help?</h2>
+
+<p>Aside from contributing to the source code for DevTools, all of the following 
+are different ways you could help contribute:</p>
+
+<ul>
+<li><strong>Documentation authoring</strong>
+<ul>
+<li>Both reference and tutorial guides benefit from your help</li>
+<li>Get in touch with <a href="http://twitter.com/addyosmani">@addyosmani</a> or <a href="http://twitter.com/paul_irish">@paul_irish</a></li>
+</ul></li>
+<li><strong>Share what you've learned</strong>
+<ul>
+<li>Share what you've learned via GIFs, Vines or construction paper</li>
+<li>Cover new experimental features</li>
+<li>Design improved UX for all parts of DevTools</li>
+<li>Triage and manage issues</li>
+<li>Work on features or bugs</li>
+</ul></li>
+<li><strong>Coverage of new experimental features</strong>
+<ul>
+<li>Subscribe to <a href="https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews">devtools-reviews@chromium.org mailing 
+list</a> 
+for all reviews of pending code</li>
+<li>Subscribe to the <a href="http://commits.peter.sh/feed/?tracker=devtools">RSS feed of devtools 
+commits</a>.</li>
+<li>There's plenty of action and developers are eager to hear what's landing</li>
+</ul></li>
+<li><strong>Designing improved UX for all parts of DevTools</strong>
+<ul>
+<li>Your ideas on the design and UX are quite welcome, for example the <a href="https://code.google.com/p/chromium/issues/detail?id=181703">new 
+tooltip 
+design</a></li>
+</ul></li>
+<li><strong>Issue triage &amp; management</strong>
+<ul>
+<li>View <a href="http://goo.gl/N6OH9">all open DevTools tickets</a>. Ask for reductions 
+when appropriate or provide them yourself.</li>
+</ul></li>
+<li><strong>Working on features or bugs</strong>
+<ul>
+<li>The codebase is just JavaScript and the contribution guide below can get 
+you started quickly</li>
+</ul></li>
+</ul>
+
+<p>Read on to learn how to contribute a patch to DevTools source.</p>
+
+<h2>Contributing to DevTools source code</h2>
+
+<p>The Chrome DevTools are actually a web app written in JavaScript and CSS. If 
+you're familiar with these technologies, you know enough to write a patch. A few 
+folks have already done this, giving us a colorpicker, a file picker 
+and other features, all contributed by developers just like you.</p>
+
+<p>IRC channel on <a href="http://webchat.freenode.net/?channels=blink">Freenode</a>: 
+<strong>#<em>*</strong>chrome-devtools <strong>and *</em>#blink</strong></p>
+
+<p>In this guide, we'll cover how to get set up and running locally so you can 
+start developing and contributing to the DevTools. You may also find it helpful 
+to read the <a href="http://dev.chromium.org/developers/contributing-code">Chromium 
+g</a><a href="http://dev.chromium.org/developers/contributing-code">uide for contributing 
+code</a>.</p>
+
+<p class="note"><strong>Note:</strong> You will need to sign and submit a completed <a href="https://developers.google.com/open-source/cla/individual">CLA (Contributor License Agreement)</a> before we are able to consider any contributions you may wish to make.
+</p>
+
+<h3>Step 1: Getting set up</h3>
+
+<p>There are a few things you need in order to contribute to DevTools. </p>
+
+<p><strong>Get the code</strong><br/>
+Download the <a href="http://www.chromium.org/blink">Blink</a> source code by <a href="https://chromium.googlesource.com/chromium/blink">cloning the 
+git repository</a>. This process 
+can take anywhere between 30-60 minutes (depending on your connection).<br/>
+<br/>
+<code>git clone https://chromium.googlesource.com/chromium/blink</code><br/><br/>
+<strong>Install Canary</strong><br/>
+While Blink downloads, install Chrome Canary on <a href="https://tools.google.com/dlpage/chromesxs">Mac OS / 
+Windows</a> or download <a href="https://download-chromium.appspot.com/">the latest 
+Chromium build</a>.<br/></p>
+
+<p class="note"><strong>Note:</strong> To save you time, we created a <a href="https://github.com/jankeromnes/cr">helpful bash 
+script</a> that can take care of some of the 
+grunt work for you.
+</p>
+
+<p><br/>
+<strong>Serve devtools frontend</strong><br/>
+Run a local web server. The local web server will serve files from the directory 
+<code>blink/Source/devtools</code> on some port (e.g. <code>8000</code>).</p>
+
+<p>After the Blink repository has finished downloading go to the devtools folder:</p>
+
+<p><code>cd blink/Source/devtools</code> </p>
+
+<p>From there you can run a SimpleHTTPServer using Python with the following 
+command:<br/></p>
+
+<pre><code>python -m SimpleHTTPServer
+</code></pre>
+
+<p><strong>Why does the server need to run from the devtools directory?</strong><br/>
+When remotely debugging and developing the front-end of Blink, the content of the 
+<code>InspectorBackendCommands.js</code> file is generated based on the content of 
+<code>protocol.json</code> instead as a fallback of the Chromium build system. The 
+<code>protocol.json</code> file is in the parent folder of the <code>front_end</code> folder which is 
+<code>/devtools</code>. This is why you need to run the web server from within the devtools 
+directory.</p>
+
+<p class="note"><strong>Note:</strong> If you have checked out the entire Chromium source you will need to 
+run the web server from <code>/src/third_party/WebKit/Source/devtools</code> instead.
+</p>
+
+<p>If your feature requires changes to the back-end code then you definitely need 
+to checkout and build Chromium. Otherwise, you only need to setup a web server 
+for the front-end files and run Chrome with remote-debugging options.</p>
+
+<p class="note"><strong>Note:</strong> protocol.json describes the API between front-end and back-end. It is 
+used for generating API stubs for the front-end and back-end at the build stage. 
+When remote debugging the front-end part of the API, <code>InspectorBackendCommands.js</code> 
+is generated on the fly by front-end code. For more information, read the <a href="http://www.chromium.org/developers/how-tos">Chromium How-tos</a>.
+</p>
+
+<p><strong>Install depot<em>tools</strong><br/>
+You will need to <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools">install the 
+depot</em>tools</a> in 
+order to upload your patch once your changes are completed. The 
+<strong><a href="http://dev.chromium.org/developers/how-tos/depottools">depot_tools</a></strong> are a 
+package of scripts used to manage checkouts and code reviews, and it includes 
+commands <code>gclient</code>, <code>gcl</code>, and <code>git-cl</code> and will be useful later on. You will 
+still want to sync your Chromium checkout with all its dependencies however.</p>
+
+<p>Download <code>depot_tools</code> by cloning the repository:</p>
+
+<pre><code>git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+</code></pre>
+
+<p>Then you will need to add it to your 
+<a href="http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA">PATH</a>. 
+Do this by adding the following to your <code>.bashrc</code> or <code>.bashprofile</code> file or your 
+shell's equivalent at the end of the file. This way you won't need to reset your 
+<code>$PATH</code> manually each time you open a new shell.</p>
+
+<pre><code>export PATH="$PATH":pwd/depot_tools
+</code></pre>
+
+<p><strong>Windows</strong>
+This guide is currently not tested on Windows due to not being able to 
+successfully add <code>depot_tools</code> to the PATH while using the default CMD line of 
+Windows. However, you can try Cygwin as an alternative solution. Here you can find <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-">steps for installing 
+depot_tools on Windows with 
+Cygwin</a>.</p>
+
+<p class="note"><strong>Note:</strong> This guide includes steps for Windows throughout it, but has not been 
+confirmed to work due to the inability to `add depot_tools` to the PATH, while 
+using the Windows CMD line.
+</p>
+
+<h3>Step 2: Running an edge-build of Chromium</h3>
+
+<p>To begin, get an 
+<a href="http://www.chromium.org/getting-involved/download-chromium">edge-build</a> of 
+Chromium. These are available for all platforms.</p>
+
+<p>There are a couple of <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line 
+flags</a> (or 
+switches) that are needed when running Chromium for developing DevTools.<br/>
+<strong><br/>
+<em>*<a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Running Canary with 
+flags</a>:<br/>
+<br/>
+*</em>On Windows</strong></p>
+
+<ol>
+<li><strong>Right-click</strong> on your "Google Chrome Canary" icon</li>
+<li>Select  <strong>Properties</strong></li>
+<li>At the end of the <strong>Target field</strong> add the command line flags</li>
+</ol>
+
+<p>For example:</p>
+
+<pre><code>"C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" --user-data-dir=blink/chromeServerProfile
+</code></pre>
+
+<p><img src="contributing-files/image02.png" alt="Command-line flags" width="700"/> </p>
+
+<p class="note"><strong>Note:</strong>It's a good idea if you copy the path in Target to a text editor so 
+you can see the full value while adding the flags with a space between each one 
+to the end of the path. Then paste the entire line into the field.</p>
+
+**On OS X<br/>
+**Run Canary in the terminal with the flags added at the end of the path to the 
+program.<br/>
+<br/>
+`/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary 
+--remote-debugging-port=9222 --n`[`o-first-run 
+--remote-debugging-frontend="http:`](http://localhost:8090/front-end/inspector.html)`//localhost:8000/front_end/inspector.html" 
+--user-data-dir=blink/chromeServerProfile`<br/>
+<br/>
+
+<p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as 
+shown in above.</p>
+
+<br/>
+**On Linux:<br/>
+**Run the chromium-browser command with the flags added after it:<br/>
+
+`chromium-browser --remote-debugging-port=9222 --no-first-run 
+--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" 
+--user-data-dir=blink/chromeServerProfile`<br/>
+
+**What do these switches do?**
+
+* `--user-data-dir=blink/chromeServerProfile`<br/>
+  This specifies where the browser will look for all of its state. This can be a 
+  relative path to the directory that you're running the web server from which 
+  should be blink/Source.
+
+* `--remote-debugging-port=9222`<br/>
+  Enables remote debug over HTTP on the specified port. This is the port used 
+  when running localhost.
+* `--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"`<br/>
+  Uses a custom front-end URL for remote debugging. The port in the URL should 
+  match the port number used for the running the local web server and the path 
+  should point to the correct location of the inspector.html file assuming that 
+  your web server is running from the Source directory.
+* `--no-first-run`<br/>
+  Skip First Run tasks, whether or not it's actually the First Run.
+
+These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a [full list of command line switches](http://peter.sh/experiments/chromium-command-line-switches/) and what they do. 
+
+Adjust the path to `chromeServerProfile` to be some writable directory in your system. This refers to the `--user-data-dir` flag value mentioned above, which specifies a directory where the browser profile will be stored. You may wish to adjust the actual location of this profile directory to be something other than the `blink` folder.
+
+### Step 3: Inspector inception
+
+Once Canary is open go to any web page (the page doesn't matter because you're 
+not going to use it for anything). Open up the DevTools for the page, and undock <img src="contributing-files/image03.png" alt="undock DevTools"/> from the window so it is in a separate window.<br/>
+
+Next, open a new tab or launch another instance of Chrome (either Chrome Stable 
+or Canary) and go to [http://localhost:9222](http://localhost:9222).
+
+Here you will see a grid menu of every page that is currently open which you are 
+able to inspect and debug.
+
+<img src="contributing-files/image01.png" alt="Inspectable pages" width="700"/> 
+
+This grid menu is served by a small web server running inside the first instance 
+of Canary which the `--remote-debugging-port=9222` parameter was passed into. 
+Since the web server is running from your local git repo in the 
+`/blink/Source/devtools` directory, so the files within the devtools folder will 
+be used for the inspector you see when clicking any of one these pages.
+
+Clicking on the Developer Tools thumbnail opens up a second instance of the 
+DevTools, which is inspecting the first undocked DevTools instance.
+
+<img src="contributing-files/image00.png" alt="inspector inception" width="700"/> 
+
+Nice job, so far!
+
+Notice that the URL address of the second DevTools instance points to 
+[http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html). 
+This is because of the command line parameter 
+`--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html`
+that was passed into the first instance, before running Canary. It connects to 
+your local repo through a websocket, which you may notice, is part of the URL 
+`?ws=localhost:9222/devtools/`.
+
+Now you can [start 
+contributing](http://dev.chromium.org/developers/contributing-code) and 
+developing the DevTools front-end code located in the directory 
+`/blink/Source/devtools/front_end`.<br/><br/>
+
+
+### Step 4: Pick a ticket
+
+Now that you are ready to dig into the code and start developing the DevTools 
+source, head over to [http://crbug.com](http://crbug.com) and find the ticket 
+for your change and leave a comment saying you will be writing a patch for it. 
+If you haven't decided on what you to change look through the open issues and 
+choose one you would like to do and leave a comment on it asking for it to be 
+assigned to you. 
+
+<p class="note"><strong>Note:</strong> We occasionally label bugs that require a small patch but make for 
+good first-time contributions with GoodFirstBug. You can 
+[filter](https://code.google.com/p/chromium/issues/list?q=label:GoodFirstBug) 
+down the issues list to only display these.
+</p>
+
+<p>Alternatively, if there is no existing ticket for the change, then <a href="http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&amp;role=&amp;continue=https%3A//code.google.com/p/chromium/issues/entry.do">create a new 
+issue</a>. 
+Be sure to describe what the change is and justify why it was needed, adding 
+"patch to follow" to the end.</p>
+
+<p><strong>Communicate</strong><br/>
+Before you start 
+<a href="http://dev.chromium.org/developers/contributing-code">contributing</a> on a 
+ticket, it's a good idea to open a new thread on the <a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">DevTools Google 
+Group</a> 
+so you can discuss anything you are unsure of or may not know about regarding 
+the particular ticket you will be working on. You can never over communicate.</p>
+
+<h3>Step 5: Pull, Develop, Branch, Commit</h3>
+
+<p>Pull the latest files from the repository and sync to be sure you are working 
+with the latest code.<br/></p>
+
+<pre><code>git pull --rebase &amp;&amp; gclient sync
+</code></pre>
+
+<p>Then create a new branch which you can make your changes on.<br/></p>
+
+<pre><code>git checkout -b yourBugOrFeatureName
+</code></pre>
+
+<p>Open the DevTools on your DevTools, open your favorite code editor and start 
+digging through the files in your local repository directory 
+<code>/blink/Source/devtools/front_end</code>.</p>
+
+<p class="note"><strong>Note:</strong> During development use the Refresh icon or <span class="kbd">Alt</a> + <span class="kbd">R</span> instead 
+of <span class="kbd">F5</span>, <span class="kbd">Ctrl</span> + <span class="kbd">R</span> or <span class="kbd">Cmd</span> + <span class="kbd">R</span> as they are bound to refresh the host page which you 
+are using to develop the DevTools instance.</p>
+
+<p>Run your change against the Closure Compiler with:</p>
+
+<p><code>./devtools/scripts/compile_frontend.py</code></p>
+
+<p>You should see "0 error(s), 0 warning(s)".</p>
+
+<p><strong>Your code:</strong></p>
+
+<ol>
+<li>Should conform to the <a href="http://dev.chromium.org/blink/coding-style">Blink Coding Style 
+Guidelines</a></li>
+<li>Must be 
+<a href="http://www.chromium.org/developers/testing/webkit-layout-tests">tested</a></li>
+<li>Should pass the closure compiler tests</li>
+<li>Should be a reasonable size to review (larger patches take longer)</li>
+</ol>
+
+<p>Once you have made your change, commit it. In your commit message include the 
+ticket number and specify that it's a DevTools patch.</p>
+
+<pre><code>git commit -m "#175024 DevTools: This describes the Goat Teleporter"
+</code></pre>
+
+<p>It is a good idea to pull down any changes that have been added since you last 
+did one and merge them with your branch.</p>
+
+<p>Once everything for your patch is complete, you will want to write and run 
+relevant layout tests. To get started with layout tests for the DevTools see the 
+<a href="http://www.chromium.org/developers/testing/webkit-layout-tests">WebKit layout 
+tests</a> guide.</p>
+
+<p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or 
+UI tests, they will need to be created and included as part of the patch.</p>
+
+<h3>Step 6: Upload your Patch</h3>
+
+<p>If your patch is finished and all tests pass, upload your changes:<br/></p>
+
+<pre><code>git cl upload --bypass-hooks
+</code></pre>
+
+<p>Your editor prompts you to write the patch description. Explain the 
+change in much detail as you like. Save and exit the editor to 
+finalize the patch submission.</p>
+
+<p>You must have an account for <a href="http://codereview.chromium.org">codereview.chromium.org</a> and you'll enter in your 
+credentials in this process. Afterwards, you'll get the codereview URL e.g.<br/></p>
+
+<p><code>Issue created. URL: https://codereview.chromium.org/18173008".
+ Take note of this URL, you can go to the page and view the status of it.</code></p>
+
+<p>Now you just have to wait for your friendly neighborhood reviewers to check 
+things out to make sure it's all good.</p>
+
+<p><strong>Cleanup</strong></p>
+
+<p>Go back to master branch.</p>
+
+<p><code>git checkout master</code><br/><br/>
+<strong>The<em>*</strong> 'cr' bash script</em>*</p>
+
+<p>As mentioned earlier, <a href="https://github.com/jankeromnes/cr"> <code>cr</code></a> is a bash script compiling steps from 
+several Chromium wiki pages into a simple, easy-to-use command line tool. It is 
+able to grab the source code of the browser, making sure along the way that you 
+have all the dependencies you need, and sets everything up so that you can go 
+ahead and build your very own browser!</p>
+
+<p>Its commands, like <code>cr clone</code> or <code>cr update</code>, do all the work for you, while 
+asking you the important questions. You can find more information and 
+installation instructions at 
+<a href="https://github.com/jankeromnes/cr">https://github.com/jankeromnes/cr</a>.</p>
+
+<h2>Troubleshooting workflows</h2>
+
+<p>Below are a couple alternative perspectives from some of the contributors who 
+described their workflows and some tips you might find helpful along the way. If you run into any issues following the steps outlined in this 
+document above, we've documented these to help you troubleshoot things should 
+you run into any issues.</p>
+
+<h3>Alternative workflow #1</h3>
+
+<p>You get to pick between two workflows: <strong>merge</strong> or <strong>rebase</strong>. Both are 
+"<em>mathematically equivalent</em>" but you use different commands. Unless you are a 
+git uber-guru, the workflows and thinking for each are different.<br/>
+About half of the contributors to Chromium use this <strong>rebase workflow</strong>.</p>
+
+<ol>
+<li>git checkout -b myAwesomeBranch
+<ul>
+<li>make a bunch of changes in the branch</li>
+</ul></li>
+<li>git commit -am "made some changes in branch"</li>
+<li>git checkout master</li>
+<li>gclient sync</li>
+<li>git checkout my_branch</li>
+<li>git rebase master </li>
+<li>Resolve any conflicts</li>
+<li>If you end up with lots of revisions in your branch, the rebase can be messy as it applies each change in order so you may need to resolve conflicts repeatedly. Git you <strong>squash</strong> a bunch of commits into one with <code>git rebase -i master</code>. It pops open an editor with a bunch of <code>pick XXXX</code> lines. Change all but the first <em>pick. _to _squash.</em> Use <code>s</code> to replace the word <code>pick</code>.</li>
+<li>git diff master
+<ul>
+<li>should be the exact patch you're expecting to upload</li>
+</ul></li>
+<li>git cl upload</li>
+</ol>
+
+<p>The <em>merge workflow</em> is slightly less work but you end up with merge revisions 
+in your history. Also, it can be harder to think of it in such that the 
+code/patch which you are authoring will eventually be something you apply to 
+<code>master</code>.</p>
+
+<h3>Alternative workflow #2</h3>
+
+<ol>
+<li>Create a new issue at 
+<a href="https://code.google.com/p/chromium/issues/list">https://code.google.com/p/chromium/issues/list</a>, 
+or find issue you want to fix.</li>
+<li>Create a branch in your local git checkout for that issue. Something like 
+<code>[verbose-name]-[issue-number]</code> (e.g. "drawer-status-bar-231904"). This makes 
+easier to find in which branch your issue lives and vice-versa. It'd be great 
+to assign issue to yourself and mark it as "started" so that nobody else 
+starts doing same job.</li>
+<li>Code and test in that branch.</li>
+<li>Commit changes in that branch. You can merge all commits into one. This makes 
+rebasing later easier if needed.</li>
+<li><code>git cl upload</code>. The first time you have to fill in the commit description and mention issue number, for example "<code>BUG=231904</code>". You will be asked for patch description later on and they all will be attached to the same codereview issue. See "Patch Set #1", "PatchSet #2"... at <a href="https://chromiumcodereview.appspot.com/14329024/">https://chromiumcodereview.appspot.com/14329024/</a></li>
+<li>Add reviewers to the changelist and ask them to review. You should pick reviewers from the OWNERS files. <code>git cl upload</code> suggests reviewers.</li>
+<li>Receive comments from reviewers, argue if needed.</li>
+<li>If received LGTM from owners - press commit button.</li>
+<li>Otherwise, fix comments in local checkout in that branch and proceed to step 3.</li>
+</ol>
+
+<p>Sometimes you may need to rebase if the "commit" button fails on codereview 
+page. Some reviewers don't like rebasing during a codereview since it makes 
+reviewing harder for them.</p>
+
+<p>While waiting for comments you can switch to another branch and work 
+on a fix for another issue while this one is "frozen", waiting for review.</p>
+
+<h3>Running Layout tests</h3>
+
+<p>To setup a build that can run the layout tests read about <a href="http://www.chromium.org/developers/testing/webkit-layout-tests">layout tests</a> over on Chromium.org. Depending on the type of patch you are submitting, there may be Chrome DevTools layout tests you will want to run before submission.</p>
+
+<p>First, run <code>gclient</code> to use <code>git</code>. You can follow the steps located in the Chromium <a href="https://code.google.com/p/chromium/wiki/UsingGit">Using Git guide</a> to walk you through this process. In summary make sure depot_tools is in your path. Run <code>fetch blink --nosvn=True</code> in a directory you wish to store the Chromium source (perhaps get a snack or one of those paddles with a ball on it, this will take some time).</p>
+
+<p>When this has finished you can speed up the build process by building the content shell.</p>
+
+<p>On a Mac or Linux machine you can simply run:</p>
+
+<p><code>ninja -C out/Debug content_shell</code></p>
+
+<p>If you have problems with this step you can look at <a href="https://code.google.com/p/chromium/wiki/Clang">Clang</a> for Mac help and the <a href="https://code.google.com/p/chromium/wiki/LinuxBuildInstructions">Linux build instructions</a> for Linux help.</p>
+
+<p>This will also take some time. Once it has finished providing you with warmth from your laptop then you are 
+good to run the layout tests which can be run with from your src directory 
+<code>webkit/tools/layout_tests/run_webkit_tests.sh</code>. Replace the .sh with .bat if you 
+are on Windows. Some failures are expected! (unfortunatly). A good process here 
+is to run them before you make any changes, then run them after you make your 
+changes. It can also take an argument to a directory so you can just point it to 
+the <code>LayoutTests/inspector</code> directory to run. </p>
