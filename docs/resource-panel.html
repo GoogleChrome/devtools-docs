@@ -75,14 +75,15 @@ query results in a tabular format. As you type out a command or table name, code
 <p>The following fields are displayed for each cookie in the selected frame group:</p>
 
 <ul>
-<li><strong>Name</strong> — The cookie's name.</li>
-<li><strong>Value</strong> — The cookie's value.</li>
-<li><strong>Domain</strong> — The domain that the cookie applies to.</li>
-<li><strong>Path</strong> — The path that the cookie applies to.  </li>
-<li><strong>Expires / Maximum Age</strong>— The cookie's expiration time, or maximum age. For session cookies, this field is always "Session".</li>
-<li><strong>Size</strong> — The size of the cookie's data in bytes.</li>
-<li><strong>HTTP</strong> — If present, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.</li>
-<li><strong>Secure</strong> — If present, indicates that communication for this cookie must be over an encrypted transmission.</li>
+<li><strong>Name</strong>
+The cookie's name.</li>
+<li><strong>Value</strong> &mdash; The cookie's value.</li>
+<li><strong>Domain</strong> &mdash; The domain that the cookie applies to.</li>
+<li><strong>Path</strong> &mdash; The path that the cookie applies to.  </li>
+<li><strong>Expires / Maximum Age</strong> &mdash; The cookie's expiration time, or maximum age. For session cookies, this field is always "Session".</li>
+<li><strong>Size</strong> &mdash; The size of the cookie's data in bytes.</li>
+<li><strong>HTTP</strong> &mdash; If present, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.</li>
+<li><strong>Secure</strong> &mdash; If present, indicates that communication for this cookie must be over an encrypted transmission.</li>
 </ul>
 
 <p>You can clear (delete) a single cookies, all cookies in the selected frame group, or cookies from a specific domain. Recall the same cookie may appear in more than one frame group, as discussed previously. If the same cookie for a given domain is referenced in two frame groups, deleting all cookies for that domain will affect both groups.</p>
@@ -133,20 +134,20 @@ example), and the browser's connection status (online or offline).<br/>
 <p>The table of cached resources includes the following properties for each resource:</p>
 
 <ul>
-<li><strong>Resource</strong> — The URL of the resource.</li>
-<li><strong>Type</strong> — The type of cached resource, which can have one of the following 
+<li><strong>Resource</strong> &mdash; The URL of the resource.</li>
+<li><strong>Type</strong> &mdash; The type of cached resource, which can have one of the following 
 values:
 <ul>
-<li><strong>Master</strong> — The resource was added to the cache because it's 
+<li><strong>Master</strong> &mdash; The resource was added to the cache because it's 
 <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest">manifest</a> 
 attribute indicated that this was its cache.</li>
-<li><strong>Explicit</strong> — The resource was explicitly listed in the application's 
+<li><strong>Explicit</strong> &mdash; The resource was explicitly listed in the application's 
 cache manifest file.</li>
-<li><strong>Network</strong> — The resources was listed in the application's cache manifest 
+<li><strong>Network</strong> &mdash; The resources was listed in the application's cache manifest 
 file as a network entry. </li>
-<li><strong>Fallback</strong> — The resource was specified as a fallback if a resource is inaccessible.</li>
+<li><strong>Fallback</strong> &mdash; The resource was specified as a fallback if a resource is inaccessible.</li>
 </ul></li>
-<li><strong>Size</strong> — Size of the cached resource.</li>
+<li><strong>Size</strong> &mdash; Size of the cached resource.</li>
 </ul>
 
 <p>The Resources panel displays the current <a href="http://www.whatwg.org/specs/web-apps/current-work/#dom-appcache-status">status</a> 
@@ -213,10 +214,6 @@ of the application cache along with a colored status icon (green, yellow, or red
 <p><strong>To refresh the table with new storage data</strong>, click the Refresh button at the bottom of the panel.
 <img src="resources-files/refresh.png" /></p>
 
-<head>
-  <title>Inspecting page resources</title>
-</head>
-<body>
 <h1>Inspecting page resources</h1>
 
 <p>You can view all of your main document's resources, including images, scripts, and fonts, and those of any loaded frames. The top level category of page resources are the document's frames, which includes the main document, and its embedded frames.</p>
@@ -244,3 +241,4 @@ of the application cache along with a colored status icon (green, yellow, or red
 </ul>
 
 <p><img src="resources-files/frame-selected.png" /></p>
+</body>

@@ -204,7 +204,6 @@ arguments etc.</li>
 <a href="/chrome-developer-tools/docs/scripts-breakpoints-files/dynamicScript.js" style="display: none">
   This is used to mark dynamicScript.js as used.</a>
 
-{% framebox height="500px" %}
 <script>
 function loadDynamicScript() {
   var request = new XMLHttpRequest();
@@ -233,7 +232,6 @@ set breakpoint on line 2</li>
 
 <p><div class="screenshot"><img src="javascript-debugging/image_12.png"/></div></p>
 
-{% endframebox %}
 
 <p><strong>Note:</strong> Notice the <code>"//@ sourceURL=dynamicScript.js"</code> line at the end of
 dynamicScript.js file. This technique gives a name to a script created with eval, and will be discussed in more detail in the <a href="#source-maps">Source Maps</a> section. Breakpoints can be set in dynamic JavaScript only if it has a user supplied
@@ -243,7 +241,6 @@ name.</p>
 
 <h3 id="pause-on-next-statement">Pause on Next JavaScript Statement</h3>
 
-{% framebox height="500px" %}
 <script>
 document.addEventListener("mouseover", onMouseOver, true);
 
@@ -261,13 +258,11 @@ function onMouseOver(event) {
 </ul>
 <p><div class="screenshot"><img src="javascript-debugging/image_15.png"/></div></p>
 
-{% endframebox %}
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
 <h3>Pause on Exceptions</h3>
 
-{% framebox height="500px" %}
 <script>
 function raiseAndCatchException() {
   var element = document.createElement("div");
@@ -289,14 +284,12 @@ function raiseAndCatchException() {
 </ul>
 <p><div class="screenshot"><img src="javascript-debugging/image_18.png"/></div></p>
 
-{% endframebox %}
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
 <h3 id="pause-on-uncaught-exceptions">Pause on Uncaught Exceptions</h3>
 </h3>
 
-{% framebox height="500px" %}
 <script>
 function raiseAndCatchException() {
   var element = document.createElement("div");
@@ -326,13 +319,11 @@ caught</li>
 
 <p><div class="screenshot"><img src="javascript-debugging/image_21.png"/></div></p>
 
-{% endframebox %}
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
 <h2 id="breakpoints-mutation-events">Breakpoints on DOM Mutation Events</h2>
 
-{% framebox height="500px" %}
 <script>
 function appendChildButtonClicked() {
   var parentElement = document.getElementById("parent");
@@ -356,7 +347,6 @@ select <strong>Break on Subtree Modifications</strong></li>
 
 <p><div class="screenshot"><img src="javascript-debugging/image_23.png"/></div></p>
 
-{% endframebox %}
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -365,7 +355,6 @@ select <strong>Break on Subtree Modifications</strong></li>
 <a href="/chrome-developer-tools/docs/scripts-breakpoints-files/data.txt" style="display: none">
   This is used to mark data.txt as used.</a>
 
-{% framebox height="500px" %}
 <script>
 function retrieveData() {
   var request = new XMLHttpRequest();
@@ -388,7 +377,6 @@ context menu item</li>
 
 <p><div class="screenshot"><img src="javascript-debugging/image_26.png"/></div></p>
 
-{% endframebox %}
 
 <p><strong>Note:</strong> To edit URL filter, double click on the XHR breakpoint entry in <strong>XHR Breakpoints</strong> sidebar pane. XHR breakpoint with empty URL filter will match any
 XHR.</p>
@@ -398,7 +386,6 @@ XHR.</p>
 <h2 id="breakpoints-on-javascript-event-listeners">Breakpoints on JavaScript Event Listeners</h2>
 
 
-{% framebox height="500px" %}
 <script>
 window.addEventListener("load", onLoad, true);
 
@@ -436,7 +423,6 @@ function hovermeMouseOut(event) {
 <li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_28.png"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 <p><div class="screenshot"><img src="javascript-debugging/image_29.png"/></div></p>
-{% endframebox %}
 
 
 <p class="note"><b>Note: Following events are supported</b>
