@@ -11,37 +11,17 @@
   <style>
     body.docs div h4 { font-size: 111%; font-weight: bold; margin-bottom: 0; }
     img { max-width: 800px; }
-    div.screenshot img { border: 1px solid #ccc; margin-top: 0; }
-    .kbd {
-      background-color: #f7f7f7;
-      border: 1px solid #ccc;
-      color: #333;
-      font-size: 11px;
-      line-height: 1.4;
-      text-shadow: 0 1px 0 #fff;
-      font-family: Arial,Helvetica,sans-serif;
-      display: inline-block;
-      padding: 0.1em 0.6em;
-      margin: 0 0.1em;
-      white-space: nowrap;
-      -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
-         -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
-          box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
-      -webkit-border-radius: 3px;
-         -moz-border-radius: 3px;
-          border-radius: 3px;
-    }
     .special {
       background-color: #F9E5E5;
       border-left-color: #C33;
     }
     body.docs pre {
       background: #FAF7F7;
+      display: inline-block;
+      vertical-align: top;
       white-space: pre-line;
       margin: 0 0 1.5em;
       padding: 0;
-      vertical-align: top;
-      display: inline-block;
     }
     code {
       background: #FAF7F7;
@@ -52,8 +32,8 @@
     }
     pre code {
       border: 0;
-      padding: 0 10px 12px;
       margin: 0;
+      padding: 0 10px 12px;
     }
   </style>
 
@@ -71,7 +51,7 @@
         </ul>
       </li>
       <li><a href="#workspace">Workspace</a></li>
-      <li><a href="#port-forwarding">Port Forwarding</a></li>
+      <!-- <li><a href="#port-forwarding">Port Forwarding</a></li> -->
       <li><a href="#experiments">Experiments</a></li>
     </ul>
   </strong>
@@ -79,7 +59,7 @@
   <p>
     <strong>To modify the Settings in DevTools:</strong>
     <ul>
-      <li>Click on the Settings cog <img src="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation/image_38.png"> and open up the Settings pane to make changes.</li>
+      <li>Click on the Settings cog <img src="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation/image_38.png"> and open up the General Settings pane to make changes. You can also use the shortcut <span class="kbd">?</span> to open to this pane.</li>
     </ul>
   </p>
 
@@ -95,7 +75,6 @@
 
   <h4>Disable JavaScript</h4>
   <p>Immediately suspends all JavaScript from running on the tab running the instance of DevTools which has this checked.</p>
-
 
   <p class="note"><strong>Note:</strong> Both the Disable cache and Disable JavaScript settings will <strong>ONLY</strong> apply when DevTools is open. When it is open, for the page which has the DevTools open.</p>
 
@@ -128,7 +107,7 @@
     <img src="settings-files/color-format.png">
   </div>
 
-  <p>The <strong>Color format</strong> setting lets you control how the color codes are displayed in the <strong>Styles Sidebar</strong> of the Elements panel. In addition to the Settings option for controlling the color format, you can click on the gear icon at the top of the Styles Sidebar to change the format of color codes.</p>
+  <p>The <strong>color format</strong> setting lets you control how the color codes are displayed in the <strong>Styles Sidebar</strong> of the Elements panel. In addition to the Settings option for controlling the color format, you can click on the gear icon at the top of the Styles Sidebar to change the format of color codes.</p>
 
   <div class="screenshot">
     <img src="settings-files/color-format2.png">
@@ -164,7 +143,6 @@
     <li><a href="http://blogs.adobe.com/webplatform/2013/04/03/defining-presentational-boxes-with-shadow-dom/">Define presentational boxes using shadow DOM</a></li>
   </ul>
 
-
   <h4>Show rulers</h4>
   <p>This will display a ruler overlay along the top, left and bottom sides of the viewport.</p>
 
@@ -189,6 +167,7 @@
 
 
   <h4>Force accelerated compositing</h4>
+
 
   <h4>Show composited layer borders</h4>
   <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
@@ -215,7 +194,6 @@
 
   <p>When running Chrome on Android you may also <strong>show a GPU memory meter</strong> as part of the overlay. Enabling the FPS meter is <em></em>specially helpful when developing pages that have animations.</p>
 
-
   <h4>Enable continuous page repainting</h4>
   <p>This is a tool that helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
 
@@ -240,31 +218,22 @@
 
   <p class="note"><strong>Note:</strong> When developing Chrome apps or extensions enabling this setting is so you can search within these native API scripts is useful, otherwise it is not useful having it enabled.</p>
 
-
   <h4>Enable JS source maps</h4>
-
-
-  <h4>Enable source maps</h4>
   <p>If you have code which is concatenated and minified it is difficult to tell what file a piece of code may be in when you need to debug it. Enabling this setting is useful for <a href="https://developers.google.com/chrome-developer-tools/docs/javascript-debugging#source-maps">debugging JavaScript</a> and <a href="http://www.youtube.com/watch?v=HijZNR6kc9A#t=1m32s">working with Source maps</a> in general.</p>
 
   <div class="screenshot">
     <img src="settings-files/source-maps.png">
   </div>
 
-
   <h4 id="css-source-maps">Enable CSS source maps</h4>
   <p>Enables Source Maps for CSS files generated using a preprocessor (for example, Sass).</p>
 
   <p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
 
-  <aside class="note"><strong>Note:</strong> In Chrome 29 and earlier, this is experimental setting called
-  <b>Support for Sass</b> or <b>Sass stylesheet debugging</b>. The experimental setting is not visible unless the <strong>Sass stylesheet debugging</strong> experiment is enabled.</aside>
 
   <h4>Auto-reload generated CSS</h4>
 
   <p>Only used if <b>Enable CSS source maps</b> is turned on. Determines whether generated CSS files should be reloaded when the source file is saved.</p>
-
-  <p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
 
   <aside class="note">
     <p><strong>Note:</strong> In Chrome 29 and earlier this appears as <b>Auto-reload CSS on Sass save</b>, and is not visible unless the <strong>Sass stylesheet debugging</strong> experiment is enabled.</p>
@@ -288,8 +257,10 @@
 
   <h3 id="profiler">Profiler</h3>
 
+
   <h4>Show advanced heap snapshot properties</h4>
   <p></p>
+
 
   <h4>High resolution CPU profiling</h4>
   <p>Enables you to zoom into the graph to view it by a tenth of a millisecond on Flame charts.</p>
@@ -351,7 +322,7 @@
   <p>In addition to adding a file system for your Workspace, you are also able to add file <strong>Mappings</strong> individual file urls to the path of the file on your local machine.</p>
 
 
-  <h2 id="port-forwarding">Port forwarding</h2>
+  <!-- <h2 id="port-forwarding">Port forwarding</h2>
 
   <p><a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=14m45s">Port Forwarding</a> allows you to create a TCP port listener on your device which you can map to a TCP port on your development machine.</p>
 
@@ -365,7 +336,7 @@
 
   <p class="note"><strong>Note:</strong> You must enable this feature in the Settings pane &gt; <a href="#portfowarding">Experiments tab</a> to be able to use it. Once enabled, you will be able to access the Port Forwarding tab in the Settings pane.</p>
 
-  <p>See <a href="/chrome-developer-tools/docs/remote-debugging#reverse-port-forwarding">Reverse Port Forwarding</a> for more information.</p>
+  <p>See <a href="/chrome-developer-tools/docs/remote-debugging#reverse-port-forwarding">Reverse Port Forwarding</a> for more information.</p> -->
 
 
   <h2 id="experiments">Experiments</h2>
@@ -381,7 +352,7 @@
   <p>Once Chrome re-opens, open up the Settings pane &gt; <strong>Experiments tab</strong> that is now available.</p>
 
 
-  <h4 id="native-memory-profiling">Native memory profiling</h4>
+  <!-- <h4 id="native-memory-profiling">Native memory profiling</h4>
   <p>With the <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s">Native memory profiling</a> experiment enabled, two <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s"> additional profiling tools</a> will be available on the Profiles panel which you can use to take <strong>native heap snapshots</strong> and also <strong>capture native memory distribution</strong>.</p>
 
   <p>With these you can get a better understanding of how the render process is consuming memory which may not be within the V8 heap. It lets you know how much memory is used by the major components in your app; <em>CSS, DOM, the render tree, fonts, images, JavaScript heap</em> and so on.</p>
@@ -402,7 +373,6 @@
 
   <p>The DevTools heap profiler tool is helpful for <a href="http://addyosmani.com/blog/taming-the-unicorn-easing-javascript-memory-profiling-in-devtools/">finding memory leaks</a> but it is limited to memory which is allocated in the V8 heap only. The DOM tree may be consuming a lot of memory while the heap remains small. In cases like this the heap profiler will not be very helpful.</p>
 
-
   <h4>Native memory timeline</h4>
   <p>This setting replaces the <strong>DOM counters</strong> view on the Timeline panel when viewing the <strong>Memory</strong> section with a <strong>dynamic memory distribution</strong> graph.
 
@@ -411,7 +381,7 @@
     <img src="settings-files/native-memory-timeline.png">
   </div>
 
-  <p class="note"><strong>Note:</strong> Enabling this feature may have a significant performance impact at the time of writing this, so use with caution.</p>
+  <p class="note"><strong>Note:</strong> Enabling this feature may have a significant performance impact at the time of writing this, so use with caution.</p> -->
 
 
   <h4>Canvas inspection</h4>
@@ -426,7 +396,7 @@
     <li><a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging with Canvas Inspector</a></li>
   </ul>
 
-
+<!--
   <h4>Sass stylesheet debugging</h4>
 
   <p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
@@ -435,35 +405,35 @@
 
   <aside class="note">
     <strong>Note:</strong> In Chrome 30 and later, this setting is no longer experimental. See <a href="#css-source-maps"><b>Enable CSS source maps</b></a> in the <b>General</b> settings.
-  </aside>
+  </aside> -->
 
   <h4>CSS Regions Support</h4>
   <p><a href="http://dev.w3.org/csswg/css3-regions/">CSS Regions</a> allows a block of semantically marked-up text to automatically flow into elements. Turn this setting on to <a href="http://www.html5rocks.com/en/tutorials/regions/adobe/">start making use</a> of this feature.</p>
 
 
-  <h4>Show Overrides in drawer</h4>
+  <!-- <h4>Show Overrides in drawer</h4>
 
   <p>When this is checked the <strong>Overrides tab</strong> will then be accessible by simply clicking on the Settings cog and selecting Overrides from the drawer menu that pops up. When this option is not checked the Overrides tab can be accessed via the Settings pane.</p>
 
   <div class="screenshot">
     <img src="settings-files/overrides-drawer.png">
-  </div>
+  </div> -->
 
 
-  <h4>Enable toolbar customization</h4>
-  <p></p>
+  <!-- <h4>Enable toolbar customization</h4>
+  <p></p> -->
 
 
-  <h4 id="portforwarding">Enable port forwarding</h4>
-  <p>With this setting enabled you will be able to access the Settings pane &gt; <a href="#port-forwarding">Port Forwarding tab</a> which provides to you some extra features that can be especially helpful when developing on mobile devices.</p>
+  <!-- <h4 id="portforwarding">Enable port forwarding</h4>
+  <p>With this setting enabled you will be able to access the Settings pane &gt; <a href="#port-forwarding">Port Forwarding tab</a> which provides to you some extra features that can be especially helpful when developing on mobile devices.</p> -->
 
 
-  <h4>Open console as overlay</h4>
-  <p>When toggling the Console on other panels using the <span class="kbd">Esc</span> shortcut key, this setting will make it overlay on top of other parts of the panel rather than push everything up and decrease the vertical space in the panel. It is especially useful on the Elements panel when the DevTools are <strong>docked-to-right</strong>.</p>
+  <!-- <h4>Open console as overlay</h4>
+  <p>When toggling the Console on other panels using the <span class="kbd">Esc</span> shortcut key, this setting will make it overlay on top of other parts of the panel rather than push everything up and decrease the vertical space in the panel. It is especially useful on the Elements panel when the DevTools are <strong>docked-to-right</strong>.</p> -->
 
 
-  <h4>Enable heap objects tracking profile type</h4>
-  <p>Will add to the Profiles panel and addition tool for <a href="http://www.youtube.com/watch?v=x9Jlu_h_Lyw&t=23m35s">Object allocation tracking</a> within the V8 heap. With this feature you are able see to if any retained <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=24m14s">references to objects</a> not picked up by garbage collection (GC) causing your site to leak memory and become unperformant.</p>
+  <!-- <h4>Enable heap objects tracking profile type</h4>
+  <p>Will add to the Profiles panel and addition tool for <a href="http://www.youtube.com/watch?v=x9Jlu_h_Lyw&t=23m35s">Object allocation tracking</a> within the V8 heap. With this feature you are able see to if any retained <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=24m14s">references to objects</a> not picked up by garbage collection (GC) causing your site to leak memory and become unperformant.</p> -->
 
 
   <h4>Enable text editor autocompletion</h4>
