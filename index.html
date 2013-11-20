@@ -1,138 +1,6 @@
-{% extends "_templates/projectpage_v2.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 
-{# This is the index.html file for your docset's Project Page. #}
-
-{# The "extends" line above imports the standard template file. You must have the /content/en/_templates #}
-{# directory checked out in your client for this to work! Run:  #}
-{# g4 client -a //depot/google3/googledata/devsite/content/en/_templates/... #}
-{# and then 'g4 sync' #}
-
-
-{% block metatags %}
-{# USE THIS BLOCK FOR META TAGS THAT SHOULD APPEAR IN <HEAD> IF ANY. #}
-<meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-<meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
-{% endblock %}
-
-
-
-{% block variables %}
-{# USE THIS BLOCK FOR YOUR VARIABLES, IF ANY. YOU MAY USE 'SETVAR' AND/OR 'INCLUDE' HERE. #}
-{% include "chrome-developer-tools/_local_variables.html" %}
-{% endblock %}
-
-
-
-{% block carouselcontrol %}
-{%setvar carouselenabled %}1{%endsetvar%} {# SETTING THIS VARIABLE TO 0 DISABLES THE CAROUSEL COMPLETELY. #}
-
-{# THE CAROUSEL SHOWS UP TO 5 SLIDES. "1" MEANS ON, "0" MEANS OFF. #}
-{%setvar carousel1enabled%}1{%endsetvar%}
-{%setvar carousel2enabled%}1{%endsetvar%}
-{%setvar carousel3enabled%}1{%endsetvar%}
-{%setvar carousel4enabled%}0{%endsetvar%}
-{%setvar carousel5enabled%}0{%endsetvar%}
-
-{# USE THESE VARIABLES TO CONFIGURE EACH SLIDE YOU ARE USING. IGNORE THE ONES YOU REMOVED FROM ABOVE. #}
-{# link: the page the red button will link to #}
-{# image: the 1128x367 pixel image to display #}
-{# imgalt: alt text for accessibility #}
-{# header: text to overlay in the upper-left #}
-{# summary: (longer) text to overlay in the bottom-left #}
-{# button: text to show on the button, if you don't like "Learn more" #}
-{# darkpic: 0/1 boolean, determines what colour text should be used for the overlays #}
-
-
-{%setvar carousel1link%}/chrome-developer-tools/docs/elements{%endsetvar%}
-{%setvar carousel1image%}/chrome-developer-tools/images/slide8.jpg{%endsetvar%}
-{%setvar carousel1imgalt%}Developer Tools{%endsetvar%}
-{%setvar carousel1header%}Debug the Web.{%endsetvar%}
-{%setvar carousel1summary%}Inspect, debug and optimize Web applications.{%endsetvar%}
-{%setvar carousel1button%}Start now{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
-{%setvar carousel1darkpic%}1{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
-
-{%setvar carousel2link%}http://youtu.be/3pxf3Ju2row?t=28m53s{%endsetvar%}
-{%setvar carousel2image%}/chrome-developer-tools/images/slide3.jpg{%endsetvar%}
-{%setvar carousel2imgalt%}Developer Tools{%endsetvar%}
-{%setvar carousel2header%}Optimize your apps.{%endsetvar%}
-{%setvar carousel2summary%}Get rid of jank, deliver smooth apps.{%endsetvar%}
-{%setvar carousel2button%}Watch video{%endsetvar%}
-{%setvar carousel2darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
-
-{%setvar carousel3link%}/chrome-developer-tools/docs/profiles{%endsetvar%}
-{%setvar carousel3image%}/chrome-developer-tools/images/slide2.jpg{%endsetvar%}
-{%setvar carousel3imgalt%}Developer Tools{%endsetvar%}
-{%setvar carousel3header%}Profile your apps.{%endsetvar%}
-{%setvar carousel3summary%}Profile CPU, memory and CSS.{%endsetvar%}
-{%setvar carousel3button%}Learn more{%endsetvar%}
-{%setvar carousel3darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
-
-{%setvar carousel4link%}/time-travel-stefanoc/guide/forward{%endsetvar%}
-{%setvar carousel4image%}/time-travel-stefanoc/images/slide4.jpg{%endsetvar%}
-{%setvar carousel4imgalt%}White light{%endsetvar%}
-{%setvar carousel4header%}Brilliant!{%endsetvar%}
-{%setvar carousel4summary%}Oh yes! Humans with that little something extra that makes you
-simply <em>brilliant!!</em>{%endsetvar%}
-{%setvar carousel4button%}{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
-{%setvar carousel4darkpic%}0{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
-
-{%setvar carousel5link%}/time-travel-stefanoc/terms{%endsetvar%}
-{%setvar carousel5image%}/time-travel-stefanoc/images/slide5.jpg{%endsetvar%}
-{%setvar carousel5imgalt%}Galaxy{%endsetvar%}
-{%setvar carousel5header%}See the stars.{%endsetvar%}
-{%setvar carousel5summary%}Advanced features let you steer clear of black holes. Unless you're
-into that sort of thing...{%endsetvar%}
-{%setvar carousel5button%}{%endsetvar%} {# DEFAULTS TO "LEARN MORE" #}
-{%setvar carousel5darkpic%}1{%endsetvar%} {# "1" FOR DARK IMAGES, "0" FOR LIGHT IMAGES. #}
-
-{% endblock %}
-
-
-
-{% block features %}
-
-{%setvar featurecolumns%}0{%endsetvar%} {# NUMBER OF COLUMNS FOR UNDER-CAROUSEL PROMOS: 0, 1, 2, 3, OR 4. #}
-
-
-
-{%setvar feature1%}
-{# HTML FOR PROMO BOX 1 (IF USED). MULTI-LINE OK. #}
-<h3>Get up to speed</h3>
-<p>Our new "Discover DevTools" course is live on <a href="http://discover-devtools.codeschool.com/">CodeSchool</a>!<font color="red"><sup> NEW</sup></font></p>
-{%endsetvar%}
-
-
-{%setvar feature2%}
-{# HTML FOR PROMO BOX 2 (IF USED). MULTI-LINE OK. #}
-<h3>Keep informed</h3>
-<p>Read our <a href="/chrome-developer-tools/docs/blog-posts">blogs</a>, browse the <a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">forum</a> or check the Chrome Developers <a href="https://plus.google.com/102860501900098846931/posts">G+</a> page</p>
-{%endsetvar%}
-
-
-{%setvar feature3%}
-{# HTML FOR PROMO BOX 3 (IF USED). MULTI-LINE OK. #}
-<h3>Events</h3>
-<p>API Office Hours are held on the 15th day of every month in 2937. Join us then!</p>
-{%endsetvar%}
-
-{%setvar feature4%}
-{# HTML FOR PROMO BOX 4 (IF USED). MULTI-LINE OK. #}
-<h3>Allons-y!</h3>
-<p>I leave the words scattered throughout time and space. The Bad Wolf API extensions make it possible.</p>
-{%endsetvar%}
-
-<style>
-/*override*/
-body.docs h2 a{
-	text-decoration:none;
-	color:#222;
-}
-body.docs h2 a:visted{
-	color:#222;
-}
-</style>
-<h2>Overview</h2>
+<h1>Overview</h1>
 
 <p>The Chrome Developer Tools (DevTools for short), are a set web authoring and debugging tools
 built into Google Chrome. The DevTools provide web developers deep access into the
@@ -302,7 +170,8 @@ Cookies, AppCache, etc.</p>
 
 <h2>Further reading</h2>
 
-<p>There are several other areas of the DevTools documentation that you might find of benefit to review. These include:</p>
+<p>There are several other areas of the DevTools documentation that you might find of benefit to review.
+These include:</p>
 
 <ul>
 <li><a href="/chrome-developer-tools/docs/heap-profiling">Heap Profiling</a></li>
@@ -366,5 +235,4 @@ tutorial.</p>
   </tr>
 </table>
 
-{% endblock %}
-
+{{/partials.standard_devtools_article}}
