@@ -166,9 +166,6 @@
   <p>Furthermore, showing paint rectangles shows repainted areas for each frame making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
 
 
-  <h4>Force accelerated compositing</h4>
-
-
   <h4>Show composited layer borders</h4>
   <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
 
@@ -201,8 +198,8 @@
     <img src="settings-files/continuous-page-repainting.png">
   </div>
 
-
   <h4>Show potential scroll bottlenecks</h4>
+  <p>Shows area of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled.</p>
 
 
   <h3 id="sources">Sources</h3>
@@ -258,10 +255,6 @@
   <h3 id="profiler">Profiler</h3>
 
 
-  <h4>Show advanced heap snapshot properties</h4>
-  <p></p>
-
-
   <h4>High resolution CPU profiling</h4>
   <p>Enables you to zoom into the graph to view it by a tenth of a millisecond on Flame charts.</p>
 
@@ -281,7 +274,6 @@
   </ul>
 
   <p>Controls the depth of the stack retrieved from the <strong>Timeline Events</strong> that are produced within JavaScript. Most of the time, the overhead associated with collecting the stack is negligible. However, for certain pages with long script URLs and deep call stacks, collecting stacks may skew the performance of the page or result in a very large logs. So you can reduce the performance impact by tweaking the number of stack frames we capture and display with each event.</p>
-
 
   <p class="note"><strong>Note:</strong> Setting the option to <strong>0</strong> will entirely turn off stack sampling.</p>
 
@@ -322,122 +314,6 @@
   <p>In addition to adding a file system for your Workspace, you are also able to add file <strong>Mappings</strong> individual file urls to the path of the file on your local machine.</p>
 
 
-  <!-- <h2 id="port-forwarding">Port forwarding</h2>
-
-  <p><a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=14m45s">Port Forwarding</a> allows you to create a TCP port listener on your device which you can map to a TCP port on your development machine.</p>
-
-  <p><strong>Device port:</strong> <code>8080</code></p>
-
-  <p><strong>Target:</strong> <code>127.0.0.1</code></p>
-
-  <p>Using this feature you are also able to make use of Workspaces and the DevTools editor in Sources while viewing the changes on your device, and all of the DevTools features as well.</p>
-
-  <p>To do this, you simply set the <strong>device port</strong> to the port number you want, and set the <strong>target</strong> to be the host machine's IP address (<em>localhost would be 127.0.0.1</em>). Then on your device, visit <strong>localhost:9000</strong> and you will have access to the DevTools for the device on your local machine.</p>
-
-  <p class="note"><strong>Note:</strong> You must enable this feature in the Settings pane &gt; <a href="#portfowarding">Experiments tab</a> to be able to use it. Once enabled, you will be able to access the Port Forwarding tab in the Settings pane.</p>
-
-  <p>See <a href="/chrome-developer-tools/docs/remote-debugging#reverse-port-forwarding">Reverse Port Forwarding</a> for more information.</p> -->
-
-
-  <h2 id="experiments">Experiments</h2>
-
-  <p class="special"><strong>These are experimental features which are actively developed.</strong> It is entirely possible for them to break because of this. Due to how frequently these features change, any documentation explaining how an experimental feature functions or its usage may not be entirely up-to-date. </p>
-
-  <p>To enable the Experiments tab of the Settings pane you need to navigate to <code>about:flags</code> and scroll down to the <strong>Experimental Developer Tools experiments</strong> flag. Enable it then restart the browser.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/experiments-flag.png">
-  </div>
-
-  <p>Once Chrome re-opens, open up the Settings pane &gt; <strong>Experiments tab</strong> that is now available.</p>
-
-
-  <!-- <h4 id="native-memory-profiling">Native memory profiling</h4>
-  <p>With the <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s">Native memory profiling</a> experiment enabled, two <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s"> additional profiling tools</a> will be available on the Profiles panel which you can use to take <strong>native heap snapshots</strong> and also <strong>capture native memory distribution</strong>.</p>
-
-  <p>With these you can get a better understanding of how the render process is consuming memory which may not be within the V8 heap. It lets you know how much memory is used by the major components in your app; <em>CSS, DOM, the render tree, fonts, images, JavaScript heap</em> and so on.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/native-memory-profiling.png">
-  </div>
-
-  <p>The <strong>native heap snapshot</strong> option works much the same as the regular heap snapshot profiler does only it shows you the native memory heap. This includes anything consuming memory which may not be within the V8 heap (Chrome JavaScript engine).</p>
-
-  <p>Once you <strong>capture the native memory distribution</strong> you can determine what is using a lot of memory whether it is your Page structures or other resources that are being loaded and using memory.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/native-memory-profiles.png">
-  </div>
-
-  <p class="note"><strong>Note:</strong> An additional option to <a href="#uninstrumented-native-memory">Show uninstrumented native memory</a> is added to the main Settings pane when this Experiment is turned on.</p>
-
-  <p>The DevTools heap profiler tool is helpful for <a href="http://addyosmani.com/blog/taming-the-unicorn-easing-javascript-memory-profiling-in-devtools/">finding memory leaks</a> but it is limited to memory which is allocated in the V8 heap only. The DOM tree may be consuming a lot of memory while the heap remains small. In cases like this the heap profiler will not be very helpful.</p>
-
-  <h4>Native memory timeline</h4>
-  <p>This setting replaces the <strong>DOM counters</strong> view on the Timeline panel when viewing the <strong>Memory</strong> section with a <strong>dynamic memory distribution</strong> graph.
-
-
-  <div class="screenshot">
-    <img src="settings-files/native-memory-timeline.png">
-  </div>
-
-  <p class="note"><strong>Note:</strong> Enabling this feature may have a significant performance impact at the time of writing this, so use with caution.</p> -->
-
-
-  <h4>Canvas inspection</h4>
-  <p>Allows you to <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=21m36s">capture a single canvas frame</a> so you can inspect all the draw function calls that are made in during that frame.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/canvas-inspection.png">
-  </div>
-
-  <ul>
-    <li><a href="http://www.youtube.com/watch?v=FY5iiuQRyEE&t=8m23s">Canvas Inspection</a></li>
-    <li><a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging with Canvas Inspector</a></li>
-  </ul>
-
-<!--
-  <h4>Sass stylesheet debugging</h4>
-
-  <p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
-
-  <p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
-
-  <aside class="note">
-    <strong>Note:</strong> In Chrome 30 and later, this setting is no longer experimental. See <a href="#css-source-maps"><b>Enable CSS source maps</b></a> in the <b>General</b> settings.
-  </aside> -->
-
-  <h4>CSS Regions Support</h4>
-  <p><a href="http://dev.w3.org/csswg/css3-regions/">CSS Regions</a> allows a block of semantically marked-up text to automatically flow into elements. Turn this setting on to <a href="http://www.html5rocks.com/en/tutorials/regions/adobe/">start making use</a> of this feature.</p>
-
-
-  <!-- <h4>Show Overrides in drawer</h4>
-
-  <p>When this is checked the <strong>Overrides tab</strong> will then be accessible by simply clicking on the Settings cog and selecting Overrides from the drawer menu that pops up. When this option is not checked the Overrides tab can be accessed via the Settings pane.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/overrides-drawer.png">
-  </div> -->
-
-
-  <!-- <h4>Enable toolbar customization</h4>
-  <p></p> -->
-
-
-  <!-- <h4 id="portforwarding">Enable port forwarding</h4>
-  <p>With this setting enabled you will be able to access the Settings pane &gt; <a href="#port-forwarding">Port Forwarding tab</a> which provides to you some extra features that can be especially helpful when developing on mobile devices.</p> -->
-
-
-  <!-- <h4>Open console as overlay</h4>
-  <p>When toggling the Console on other panels using the <span class="kbd">Esc</span> shortcut key, this setting will make it overlay on top of other parts of the panel rather than push everything up and decrease the vertical space in the panel. It is especially useful on the Elements panel when the DevTools are <strong>docked-to-right</strong>.</p> -->
-
-
-  <!-- <h4>Enable heap objects tracking profile type</h4>
-  <p>Will add to the Profiles panel and addition tool for <a href="http://www.youtube.com/watch?v=x9Jlu_h_Lyw&t=23m35s">Object allocation tracking</a> within the V8 heap. With this feature you are able see to if any retained <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=24m14s">references to objects</a> not picked up by garbage collection (GC) causing your site to leak memory and become unperformant.</p> -->
-
-
-  <h4>Enable text editor autocompletion</h4>
-  <p>When working in the Sources panel use <span class="kbd">Cmd</span> + <span class="kbd">Space</span> to show autocomplete options.</p>
 
   <p class="backtotop"><a href="#top">Back to top</a></p>
 
