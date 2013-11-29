@@ -73,31 +73,31 @@ over USB. Reverse port forwarding requires Chrome 29 or later on the development
 
 <h3>Chrome Beta (M32)</h3>
 
-<p>As of Chrome Beta, the DevTools now support <strong>native USB debugging</strong> of 
-connected devices. You no longer need to configure <a href="/chrome-developer-tools/docs/remote-debugging">ADB</a> or the ADB plugin to see 
-all instances of Chrome and the Chrome-powered <a href="/chrome-developer-tools/docs/remote-debugging#debugging-webviews">WebView</a> on 
+<p>As of Chrome Beta, the DevTools now support <strong>native USB debugging</strong> of
+connected devices. You no longer need to configure <a href="/chrome-developer-tools/docs/remote-debugging">ADB</a> or the ADB plugin to see
+all instances of Chrome and the Chrome-powered <a href="/chrome-developer-tools/docs/remote-debugging#debugging-webviews">WebView</a> on
 devices connected to your system.</p>
 
 <p>You can find connected devices under <code>about:inspect</code></p>
 
-<img src="/chrome-developer-tools/docs/remote-debugging/inspect.png"/> 
+<img src="/chrome-developer-tools/docs/remote-debugging/inspect.png"/>
 
 <p>or via the Chrome hotdog menu > Tools > Inspect Devices:</p>
 
 <img src="/chrome-developer-tools/docs/remote-debugging/tools.png"/>
 
-<p class="note"><strong>Note:</strong> This update applies to both desktop Chrome Beta on Mac as well as 
-ChromeOS. Windows users will need to install  <a href="http://developer.android.com/tools/extras/oem-usb.html">device drivers</a> to enable 
+<p class="note"><strong>Note:</strong> This update applies to both desktop Chrome Beta on Mac as well as
+ChromeOS. Windows users will need to install  <a href="http://developer.android.com/tools/extras/oem-usb.html">device drivers</a> to enable
 communication between their devices.</p>
 
 <h2>Chrome stable (M31)</h2>
 
-<p>In the current Chrome stable, you will still need to enable USB debugging 
+<p>In the current Chrome stable, you will still need to enable USB debugging
 via <code>about:flags</code>. To get this setup:</p>
 
 <p>
 <ul>
-<li>Enable <code>about:flags/#enable-devtools-experiments</code> and <code>about:flags/#remote-debugging-raw-usb</code> flags (depending on your Chrome version, 
+<li>Enable <code>about:flags/#enable-devtools-experiments</code> and <code>about:flags/#remote-debugging-raw-usb</code> flags (depending on your Chrome version,
   you might only need to do the first one).</li>
 <li>Go to <code>about:inspect</code> and plug in your Android phone (with USB Debugging on).</li>
 <li>Open Chrome Beta on your Android smartphone and visit any website.</li>
@@ -106,7 +106,7 @@ via <code>about:flags</code>. To get this setup:</p>
 
 <h3>Older versions of Chrome (M30)</h3>
 
-<p>Older versions of Chrome will still require the ADB Chrome extension in order to 
+<p>Older versions of Chrome will still require the ADB Chrome extension in order to
 remotely debug devices. For more information, read remote debugging with the <a href="#remote-debugging-chrome-extension">ADB Chrome extension</a>.
 
 
@@ -249,10 +249,6 @@ your mobile device from accessing the server, see
 <h2 id="screencast-debugging">Screencast Debugging</h2>
 
 <p><strong>To start screencast:</strong></p>
-
-<ol>
-  <li></li>
-</ol>
 
 <p>
 Open the Hotdog menu in Chrome and go to Tools &gt; Inspect Devices. From here you can see which devices you have plugged in, assuming you have turned on USB debugging on your phone.
