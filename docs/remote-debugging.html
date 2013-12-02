@@ -33,6 +33,11 @@
       <li> <a href="#open-webview"> Open a WebView in DevTools </a> </li>
      </ul>
     </li>
+    <li> <a href="#screencasting">Screencasting your device's screen </a>
+      <ul>
+        <li> <a href="#interacting-with-screencast">Interacting with screencast</a></li>
+      </ul>
+    </li>
     <li> <a href="#reverse-port-forwarding"> Reverse port forwarding (experimental)</a>
      <ul>
       <li> <a href="#connect-your-mobile-device"> 1. Connect your mobile device </a> </li>
@@ -44,7 +49,7 @@
    </ul>
 
 <p class="note"><b>Note</b>: For information on the interaction protocol we use
-for our remote debugging, please see the <a href="/chrome-developer-tools/docs/debugger-protocol">Debugger Protocol</a>
+for our remote debugging, please see the <a href="debugger-protocol">Debugger Protocol</a>
 documentation and <a href="http://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>.</p>
 
 <h2 id="remote-debugging-overview">Remote debugging overview</h2>
@@ -55,7 +60,7 @@ debug, and analyze the on-device experience with the full suite of tools you're
 used to, meaning you can use the Chrome DevTools on your development machine to debug a page on
 your mobile device.</p>
 
-<p><div class="screenshot"><img width="722" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/remote-debug-overview.png"/></div></p>
+<p><div class="screenshot"><img width="722" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="remote-debugging/remote-debug-overview.png"/></div></p>
 
 <p>Debugging occurs over USB and as long as your mobile device is connected to your development
 machine, you can view and change HTML, scripts and styles until you get a bug-free page that
@@ -74,17 +79,17 @@ over USB. Reverse port forwarding requires Chrome 29 or later on the development
 <h3>Chrome Beta (M32)</h3>
 
 <p>As of Chrome Beta, the DevTools now support <strong>native USB debugging</strong> of
-connected devices. You no longer need to configure <a href="/chrome-developer-tools/docs/remote-debugging">ADB</a> or the ADB plugin to see
-all instances of Chrome and the Chrome-powered <a href="/chrome-developer-tools/docs/remote-debugging#debugging-webviews">WebView</a> on
+connected devices. You no longer need to configure <a href="remote-debugging">ADB</a> or the ADB plugin to see
+all instances of Chrome and the Chrome-powered <a href="remote-debugging#debugging-webviews">WebView</a> on
 devices connected to your system.</p>
 
 <p>You can find connected devices under <code>about:inspect</code></p>
 
-<img src="/chrome-developer-tools/docs/remote-debugging/inspect.png"/>
+<img src="remote-debugging/inspect.png"/>
 
 <p>or via the Chrome hotdog menu > Tools > Inspect Devices:</p>
 
-<img src="/chrome-developer-tools/docs/remote-debugging/tools.png"/>
+<img src="remote-debugging/tools.png"/>
 
 <p class="note"><strong>Note:</strong> This update applies to both desktop Chrome Beta on Mac as well as
 ChromeOS. Windows users will need to install  <a href="http://developer.android.com/tools/extras/oem-usb.html">device drivers</a> to enable
@@ -123,7 +128,7 @@ remotely debug devices. For more information, read remote debugging with the <a 
 
 <aside class="note"><strong>Note: </strong> If you are already using the legacy remote debugging workflow, or are
 using an earlier version of Chrome, see
-<a href="/chrome-developer-tools/docs/remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
+<a href="remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
 
 <h3 id="install-adbplugin">1. Install the ADB extension</h3>
 
@@ -136,7 +141,7 @@ using an earlier version of Chrome, see
 <div style="margin-bottom: 1.5em;">
 <!-- <button height="61" class="button button-blue" id="install-button" onclick='chrome.webstore.install("https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage", function(e) { document.getElementById("install-button").innerText = "Extension Installed"; }, function(e) { alert(e); });'>Install ADB Chrome extension</button> -->
 <a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">
-<img style="vertical-align: middle;" alt="Chrome Web Store logo" src="/chrome-developer-tools/docs/remote-debugging/cws.png" /></a>
+<img style="vertical-align: middle;" alt="Chrome Web Store logo" src="remote-debugging/cws.png" /></a>
 <a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">Install the ADB Chrome extension</a>
 </div>
 
@@ -163,7 +168,7 @@ available, go to <strong>Settings > About phone</strong> and tap <strong>Build n
 Return to the previous screen to find <strong>Developer options</strong>.</li>
 </ul>
 
-<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="/chrome-developer-tools/docs/remote-debugging/image_4.png"/></div></p>
+<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="remote-debugging/image_4.png"/></div></p>
 
 <p>If you are developing on Windows, you need to install the appropriate USB driver for your device. See <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">OEM USB Drivers</a> on the Android Developers site.</p>
 
@@ -179,7 +184,7 @@ an alert on the device requesting permission for USB debugging from this compute
 
 </ol>
 
-<div class="screenshot"><img alt="USB debugging permission alert" src="/chrome-developer-tools/docs/remote-debugging/usb-debugging-dialog.png" /></div>
+<div class="screenshot"><img alt="USB debugging permission alert" src="remote-debugging/usb-debugging-dialog.png" /></div>
 
 
 <h3 id="start-debugging-with-adbplugin">4. Start debugging with the ADB extension </h3>
@@ -191,11 +196,11 @@ an alert on the device requesting permission for USB debugging from this compute
 <ol>
 <li><p>Click the Android icon, then click <b>Start ADB</b>.</p>
 
-<p><img class="screenshot" width="149" alt="ADB extension menu" src="/chrome-developer-tools/docs/remote-debugging/adb-plugin-menu.png"/></p>
+<p><img class="screenshot" width="149" alt="ADB extension menu" src="remote-debugging/adb-plugin-menu.png"/></p>
 
 <p>Once ADB has started, the menu icon turns green and displays the number of currently connected devices, if any.</p>
 
-<p><img class="screenshot" width="149" alt="ADB extension menu" src="/chrome-developer-tools/docs/remote-debugging/adb-plugin-menu-active.png"/></p>
+<p><img class="screenshot" width="149" alt="ADB extension menu" src="remote-debugging/adb-plugin-menu-active.png"/></p>
 
 </li>
 <li>Click <b>View Inspection Targets</b> to open the <b>about:inspect</b> page that displays each connected device and its tabs.</li>
@@ -214,18 +219,18 @@ device.</li>
 
 <h3 id="debug-your-app">5. Debug Your Application</h3>
 
-<p><div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="/chrome-developer-tools/docs/remote-debugging/elements-panel.png"/></div></p>
+<p><div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="remote-debugging/elements-panel.png"/></div></p>
 
 <p>For example, inspect an element in the page you have selected and
 the element highlights in Chrome mobile on your device in real time.</p>
 
-<p><div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="/chrome-developer-tools/docs/remote-debugging/image_9.png"/></div></p>
+<p><div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="remote-debugging/image_9.png"/></div></p>
 
 <p>Similarly, editing scripts or executing commands from the DevTools console
 affects the page being inspected on your device. You can also also use all of
 the other panels, such as
-<a href="/chrome-developer-tools/docs/timeline">Timeline</a> and
-<a href="/chrome-developer-tools/docs/profiles">Profiles</a>.</p>
+<a href="timeline">Timeline</a> and
+<a href="profiles">Profiles</a>.</p>
 
 <h3 id="notes">Notes</h3>
 
@@ -238,7 +243,7 @@ device being used.</li>
 network, and view the network waterfall in the Network panel under actual
 network conditions</li>
 <li>The hardware on mobile devices often runs your content much slower, so use the
-<a href="/chrome-developer-tools/docs/timeline">Timeline</a> to analyze how to optimize
+<a href="timeline">Timeline</a> to analyze how to optimize
 rendering and CPU for the best effect.</li>
 <li>If you're running a web server on your development machine, and network restrictions prevent
 your mobile device from accessing the server, see
@@ -246,27 +251,30 @@ your mobile device from accessing the server, see
 </ul>
 
 
-<h2 id="screencast-debugging">Screencast Debugging</h2>
+<h2 id="screencasting">Screencasting your device's screen</h2>
 
-<p><strong>To start screencast:</strong></p>
+<p>intro para</p>
 
-<p>
-Open the Hotdog menu in Chrome and go to Tools &gt; Inspect Devices. From here you can see which devices you have plugged in, assuming you have turned on USB debugging on your phone.
-</p>
 
-<Image of inspect devices>
+<p>Clicking on the screencast icon in the DevTools toolbar <img alt="Screencast" src="remote-debugging/screencast0.png" /> will open a panel on your computer displaying your device's screen. As you navigate, click, scroll, the screencast display will provide a live view of what's on your device. This allows you to keep your attention on one screen instead of switching back and forth between screen and the DevTools.</p>
 
-<p>On your device you will need to be running Chrome 32 (Beta) or later. When you open up Chrome on your phone, you will see on the Inspect Devices page some links below the device details; Inspect, Focus Tab, Reload and Close. There is also an input field you can type a URL into to open up a new tab, too.</p>
+<img alt="" src="remote-debugging/screencast3.png" />
 
-<image of device with chrome 32 open>
+<h3 id="interacting-with-screencast">Interacting with the screencast</h3>
 
-<p>When you click Inspect, it will open up DevTools and you can inspect the page on the device using DevTools on your computer just as you normally would. All of the panels within DevTools work the same way.</p>
+You can interact with the screencast of your device in a number of ways.
 
-<image of screen icon>
+<ul>
+  <li>Type on your machine's keyboard and these keystrokes are sent to the device</li>
+  <li>Scroll (with wheel or trackpad or by clicking and dragging)</li>
+  <li>Inspect ELement by ...</li>
+  <li>Zoom with a simulated pinch gesture with <span class="kbd">Cmd</span> + <span class="kbd">Click with two fingers</span> + <span class="kbd">Drag</span></li>
+</ul>
 
-<p>Clicking on the screen icon will open a panel on your computer displaying the screen that you have open on your device. You can control the page on your computer the same way you do on the device, including typing in URLs, use of the Back and Forward buttons, tapping, and swiping etc. You can use <span class="kbd">Cmd</span> + <span class="kbd">Click with two fingers</span> + <span class="kbd">Drag</span> to pinch for zooming the same as you would on the device.</p>
+<div class="screenshot"><img alt="Screencasting device" src="remote-debugging/screencast1.png" /></div>
 
-<image of screencast open>
+<div class="screenshot"><img alt="Screencasting device orientation" src="remote-debugging/screencast2.png" /></div>
+
 
 
 <h2 id="debugging-webviews">Debugging Android WebViews</h2>
@@ -345,7 +353,7 @@ it doesn't depend on the mobile device's network configuration.</p>
 
 <p>This procedure assumes that you already have remote debugging configured as described in
 <a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or
-<a href="/chrome-developer-tools/docs/remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</p>
+<a href="remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</p>
 
 <h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
 <ol>
