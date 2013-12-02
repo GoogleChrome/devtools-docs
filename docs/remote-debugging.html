@@ -33,7 +33,7 @@
       <li> <a href="#open-webview"> Open a WebView in DevTools </a> </li>
      </ul>
     </li>
-    <li> <a href="#reverse-port-forwarding"> Reverse port forwarding (experimental)</a>
+    <li> <a href="#reverse-port-forwarding"> Reverse port forwarding</a>
      <ul>
       <li> <a href="#connect-your-mobile-device"> 1. Connect your mobile device </a> </li>
       <li> <a href="#enable-reverse-port-forwarding"> 2. Enable reverse port forwarding </a> </li>
@@ -304,23 +304,13 @@ It works by creating a listening TCP port on your mobile device that maps to a p
 port on your development machine. The traffic through the forwarded port travels over USB, so
 it doesn't depend on the mobile device's network configuration.</p>
 
-<p>To use this feature you need:</p>
-
-<p>This procedure assumes that you already have remote debugging configured as described in
-<a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or
-<a href="/chrome-developer-tools/docs/remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</p>
+<p>This procedure assumes that you already have remote debugging configured and working.</p>
 
 <h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
 <ol>
 <li>Connect your device to your development machine over USB.</li>
 <li>Stop all instances of Chrome currently running on the mobile device.</li>
 <li>Open Chrome for Android.</li>
-<li>Start ADB on your development machine:
-<ul>
-<li>If you're using the ADB extension, click the ADB icon and click <b>Start ADB</b>. You should see the icon turn green and display a number indicating the number of devices connected.</li>
-<li>If you're not using the extension, open a terminal and run <kbd>adb devices</kbd>. You should see the IDs of your connected device(s) listed.</li>
-</ul>
-</li>
 </ol>
 
 <h3 id="enable-reverse-port-forwarding">2. Enable port forwarding</h3>
@@ -341,6 +331,9 @@ Perform the following steps on Chrome on your development machine:
 Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to open it on your device's browser.</p>
 
 <p>You should see the content being served by your development machine.</p>
+
+<div class="screenshot"><img style="max-width:722px"  src="http://www.html5rocks.com/en/tutorials/developertools/mobile/portforward.png"/></div>
+
 
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
