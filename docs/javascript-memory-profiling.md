@@ -89,12 +89,15 @@ img{
 }
 </style>
 
-# JavaScript Memory Profiling 
+# JavaScript Memory Profiling
 
-A **memory leak** is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as **leaks** and bloat but they also have to deal with **garbage collection pauses.**  
+A **memory leak** is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as **leaks** and bloat but they also have to deal with **garbage collection pauses.**
 
 Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting_demos) when learning about features to improve your awareness of how the tools work in practice.
 
+<div class="special"><p>Read
+the <a href="/chrome-developer-tools/docs/memory-analysis-101">Memory 101</a> page to become
+familiar with the terms used in this document.</p></div>
 <p class="note"><strong>Note:</strong> Some of these features we will be using are currently only available in <a href="http://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>. We recommend using this version to get the best memory profiling tooling for your applications.</p>
 
 
@@ -116,9 +119,9 @@ In general, there are three questions you will want to answer when you think you
 
 ## Terminology and Fundamentals
 
-This section describes common terms used in **memory analysis**, and is applicable to a variety of memory profiling tools for different languages. The terms and notions described here are used in the Heap Profiler UI and the corresponding documentation. 
+This section describes common terms used in **memory analysis**, and is applicable to a variety of memory profiling tools for different languages. The terms and notions described here are used in the Heap Profiler UI and the corresponding documentation.
 
-It helps to become familiar with these to use the tool effectively. If you have ever worked with either the Java, .NET, or some other memory profiler then this may be a refresher. 
+It helps to become familiar with these to use the tool effectively. If you have ever worked with either the Java, .NET, or some other memory profiler then this may be a refresher.
 
 ### Object sizes
 
@@ -126,7 +129,7 @@ Think of memory as a graph with primitive types (like numbers and strings) and o
 
 <img src="memory-profiling-files/thinkgraph.png"/>
 
-An object can hold memory in two ways: 
+An object can hold memory in two ways:
 
 * Directly by the object itself
 
@@ -141,9 +144,9 @@ When working with the Heap Profiler in DevTools (a tool for investigating memory
 
 This is the size of memory that is held by the object itself.
 
-Typical JavaScript objects have some memory reserved for their description and for storing immediate values. Usually, only arrays and strings can have a significant shallow size. However, strings and external arrays often have their main storage in renderer memory, exposing only a small wrapper object on the JavaScript heap. 
+Typical JavaScript objects have some memory reserved for their description and for storing immediate values. Usually, only arrays and strings can have a significant shallow size. However, strings and external arrays often have their main storage in renderer memory, exposing only a small wrapper object on the JavaScript heap.
 
-Renderer memory is all memory of the process where an inspected page is rendered: native memory + JS heap memory of the page + JS heap memory of all dedicated workers started by the page. Nevertheless, even a small object can hold a large amount of memory indirectly, by preventing other objects from being disposed of by the automatic garbage collection process. 
+Renderer memory is all memory of the process where an inspected page is rendered: native memory + JS heap memory of the page + JS heap memory of all dedicated workers started by the page. Nevertheless, even a small object can hold a large amount of memory indirectly, by preventing other objects from being disposed of by the automatic garbage collection process.
 
 #### Retained size
 
@@ -157,7 +160,7 @@ There are lots of internal GC roots most of which are not interesting for the us
 
 * Document DOM tree consisting of all native DOM nodes reachable by traversing the document. Not all of them may have JS wrappers but if they have the wrappers will be alive while the document is alive.
 
-* Sometimes objects may be retained by debugger context and DevTools console (e.g. after console evaluation). 
+* Sometimes objects may be retained by debugger context and DevTools console (e.g. after console evaluation).
 
 <p class="note"><strong>Note:</strong> We recommend users to do heap snapshots with clear console and no active breakpoints in the debugger.</p>
 
@@ -181,7 +184,7 @@ Later in this guide you will learn how to record a profile using the Heap Profil
 
 ### Dominators
 
-Dominator objects are comprised of a tree structure because each object has exactly one dominator. A dominator of an object may lack direct references to an object it dominates, that is, the dominators tree is not a spanning tree of the graph. 
+Dominator objects are comprised of a tree structure because each object has exactly one dominator. A dominator of an object may lack direct references to an object it dominates, that is, the dominators tree is not a spanning tree of the graph.
 
 <img src="memory-profiling-files/dominatorsspanning.png"/>
 
@@ -219,21 +222,21 @@ They cannot reference other values and are always leafs or terminating nodes.
 
 **Strings** can be stored in either:
 
-* the **VM heap**, or 
+* the **VM heap**, or
 
 * externally in the **renderer’s memory**. A *wrapper object* is created and used for accessing external storage where, for example, script sources and other content that is received from the Web is stored, rather than copied onto the VM heap.
 
-Memory for new JavaScript objects is allocated from a dedicated JavaScript heap (or **VM heap**).These objects are managed by V8's garbage collector and therefore, will stay alive as long as there is at least one strong reference to them. 
+Memory for new JavaScript objects is allocated from a dedicated JavaScript heap (or **VM heap**).These objects are managed by V8's garbage collector and therefore, will stay alive as long as there is at least one strong reference to them.
 
 **Native objects **are everything else which is not in the JavaScript heap. Native object, in contrast to heap object, is not managed by the V8 garbage collector throughout it’s lifetime, and can only be accessed from JavaScript using its JavaScript wrapper object.
 
-**Cons string **is an object that consists of pairs of strings stored then joined, and is a result of concatenation. The joining of the *cons string* contents occurs only as needed. An example would be when a substring of a joined string needs to be constructed. 
+**Cons string **is an object that consists of pairs of strings stored then joined, and is a result of concatenation. The joining of the *cons string* contents occurs only as needed. An example would be when a substring of a joined string needs to be constructed.
 
 For example, if you concatenate **a** and **b**, you get a string (a, b) which represents the result of concatenation. If you later concatenated **d** with that result, you get another cons string ((a, b), d).
 
 **Arrays** - An Array is an Objectwith numeric keys. They are used extensively in the V8 VM for storing large amounts of data. Sets of key-value pairs used like dictionaries are backed up by arrays.
 
-A typical JavaScript object can be one of two array types used for storing: 
+A typical JavaScript object can be one of two array types used for storing:
 
 * named properties, and
 
@@ -245,7 +248,7 @@ In cases where there is a very small number of properties, they can be stored in
 
 #### Object Groups
 
-Each native objects group is made up from objects that hold mutual references to each other. Consider for example a DOM subtree, where every node has a link to its parent and links to the next child and next sibling, thus forming a connected graph. Note that native objects are not represented in the JavaScript heap — that's why they have zero size. Instead, wrapper objects are created. 
+Each native objects group is made up from objects that hold mutual references to each other. Consider for example a DOM subtree, where every node has a link to its parent and links to the next child and next sibling, thus forming a connected graph. Note that native objects are not represented in the JavaScript heap — that's why they have zero size. Instead, wrapper objects are created.
 
 Each wrapper object holds a reference to the corresponding native object, for redirecting commands to it. In its own turn, an object group holds wrapper objects. However, this doesn't create an uncollectable cycle, as GC is smart enough to release object groups whose wrappers are no longer referenced. But forgetting to release a single wrapper will hold the whole group and associated wrappers.
 
@@ -265,15 +268,15 @@ Once open, right-click on the heading area of the columns and enable the JavaScr
 
 The first step in solving any performance problem is having the ability to show proof that the problem exists. This means being able to create a reproducible test that can be used to take a baseline measurement of the problem. Without a reproducible program, you cannot reliably measure the problem. Further, without a baseline measurement, there is no way of knowing that any changes made are improving performance.
 
-The **Timeline panel** is helpful for determining when a problem exists. It gives a complete overview of where time is spent when loading and interacting with your web app or page. All events, from loading resources to parsing JavaScript, calculating styles, garbage collection pauses, and repainting are plotted on a timeline. 
+The **Timeline panel** is helpful for determining when a problem exists. It gives a complete overview of where time is spent when loading and interacting with your web app or page. All events, from loading resources to parsing JavaScript, calculating styles, garbage collection pauses, and repainting are plotted on a timeline.
 
-When investigating memory issues, the Timeline panel’s **Memory view** can be used for tracking: 
+When investigating memory issues, the Timeline panel’s **Memory view** can be used for tracking:
 
 * total allocated memory - is memory usage growing?
 
 * number of DOM nodes
 
-* number of documents and 
+* number of documents and
 
 * the number of event listeners allocated.
 
@@ -287,9 +290,9 @@ When investigating memory issues, the Timeline panel’s **Memory view** can be 
 
 #### **Proving a Problem Exists**
 
-The first thing to do is identify a sequence of actions you suspect is leaking memory. This could be anything from navigating around a site, hovering, clicking, or otherwise somehow interacting with page in a way that seems to negatively impact performance more over time. 
+The first thing to do is identify a sequence of actions you suspect is leaking memory. This could be anything from navigating around a site, hovering, clicking, or otherwise somehow interacting with page in a way that seems to negatively impact performance more over time.
 
-On the Timeline panel start recording (<span class="kbd">Ctrl</span> + <span class="kbd">E</span> or <span class="kbd">Cmd</span> + <span class="kbd">E</span>) and perform the sequence of actions you want to test. To force a full garbage collection click the trash icon (![](memory-profiling-files/image_8.png)) at the bottom. 
+On the Timeline panel start recording (<span class="kbd">Ctrl</span> + <span class="kbd">E</span> or <span class="kbd">Cmd</span> + <span class="kbd">E</span>) and perform the sequence of actions you want to test. To force a full garbage collection click the trash icon (![](memory-profiling-files/image_8.png)) at the bottom.
 
 Below we see a memory leak pattern, where some nodes are not being collected:
 
@@ -309,13 +312,13 @@ Once you’ve confirmed that the problem exists, you can get help identifying th
 
 ### Garbage Collection
 
-A *garbage collector* (such as the one in V8) needs to be able to locate objects in your application which are *live*, as well as, those which are considered *dead* (garbage*)* and are *unreachable*. 
+A *garbage collector* (such as the one in V8) needs to be able to locate objects in your application which are *live*, as well as, those which are considered *dead* (garbage*)* and are *unreachable*.
 
 If **garbage collection** (GC) misses any dead objects due to logical errors in your JavaScript then the memory consumed by these objects cannot be reclaimed. Situations like this can end up slowing down your application over time.
 
 This often happens when you’ve written your code in such a way that variables and event listeners you don’t require are still referenced by some code. While these references are maintained, the objects cannot be correctly cleaned up by GC.
 
-Remember to check and nullify variables that contain references to DOM elements which may be getting updated/destroyed during the lifecycle of your app. Check object properties which may reference other objects (or other DOM elements). Be sure to keep an eye on variable caches which may accumulate over time. 
+Remember to check and nullify variables that contain references to DOM elements which may be getting updated/destroyed during the lifecycle of your app. Check object properties which may reference other objects (or other DOM elements). Be sure to keep an eye on variable caches which may accumulate over time.
 
 ## Heap Profiler
 
@@ -479,7 +482,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/chrome-developer-tools/docs/demos/memory/example8.html">heap allocations</a>. 
+    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/chrome-developer-tools/docs/demos/memory/example8.html">heap allocations</a>.
 </p>
 
 ### Uncovering DOM leaks
@@ -545,7 +548,7 @@ The Dominators view shows the dominators tree for the heap graph. The Dominators
 
 ## Object allocation tracker
 
-The **object tracker** combines the detailed snapshot information of the [heap profiler](#heading=h.xfxcns9xlif4) with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects’ heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis. 
+The **object tracker** combines the detailed snapshot information of the [heap profiler](#heading=h.xfxcns9xlif4) with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects’ heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis.
 
 The object tracker takes heap snapshots periodically throughout the recording (as frequently as every 50 ms!) and one final snapshot at the end of the recording. The heap allocation profile shows where objects are being created and identifies the retaining path.
 
@@ -557,7 +560,7 @@ To begin using the Object Tracker:
 
 1. Make sure you have the latest [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html).
 
-2. Open the Developer Tools and click on the gear icon in the lower right.  
+2. Open the Developer Tools and click on the gear icon in the lower right.
 
 3. Now, open the Profiler panel, you should see a profile called "Record Heap Allocations"
 
@@ -567,7 +570,7 @@ The bars at the top indicate when new objects are found in the heap.  The height
 
 <img src="memory-profiling-files/collected.png"/></a>
 
-In the example above, an action was performed 10 times.  The sample program caches five objects, so the last five blue bars are expected.  But the leftmost blue bar indicates a potential problem. You can then use the sliders in the timeline above to zoom in on that particular snapshot and see the objects that were recently allocated at that point.  
+In the example above, an action was performed 10 times.  The sample program caches five objects, so the last five blue bars are expected.  But the leftmost blue bar indicates a potential problem. You can then use the sliders in the timeline above to zoom in on that particular snapshot and see the objects that were recently allocated at that point.
 
 ![](memory-profiling-files/image_29.png)
 
@@ -760,7 +763,7 @@ There are a number of excellent resources written by the community on finding an
 
 * [JavaScript profiling with the DevTools](http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/)
 
-* [Effective memory management at GMail scale](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) 
+* [Effective memory management at GMail scale](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/)
 
 * [Chrome DevTools Revolutions 2013](http://www.html5rocks.com/en/tutorials/developertools/revolutions2013/)
 

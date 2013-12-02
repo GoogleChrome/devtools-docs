@@ -11,7 +11,3 @@
   * it looks like this ![image](https://f.cloud.github.com/assets/39191/700211/6b936d08-dd3d-11e2-8d4b-19db48d65c56.png)
 * Things mostly work.
 
-
-## Known issues
-
-* no markdown support yet.
