@@ -20,6 +20,7 @@ img {
 <h4><strong>Contents</strong></h4>
 
 <ul>
+<li><a href="#enable-emulation-panel">Enabling the Emulation Panel</a></li>
 <li><a href="#emulate-touch-events">Emulating Touch Events</a></li>
 <li><a href="#emulate-devices">Emulating Devices</a></li>
 <li><a href="#useragent-spoofing">Useragent Spoofing</a></li>
@@ -38,72 +39,22 @@ walk through in this section.</p>
 
 <p class="note"><b>Note</b>: Some of our documentation may be ahead of the stable version of Chrome. If you are unable to locate a feature listed, we recommend trying <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> which contains the latest version of the DevTools.</p>
 
+<h2 id="enable-emulation-panel">Enabling the Emulation Panel</h2>
 
-<h2 id="emulate-touch-events">Emulating Touch Events</h2>
-
-<p>Touch is an input method that's difficult to test on the desktop, since most
-desktops don't have touch input. Having to test on mobile can lengthen your
-development cycle, since every change you make needs to be pushed out to a
-server and then loaded on the device.</p>
-
-<p>A solution to this problem is to simulate touch events on your development
-machine. For single-touches, the Chrome DevTools supports single<a href="http://www.w3.org/TR/touch-events/">
-</a><a href="http://www.w3.org/TR/touch-events/">touch
-event</a> emulation to make it easier to debug
-mobile applications on the desktop.</p>
-
-<p><strong>To enable support for touch event emulation:</strong></p>
+<p><a href="https://www.google.com/intl/en/chrome/browser/canary.html" title="Chrome Canary">Chrome Canary</a> has received a number of improved mobile emulation tools which can be accessed by enabling the Emulation panel through the Settings panel. To enable:</p>
 
 <ol>
-<li>Open the Emulation panel in the DevTools.</li>
-<li>Enable "Emulate touch screen" in the Sensors pane.</li>
+  <li>Open the Settings panel within the DevTools.</li>
+  <li>Enable "Show 'Emulation' view in console drawer."</li>
 </ol>
 
-<div class="screenshot"><img width="480" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"/></img></div>
+<p><div class="screenshot"><img width="330" src="mobile-emulation/enable-emulation.png" alt="Enabling emulation"/></div></p>
 
-<p>Your mouse actions will now also trigger the relevant touch events: <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>.</p>
+<p>Bring up the DevTools console drawer by hitting the <span class="kbd">Esc</span> key and then select the Emulation panel.</p>
 
-<h4>Notes</h4>
+<p><div class="screenshot"><img width="468" src="mobile-emulation/emulation-panel.png" alt="Emulation panel"/></div></p>
 
-<ul>
-<li>Feature detects such as <code><a href="http://modernizr.com">Modernizr.touch</a></code> will now
-succeed on page refresh.</li>
-<li>This feature, like many other overrides, will only work while the DevTools are open.</li>
-<li>The cursor will change to a small circle to emulate a fingertip size.</li>
-<li>Use <span class="kbd">Shift</span> + Drag to emulate a "pinch".</li>
-<li>Enabling "Emulate touch screen" does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>, touch is another option we can debug with.</li>
-<li>On click, the order of events fired is currently: <code>touchstart > mousedown > touchmove > touchend > mouseup > click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</li>
-<li><code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
-</ul>
-
-
-<p><strong>Debugging touch events</strong></p>
-
-<ol>
-<li>Open up the<a href="http://paulirish.com/demo/multi"> </a><a href="http://paulirish.com/demo/multi">Canvas Fingerpaint
-Demo</a></li>
-<li>Navigate to the Sources panel</li>
-<li>Expand the "Event Listener Breakpoints" sub-panel</li>
-<li>Check the "touchstart" and "touchmove" events under "Touch"</li>
-<li>Move your cursor over the paint area</li>
-<li>The debugger should successfully pause on the <span class=
-  "source-code">draw()</span> method</li>
-</ol>
-
-
-<p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
-
-You may also monitor touch events as they fire on an element in the console. Use <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
-
-<pre class="prettyprint"><code>monitorEvents(document.body, 'touch')</code></pre>
-
-
-<p><strong>Multi-touch</strong></p>
-
-<p>Multi-touch events can be simulated if you have a device with touch input, such
-as a modern Apple MacBook. For further assistance with multi-touch event
-simulation, see the "Developer tools" chapter of the <a href="http://www.html5rocks.com/en/mobile/touch/"><b>Multi-touch web
-development</b> guide on HTML5 Rocks</a>.</p>
+<p class="note"><b>Note</b>: Emulation tools within DevTools were previously contained within an <strong>Overrides</strong> pane inside the Settings panel. The Emulation panel is the new Overrides pane.</p>
 
 
 
@@ -149,15 +100,74 @@ make this process more straightforward.</p>
 <li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
 <li>Device settings can be configured independently of a device preset.</li>
 <li>If you would like to contribute patches to support new device presets, please see our <a href="contributing">contribution docs</a>.</li>
-<li>Currently, setting device metrics will not emulate the behavior specified in a <code>&lt;meta name="viewport"></code> tag or (<code>@viewport { … }</code> rule). You can run Chrome with additional <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">flags</a> to emulate mobile viewport behavior:</li>
+
+<h2 id="emulate-touch-events">Emulating Touch Events</h2>
+
+<p>Touch is an input method that's difficult to test on the desktop, since most
+desktops don't have touch input. Having to test on mobile can lengthen your
+development cycle, since every change you make needs to be pushed out to a
+server and then loaded on the device.</p>
+
+<p>A solution to this problem is to simulate touch events on your development
+machine. For single-touches, the Chrome DevTools supports single<a href="http://www.w3.org/TR/touch-events/">
+</a><a href="http://www.w3.org/TR/touch-events/">touch
+event</a> emulation to make it easier to debug
+mobile applications on the desktop.</p>
+
+<p><strong>To enable support for touch event emulation:</strong></p>
+
+<ol>
+<li>Open the Emulation panel in the DevTools.</li>
+<li>Enable "Emulate touch screen" in the Sensors pane.</li>
+</ol>
+
+<div class="screenshot"><img width="480" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"/></img></div>
+
+<p>Your mouse actions will now also trigger the relevant touch events: <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>.</p>
+
+<h4>Notes</h4>
+
+<ul>
+<li>Feature detects such as <code><a href="http://modernizr.com">Modernizr.touch</a></code> will now
+succeed on page refresh.</li>
+<li>This feature, like many other overrides, will only work while the DevTools are open.</li>
+<li>The cursor will change to a small circle to emulate a fingertip size.</li>
+<li>Use <span class="kbd">Shift</span> + Drag to emulate a "pinch".</li>
+<li>Enabling "Emulate touch screen" does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>, touch is another option we can debug with.</li>
+<li>On click, the order of events fired is currently: <code>touchstart > mousedown > touchmove > touchend > mouseup > click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</li>
+<li><code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
 </ul>
 
-<pre class="prettyprint"><code>Chrome --force-compositing-mode --enable-threaded-compositing --enable-pinch --enable-viewport --enable-fixed-layout
-</code></pre>
+<div class="screenshot"><img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/></img></div>
 
-With these flags set, viewport settings will be honored. (<a href="http://source.tutsplus.com/webdesign/tutorials/037_new-viewport/viewport/no-metatag.html">page without viewport</a>, <a href="http://source.tutsplus.com/webdesign/tutorials/037_new-viewport/viewport/index.html">page with viewport</a>):
+<p><strong>Debugging touch events</strong></p>
 
-<p><div class="screenshot"><img width="550" src="mobile-emulation/viewporttag.png" alt="Viewport Overrides"/></div></p>
+<ol>
+<li>Open up the<a href="http://paulirish.com/demo/multi"> </a><a href="http://paulirish.com/demo/multi">Canvas Fingerpaint
+Demo</a></li>
+<li>Navigate to the Sources panel</li>
+<li>Expand the "Event Listener Breakpoints" sub-panel</li>
+<li>Check the "touchstart" and "touchmove" events under "Touch"</li>
+<li>Move your cursor over the paint area</li>
+<li>The debugger should successfully pause on the <span class=
+  "source-code">draw()</span> method</li>
+</ol>
+
+
+<p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
+
+You may also monitor touch events as they fire on an element in the console. Use <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
+
+<pre class="prettyprint"><code>monitorEvents(document.body, 'touch')</code></pre>
+
+
+<p><strong>Multi-touch</strong></p>
+
+<p>Multi-touch events can be simulated if you have a device with touch input, such
+as a modern Apple MacBook. For further assistance with multi-touch event
+simulation, see the "Developer tools" chapter of the <a href="http://www.html5rocks.com/en/mobile/touch/"><b>Multi-touch web
+development</b> guide on HTML5 Rocks</a>.</p>
+
 
 
 <h2 id="useragent-spoofing">Useragent Spoofing</h2>
