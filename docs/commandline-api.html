@@ -2,7 +2,7 @@
 
 <h1>Command Line API Reference</h1>
 
-<p>The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the <a href="console-api">Console API</a>, the Command Line API is only available from within the console itself.</p>
+<p>The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the <a href="console-api.html">Console API</a>, the Command Line API is only available from within the console itself.</p>
 
 
 <h2>$_</h2>
@@ -70,7 +70,7 @@ for (each in images) {
 <pre><code>clear();
 </code></pre>
 
-<p>Also see <a href="console#clearing_the_console_history">Clearing the console</a>.</p>
+<p>Also see <a href="console.html#clearing_the_console_history">Clearing the console</a>.</p>
 
 <h2>copy(object)</h2>
 
@@ -81,7 +81,7 @@ for (each in images) {
 
 <h2>dir(object)</h2>
 
-<p>Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's <a href="console-api#consoledirobject"><code>console.dir()</code></a> method.</p>
+<p>Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's <a href="console-api.html#consoledirobject"><code>console.dir()</code></a> method.</p>
 
 <p>The following example shows the difference between evaluating <code>document.body</code> directly in the command line, and using <code>dir()</code> to display the same element.</p>
 
@@ -91,11 +91,11 @@ dir(document.body);
 
 <p><img src="commandline-api-files/document.body.png" alt="Logging document.body with and without dir() function" /></p>
 
-<p>For more information, see the <a href="console-api#consoledirobject"><code>console.dir()</code></a> entry in the Console API.</p>
+<p>For more information, see the <a href="console-api.html#consoledirobject"><code>console.dir()</code></a> entry in the Console API.</p>
 
 <h2>dirxml(object)</h2>
 
-<p>Prints an XML representation of the specified object, as seen in the Elements tab. This method is equivalent to the <a href="console-api#consoledirxmlobject"><code>console.dirxml()</code></a> method.</p>
+<p>Prints an XML representation of the specified object, as seen in the Elements tab. This method is equivalent to the <a href="console-api.html#consoledirxmlobject"><code>console.dirxml()</code></a> method.</p>
 
 <h2>inspect(object)</h2>
 
@@ -191,7 +191,7 @@ dir(document.body);
 <pre><code>profileEnd("My profile")
 </code></pre>
 
-<p>For more examples, see <a href="console#controlling_the_cpu_profiler">Controlling the CPU profiler</a>.</p>
+<p>For more examples, see <a href="console.html#controlling_the_cpu_profiler">Controlling the CPU profiler</a>.</p>
 
 <h2>profileEnd([name])</h2>
 
@@ -210,7 +210,7 @@ dir(document.body);
 unmonitorEvents($0, "mousemove");
 </code></pre>
 
-<p>Also see <a href="console#monitoring_events">Monitoring events</a>.</p>
+<p>Also see <a href="console.html#monitoring_events">Monitoring events</a>.</p>
 
 <h2>values(object)</h2>
 

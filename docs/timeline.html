@@ -61,7 +61,7 @@ details for a Finish Loading record associated with an image resource. The <a hr
 
 <p><img src="timeline-images/image02.png" alt="" /></p>
 
-<p>See <a href="/chrome-developer-tools/docs/demos/too-much-layout/">Timeline demo: Diagnosing and fixing forced synchronous
+<p>See <a href="demos/too-much-layout/.html">Timeline demo: Diagnosing and fixing forced synchronous
 layout</a> for a demonstration of using Frames mode.</p>
 
 <h4>About clear or light-gray frames</h4>
@@ -101,7 +101,7 @@ haven’t been garbage collected).</p>
 
 <p><img src="timeline-images/image20.png" alt="" /></p>
 
-<p>Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling">Heap
+<p>Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the <a href="heap-profiling.html">Heap
 Profiler</a> to identify the specific code that is causing the leak.</p>
 
 <h3>Making a recording</h3>
@@ -204,7 +204,7 @@ appears with additional information about the event.</p>
 
 <p><img src="timeline-images/forced-layout-expand.png" alt="" /></p>
 
-<p>See the <a href="/chrome-developer-tools/docs/demos/too-much-layout">Forced Synchronous Layout
+<p>See the <a href="demos/too-much-layout.html">Forced Synchronous Layout
 demo</a> for a demonstration
 of detecting and fixing these kinds of performance issues.</p>
 
@@ -312,10 +312,10 @@ of detecting and fixing these kinds of performance issues.</p>
 <h3>User-produced Timeline events</h3>
 
 <p>Applications can add their own events to Timeline recordings. You can use the
-<a href="console-api#consoletimestamplabel">console.timeStamp()</a> method to add an atomic event to a recording, or the
-<a href="console-api#consoletimelabel">console.time()</a> and
-<a href="console-api#consoletimeendlabel">console.timeEnd()</a> methods
-to mark a range of time that code was executing. For example, in the following recording the <code>console.timeStamp()</code> was used to display an "Adding result" event. See <a href="console#marking_the_timeline">Marking the Timeline</a> in
+<a href="console.html-api.html#consoletimestamplabel">console.timeStamp()</a> method to add an atomic event to a recording, or the
+<a href="console-api.html#consoletimelabel">console.time()</a> and
+<a href="console-api.html#consoletimeendlabel">console.timeEnd()</a> methods
+to mark a range of time that code was executing. For example, in the following recording the <code>console.timeStamp()</code> was used to display an "Adding result" event. See <a href="console.html#marking_the_timeline">Marking the Timeline</a> in
 <a href="console">Using the Console</a> for more information.</p>
 
 <p><img src="timeline-images/adding-result.png" alt="" /></p>
@@ -475,12 +475,12 @@ to mark a range of time that code was executing. For example, in the following r
     </tr>
     <tr>
         <td>Time</td>
-        <td>A script called <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel">console.time()</a>)</td>
+        <td>A script called <a href="console-api.html#consoletimelabel">console.time()</a>)</td>
     </tr>
     <tr>
         <td>Time End</td>
         <td>A script called
-<a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel">console.timeEnd()</a></td>
+<a href="console-api.html#consoletimeendlabel">console.timeEnd()</a></td>
     </tr>
     <tr>
         <td>Timer Fired</td>

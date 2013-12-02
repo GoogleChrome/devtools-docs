@@ -16,7 +16,7 @@ this protocol, there are ways for third parties to bypass it and start
 instrumenting browser pages explicitly. We will describe the ways it could be
 done below.</p>
 
-<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="/chrome-developer-tools/docs/remote-debugging">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
+<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
 
 <h2 id="protocol">Protocol</h2>
 <p>Interaction protocol consists of JSON commands that are sent to the page and
@@ -26,13 +26,13 @@ events that the page is generating. We define this protocol in Blink
 <p>
 <ul>
   <li>As of Google Chrome M31, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/1.1/index">1.1</a> of the protocol. All
+<a href="protocol/1.1/index.html">1.1</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
   <li>As of Google Chrome M18, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/1.0/index">1.0</a> of the protocol. All
+<a href="protocol/1.0/index.html">1.0</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.0.</li>
   <li>As of Google Chrome M16, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/0.1/index">0.1</a> of the protocol. All
+<a href="protocol/0.1/index.html">0.1</a> of the protocol. All
 subsequent 0.* versions of the protocol are going to be backwards compatible with 0.1.</li>
 </li>
 </ul>
@@ -46,7 +46,7 @@ Protocol backwards compatibility is defined as follows:
 </ul>
 </p>
 
-<p>There also is a <a href="/chrome-developer-tools/docs/protocol/tot/index">tip-of-tree</a> version of the
+<p>There also is a <a href="protocol/tot/index.html">tip-of-tree</a> version of the
 protocol that reflects present state of the protocol in Blink repository. You can
 use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
 builds at your own risk. Note that unless tip of the tree revision is promoted to the

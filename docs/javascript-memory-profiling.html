@@ -164,7 +164,7 @@ Each wrapper object holds a reference to the corresponding native object, for re
 
 <h3> Chrome Task Manager</h3>
 
-<p class="note"><strong>Note:</strong> When profiling memory issues in Chrome, it is a good idea to setup a <a href="https://developers.google.com/chrome-developer-tools/docs/clean-testing-environment">clean-room testing environment</a>.</p>
+<p class="note"><strong>Note:</strong> When profiling memory issues in Chrome, it is a good idea to setup a <a href="clean-testing-environment.html">clean-room testing environment</a>.</p>
 
 Using the Chrome Task Manager you can quickly see if a page is consuming a lot of memory by monitoring the memory columns while performing actions that may be causing this to happen. The Task Manager is accessed from the Chrome menu > Tools or by pressing <span class="kbd">Shift</span> + <span class="kbd">Esc</span>.
 
@@ -214,7 +214,7 @@ Once you've confirmed that the problem exists, you can get help identifying the 
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example1.html">memory growth</a> where you can practice how to effectively use Timeline memory mode.
+    Try out this example of <a href="demos/memory/example1.html">memory growth</a> where you can practice how to effectively use Timeline memory mode.
 </p>
 
 <h3>Garbage Collection</h3>
@@ -237,13 +237,13 @@ Once you've confirmed that the problem exists, you can get help identifying the 
 
 <hr />
 
-<p>Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the <a href="https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#retaining_paths">reachable</a> JavaScript objects:</p>
+<p>Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript objects:</p>
 
 <p><img src="memory-profiling-files/image_12.png" alt="" /></p>
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example2.html">garbage collection in action</a> and monitor memory usage in the Timeline.
+    Try out this example of <a href="demos/memory/example2.html">garbage collection in action</a> and monitor memory usage in the Timeline.
 </p>
 
 <h3>Clearing snapshots</h3>
@@ -258,7 +258,7 @@ Remember that we mentioned earlier you can force GC from the DevTools as part of
 
 <p><img src="memory-profiling-files/force.png"/></p>
 
-<p class="note"><strong>Example:</strong> Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example3.html">scattered objects</a> and profile it using the Heap Profiler. You should see a number of (object) item allocations.</p>
+<p class="note"><strong>Example:</strong> Try out this example of <a href="demos/memory/example3.html">scattered objects</a> and profile it using the Heap Profiler. You should see a number of (object) item allocations.</p>
 
 <h3> Switching between snapshot views</h3>
 
@@ -274,7 +274,7 @@ There are three default views:
 </li><br/>
 <li><strong>Containment &mdash; </strong>allows exploration of heap contents;
 </li><br/></ul>
-The <strong>Dominators </strong>view, which can be enabled via the Settings panel - shows the <a href ="https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#dominators">dominators tree</a> and can be useful to find accumulation points.
+The <strong>Dominators </strong>view, which can be enabled via the Settings panel - shows the <a href ="memory-analysis-101.html#dominators">dominators tree</a> and can be useful to find accumulation points.
 
 <h3> Looking up color coding</h3>
 
@@ -305,7 +305,7 @@ Top-level entries are "total" lines. They display:
 </li><br/>
 <li>the <strong>number of object instances</strong> is displayed in the # column
 </li><br/>
-<li>the <strong>Shallow size</strong> column displays the sum of <a href ="https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes">shallow sizes</a> of all objects created by a certain constructor function
+<li>the <strong>Shallow size</strong> column displays the sum of <a href ="memory-analysis-101.html#object_sizes">shallow sizes</a> of all objects created by a certain constructor function
 </li><br/>
 <li>the <strong>Retained size</strong> column displays the maximum retained size among the same set of objects
 </li><br/>
@@ -313,7 +313,7 @@ Top-level entries are "total" lines. They display:
 </li><br/></ul>
 After expanding a total line in the upper view, all of its instances are displayed. For each instance, its shallow and retained sizes are displayed in the corresponding columns. The number after the @ character is the objects' unique ID, allowing you to compare heap snapshots on per-object basis.
 
-<p class="note"><strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary">demo page</a> (opens in a new tab) to understand how the Summary view can be used.</p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-summary.html">demo page</a> (opens in a new tab) to understand how the Summary view can be used.</p>
 
 Remember that yellow objects have JavaScript references on them and red objects are detached nodes which are referenced from one with a yellow background.
 
@@ -333,7 +333,7 @@ In the Comparison view, the difference between two snapshots is displayed. When 
 
 <p><img src ="memory-profiling-files/image_21.png"/></p>
 
-<p class="note"><strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison">demo page</a> (opens in a new tab) to get an idea how to use snapshot comparison for detecting leaks.</p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-comparison.html">demo page</a> (opens in a new tab) to get an idea how to use snapshot comparison for detecting leaks.</p>
 
 <h3> Containment view</h3>
 
@@ -353,7 +353,7 @@ Below is the example of a populated Containment view:
 <p><img src ="memory-profiling-files/image_22.png"/></p>
 
 <p class="note">
-  <strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment">demo page</a> (opens in a new tab) for finding out how to explore closures and event handlers using the view.
+  <strong>Example:</strong> Try this <a href="heap-profiling-containment.html">demo page</a> (opens in a new tab) for finding out how to explore closures and event handlers using the view.
 </p>
 
 <p><strong>A tip about closures</strong></p>
@@ -390,7 +390,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/chrome-developer-tools/docs/demos/memory/example8.html">heap allocations</a>. 
+    Try out this example of <a href="demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="demos/memory/example8.html">heap allocations</a>. 
 </p>
 
 <h3>Uncovering DOM leaks</h3>
@@ -423,7 +423,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/chrome-developer-tools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
+    Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="demos/memory/example9.html">DOM leaks being bigger than expected</a>.
 </p>
 
 <div class="drop-shadow extdoc">
@@ -438,7 +438,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Example:</strong>
-    Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks">demo</a> (opens in a new tab) to play with detached DOM trees.
+    Try this <a href="heap-profiling-dom-leaks.html">demo</a> (opens in a new tab) to play with detached DOM trees.
 </p>
 
 <h3>Dominators view</h3>
@@ -451,7 +451,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/chrome-developer-tools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
+    Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="demos/memory/example10.html">retaining paths and dominators</a>.
 </p>
 
 <h2>Object allocation tracker</h2>
@@ -549,7 +549,7 @@ An animation of where detached nodes fit into the overall picture can be seen be
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example4.html">detached nodes</a> where you can watch node evolution in the Timeline then take heap snapshots to find detached nodes.
+    Try out this example of <a href="demos/memory/example4.html">detached nodes</a> where you can watch node evolution in the Timeline then take heap snapshots to find detached nodes.
 </p>
 
 <p><strong>Q: What do the Shallow and Retained Size columns represent and what are the differences between them?</strong></p>
@@ -650,11 +650,11 @@ expected</a></li>
 <p>Additional demos are available for:</p>
 
 <ul>
-<li><p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary">Gathering scattered objects</a></p></li>
-<li><p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison">Verifying action cleanness</a></p></li>
-<li><p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment">Exploring the heap contents</a></p></li>
-<li><p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks">Uncovering DOM leaks</a></p></li>
-<li><p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators">Finding accumulation points</a></p></li>
+<li><p><a href="heap-profiling-summary.html">Gathering scattered objects</a></p></li>
+<li><p><a href="heap-profiling-comparison.html">Verifying action cleanness</a></p></li>
+<li><p><a href="heap-profiling-containment.html">Exploring the heap contents</a></p></li>
+<li><p><a href="heap-profiling-dom-leaks.html">Uncovering DOM leaks</a></p></li>
+<li><p><a href="heap-profiling-dominators.html">Finding accumulation points</a></p></li>
 </ul>
 
 <h2>Community Resources</h2>

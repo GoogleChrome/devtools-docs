@@ -5,8 +5,8 @@
 <p>The JavaScript Console provides two primary functions for developers  testing web pages and applications:</p>
 
 <ul>
-<li>A place to log diagnostic information using methods provided by the <a href="console-api">Console API</a>, such as <a href="console-api#consolelogobject_object">console.log()</a>, or <a href="console-api#consoleprofilelabel">console.profile()</a>.</li>
-<li>A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the <a href="commandline-api">Command Line API</a>, such as <a href="commandline-api#selector">$()</a> command for selecting elements, or <a href="commandline-api#profile">profile()</a> to start the CPU profiler.</li>
+<li>A place to log diagnostic information using methods provided by the <a href="console-api.html.html">Console API</a>, such as <a href="console-api.html#consolelogobject_object">console.log()</a>, or <a href="console-api.html#consoleprofilelabel">console.profile()</a>.</li>
+<li>A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the <a href="commandline-api.html.html.html">Command Line API</a>, such as <a href="commandline-api.html#selector">$()</a> command for selecting elements, or <a href="commandline-api.html#profile">profile()</a> to start the CPU profiler.</li>
 </ul>
 
 <p>This documentation provides an overview and common uses of these two APIs. You can also browse the <a href="console-api">Console API</a> and <a href="commandline-api">Command Line API</a> reference guides.</p>
@@ -37,8 +37,8 @@
 
 <ul>
 <li>Right-click or Ctrl-click anywhere in the Console and choose <strong>Clear Console</strong> from the context menu that appears.</li>
-<li>Enter the <a href="commandline-api#clear"><strong>clear()</strong></a> Command Line API at the shell prompt.</li>
-<li>Invoke <a href="console-api#consoleclear"><strong>console.clear()</strong></a> Console API from JavaScript.</li>
+<li>Enter the <a href="commandline-api.html#clear"><strong>clear()</strong></a> Command Line API at the shell prompt.</li>
+<li>Invoke <a href="console-api.html#consoleclear"><strong>console.clear()</strong></a> Console API from JavaScript.</li>
 <li>Use the keyboard shortcut <strong>⌘K</strong> or <strong>⌃L</strong> (Mac) <strong>Control - L</strong> (Windows and Linux).</li>
 </ul>
 
@@ -63,7 +63,7 @@
 
 <h3>Writing to the console</h3>
 
-<p>The <a href="console-api#consolelogobject_object">console.log()</a> method takes one or more expressions as parameters and writes their current values to the console. For example:</p>
+<p>The <a href="console-api.html#consolelogobject_object">console.log()</a> method takes one or more expressions as parameters and writes their current values to the console. For example:</p>
 
 <pre><code>var a = document.createElement('p');
 a.appendChild(document.createTextNode('foo'));
@@ -82,7 +82,7 @@ console.log("Node count: " + a.childNodes.length);
 
 <h3>Errors and warnings</h3>
 
-<p>The <a href="console-api#consoleerrorobject_object"><code>console.error()</code></a> method displays a red icon along with the message text, which is colored red.</p>
+<p>The <a href="console-api.html#consoleerrorobject_object"><code>console.error()</code></a> method displays a red icon along with the message text, which is colored red.</p>
 
 <pre><code>function connectToServer() {
     console.error("Error: %s (%i)", "Server is  not responding",500);
@@ -92,7 +92,7 @@ connectToServer();
 
 <p><img src="console-files/error-server-not-resp.png" alt="" /></p>
 
-<p>The <a href="console-api#consolewarnobject_object"><code>console.warn()</code></a> method displays a yellow warning icon with the message text.</p>
+<p>The <a href="console-api.html#consolewarnobject_object"><code>console.warn()</code></a> method displays a yellow warning icon with the message text.</p>
 
 <pre><code>if(a.childNodes.length &lt; 3 ) {
     console.warn('Warning! Too few nodes (%d)', a.childNodes.length);
@@ -103,7 +103,7 @@ connectToServer();
 
 <h3>Assertions</h3>
 
-<p>The <a href="console-api#consoleassertexpression_object"><code>console.assert()</code></a> method conditionally displays an error string (its second parameter) only if its first parameter evaluates to <code>false</code>. For instance, in the following example an error message is written to the console only if the number of child nodes belonging to the <code>list</code> element is greater than 500.</p>
+<p>The <a href="console-api.html#consoleassertexpression_object"><code>console.assert()</code></a> method conditionally displays an error string (its second parameter) only if its first parameter evaluates to <code>false</code>. For instance, in the following example an error message is written to the console only if the number of child nodes belonging to the <code>list</code> element is greater than 500.</p>
 
 <pre><code>console.assert(list.childNodes.length &lt; 500, "Node count is &gt; 500");
 </code></pre>
@@ -128,7 +128,7 @@ connectToServer();
 
 <h3>Grouping output</h3>
 
-<p>You can visually group related console output statements together in the console with the <a href="console-api#consolegroupobject_object"><code>console.group()</code></a> and <a href="console-api#consolegroupend"><code>groupEnd()</code></a> commands.</p>
+<p>You can visually group related console output statements together in the console with the <a href="console-api.html#consolegroupobject_object"><code>console.group()</code></a> and <a href="console-api.html#consolegroupend"><code>groupEnd()</code></a> commands.</p>
 
 <pre><code>var user = "jsmith", authenticated = false;
 console.group("Authentication phase");
@@ -164,7 +164,7 @@ console.log("A group-less log trace.");
 
 <p><img src="console-files/nestedgroup.png" alt="Nested logging group example" /></p>
 
-<p>To create a group that is initially collapsed, use <a href="console-api#consolegroupcollapsed"><code>console.groupCollapsed()</code></a> instead of <code>console.group()</code>, as shown below:</p>
+<p>To create a group that is initially collapsed, use <a href="console-api.html#consolegroupcollapsed"><code>console.groupCollapsed()</code></a> instead of <code>console.group()</code>, as shown below:</p>
 
 <pre><code>console.groupCollapsed("Authenticating user '%s'", user);
 if (authenticated) {
@@ -235,7 +235,7 @@ if (authenticated) {
 
 <h3>Measuring how long something takes</h3>
 
-<p>You can use the <a href="console-api#consoletimelabel"><code>console.time()</code></a> and <a href="console-api#consoletimeendlabel"><code>console.timeEnd()</code></a> methods to measure how long a function or operation in your code takes to complete. You call <code>console.time()</code> at the point in your code where you want to start the timer and <code>console.timeEnd()</code> to stop the timer. The elapsed time between these two calls is displayed in the console.</p>
+<p>You can use the <a href="console-api.html#consoletimelabel"><code>console.time()</code></a> and <a href="console-api.html#consoletimeendlabel"><code>console.timeEnd()</code></a> methods to measure how long a function or operation in your code takes to complete. You call <code>console.time()</code> at the point in your code where you want to start the timer and <code>console.timeEnd()</code> to stop the timer. The elapsed time between these two calls is displayed in the console.</p>
 
 <pre><code>console.time("Array initialize");
 var array= new Array(1000000);
@@ -251,7 +251,7 @@ console.timeEnd("Array initialize");
 
 <h3>Marking the Timeline</h3>
 
-<p>The <a href="timeline">Timeline panel</a> gives you a complete overview of where time is spent when loading and using your web app or page. The <a href="console-api#consoletimestamplabel"><code>console.timeStamp()</code></a> method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.</p>
+<p>The <a href="timeline.html">Timeline panel</a> gives you a complete overview of where time is spent when loading and using your web app or page. The <a href="console-api.html#consoletimestamplabel"><code>console.timeStamp()</code></a> method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.</p>
 
 <p>Note: The <code>console.timeStamp()</code> method only functions while a Timeline recording is in progress.</p>
 
@@ -276,7 +276,7 @@ console.timeEnd("Array initialize");
 
 <h3>Setting breakpoints in JavaScript</h3>
 
-<p>You can start a debugging session from your JavaScript code by calling the <a href="console-api#debugger"><code>debugger</code></a> command. For instance, in the following example the JavaScript debugger is opened when an object's <code>brightness()</code> function is invoked:</p>
+<p>You can start a debugging session from your JavaScript code by calling the <a href="console-api.html#debugger"><code>debugger</code></a> command. For instance, in the following example the JavaScript debugger is opened when an object's <code>brightness()</code> function is invoked:</p>
 
 <pre><code>brightness : function() {
     debugger;
@@ -317,30 +317,30 @@ An interesting technique of using conditional breakpoints was explored by Brian 
 
 <h3>Selecting elements</h3>
 
-<p>The Command Line API provides several methods to access DOM elements in your application. For example, the <a href="commandline-api#selector"><strong><code>$()</code></strong></a> method returns the first element that matches the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelector"><code>document.querySelector()</code></a>. For instance, the following code returns the element with the ID "loginBtn".</p>
+<p>The Command Line API provides several methods to access DOM elements in your application. For example, the <a href="commandline-api.html#selector"><strong><code>$()</code></strong></a> method returns the first element that matches the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelector"><code>document.querySelector()</code></a>. For instance, the following code returns the element with the ID "loginBtn".</p>
 
 <pre><code>$('#loginBtn');
 </code></pre>
 
 <p><img src="console-files/select-login-btn.png" alt="" /></p>
 
-<p>The <a href="commandline-api#selector_1"><strong><code>$$()</code></strong></a> command returns an array of all the elements that match the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll"><code>document.querySelectorAll()</code></a>. For instance, the following displays selects all <code>&lt;button&gt;</code> elements with the CSS class "loginBtn":</p>
+<p>The <a href="commandline-api.html#selector_1"><strong><code>$$()</code></strong></a> command returns an array of all the elements that match the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll"><code>document.querySelectorAll()</code></a>. For instance, the following displays selects all <code>&lt;button&gt;</code> elements with the CSS class "loginBtn":</p>
 
 <pre><code>$$('button.loginBtn');
 </code></pre>
 
 <p><img src="console-files/select-multiple-login.png" alt="" /></p>
 
-<p>Lastly, the <a href="commandline-api#xpath"><code>x()</code></a> method takes an XPath path as a parameter and returns an array of all elements that match the specified path. The following returns all the &lt;script> elements that are children of the <code>&lt;body&gt;</code> tag:</p>
+<p>Lastly, the <a href="commandline-api.html#xpath"><code>x()</code></a> method takes an XPath path as a parameter and returns an array of all elements that match the specified path. The following returns all the &lt;script> elements that are children of the <code>&lt;body&gt;</code> tag:</p>
 
 <pre><code>$x('/html/body/script');
 </code></pre>
 
 <h3>Inspecting DOM elements and JavaScript heap objects</h3>
 
-<p>The <a href="commandline-api#inspectobject"><code>inspect()</code></a> method takes a DOM element reference (or JavaScript reference) as a parameter and displays the element or object in the appropriate panel&mdash;the Elements panel for DOM elements, or the Profile panel for a JavaScript object.</p>
+<p>The <a href="commandline-api.html#inspectobject"><code>inspect()</code></a> method takes a DOM element reference (or JavaScript reference) as a parameter and displays the element or object in the appropriate panel&mdash;the Elements panel for DOM elements, or the Profile panel for a JavaScript object.</p>
 
-<p>For example, in the following screenshot the <code>$()</code> function is used to get a reference to an <code>&lt;li&gt;</code> element. Then the last evaluated expression property (<a href="commandline-api#_"><code>$_</code></a>) is passed to <code>inspect()</code> to open that element in the Elements panel.</p>
+<p>For example, in the following screenshot the <code>$()</code> function is used to get a reference to an <code>&lt;li&gt;</code> element. Then the last evaluated expression property (<a href="commandline-api.html#_"><code>$_</code></a>) is passed to <code>inspect()</code> to open that element in the Elements panel.</p>
 
 <p><img src="console-files/inspect2.png" alt="" /></p>
 
@@ -348,7 +348,7 @@ An interesting technique of using conditional breakpoints was explored by Brian 
 
 <p>Often when testing you'll select DOM elements&mdash;either directly in the Elements panel or using the Selection tool (magnifying glass)&mdash;so that you can further inspect the element. Or, when analyzing a memory snapshot in the Profiles panel, you might select a JavaScript object to further inspect it.</p>
 
-<p>The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named <a href="commandline-api#0_-_4"><strong><code>$0</code></strong>, <strong><code>$1</code></strong>, <strong><code>$2</code></strong>, <strong><code>$3</code></strong></a> and <a href="commandline-api#0_-_4"><strong><code>$4</code></strong></a>. The most recently selected element or object is available as <strong><code>$0</code></strong>, the second most as <strong><code>$1</code></strong>, and so forth.</p>
+<p>The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named <a href="commandline-api.html#0_-_4"><strong><code>$0</code></strong>, <strong><code>$1</code></strong>, <strong><code>$2</code></strong>, <strong><code>$3</code></strong></a> and <a href="commandline-api.html#0_-_4"><strong><code>$4</code></strong></a>. The most recently selected element or object is available as <strong><code>$0</code></strong>, the second most as <strong><code>$1</code></strong>, and so forth.</p>
 
 <p>The following screenshot shows the values of these properties after selecting three different elements in turn from the Elements panel:</p>
 
@@ -358,7 +358,7 @@ An interesting technique of using conditional breakpoints was explored by Brian 
 
 <h3>Monitoring events</h3>
 
-<p>The <a href="commandline-api#monitoreventsobject_events"><code>monitorEvents()</code></a> command monitors an object for one or more specified events. When an event occurs on the monitored object, the corresponding Event object is logged to the Console. You specify the object and the events you want to monitor on that object. For example, the following code enables event monitoring for every "resize" event on the global window object.</p>
+<p>The <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents()</code></a> command monitors an object for one or more specified events. When an event occurs on the monitored object, the corresponding Event object is logged to the Console. You specify the object and the events you want to monitor on that object. For example, the following code enables event monitoring for every "resize" event on the global window object.</p>
 
 <pre><code>monitorEvents(window, "resize");
 </code></pre>
@@ -375,7 +375,7 @@ An interesting technique of using conditional breakpoints was explored by Brian 
 <pre><code>monitorEvents($('#scrollBar'), "touch");
 </code></pre>
 
-<p>See <a href="commandline-api#monitoreventsobject_events"><code>monitorEvents()</code></a> in the Console API Reference for a list of supported event types.</p>
+<p>See <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents()</code></a> in the Console API Reference for a list of supported event types.</p>
 
 <p>To stop monitoring events call <code>unmonitorEvents()</code>, passing the object to stop monitoring.</p>
 
@@ -384,7 +384,7 @@ An interesting technique of using conditional breakpoints was explored by Brian 
 
 <h3>Controlling the CPU profiler</h3>
 
-<p>You can create JavaScript CPU profiles from the command line with the <a href="commandline-api#profilename"><code>profile()</code></a> and <a href="commandline-api#profileendname"><code>profileEnd()</code></a> commands. You can optionally specify a name that's applied to the profile you create.</p>
+<p>You can create JavaScript CPU profiles from the command line with the <a href="commandline-api.html#profilename"><code>profile()</code></a> and <a href="commandline-api.html#profileendname"><code>profileEnd()</code></a> commands. You can optionally specify a name that's applied to the profile you create.</p>
 
 <p>For example, the following shows an example of creating a new profile with the default name:</p>
 

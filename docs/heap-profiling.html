@@ -11,7 +11,7 @@
 memory leaks in your applications.</p>
 
 <div class="special"><p>Read
-the <a href="/chrome-developer-tools/docs/memory-analysis-101">Memory 101</a> page to become
+the <a href="memory-analysis-101.html">Memory 101</a> page to become
 familiar with the terms used in this document.</p></div>
 
 <p class="note"><b>Note:</b> If you are a Web Developer and want to get the
@@ -32,7 +32,7 @@ Snapshot</strong> option and press <strong>Start</strong>:
 transferred to the DevTools on demand, when you click on the snapshot icon to
 view it. After the snapshot has been loaded into DevTools and has been parsed,
 the number below the snapshot title appears and shows the total size of
-the <a href="/chrome-developer-tools/docs/memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
+the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
 objects:</p>
 
 <div class="screenshot"><img src="heap-profiling-files/snapshot_memory.png"></div>
@@ -64,7 +64,7 @@ switch between views, use the selector at the bottom of the view:</p>
   <li><strong>Containment</strong> &mdash; allows exploration of heap
   contents;</li>
   <li><strong>Dominators</strong> &mdash;
-  shows <a href="/chrome-developer-tools/docs/memory-analysis-101.html#dominators">dominators
+  shows <a href="memory-analysis-101.html#dominators">dominators
   tree.</a>
 </li>
 </ul></p>
@@ -109,7 +109,7 @@ constructor name, and group all objects created using this
 constructor. The number of object instances is displayed in
 the <strong>#</strong> column. The <strong>Shallow size</strong>
 column displays the sum
-of <a href="/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes">shallow sizes</a>
+of <a href="memory-analysis-101.html#object_sizes">shallow sizes</a>
 of all objects created by a certain constructor
 function. The <strong>Retained Size</strong> column displays the
 maximum retained size among the same set of objects.</p>
@@ -120,7 +120,7 @@ sizes are displayed in the corresponding columns. The number after
 the <strong>@</strong> character is the object unique ID, allowing to
 compare heap snapshots on per-object basis.</p>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-summary" target="_blank">demo
+<p>Try this <a href="heap-profiling-summary.html" target="_blank">demo
 page</a> (opens in a new tab) to understand how
 the <strong>Summary</strong> view can be used.</p>
 
@@ -145,7 +145,7 @@ deleted object instances are shown:</p>
 
 <div class="screenshot"><img src="heap-profiling-files/comparison_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-comparison" target="_blank">demo
+<p>Try this <a href="heap-profiling-comparison.html" target="_blank">demo
 page</a> (opens in a new tab) to get an idea how to use snapshot comparison for
 detecting leaks.</p>
 
@@ -172,7 +172,7 @@ looks like:</p>
 
 <div class="screenshot"><img src="heap-profiling-files/containment_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-containment"
+<p>Try this <a href="heap-profiling-containment.html"
 target="_blank">demo page</a> (opens in a new tab) for finding out how
 to explore closures and event handlers using the view.</p>
 
@@ -189,7 +189,7 @@ from <strong>Summary</strong> and <strong>Containment</strong> views
 
 <div class="screenshot"><img src="heap-profiling-files/dom_leaks_summary.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-dom-leaks"
+<p>Try this <a href="heap-profiling-dom-leaks.html"
 target="_blank">demo page</a> (opens in a new tab) to play with
 detached DOM trees.</p>
 
@@ -205,7 +205,7 @@ points quickly.</p>
 
 <div class="screenshot"><img src="heap-profiling-files/dominators_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-dominators"
+<p>Try this <a href="heap-profiling-dominators.html"
 target="_blank">demo page</a> (opens in a new tab) to train yourself
 in finding accumulation points.</p>
 
