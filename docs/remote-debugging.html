@@ -240,28 +240,31 @@ your mobile device from accessing the server, see
 
 <h2 id="screencasting">Screencasting your device's screen</h2>
 
-<p>intro para</p>
+<p>UUsing the Screencasting you are able to bring the experience of your device onto your machine. This lets you use the DevTools right alongside of the view of your device's screen, which reduces the back-and-forth between your device and tools. Additionally, you can interact with the screencast view.</p>
 
+<p>Clicking on the screencast icon <img alt="Screencast" src="remote-debugging/screencast0.png" /> in the toolbar opens up a panel on your computer displaying your device's screen. As you navigate, click, scroll, the screencast display will provide a live view of what's on your device. This allows you to keep your attention on one screen instead of switching back and forth between screen and the DevTools.</p>
 
-<p>Clicking on the screencast icon in the DevTools toolbar <img alt="Screencast" src="remote-debugging/screencast0.png" /> will open a panel on your computer displaying your device's screen. As you navigate, click, scroll, the screencast display will provide a live view of what's on your device. This allows you to keep your attention on one screen instead of switching back and forth between screen and the DevTools.</p>
+<p>While you are screencasting your device, you also have full control over the Back and Forward buttons, and you have the ability to type into the URL bar directly.</p>
 
-<img alt="" src="remote-debugging/screencast3.png" />
+<img alt="Screencast toolbar" src="remote-debugging/screencast2.png" />
 
 <h3 id="interacting-with-screencast">Interacting with the screencast</h3>
 
-You can interact with the screencast of your device in a number of ways.
+<p>You can interact with the screencast of your device in a number of ways.</p>
 
 <ul>
-  <li>Type on your machine's keyboard and these keystrokes are sent to the device</li>
-  <li>Scroll (with wheel or trackpad or by clicking and dragging)</li>
-  <li>Inspect ELement by ...</li>
-  <li>Zoom with a simulated pinch gesture with <span class="kbd">Cmd</span> + <span class="kbd">Click with two fingers</span> + <span class="kbd">Drag</span></li>
+  <li><strong>Type</strong> on your machine's keyboard and these keystrokes are sent to the device</li>
+  <li><strong>Click</strong> to tap</li>
+  <li><strong>Scroll</strong> (with wheel or trackpad or by clicking and dragging)</li>
+  <li><strong>Inspect Element</strong> by selecting the magnifying glass or by pressing <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span></li>
+  <li><strong>Zoom</strong> with a simulated pinch gesture with <span class="kbd">Cmd</span> + <span class="kbd">Click with two fingers</span> + <span class="kbd">Drag</span></li>
+  <li><strong>Resize</strong> the pane that screencast is in, to better view it's contents. (To make it bigger/smaller)</li>
+  <li><strong>Transparent</strong> portions of the screencast are covered by things like the omnibox and keyboard. Only page content is being screencasted.</li>
 </ul>
 
 <div class="screenshot"><img alt="Screencasting device" src="remote-debugging/screencast1.png" /></div>
 
-<div class="screenshot"><img alt="Screencasting device orientation" src="remote-debugging/screencast2.png" /></div>
-
+<p class="note"><strong>Note:</strong> The screencast feature repeatedly snaps screenshots on the device to give you the live view, but this does have a performance overhead. Disable screencast if you're testing framerate-sensitive situations.</p>
 
 
 <h2 id="debugging-webviews">Debugging Android WebViews</h2>
