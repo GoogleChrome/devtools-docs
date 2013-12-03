@@ -4,6 +4,7 @@ embed {
 
 div.screenshot > img {
   margin: 15px;
+  max-width: 100%;
 }
 
 body.docs .screenshot {
