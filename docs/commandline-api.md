@@ -25,7 +25,7 @@ In the following example, an element with the ID `gc-sidebar` is selected in the
 
 ![Example of $0](commandline-api-files/$0.png)
 
-The image below shows the `gc-content` element selected in the same page. The **`$0`** now refers to newly selected element, while **`$1`** now returns the previously selected one (`gc-sidecar`).
+The image below shows the `gc-content` element selected in the same page. The **`$0`** now refers to newly selected element, while **`$1`** now returns the previously selected one (`gc-sidebar`).
 
 ![image alt text](commandline-api-files/$1.png)
 
