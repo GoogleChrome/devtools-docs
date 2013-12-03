@@ -5,8 +5,8 @@ toc:
 - title: "Editing Styles and the DOM"
   path: /chrome-developer-tools/docs/elements
   section:
-  - title: "Styles"
-    path: /chrome-developer-tools/docs/elements-styles
+  - title: "Elements"
+    path: /chrome-developer-tools/docs/elements
   - title: "Working with CSS Preprocessors"
     path: /chrome-developer-tools/docs/css-preprocessors
 - title: "Managing Application Storage"
@@ -22,6 +22,9 @@ toc:
     path: /chrome-developer-tools/docs/demos/too-much-layout
 - title: "Profiling JavaScript Performance"
   path: /chrome-developer-tools/docs/cpu-profiling
+  section:
+  - title: "Flame Chart"
+    path: /chrome-developer-tools/docs/flame-chart
 - title: "JavaScript Memory Profiling"
   path: /chrome-developer-tools/docs/javascript-memory-profiling
   section:
@@ -147,7 +150,7 @@ toc:
     path: /chrome-developer-tools/docs/debugging-clients
 - title: "Additional Resources"
   section:
-  - title: "Creating a clean testing environment"
+  - title: "Creating A Clean Testing Environment"
     path: /chrome-developer-tools/docs/clean-testing-environment
   - title: "Videos"
     path: /chrome-developer-tools/docs/videos

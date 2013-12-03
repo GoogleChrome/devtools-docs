@@ -4,6 +4,7 @@ embed {
 
 div.screenshot > img {
   margin: 15px;
+  max-width: 100%;
 }
 
 body.docs .screenshot {
@@ -17,22 +18,22 @@ img.ui {
 }
 
 .kbd {
-	padding: 0.1em 0.6em;
-	border: 1px solid #ccc;
-	font-size: 11px;
-	font-family: Arial,Helvetica,sans-serif;
-	background-color: #f7f7f7;
-	color: #333;
-	-moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-	-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	display: inline-block;
-	margin: 0 0.1em;
-	text-shadow: 0 1px 0 #fff;
-	line-height: 1.5;
-	white-space: nowrap;
+background-color: #f7f7f7;
+border: 1px solid #ccc;
+color: #333;
+font-size: 11px;
+line-height: 1.4;
+text-shadow: 0 1px 0 #fff;
+font-family: Arial,Helvetica,sans-serif;
+display: inline-block;
+padding: 0.1em 0.6em;
+margin: 0 0.1em;
+white-space: nowrap;
+-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+   -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+-webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
