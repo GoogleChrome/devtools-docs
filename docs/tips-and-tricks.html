@@ -11,7 +11,7 @@
 
 <h2>Console</h2>
 
-<h3 id="multiline-commands">Write multi-line commands</h3>
+<h4 id="multiline-commands">Write multi-line commands</h4>
 
 <p>When in the console's multi-line editing mode, you can treat blocks of text as if you were using a standard text editor. <span class="kbd">Shift</span> + <span class="kbd">Enter</span> allows you enter multi-line mode in the console.</p>
 
@@ -21,7 +21,7 @@
 
 <p><img src="tips-and-tricks/consolerun.jpg"/></p>
 
-<h3 id="inspect-element-line">A shortcut to launch in inspect-element mode</h3>
+<h4 id="inspect-element-line">A shortcut to launch in inspect-element mode</h4>
 
 <p><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> will open up DevTools in inspect element mode (or switch focus to it) so you can inspect the current page immediately. Repeating returns focus to the page. On Mac, use <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> to achieve the same.</p>
 
@@ -29,7 +29,7 @@
 
 <p><a href="console.html">More: Using The Console | DevTools Docs</a></p>
 
-<h3 id="console-table">Support for the console.table command</h3>
+<h4 id="console-table">Support for the console.table command</h4>
 
 <p>This command logs any supplied data using a tabular layout. Some examples of how to use it include:</p>
 
@@ -68,13 +68,13 @@ console.table(family, ["firstName", "lastName"]);
 
 <p><a href="https://plus.google.com/u/0/115133653231679625609/posts/PmTC5wwJVEc">More: Support for the console.table command has landed | G+</a>.</p>
 
-<h3 id="preview-logged-objects">Preview logged console objects</h3>
+<h4 id="preview-logged-objects">Preview logged console objects</h4>
 
 <p>Objects logged using console.log() can be previewed directly inside the DevTools without further work on your part.</p>
 
 <p><img src="tips-and-tricks/image_12.jpg"  /></p>
 
-<h3 id="styled-console-multiple">Pass multiple arguments to styled console logs</h3>
+<h4 id="styled-console-multiple">Pass multiple arguments to styled console logs</h4>
 
 <p>As we’ve documented you can add style to your console logs via <code>%c</code>, just like you can in Firebug. e.g</p>
 
@@ -93,17 +93,17 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <p><a href="https://plus.google.com/115133653231679625609/posts/TanDFKEN9Kn">More: Styled Console Logging In The DevTools | G+</a></p>
 
-<h3 id="clear-console-history">Shortcut to clear the console history</h3>
+<h4 id="clear-console-history">Shortcut to clear the console history</h4>
 
 <p>With the console open you can easily clear your console history using the <span class="kbd">Ctrl</span> + <span class="kbd">L</span> or <span class="kbd">Cmd</span> + <span class="kbd">L</span>  <a href="shortcuts.html">shortcut</a><a href="shortcuts.html">.</a> A clear() command is also available at the shell prompt as is the <a href="console.html#clearing_the_console_history">console.clear()</a> method via the Console API from JavaScript.</p>
 
-<h3 id="keyboard-ninja">Become a keyboard ninja</h3>
+<h4 id="keyboard-ninja">Become a keyboard ninja</h4>
 
 <p>With the DevTools open you can just use <span class="kbd">?</span> to see all of the <a href="shortcuts.html">supported shortcuts</a> in a convenient panel.</p>
 
 <p><img src="tips-and-tricks/image_14.jpg"  /></p>
 
-<h3 id="access-elements-console">Accessing elements from the console</h3>
+<h4 id="access-elements-console">Accessing elements from the console</h4>
 
 <p>Select an element and type $0 in the console, it will be used by the script. If you have jQuery on the page, you can then use $($0) to reselect the element in the page.</p>
 
@@ -113,7 +113,7 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <p><img src="tips-and-tricks/image_16.jpg"  /></p>
 
-<h3 id="dom-xpath-expressions">Querying the DOM using XPath expressions</h3>
+<h4 id="dom-xpath-expressions">Querying the DOM using XPath expressions</h4>
 
 <p>XPath is a query language for selecting nodes from documents and generally returns a node-set, string, boolean or number. You can use XPath expressions to query the DOM from the DevTools JavaScript console.</p>
 
@@ -131,38 +131,38 @@ $x('//'img, frame);
 <p>which queries the images within the specified iframe.</p>
 
 
-<h3 id="access-elements-console">Access the last console result</h3>
+<h4 id="access-elements-console">Access the last console result</h4>
 
 <p>Using the $_ helper will allow you to access the last console result. We can demonstrate using this with another XPath example:</p>
 
 <p><img src="tips-and-tricks/image_17a.jpg"  /></p>
 
 
-<h3 id="console-dir">Using console.dir</h3>
+<h4 id="console-dir">Using console.dir</h4>
 
 <p>The <a href="console-api.html#consoledirobject">console.dir(object)</a> command lists out all of the properties of a provided object as an expandable JavaScript object. Below is an example displaying an expandable object representing the properties found under document.body.</p>
 
 <p><img src="tips-and-tricks/image_18.jpg"  /></p>
 
-<h3 id="console-iframe">Running the JS console in a specific iframe</h3>
+<h4 id="console-iframe">Running the JS console in a specific iframe</h4>
 
 <p>Along the bottom bar of the DevTools are drop-down options that change depending on the context of your current tab. When you’re in the Console panel, there’s a drop-down that allows you to select the frame context that the console will operate in. Select your frame in the drop-down and you’ll find yourself in the right context in no time.</p>
 
 <p><img src="tips-and-tricks/image_19.jpg"  /></p>
 
-<h3 id="console-persist">Stop the console clearing when navigating to a new page</h3>
+<h4 id="console-persist">Stop the console clearing when navigating to a new page</h4>
 
 <p>Sometimes you want to be able to preserve your console log history when you navigate to a new page. To enable this, right-click in the console and select "Preserve Log upon Navigation". When you navigate to a different page from the current tab, the console history will no longer be cleared.</p>
 
 <p><img src="tips-and-tricks/image_20.jpg"  /></p>
 
-<h3 id="benchmarking-console">Benchmark loops using <code>console.time()</code> and <code>console.timeEnd()</code></h3>
+<h4 id="benchmarking-console">Benchmark loops using <code>console.time()</code> and <code>console.timeEnd()</code></h4>
 
 <p><a href="console-api.html#consoletimelabel">console.time()</a> begins a new timer using a specific label. When <a href="console-api.html#consoletimeendlabel">console.timeEnd()</a> is called using the same label the time is stopped and the elapsed time between both is logged to the console. This is particularly useful for benchmarking loops or code which doesn’t call a function.</p>
 
 <p><img src="tips-and-tricks/image_21.jpg"  /></p>
 
-<h3 id="profiling-console">Profiling with <code>console.profile()</code> and <code>console.profileEnd()</code></h3>
+<h4 id="profiling-console">Profiling with <code>console.profile()</code> and <code>console.profileEnd()</code></h4>
 
 <p>With the DevTools open, calling <a href="console-api.html#consoleprofilelabel">console.profile()</a> begins a JavaScript CPU profile. A label for the profile can be optionally passed, as seen below in console.profile("Processing"). To complete a profile run, call <a href="console-api.html#consoleprofileend">console.profileEnd()</a>.</p>
 
@@ -195,7 +195,7 @@ $x('//'img, frame);
 
 <h2>Timeline</h2>
 
-<h3 id="timeline-frames-mode">Frame profiling with Timeline Frames Mode</h3>
+<h4 id="timeline-frames-mode">Frame profiling with Timeline Frames Mode</h4>
 
 <p>The Timeline panel provides an overview of where time is spent loading up your web application such as how long it takes to process DOM events, render page layouts or paint elements to the screen. It allows you to drill down into three separate facets that can help discover why your application is slow: Events, Frames and actual Memory usage.</p>
 
@@ -223,7 +223,7 @@ $x('//'img, frame);
 
 <p><a href="timeline.html">More: Improving Performance With The DevTools Timeline | DevTools Docs</a></p>
 
-<h3 id="forced-layout-events">Spot forced layout events using warnings</h3>
+<h4 id="forced-layout-events">Spot forced layout events using warnings</h4>
 
 <p>In the DevTools Timeline, if you see a yellow triangular icon in the Records view, this is an indication some of your code is triggering forced/synchronous layout events.</p>
 
@@ -233,13 +233,13 @@ $x('//'img, frame);
 
 <p><a href="https://plus.google.com/u/0/115133653231679625609/posts/A7rYqkMMmW8">More: Timeline Warnings Are A Performance Smell | G+</a></p>
 
-<h3 id="timeline-shared">Share and analyze a Timeline recorded by someone else</h3>
+<h4 id="timeline-shared">Share and analyze a Timeline recorded by someone else</h4>
 
 <p>You can view and share Timelines with other developers thanks to a useful import/export feature. Use <span class="kbd">Ctrl</span> + <span class="kbd">E</span>  or <span class="kbd">Cmd</span> + <span class="kbd">E</span> to start &amp; stop recording then right-click inside the Timeline and use Save Timeline data. The same menu supports Load Timeline data for loading an exported file back in for viewing.</p>
 
 <p><img src="tips-and-tricks/image_6.jpg"  /></p>
 
-<h3 id="timeline-recordings">Annotating Timeline Recordings</h3>
+<h4 id="timeline-recordings">Annotating Timeline Recordings</h4>
 
 <p>Your code can add annotations to Timeline recordings using the <a href="console.html#marking_the_timeline">console.timeStamp()</a> method. This helps correlate code in your web app to other activity going on or browser events.</p>
 
@@ -249,7 +249,7 @@ $x('//'img, frame);
 
 <p>Your application can add annotations to Timeline recordings by calling the console.timeStamp() method. This lets you easily correlate code in your application to other activity in your application or browser events. In the following recording, the Timeline is annotated with the string "Adding result". See Marking the Timeline in Using the Console for example code.</p>
 
-<h3 id="counter-display">FPS Counter/HUD Display</h3>
+<h4 id="counter-display">FPS Counter/HUD Display</h4>
 
 <p>A useful tool for visualizing frame rate and jank is the real-time FPS counter. This can be enabled in the DevTools by going to the Settings menu and checking “Show FPS meter”.</p>
 
@@ -284,7 +284,7 @@ $x('//'img, frame);
 
 <h2>Profiles</h2>
 
-<h3 id="three-snapshot-technique">Finding JavaScript memory leaks with the “3 snapshot” technique</h3>
+<h4 id="three-snapshot-technique">Finding JavaScript memory leaks with the “3 snapshot” technique</h4>
 
 <ol>
 <li><p>Open up the DevTools and switch to the Profiles panel</p></li>
@@ -303,7 +303,7 @@ $x('//'img, frame);
 
 <p><a href="https://docs.google.com/presentation/d/1wUVmf78gG-ra5aOxvTfYdiLkdGaR9OhXRnOlIcEmu2s/pub?start=false&amp;loop=false&amp;delayms=3000#slide=id.g1d65bdf6_0_0">More: BloatBusters - Eliminating Memory Leaks In GMail</a></p>
 
-<h3 id="nodes-heap-profiler">Understanding Nodes In The Heap Profiler</h3>
+<h4 id="nodes-heap-profiler">Understanding Nodes In The Heap Profiler</h4>
 
 <p>Red nodes are those that are staying alive because they're part of a detached DOM tree and there is a node in the tree referenced from JavaScript (either as a closure variable or by some property).</p>
 
@@ -313,13 +313,13 @@ $x('//'img, frame);
 
 <p><a href="https://plus.google.com/u/0/115133653231679625609/posts/hEMupRLRJSF">More: Understanding Nodes In The Heap Profiler | G+</a></p>
 
-<h3 id="timespent-cpu-profiler">Understanding time spent in CPU profiler</h3>
+<h4 id="timespent-cpu-profiler">Understanding time spent in CPU profiler</h4>
 
 <p>In the CPU profiler, "(idle)" time is now marked as such. Time spent in non-browser processing is "(program)".</p>
 
 <p><img src="tips-and-tricks/image_28.jpg"  /></p>
 
-<h3 id="moreinsights-heapprofiler">Additional insights with Heap profiler views</h3>
+<h4 id="moreinsights-heapprofiler">Additional insights with Heap profiler views</h4>
 
 <p>One common question we get asked is “what are the differences between the Comparison, Dominator, Containment and Summary views in DevTools > Profiles > Heap snapshot”. These views provide additional insights into the data exposed by the profiler and break down as follows:</p>
 
@@ -356,7 +356,7 @@ $x('//'img, frame);
 
 <h2>Sources</h2>
 
-<h3 id="debug-dom-modifications">Debug on DOM modifications</h3>
+<h4 id="debug-dom-modifications">Debug on DOM modifications</h4>
 
 <p>Right-click an element and enable ‘Break on Subtree Modifications’: whenever a script traverses that element childs and modifies them, the debugger rolls in automatically to let you inspect what’s happening:</p>
 
@@ -364,13 +364,13 @@ $x('//'img, frame);
 
 <p>Also worth noting is that Attribute modifications pause on inline style changes which can be useful for debugging DOM animations.</p>
 
-<h3 id="tracking-uncaught-exceptions">Tracking uncaught exceptions</h3>
+<h4 id="tracking-uncaught-exceptions">Tracking uncaught exceptions</h4>
 
 <p>From the Sources pane, double clicking the pause script execution (<img src="tips-and-tricks/image_31.jpg"  />) button will break the code when an uncaught exception occurs, preserving the call stack and the current state of the application - some refer to this as the purple pause.</p>
 
 <p><img src="tips-and-tricks/image_32.jpg"  /></p>
 
-<h3 id="conditional-breakpoint-actions">Conditional breakpoint actions with console.log</h3>
+<h4 id="conditional-breakpoint-actions">Conditional breakpoint actions with console.log</h4>
 
 <p>The DevTools support conditional breakpoints, which we know can be set by clicking the line you wish to set a breakpoint on and applying a breakpoint as normal.</p>
 
@@ -392,7 +392,7 @@ $x('//'img, frame);
 
 <p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.randomthink.net%2Fblog%2F2012%2F11%2Fbreakpoint-actions-in-javascript%2F&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNE9yz1n3H6Boru1bl11nQdiUwmR4w">More: Breakpoint Actions In JavaScript | randomthink.net</a></p>
 
-<h3 id="prettyprint-javascript">Pretty Print JavaScript</h3>
+<h4 id="prettyprint-javascript">Pretty Print JavaScript</h4>
 
 <p>The DevTools support prettifying of minified JavaScript to a more readable form. To pretty print:</p>
 
@@ -411,13 +411,13 @@ $x('//'img, frame);
 
 <p><img src="tips-and-tricks/image_39.jpg"  /></p>
 
-<h3 id="favorite-expression">‘Favorite’ an expression or variable value</h3>
+<h4 id="favorite-expression">‘Favorite’ an expression or variable value</h4>
 
 <p>Instead of writing again and again a variable name or an expression you are going to check a lot during a debug session, add it to the ‘Watch Expression’ list. You refresh the values if you modify them directly, or just watch them change while the code runs</p>
 
 <p><img src="tips-and-tricks/image_40.jpg"  /></p>
 
-<h3 id="insights-internal">Get insights into internal properties</h3>
+<h4 id="insights-internal">Get insights into internal properties</h4>
 
 <p>Suppose you've defined a variable of value `s` and it performs the following operation:</p>
 
@@ -438,13 +438,13 @@ Object("hello")
 
 <p><a href="http://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fpaulirish%2F4158604&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEoLc-D7771J2l_GvAj0QkGOuT0QQ">More: Learn JavaScript Concepts With The DevTools | GitHub</a></p>
 
-<h3 id="debug-xhr">Easily debug XHRs</h3>
+<h4 id="debug-xhr">Easily debug XHRs</h4>
 
 <p>From the debugger open the “XHR Breakpoints” section, you can specify any URL (even a substring) your code should break into when doing an XHR request. Or even tell it to break on every XHR:</p>
 
 <p><img src="tips-and-tricks/image_41.jpg"  /></p>
 
-<h3 id="retrieve-handlers">Retrieve event handlers registered on elements</h3>
+<h4 id="retrieve-handlers">Retrieve event handlers registered on elements</h4>
 
 <p>With the "Elements" tab open, find an element in the DOM tree and click to select the node. Note: You can also do this using the console API with <code>getEventListeners(targetNode);</code></p>
 
@@ -452,7 +452,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_42.jpg"  /></p>
 
-<h3 id="escape-console">Escape to see the console</h3>
+<h4 id="escape-console">Escape to see the console</h4>
 
 <p>When debugging in the Sources panel, you sometimes require simultaneous access to a console. Simply hit the escape key and the console panel will be displayed.</p>
 
@@ -460,7 +460,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_43.jpg"  /></p>
 
-<h3 id="paused-breakpoint">Become more effective when paused at a breakpoint</h3>
+<h4 id="paused-breakpoint">Become more effective when paused at a breakpoint</h4>
 
 <p>While your script is paused at a breakpoint, there are a number of useful features at your disposal.</p>
 
@@ -476,7 +476,7 @@ Object("hello")
 
 <p>The XHR Breakpoints panel is also useful as it can setup a breakpoint for XMLHttpRequests. Specify a breakpoint by typing in a substring of the URL you wish to inspect.</p>
 
-<h3 id="pause-exceptions">Pause on exceptions</h3>
+<h4 id="pause-exceptions">Pause on exceptions</h4>
 
 <p>You may want to pause JavaScript execution next time an exception is thrown and inspect its call stack, scope variables and state of your app.</p>
 
@@ -492,7 +492,7 @@ Object("hello")
 
 
 
-<h3 id="textsearch-across-allscripts">Text search across all scripts</h3>
+<h4 id="textsearch-across-allscripts">Text search across all scripts</h4>
 
 <p>If you wish to search across all of the files loaded for a page for a particular string, you can load up the search pane using the following shortcut:</p>
 
@@ -506,7 +506,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_50.jpg"  /></p>
 
-<h3 id="coffeescript-sourcemaps">Debugging CoffeeScript With DevTools And Source Maps</h3>
+<h4 id="coffeescript-sourcemaps">Debugging CoffeeScript With DevTools And Source Maps</h4>
 
 <p>Source Maps provide a language-agnostic way to map compiled production code back to the original source code that was authored in your development environment.</p>
 
@@ -560,13 +560,13 @@ Object("hello")
 
 <h2>Elements</h2>
 
-<h3 id="enable-rulers">Enable rulers</h3>
+<h4 id="enable-rulers">Enable rulers</h4>
 
 <p>Under Settings > General > Show rulers a ruler can be enabled which will be displayed when you hover over or select an element in the Elements panel.</p>
 
 <p><img src="tips-and-tricks/image_53.jpg"  /></p>
 
-<h3 id="css-autocomplete">Autocompletion of CSS properties</h3>
+<h4 id="css-autocomplete">Autocompletion of CSS properties</h4>
 
 <p>The DevTools support autocompletion of known CSS properties and values (including those requiring a prefix), which is a useful way to determine which properties can be set for the current element.</p>
 
@@ -584,7 +584,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_57.jpg"  /></p>
 
-<h3 id="colorpicker">Color picker in the DevTools</h3>
+<h4 id="colorpicker">Color picker in the DevTools</h4>
 
 <p>The DevTools include a built-in color picker which is displayed when clicking on the colored preview square next to any valid color.</p>
 
@@ -592,7 +592,7 @@ Object("hello")
 
 <p>You can <span class="kbd">Shift</span> + click to change the color format of the color being selected.</p>
 
-<h3 id="adding-styles">Adding new CSS styles</h3>
+<h4 id="adding-styles">Adding new CSS styles</h4>
 
 <p>Clicking anywhere within the opening and closing brackets for a CSS rule (including within "element.style"), allows you to add a new CSS property which will similarly be instantly applied.</p>
 
@@ -614,13 +614,13 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_65.jpg"  /></p>
 
-<h3 id="dragdrop-elements">Drag and drop in the Elements panel</h3>
+<h4 id="dragdrop-elements">Drag and drop in the Elements panel</h4>
 
 <p>In the Elements panel you can drag-and-drop an element to change its position within its parent, or move it to a completely different part of the document.</p>
 
 <p><img src="tips-and-tricks/image_66.jpg"  /></p>
 
-<h3 id="force-element-state">Force Element State</h3>
+<h4 id="force-element-state">Force Element State</h4>
 
 <p>Want to force an element to adopt a particular state?</p>
 
@@ -633,7 +633,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_67.jpg"  /></p>
 
-<h3 id="debugging-sass">Writing and debugging Sass with the DevTools</h3>
+<h4 id="debugging-sass">Writing and debugging Sass with the DevTools</h4>
 
 <p class="note"><strong>Note:</strong> To use Sass debugging in Chrome you need to have version <a href="http://sass-lang.com/download.html">3.3.0 (pre-release)</a> of the Sass compiler, which is the only version that currently supports source map generation.</p>
 
@@ -689,19 +689,19 @@ Object("hello")
 
 <h2>Network</h2>
 
-<h3 id="replay-xhrs">Replay XHRs</h3>
+<h4 id="replay-xhrs">Replay XHRs</h4>
 
 <p>As you probably know, the Network panel shows a list of all the requests your page has made including XHRs. You can replay any XHR (POST or GET) by right-clicking on the request to display the context-menu then selecting “Replay XHR”.</p>
 
 <p><img src="tips-and-tricks/image_74.jpg"  /></p>
 
-<h3 id="clear-network">Clear the network cache or cookies</h3>
+<h4 id="clear-network">Clear the network cache or cookies</h4>
 
 <p>Right-click/<span class="kbd">Ctrl</span>-click anywhere in Network panel and select Clear Browser Cache/Network Cache from context menu.</p>
 
 <p><img src="tips-and-tricks/image_75.jpg"  /></p>
 
-<h3 id="record-export-trace">Record a trace &amp; export the waterfall</h3>
+<h4 id="record-export-trace">Record a trace &amp; export the waterfall</h4>
 
 <ul>
 <li><p>Hit "record" to capture a multi-page trace</p></li>
@@ -714,7 +714,7 @@ Object("hello")
 
 <p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.igvita.com%2Fslides%2F2012%2Fdevtools-tips-and-tricks%2F%231&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHwM1MWYUas6E9zsZxBARF0igWUow">More: Wait, DevTools Could Do That? | Igvita.com</a></p>
 
-<h3 id="details-network">Using large resource rows in network timeline for more detail</h3>
+<h4 id="details-network">Using large resource rows in network timeline for more detail</h4>
 
 <p>By triggering the “Use large resource rows” icon in the bottom of the Network panel, you can enable display of additional insights not found in the more compact/smaller resource rows view.</p>
 
@@ -728,7 +728,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_79.jpg"  /></p>
 
-<h3>Tricks for getting more information out of the Network panel</h3>
+<h4>Tricks for getting more information out of the Network panel</h4>
 
 <p><strong>Left-click</strong> on the header of the Timeline column in the Network panel to get access to further insights about network requests. You can switch between:</p>
 
@@ -763,7 +763,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/network-right.jpg"  /></p>
 
-<h3 id="websocket-inspection">WebSocket inspection</h3>
+<h4 id="websocket-inspection">WebSocket inspection</h4>
 
 <p>In the Network panel, you can use the filters at the bottom of the window to inspect WebSocket message frames.</p>
 
@@ -780,7 +780,7 @@ Object("hello")
 
 <p><a href="http://blog.kaazing.com/2012/05/09/inspecting-websocket-traffic-with-chrome-developer-tools/">More: WebSocket inspection with DevTools | Zaaking</a></p>
 
-<h3 id="find-filter-xhrs">Find and filter XHRs from the Network panel</h3>
+<h4 id="find-filter-xhrs">Find and filter XHRs from the Network panel</h4>
 
 <p>When inspecting network requests in the Network panel you often need to narrow down to a specific request based on a specific keyboard. This can be easily done using the<span class="kbd">Ctrl</span> + <span class="kbd">F</span> or <span class="kbd">Cmd</span> + <span class="kbd">F</span> keyboard shortcut.</p>
 
@@ -794,7 +794,7 @@ Object("hello")
 
 <p><a href="network.html">More: Evaluating Network Performance | DevTools Docs</a></p>
 
-<h3 id="dump-network-stack">Get a dump of the network stack’s internal state</h3>
+<h4 id="dump-network-stack">Get a dump of the network stack’s internal state</h4>
 
 <p>The "about:net-internals" page is a special URL that dumps a view of the network stack's internal state. This data can be helpful when debugging performance or connectivity problems. It includes information on request performance, proxy settings and DNS cache.</p>
 
@@ -824,7 +824,7 @@ Object("hello")
 
 <h2>Settings</h2>
 
-<h3 id="emulating-touch">Emulating touch events</h3>
+<h4 id="emulating-touch">Emulating touch events</h4>
 
 <p>Touch is an input method that's difficult to test on the desktop, since most desktops don't have touch input. Having to test on mobile can lengthen your development cycle, since every change you make needs to be pushed out to a server and then loaded on the device.</p>
 
@@ -846,7 +846,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
-<h3 id="emulating-ua-viewports">Emulating UA Strings &amp; Device Viewports</h3>
+<h4 id="emulating-ua-viewports">Emulating UA Strings &amp; Device Viewports</h4>
 
 <p>It’s often easier to start prototyping on the desktop and then tackle the mobile-specific parts on the devices you intend to support. Device emulation can make this process more straightforward.</p>
 
@@ -858,7 +858,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
-<h3 id="emulating-gelocation">Emulating Geolocation</h3>
+<h4 id="emulating-gelocation">Emulating Geolocation</h4>
 
 <p>When working with HTML5 geolocation support in an application, it can be useful to debug the output received when using different values for longitude and latitude.</p>
 
@@ -894,7 +894,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
-<h3 id="dock-to-right-viewport">Dock-to-right for viewport debugging</h3>
+<h4 id="dock-to-right-viewport">Dock-to-right for viewport debugging</h4>
 
 <p>Dock-to-right mode is also useful for previewing how your pages look when viewed on screens with smaller viewports. To use this:</p>
 
@@ -906,7 +906,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_92.jpg"  /></p>
 
-<h3 id="disable-javascript">Disable JavaScript</h3>
+<h4 id="disable-javascript">Disable JavaScript</h4>
 
 <p>Click the Settings cog in the lower-right corner, then under Settings -> General enable “Disable JavaScript”. While the DevTools are open and this option is checked JavaScript will be disabled in the current page.</p>
 
@@ -916,13 +916,13 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <h2>General</h2>
 
-<h3 id="switch-between-tabs">Quickly switch between tabs</h3>
+<h4 id="switch-between-tabs">Quickly switch between tabs</h4>
 
 <p>The <span class="kbd">Cmd</span> + <span class="kbd">]</span> and <span class="kbd">Cmd</span> + <span class="kbd">[</span> (or <span class="kbd">Ctrl</span> + <span class="kbd">]</span> and <span class="kbd">Ctrl</span> + <span class="kbd">[</span>) shortcuts allow you to move right and left between the different tabs within the DevTools with ease. Use them to avoid manually selecting the tab you’re after!.</p>
 
 <p><img src="tips-and-tricks/image_94.jpg"  /></p>
 
-<h3 id="improved-dock-to-right">Get an improved dock-to-right experience</h3>
+<h4 id="improved-dock-to-right">Get an improved dock-to-right experience</h4>
 
 <p>Improved horizontal splitting for the Elements and Sources panels are now in Chrome beta and can be experienced anytime you toggle dock-to-right mode:</p>
 
@@ -934,13 +934,13 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><a href="https://plus.google.com/u/0/115133653231679625609/posts/8bfFX8BVzTQ">More: 3 Steps To A Better Dock-To-Right Experience | G+</a></p>
 
-<h3 id="disable-cache">Use ‘Disable Cache’ for cache invalidation</h3>
+<h4 id="disable-cache">Use ‘Disable Cache’ for cache invalidation</h4>
 
 <p>Under the Settings cog, you can enable ‘Disable cache’ to invalidate the disk cache. This is great for developing, but the DevTools must be visible/open for this to work.</p>
 
 <p><img src="tips-and-tricks/disablecache.jpg"  /></p>
 
-<h3 id="inspect-shadow-dom">Inspect Shadow DOM</h3>
+<h4 id="inspect-shadow-dom">Inspect Shadow DOM</h4>
 
 <p>Elements which have Shadow DOM elements will now be displayed in the elements tab.</p>
 
@@ -956,19 +956,19 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_99.jpg"  /></p>
 
-<h3 id="preview-inspectable-pages">Preview all inspectable pages</h3>
+<h4 id="preview-inspectable-pages">Preview all inspectable pages</h4>
 
 <p>If you find yourself regularly using remote debugging, you might enjoy “about:inspect” which displays all inspectable tabs/extensions in Chrome. Click 'inspect' to switch to a page &amp; launch the DevTools for it in one go.</p>
 
 <p><img src="tips-and-tricks/image_100.jpg"  /></p>
 
-<h3 id="appcached-sites">Get insights into which sites have appcache'd</h3>
+<h4 id="appcached-sites">Get insights into which sites have appcache'd</h4>
 
 <p>You can see information about appcached sites by visiting “about:appcache-internals”. This allows you to see which sites have appcached, when they were last modified, and how much space they're using. You can also remove appcaches here.</p>
 
 <p><img src="tips-and-tricks/image_101.jpg"  /></p>
 
-<h3 id="multiple-filters">Select multiple filters in the Network/Console panels</h3>
+<h4 id="multiple-filters">Select multiple filters in the Network/Console panels</h4>
 
 <p>You’re probably aware that there are filters available in the Network and Console panels, allowing you to narrow down the data displays based on different criteria.</p>
 
@@ -978,7 +978,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_103.jpg"  /></p>
 
-<h3 id="hard-reload">Clear the cache and perform a hard reload</h3>
+<h4 id="hard-reload">Clear the cache and perform a hard reload</h4>
 
 <p>If you require a hard refresh, click and hold Chrome’s refresh button with the DevTools open. You should see a drop-down menu allowing you to clear the cache and do a hard reload in one go. Time saver!.</p>
 
@@ -986,7 +986,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_104.jpg"  /></p>
 
-<h3 id="chrome-task-manager">Insights with the Chrome Task Manager</h3>
+<h4 id="chrome-task-manager">Insights with the Chrome Task Manager</h4>
 
 <p>The task manager in Chrome can give you useful insights into the GPU, CPU and JavaScript memory usage, CSS and Script cache usage and more for any tab.</p>
 
@@ -1001,13 +1001,13 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <h2>Additional Tools</h2>
 
-<h3 id="debugging-ios-apps">Debugging iOS apps in DevTools</h3>
+<h4 id="debugging-ios-apps">Debugging iOS apps in DevTools</h4>
 
 <p><a href="https://github.com/square/PonyDebugger">PonyDebugger</a> is a client library and gateway server combination that uses Chrome Developer Tools on your browser to debug your application's network traffic and managed object contexts.</p>
 
 <p><img src="tips-and-tricks/image_105.jpg"  /></p>
 
-<h3 id="jsruntime">JSRunTime: DevTools Extension For Grepping JavaScript Objects</h3>
+<h4 id="jsruntime">JSRunTime: DevTools Extension For Grepping JavaScript Objects</h4>
 
 <p><a href="https://plus.google.com/114708134049085210473">Andrei Kashcha</a> wrote a very useful extension for DevTools that can grep a reachable graph of JavaScript objects in memory and find matches by their value or name.</p>
 
