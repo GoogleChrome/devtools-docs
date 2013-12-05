@@ -1,35 +1,6 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Mobile emulation</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
-  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
-  <style>
-img {
-    border:1px solid #ccc;
-}
+{{+bindTo:partials.standard_devtools_article}}
 
-.android-font-metrics-list {
-    margin-bottom: 0;
-}
- </style>
-
-<h4><strong>Contents</strong></h4>
-
-<ul>
-<li><a href="#enable-emulation-panel">Enabling the Emulation Panel</a></li>
-<li><a href="#emulate-touch-events">Emulating Touch Events</a></li>
-<li><a href="#emulate-devices">Emulating Devices</a></li>
-<li><a href="#useragent-spoofing">Useragent Spoofing</a></li>
-<li><a href="#network-throttling">Network Bandwidth Throttling</a></li>
-<li><a href="#device-geolocation-overrides">Geolocation Overrides</a></li>
-<li><a href="#device-orientation-overrides">Device Orientation Overrides</a></li>
-<li><a href="#css-media-type-emulation">CSS Media Type Emulation</a></li>
-<li><a href="#faq">Frequently Asked Questions</a></li>
-</ul>
+<h1>Mobile emulation</h1>
 
 <p>The mobile web has evolved to enable increasingly sophisticated applications,
 which we often wish to debug during development on the desktop. The DevTools
@@ -103,7 +74,7 @@ make this process more straightforward.</p>
 <li>Device media queries (e.g <code>@media only screen and (min-device-width:768px)</code>) will be enabled according to the values defined in the Resolution settings.</li>
 <li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
 <li>Device settings can be configured independently of a device preset.</li>
-<li>If you would like to contribute patches to support new device presets, please see our <a href="contributing">contribution docs</a>.</li>
+<li>If you would like to contribute patches to support new device presets, please see our <a href="contributing.html">contribution docs</a>.</li>
 
 <h2 id="emulate-touch-events">Emulating Touch Events</h2>
 
@@ -160,7 +131,7 @@ Demo</a></li>
 
 <p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
 
-You may also monitor touch events as they fire on an element in the console. Use <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
+You may also monitor touch events as they fire on an element in the console. Use <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
 
 <pre class="prettyprint"><code>monitorEvents(document.body, 'touch')</code></pre>
 
@@ -338,11 +309,11 @@ After:
 <h2 id="faq">Frequently Asked Questions</h2>
 
 <p><strong>Q: Do the DevTools supports remote debugging?</strong><br/>
-A: Yes. Please see our <a href="/chrome/mobile/docs/debugging">remote debugging</a>
+A: Yes. Please see our <a href="remote-debugging.html">remote debugging</a>
 documentation for more information.</p>
 
 <p><strong>Q: Can the DevTools emulate lower GPU memory limits or slower CPUs, as found on mobile devices?</strong><br>
 A: Currently there is no means within DevTools or Chrome to emulate these characteristics. </p>
 
 </body>
-</html>
+{{/partials.standard_devtools_article}}
