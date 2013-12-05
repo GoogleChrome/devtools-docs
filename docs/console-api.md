@@ -3,13 +3,13 @@ Book: /chrome-developer-tools/_book.yaml
 
 # Console API Reference
 
-The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session. 
+The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session.
 
 [[TOC]]
 
 ## console.assert(expression, object) ##
 
-If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than five child nodes: 
+If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than five child nodes:
 
     var list = document.querySelector('#myList');
     console.assert(list.childNodes.length < 10, "List item count is > 10");
@@ -26,7 +26,7 @@ Also see [Clearing the console](console#clearing_console_history).
 
 ## console.count(label) ##
 
-Writes the the number of times that `count()` has been invoked at the same line and with the same label. 
+Writes the the number of times that `count()` has been invoked at the same line and with the same label.
 
 In the following example `count()` is invoked each time the `login()` function is invoked.
 
@@ -37,7 +37,7 @@ In the following example `count()` is invoked each time the `login()` function i
 
 ![Example of using console.count()](console-files/count.png)
 
-In this example, `count()` is invoked with different labels, each of which is incremented separately. 
+In this example, `count()` is invoked with different labels, each of which is incremented separately.
 
     function login(user) {
         console.count("Login called for user '" +  user + "'");
@@ -129,15 +129,15 @@ Creates a new logging group that is initially collapsed instead of open, as with
     console.groupEnd();
     console.log("A group-less log trace.");
 
-![Creating a collapsed group](console-files/groupcollapsed.png)    
+![Creating a collapsed group](console-files/groupcollapsed.png)
 
 ## console.groupEnd() ##
 
-Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroup) and [console.groupCollapsed()](#consolegroupcollapsed) for examples.
+Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject_object) and [console.groupCollapsed()](#consolegroupcollapsedobject_object) for examples.
 
 ## console.info(object [, object, ...]) ##
 
-This method is identical to [`console.log()`](#consolelog).
+This method is identical to [`console.log()`](#consolelogobject_object).
 
 ## console.log(object [, object, ...]) ##
 
@@ -178,9 +178,9 @@ The following example uses the **`%c`** format specifier to colorize the output 
 
 ## console.profile([label]) ##
 
-When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call `console.profileEnd()`. Each profile is added to the Profiles tab. 
+When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call `console.profileEnd()`. Each profile is added to the Profiles tab.
 
-Each profile you create with this method is added to the `console.profiles[]` array. Each member of the array is an object for the profile that can be stringified and sent back to the server. useful in continuous integration/remote debugging setups. 
+Each profile you create with this method is added to the `console.profiles[]` array. Each member of the array is an object for the profile that can be stringified and sent back to the server. useful in continuous integration/remote debugging setups.
 
 In the following example a CPU profile is started at the entry to a function that is suspected to consume excessive CPU resources, and ended when the function exits.
 
@@ -188,7 +188,7 @@ In the following example a CPU profile is started at the entry to a function tha
       console.profile("Processing pixels");
       // later, after processing pixels
       console.profileEnd();
-    } 
+    }
 
 ## console.profileEnd() ##
 
@@ -217,7 +217,7 @@ Note: The string you pass to the `time()` and `timeEnd()` methods must match for
 
 Stops the timer with the specified label and prints the elapsed time.
 
-For example usage, see [console.time()](consoletime).
+For example usage, see [console.time()](#consoletimelabel).
 
 ## console.timeStamp([label]) ##
 
@@ -233,7 +233,7 @@ Prints a stack trace from the point where the method was called, including links
 
 ## console.warn(object [, object, ...]) ##
 
-This method is like [`console.log()`](#consolelog) but also displays a yellow warning icon along with the logged message. 
+This method is like [`console.log()`](#consolelogobject_object) but also displays a yellow warning icon along with the logged message.
 
     console.warn("User limit reached! (%d)", userPoints);
 
