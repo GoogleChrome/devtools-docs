@@ -3,55 +3,6 @@ Book: /chrome-developer-tools/_book.yaml
 
 <style>
 
-@font-face {
- font-family: 'packed-images';
- src: url('dom-and-styles-files/fonts/packed-images.eot?20695900');
- src: url('dom-and-styles-files/fonts/packed-images.eot?20695900#iefix') format('embedded-opentype'),
-      url('dom-and-styles-files/fonts/packed-images.woff?20695900') format('woff'),
-      url('dom-and-styles-files/fonts/packed-images.ttf?20695900') format('truetype'),
-      url('dom-and-styles-files/fonts/packed-images.svg?20695900#packed-images') format('svg');
- font-weight: normal;
- font-style: normal;
-}
-
-[class^="devtools-animation-icon-"]:before, [class*=" devtools-animation-icon-"]:before {
- font-family: "packed-images";
- font-style: normal;
- font-weight: normal;
- speak: none;
-
- display: inline-block;
- text-decoration: inherit;
- width: 1em;
- margin-right: .2em;
- text-align: center;
- /* opacity: .8; */
-
- /* For safety - reset parent styles, that can break glyph codes*/
- font-variant: normal;
- text-transform: none;
-
- /* fix buttons height, for twitter bootstrap */
- line-height: 1em;
-
- /* Animation center compensation - margins should be symmetric */
- /* remove if not needed */
- margin-left: .2em;
-
- /* you can be more comfortable with increased icons size */
- /* font-size: 120%; */
-
- /* Uncomment for 3D effect */
- /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-
-.devtools-animation-icon-stop-circled:before { content: '\e803'; } /* '' */
-.devtools-animation-icon-stop:before { content: '\e802'; } /* '' */
-.devtools-animation-icon-play-circled2:before { content: '\e801'; } /* '' */
-.devtools-animation-icon-play-circled:before { content: '\e800'; } /* '' */
-.devtools-animation-icon-pause-circled:before { content: '\e805'; } /* '' */
-.devtools-animation-icon-pause:before { content: '\e804'; } /* '' */
-
 .animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:300ms;-moz-animation-duration:300ms;-ms-animation-duration:300ms;-o-animation-duration:300ms;animation-duration:300ms;}.animated.hinge{-webkit-animation-duration:2s;-moz-animation-duration:2s;-ms-animation-duration:2s;-o-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes bounceIn {
 	0% {
 		opacity: 0;
@@ -237,15 +188,21 @@ Book: /chrome-developer-tools/_book.yaml
 
 .devtools-animation-icon {
 	position: absolute;
-	top: 0;
-	font-size: 50px;
+	top: 44%;
 	right: 44%;
 	cursor: pointer;
 	color: #4D4D4D;
+	height: 50px;
+	width: 50px;
+	display: none;
 }
 
-.devtools-animation-icon {
-	display: none;
+.devtools-animation-icon-pause-circled {
+ background: url('dom-and-styles-files/images/pause-icon.svg');
+}
+
+.devtools-animation-icon-play-circled {
+ background: url('dom-and-styles-files/images/play-icon.svg');
 }
 
 </style>
