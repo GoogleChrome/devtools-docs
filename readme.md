@@ -1,4 +1,8 @@
-# How to run the site
+# Mirror of the Chrome DevTools documentation
+
+This repository contains a mirror of the official DevTools documentation. We regularly update the mirror with new changes made on the site and welcome any contributions or bug-fixes.
+
+## How to run the site
 
 1. In the root of the project, start a [server] (https://github.com/paulirish/dotfiles/blob/3fa2e7dc1f1ea5eaf7f6a2531b937ff8bd8833f9/.functions#L25-L32).
   * it's easier if your server can also do a directory listing.
