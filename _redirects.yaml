@@ -16,3 +16,6 @@ redirects:
 
 - from: /chrome-developer-tools/docs/heap-profiling
   to: /chrome-developer-tools/docs/javascript-memory-profiling
+
+- from: /chrome-developer-tools/docs/elements
+  to: /chrome-developer-tools/docs/dom-and-styles
