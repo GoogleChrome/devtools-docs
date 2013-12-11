@@ -146,6 +146,8 @@ toc:
     path: /chrome-developer-tools/docs/sample-extensions
   - title: "Sample Debugging Protocol Clients"
     path: /chrome-developer-tools/docs/debugging-clients
+  - title: "DevTools Extensions Gallery"
+    path: /chrome-developer-tools/docs/extensions-gallery
 - title: "Additional Resources"
   section:
   - title: "Creating A Clean Testing Environment"
