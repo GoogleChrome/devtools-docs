@@ -1,0 +1,77 @@
+{{+bindTo:partials.standard_devtools_article}}
+
+<h1>Integrating with DevTools</h1>
+
+<p>The Chrome DevTools are built to be extensible. So if the DevTools are missing a 
+feature you need, you may be able to find an existing extension, or write one 
+yourself. Or you can integrate DevTools capabilities into your application.</p>
+
+<p>There are two basic ways to build a custom solution using the DevTools:</p>
+
+<ul>
+<li><strong>DevTools Extension</strong>. A <a href="http://developer.chrome.com/extensions/">Chrome 
+extension</a> that plugs into the 
+DevTools to add functionality and extend its UI.</li>
+<li><strong>Debugging Protocol Client</strong>. A third-party application that uses the Chrome <a href="debugger-protocol.html"> 
+remote debugging protocol</a> to 
+plug into the low-level debugging support in Chrome.</li>
+</ul>
+
+<p>The following sections discuss both approaches.</p>
+
+<h2>DevTools Chrome extensions</h2>
+
+<p>The DevTools UI is a web application embedded inside Chrome. 
+DevTools extensions use the <a href="http://developer.chrome.com/extensions/">Chrome extensions 
+system</a> to add features to the 
+DevTools. A DevTools extension can add new panels to the DevTools, add new 
+panes to the Elements and Sources panel sidebar, examine the resources and 
+network events, as well as evaluate JavaScript expressions in the browser tab 
+that's being inspected.</p>
+
+<p>If you want to develop a DevTools extension:</p>
+
+<ul>
+<li>If you haven't developed a Chrome extension before, see <a href="http://developer.chrome.com/extensions/overview.html">Overview of Chrome 
+Extensions</a>.</li>
+<li>See <a href="http://developer.chrome.com/extensions/devtools.html">Extending DevTools</a> 
+for the specifics of creating a Chrome DevTools extension.</li>
+</ul>
+
+<p>For a list of sample DevTools extensions, see <a href="sample-extensions.html">Sample 
+DevTools Extensions</a>. These samples include many open source extensions that 
+can be used for reference.</p>
+
+<h2>Debugging protocol clients</h2>
+
+<p>Third-party applications, such as IDEs, editors, continuous integration 
+harnesses, and test frameworks can integrate with the Chrome debugger in order 
+to debug code, live-preview code and CSS changes, and control the browser. 
+Clients use the <a href="debugger-protocol.html">Chrome debugging 
+protocol</a> to interact with an 
+instance of Chrome, which can be running on the same system or remotely. </p>
+
+<p>Note: Currently, the Chrome debugging protocol supports only <em>one</em> client per 
+page. So you can use the DevTools to inspect a page, or use a third-party 
+client, but not both at the same time.</p>
+
+<p>There are two ways to integrate with the debugging protocol:</p>
+
+<ul>
+<li>Applications that run in Chrome (such as web-based IDEs) can create a Chrome 
+extension using the debugger module, 
+<a href="http://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>. This 
+module lets the extension interact with the debugger directly, bypassing the 
+DevTools UI. See <a href="debugger-protocol.html#extension">Using the debugger extension 
+API</a> for more 
+information.</li>
+<li>Other applications can use the 
+<a href="debugger-protocol.html#remote">wire protocol</a> to 
+integrate directly with the debugger. This protocol involves exchanging JSON 
+messages over a WebSocket connection.</li>
+</ul>
+
+<p>For some example integrations, see <a href="debugging-clients.html">Sample Debugging 
+Protocol Clients</a>.</p>
+
+{{/partials.standard_devtools_article}}
