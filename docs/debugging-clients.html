@@ -1,0 +1,152 @@
+{{+bindTo:partials.standard_devtools_article}}
+
+<h1>Sample Debugging Protocol Clients</h1>
+
+<p>There are a number third-party clients for the Chrome debugging protocol. This section presents a sample.</p>
+
+<h2>Brackets</h2>
+
+<p>Brackets is a web-based IDE that uses the Chrome debugging protocol to enable 
+debugging and live HTML/CSS development.<br/>
+<img src="debugging-clients-files/brackets.png" width="632px" alt=""/> </p>
+
+<p>More information:</p>
+
+<ul>
+<li><a href="http://brackets.io/">Official site</a>.</li>
+<li>This <a href="http://www.markdubois.info/weblog/2013/03/adobe-brackets-revisited/">blog post from Mark 
+DuBois</a> 
+gives an overview of working in Brackets.</li>
+<li>Download from <a href="http://download.brackets.io/">download.brackets.io</a>.</li>
+<li>Source code available on <a href="https://github.com/adobe/brackets">GitHub</a>.</li>
+</ul>
+
+<h2>Light Table</h2>
+
+<p>Light Table is a new IDE that takes a novel approach to arranging the 
+developer's workspace. Light Table is currently in alpha. It's not open source, 
+but the alpha version is available for free at this time.</p>
+
+<p><img src="debugging-clients-files/lighttable.png" width="551px" alt=""/> </p>
+
+<p>More information:</p>
+
+<ul>
+<li>Read the <a href="http://www.chris-granger.com/2013/04/28/light-table-040/">blog post</a> 
+describing new features in 0.4.0, including DevTools integration.</li>
+<li>Download from the <a href="http://www.lighttable.com/">official site.</a></li>
+</ul>
+
+<h2>NodeJS</h2>
+
+<p>A number of modules have been developed to make use of the Chrome debugger from 
+Node scripts. </p>
+
+<h3>chrome-remote-interface</h3>
+
+<p>The <code>chrome-remote-interface</code> module wraps the debugger protocol with a Node-style 
+JavaScript API.</p>
+
+<p><img src="debugging-clients-files/chrome-remote.png" alt=""/> </p>
+
+<p>More information:<br/></p>
+
+<ul>
+<li><p>Install using <code>npm</code>:</p>
+
+<pre><code>npm install -g chrome-remote-interface
+</code></pre></li>
+<li><p>Source code available on 
+<a href="https://github.com/cyrus-and/chrome-remote-interface">GitHub.</a> </p></li>
+</ul>
+
+<h3>crconsole</h3>
+
+<p>The <code>crconsole</code> module provides a command-line interface to the Chrome console. It 
+uses the <code>chrome-remote-interface</code> module to communicate with the Chrome debugger 
+protocol.</p>
+
+<p>More information:</p>
+
+<ul>
+<li><p>Install using <code>npm</code>:</p>
+
+<pre><code>npm install -g crconsole
+</code></pre></li>
+<li><p>Source code available on <a href="https://github.com/sidorares/crconsole">GitHub</a>.</p></li>
+</ul>
+
+<h2>Sublime Text</h2>
+
+<p>The Sublime Web Inspector project adds Chrome debugger integration to the 
+popular Sublime Text editor. You can install it from the Sublime Text package 
+manager.</p>
+
+<p><img src="debugging-clients-files/sublime.png" alt=""/> </p>
+
+<p>More information:</p>
+
+<ul>
+<li>See the <a href="http://sokolovstas.github.io/SublimeWebInspector/">official page</a> for 
+an overview and installation instructions.</li>
+<li>Source code available on 
+<a href="https://github.com/sokolovstas/SublimeWebInspector">GitHub</a>.</li>
+</ul>
+
+<h2>Telemetry</h2>
+
+<p>Telemetry is a performance testing framework used by the Chromium project to 
+test multiple versions of the Chrome browser. It uses the debugging protocol to 
+remotely control instances of Chrome.</p>
+
+<p>More information:</p>
+
+<ul>
+<li><a href="http://www.chromium.org/developers/telemetry">Introduction to Telemetry on 
+Chromium.org.</a></li>
+</ul>
+
+<h2>Vim</h2>
+
+<p>Chrome.vim is an experimental plugin for the Vim editor that provides some basic 
+Chrome operations as Vim commands.</p>
+
+<p>More information:</p>
+
+<ul>
+<li><a href="https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome">https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome</a> </li>
+</ul>
+
+<h2>WebDriver</h2>
+
+<p>The Selenium browser automation tools use WebDriver API to abstract interactions 
+with different browsers. The WebDriver implementation for Chrome uses the Chrome 
+debugging protocol.</p>
+
+<p>More information:</p>
+
+<ul>
+<li><a href="http://docs.seleniumhq.org/projects/webdriver/">Selenium WebDriver project.</a> </li>
+</ul>
+
+<p>If you know of more, please let us know using the Feedback tool at the top right 
+of this page!</p>
+
+<h2>WebStorm</h2>
+
+<p>WebStorm is a commercial IDE that supports debugging and live-editing in Chrome. 
+WebStorm uses a <a href="http://www.jetbrains.com/webstorm/webhelp/using-jetbrains-chrome-extension.html">Chrome extension 
+</a>to 
+integrate with the Chrome debugger.</p>
+
+<p><img src="debugging-clients-files/webstorm.png" alt=""/> </p>
+
+<p>More information:</p>
+
+<ul>
+<li>Download from <a href="http://www.jetbrains.com/webstorm/">JetBrains</a>.</li>
+<li><a href="http://tv.jetbrains.net/videocontent/improved-javascript-debugger-in-webstorm-7">Screencast describing the latest debugging 
+features.</a></li>
+</ul>
+
+{{/partials.standard_devtools_article}}
