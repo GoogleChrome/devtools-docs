@@ -2,7 +2,7 @@ embed {
   padding: 10px;
 }
 
-div.screenshot > img {
+div.screenshot > img, div.screenshot > video {
   margin: 15px;
   max-width: 100%;
 }
