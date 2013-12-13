@@ -19,7 +19,7 @@ In general, there are three questions you will want to answer when you think you
 
 <li><strong>How frequently is my page forcing garbage collection?</strong> - if you are GCing frequently, you may be allocating too frequently. The Timeline memory view can help you identify pauses of interest.</li><br/>
 </ul>
-<p><img src="memory-profiling-files/image_0.png" style="max-width:900px;"/></p>
+<p><img src="memory-profiling-files/image_0.png"/></p>
 
 
 <h2> Terminology and Fundamentals </h2>
@@ -168,7 +168,7 @@ Each wrapper object holds a reference to the corresponding native object, for re
 
 Using the Chrome Task Manager you can quickly see if a page is consuming a lot of memory by monitoring the memory columns while performing actions that may be causing this to happen. The Task Manager is accessed from the Chrome menu > Tools or by pressing <span class="kbd">Shift</span> + <span class="kbd">Esc</span>.
 
-<p><img src="memory-profiling-files/image_5.png"  style="max-width:900px"/></p>
+<p><img src="memory-profiling-files/image_5.png"/></p>
 
 Once open, right-click on the heading area of the columns and enable the JavaScript memory column.
 
@@ -208,7 +208,7 @@ Below we see a memory leak pattern, where some nodes are not being collected:
 
 If after a few iterations you see a <a href ="http://en.wikipedia.org/wiki/Sawtooth_wave">sawtooth</a> shaped graph (in the memory pane at the top), you are allocating lots of shortly lived objects. But if the sequence of actions is not expected to result in any retained memory, and the DOM node count does not drop down back to the baseline where you began, you have good reason to suspect there is a leak.
 
-<p><img src="memory-profiling-files/image_10.png"  style="max-width:900px"/></p>
+<p><img src="memory-profiling-files/image_10.png"/></p>
 
 Once you've confirmed that the problem exists, you can get help identifying the source of the problem using the <strong>heap profiler </strong>on the <strong>Profiles panel</strong>.
 
@@ -545,7 +545,7 @@ Yellow nodes (with a yellow background) however do have direct references from J
 
 An animation of where detached nodes fit into the overall picture can be seen below:
 
-<p><img src="memory-profiling-files/detached-nodes.gif" style="max-width:900px"/></p>
+<p><img src="memory-profiling-files/detached-nodes.gif"/></p>
 
 <p class="note">
     <strong>Example:</strong>
