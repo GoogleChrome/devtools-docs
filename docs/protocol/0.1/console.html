@@ -1,83 +1,6 @@
 {{+bindTo:partials.standard_devtools_article}}
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
- <head>
- <title>draft-0.1: Console</title>
- <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
- <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
- </head>
- <body>
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
-<div>
- <!-- TABLE OF CONTENTS -->
- <div id="toc">
- <h2>Contents</h2>
- <ol>
- 
- <li>
- <a href='#commands'">Commands</a>
- <ol>
- 
- <li>
- <a href="#command-clearMessages" href="#command-anchor">clearMessages</a>
- </li>
- 
- <li>
- <a href="#command-disable" href="#command-anchor">disable</a>
- </li>
- 
- <li>
- <a href="#command-enable" href="#command-anchor">enable</a>
- </li>
- 
- </ol>
- </li>
- 
- 
- <li>
- <a href='#events'">Notifications</a>
- <ol>
- 
- <li>
- <a href="#event-messageAdded" href="#command-anchor">messageAdded</a>
- </li>
- 
- <li>
- <a href="#event-messageRepeatCountUpdated" href="#command-anchor">messageRepeatCountUpdated</a>
- </li>
- 
- <li>
- <a href="#event-messagesCleared" href="#command-anchor">messagesCleared</a>
- </li>
- 
- </ol>
- </li>
- </li>
- 
- 
- <li>
- <a href="#types">Types</a>
- <ol>
- 
- <li>
- <a href="#type-CallFrame">CallFrame</a>
- </li>
- 
- <li>
- <a href="#type-ConsoleMessage">ConsoleMessage</a>
- </li>
- 
- <li>
- <a href="#type-StackTrace">StackTrace</a>
- </li>
- 
- </ol>
- </li>
- 
- </ol>
- </div><!-- /TABLE OF CONTENTS -->
- <!-- API PAGE -->
- <div>
+
+<h1>0.1 - Console</h1>
  
  <p>Console domain defines methods and events for interaction with the JavaScript console. Console collects messages created by means of the <a href='http://getfirebug.com/wiki/index.php/Console_API'>JavaScript Console API</a>. One needs to enable this domain using <code>enable</code> command in order to start receiving the console messages. Browser collects messages issued while console domain is not enabled as well and reports them using <code>messageAdded</code> notification upon enabling.</p>
  
@@ -798,6 +721,5 @@
   <!-- if types -->
  </div><!-- API PAGE -->
 </div>
- </body>
-</html>
+
 {{/partials.standard_devtools_article}}
