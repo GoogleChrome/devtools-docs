@@ -4,36 +4,4 @@
  
  <p>Console domain defines methods and events for interaction with the JavaScript console. Console collects messages created by means of the <a href="http://getfirebug.com/wiki/index.php/Console_API">JavaScript Console API</a>. One needs to enable this domain using <code>enable</code> command in order to start receiving the console messages. Browser collects messages issued while console domain is not enabled as well and reports them using <code>messageAdded</code> notification upon enabling.</p>
  
- <!-- COMMANDS -->
- 
- <div class="protocol-group">
- <a name="commands"></a>
- <h3>Commands</h3>
- 
- <div class="protocol-item">
- <a name="command-clearMessages"></a>
- <h4>Console.clearMessages</h4>
- <div class="summary">
- <!-- REQUEST -->
- request: {<br>
- "id": &lt;number&gt;,<br>
- "method": "Console.clearMessages"
- 
- <div>}</div>
- <!-- RESPONSE -->
- response: {<br>
- "id": &lt;number&gt;,<br>
- "error": &lt;object&gt;
- 
- <div>}</div>
- </div>
- <div class="description">
- 
- <p>Clears console messages collected in the browser.</p>
- 
- 
- 
- </div>
- </div>
- 
 {{/partials.standard_devtools_article}}
