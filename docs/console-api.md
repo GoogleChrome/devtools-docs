@@ -180,8 +180,6 @@ The following example uses the **`%c`** format specifier to colorize the output 
 
 When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call `console.profileEnd()`. Each profile is added to the Profiles tab.
 
-Each profile you create with this method is added to the `console.profiles[]` array. Each member of the array is an object for the profile that can be stringified and sent back to the server. useful in continuous integration/remote debugging setups.
-
 In the following example a CPU profile is started at the entry to a function that is suspected to consume excessive CPU resources, and ended when the function exits.
 
     function processPixels() {
