@@ -15,9 +15,9 @@
 	var content = jQuery('<div>').load(file, function(res){
 
 	        var self = $(this), ext = file.split(".");
-                
+
 	        if(ext[ext.length - 1] == "md")
-	        self[0].innerHTML = markdown.toHTML(res);
+	        self[0].innerHTML = marked.parse(res);
 	        self.prependTo('#gc-content')
 
 		// muck with the content
