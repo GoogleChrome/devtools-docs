@@ -1018,6 +1018,12 @@ global.animationData = global.animationData || {};
  background: url('dom-and-styles-files/images/play-icon.svg');
 }
 
+/* Retina image scaling */
+.inspect-icon {
+  width: 27px;
+  margin: 0 10px;
+}
+
 </style>
 
 # Editing Styles And The DOM
@@ -1072,7 +1078,7 @@ The DOM tree view shows the current state of the tree. This may not match the HT
 
 * Right-click any element on the page the page and select **Inspect Element**.
 * Press <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> on mac) to open DevTools in Inspect Element mode, then click on an element.
-* Click **Inspect Element** ![](dom-and-styles-files/images/image_0.png) at the top of the DevTools window to go into Inspect Element Mode, then click on an element.
+* Click **Inspect Element** <img src="dom-and-styles-files/images/inspect-icon.png" class="inspect-icon" alt="Inspect icon"> at the top of the DevTools window to go into Inspect Element Mode, then click on an element.
 * Use the `inspect()` method in the console, such as `inspect(document.body)`. See the [Command-Line API](https://developers.google.com/chrome-developer-tools/docs/commandline-api) for information on using inspect.
 
 <div class="devtools-animation-container">
