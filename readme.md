@@ -17,7 +17,7 @@ This will allow us to provide feedback and coordinate contribution efforts.
   <dd> Contains all the working files. </dd>
 
   <dt> ./index.html </dt>
-  <dd> Contains the project [overview](https://developers.google.com/chrome-developer-tools/) page. </dd>
+  <dd> Contains the project <a href="https://developers.google.com/chrome-developer-tools/">overview</a> page. </dd>
 
   <dt> ./_book.yaml </dt>
   <dd> Contains the titles and paths of individual docs. </dd>
