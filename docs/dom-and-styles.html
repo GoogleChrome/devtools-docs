@@ -1052,6 +1052,14 @@ global.animationData = global.animationData || {};
   width: 101px;
 }
 
+.edit-node-attribute {
+  width: 141px;
+}
+
+.edit-node-attribute-value {
+  width: 131px;
+}
+
 </style>
 
 
@@ -1153,8 +1161,8 @@ global.animationData = global.animationData || {};
 <h3 id="editing-attributes">Editing attributes</h3>
 <p>For DOM attributes, DevTools differentiates between the attribute name and value, click on either of these respective portions to make them editable.</p>
 <ul>
-<li>Double click the attribute name <img alt="" src="dom-and-styles-files/images/image_8.png" /> to edit it independently of the attribute value.</li>
-<li>Double click the attribute value <img alt="" src="dom-and-styles-files/images/image_9.png" /> to edit this portion independently of the attribute name.</li>
+<li>Double click the attribute name <img alt="" src="dom-and-styles-files/images/edit-node-attribute.png" class="edit-node-attribute" /> to edit it independently of the attribute value.</li>
+<li>Double click the attribute value <img alt="" src="dom-and-styles-files/images/edit-node-attribute-value.png" class="edit-node-attribute-value" /> to edit this portion independently of the attribute name.</li>
 </ul>
 <p>When edit mode is active,<strong> </strong>cycle through attribute values by pressing <strong>Tab.</strong> Once you reach the last attribute value, pressing tab again creates a new attribute field.</p>
 <p>Using <strong>Tab</strong> is not the only way to add and edit attributes, since it's a common pattern, there are dedicated items for it in the DOM node context menu titled <strong>Add Attribute</strong> and <strong>Edit Attribute</strong>.</p>
