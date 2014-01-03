@@ -29,6 +29,7 @@ are different ways you could help contribute:
       for all reviews of pending code
     * Subscribe to the [RSS feed of devtools 
       commits](http://commits.peter.sh/feed/?tracker=devtools).
+    * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) on Twitter which also includes a feed of all commits.
     * There's plenty of action and developers are eager to hear what's landing
 * **Designing improved UX for all parts of DevTools**
     * Your ideas on the design and UX are quite welcome, for example the [new 
