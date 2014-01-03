@@ -1024,6 +1024,26 @@ global.animationData = global.animationData || {};
   margin: 0 10px;
 }
 
+.collapsed-div {
+  width: 44px;
+}
+
+.expanded-body {
+  width: 49px;
+}
+
+.breadcrumb-body {
+  width: 79px;
+}
+
+.breadcrumb-footer {
+  width: 148px;
+}
+
+.breadcrumb-trail {
+  width: 143px;
+}
+
 </style>
 
 
@@ -1085,8 +1105,8 @@ global.animationData = global.animationData || {};
 <h2 id="navigate-the-dom-with-a-mouse-or-keyboard">Navigate the DOM with a mouse or keyboard</h2>
 <p>You can navigate through the DOM structure using either mouse or keyboard.</p>
 <ul>
-<li>To expand a collapsed node <img alt="" src="dom-and-styles-files/images/image_1.png" />, double-click the node or press <strong>Right arrow</strong>.</li>
-<li>To collapse an expanded node <img alt="" src="dom-and-styles-files/images/image_2.png" />, double-click the node or press <strong>Left arrow</strong>.</li>
+<li>To expand a collapsed node <img alt="" src="dom-and-styles-files/images/collapsed-div.png" class="collapsed-div" />, double-click the node or press <strong>Right arrow</strong>.</li>
+<li>To collapse an expanded node <img alt="" src="dom-and-styles-files/images/expanded-body.png" class="expanded-body" />, double-click the node or press <strong>Left arrow</strong>.</li>
 </ul>
 <p>Expanding a node automatically selects its first child, so you can expand a deeply-nested structure by pressing the <strong>Right arrow</strong> repeatedly.</p>
 <div class="devtools-animation-container">
@@ -1097,11 +1117,11 @@ global.animationData = global.animationData || {};
 
 <p>As you navigate, the Elements panel shows a breadcrumb trail in the bottom bar: </p>
 
-<p><img alt="" src="dom-and-styles-files/images/image_3.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-body.png" class="breadcrumb-body" /></p>
 <p>The currently selected node is highlighted in blue. Navigating down the structure extends the trail:</p>
-<p><img alt="" src="dom-and-styles-files/images/image_4.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-footer.png" class="breadcrumb-footer" /></p>
 <p>Navigating back up the structure moves the highlight:</p>
-<p><img alt="" src="dom-and-styles-files/images/image_5.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-trail.png" class="breadcrumb-trail" /></p>
 <p>DevTools displays as many items as possible in the trail.</p>
 <p><img alt="" src="dom-and-styles-files/images/image_6.png" /></p>
 <p>If the entire trail doesn't fit in the status bar, an ellipsis (...) shows where the trail has been truncated. Click the ellipsis to show the hidden elements.</p>
