@@ -1,6 +1,8 @@
 Project: /chrome-developer-tools/_project.yaml
 Book: /chrome-developer-tools/_book.yaml
 
+<style> img { max-width: 565px; }</style>
+
 # Performance profiling with the Timeline #
 
 The Timeline panel lets you record and analyze all the activity in your application as it runs. It's the best place to start investigating perceived performance issues in your application.
@@ -11,7 +13,7 @@ The Timeline panel lets you record and analyze all the activity in your applicat
 
 The Timeline has three primary sections: an overview section at the top, a records view, and a toolbar.
 
-![](timeline-images/image05.png)
+![](timeline-images/timeline_ui_annotated.png)
 
 *  To start or stop a recording, press the Record toggle button (see
     [Making a recording](#making_a_recording)).
@@ -43,11 +45,11 @@ In addition to the detailed Records view, you can inspect recordings in one of t
 
 The Events mode provides an overview of all events that were captured during the recording, organized by their type. At a glance, you can see where your application is spending the most time, and on what types of tasks. The length of each horizontal bar in this view corresponds to time that event took to complete.
 
-![](timeline-images/image27.png)
+![](timeline-images/events_mode.png)
 
 When you select a range of time from the Events view (see [Zooming in on a Timeline section](#zooming_in_on_a_timeline_section)), the Records view is restricted to only show those records.
 
-![](timeline-images/image11.png)
+![](timeline-images/timeline_records.png)
 
 ### Frames mode ###
 
@@ -57,7 +59,7 @@ Horizontal lines across the Frames view represent frame rate targets for 60 FPS 
 
 The time to render a frame is displayed atop of the Records view. If you hover over the displayed time, additional information appears about the frame, including the time spent on each type of task, CPU time, and the calculated FPS.
 
-![](timeline-images/image02.png)
+![](timeline-images/frames_mode.png)
 
 See [Timeline demo: Diagnosing and fixing forced synchronous
 layout](/chrome-developer-tools/docs/demos/too-much-layout/) for a demonstration of using Frames mode.
@@ -152,7 +154,6 @@ Here are some tips for making recordings:
 * **Avoid unnecessary actions**. Try to avoid actions (mouse clicks, network loads, and so forth) that are extraneous to the activity you want to record and analyze. For instance, if you want to record events that occur after you click a “Login” button, don’t also scroll the page, load an image and so forth.
 *  **Disable the browser cache**. When recording network operations, it’s a good idea to disable the browser’s cache in the DevTools Settings panel.
 * **Disable extensions**. Chrome extensions can add unrelated noise to Timeline recordings of your application. You can do one of the following:
-
     * Open a Chrome window in [incognito
     mode](http://support.google.com/chrome/bin/answer.py?hl=en&answer=95464)
     * Create a new [Chrome user
@@ -165,14 +166,13 @@ This section provides tips for analyzing Timeline recordings.
 
 ### Viewing details about a record ###
 
-When you hover your mouse over a record in the Timeline, a pop-up
-appears with additional information about the event.
+When you select a record in the Timeline, the Details pane displays additional information about the event.
 
-![](timeline-images/image29.png)
+![](timeline-images/frames_mode_event_selected.png)
 
 Certain details are present in events of all types, such as Duration and CPU Time, while some only apply to certain event types. For information on what details each kind of record contains, see the [Timeline event reference](#timeline_event_reference).
 
-When you hover over a Paint record, DevTools highlights the region of the screen that was updated with a blue semi-transparent rectangle, as shown below.
+When you select a Paint record, DevTools highlights the region of the screen that was updated with a blue semi-transparent rectangle, as shown below.
 
 ![](timeline-images/paint-hover.png)
 
@@ -181,23 +181,23 @@ When you hover over a Paint record, DevTools highlights the region of the screen
 
 The Timeline annotates each recording with a blue and a red line that indicate, respectively, when the [DOMContentLoaded](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded) and [load](http://docs.webplatform.org/wiki/dom/events/load) events were dispatched by the browser. The DOMContentLoaded event is fired when all of the page’s DOM content has been loaded and parsed. The load event is fired once all of the document’s resources (images and CSS files, and so forth) have been fully loaded.
 
-![](timeline-images/image28.png)
+![](timeline-images/event_markers.png)
 
 ### Locating forced synchronous layouts
 
 Layout is the process by which Chrome calculates the positions and sizes of all the elements on the page. Normally, Chrome performs layouts "lazily" in response to CSS or DOM updates from your application. This allows Chrome to batch style and layout changes rather than reacting to each on demand. However, an application can force Chrome to perform a layout immediately and asynchronously by querying the value of certain layout-dependent element properties such as `element.offsetWidth`. These so called "forced synchronous layouts" can be a big performance bottleneck if repeated frequently or performed for large DOM tree.
 
-The Timeline identifies when your application causes a forced asynchronous layout and marks such records with yellow warning icon (![](timeline-images/image25.png)). When you hover over the record, a pop-up appears that contains a stack trace of the offending code.
+The Timeline identifies when your application causes a forced asynchronous layout and marks such records with yellow warning icon (![](timeline-images/image25.png)). When you select the record, the details pane contains a stack trace of the offending code.
 
-![](timeline-images/image07.png)
+![](timeline-images/forced_layout.png)
 
 If a record contains a [child record](#about_nested_events) that forced a layout, the parent record is marked with a slightly dimmed yellow icon. Expand the parent record to locate the child record that caused the forced layout.
 
-![](timeline-images/forced-layout-expand.png)
 
-See the [Forced Synchronous Layout
+<p class="note">See the [Forced Synchronous Layout
 demo](/chrome-developer-tools/docs/demos/too-much-layout) for a demonstration
-of detecting and fixing these kinds of performance issues.
+of detecting and fixing these kinds of performance issues.</p>
+
 
 ### About nested events ###
 
@@ -210,7 +210,7 @@ Note: Glue mode is automatically disabled in [Frames mode](#frames_mode).
 
 The following screenshot shows an example of nested synchronous events. In this case, Chrome was parsing some HTML (the Parse HTML event) when it found several external resources that needed to be loaded. Those requests were made before Chrome has finished the parsing, so the Send Request events are displayed as children of the Parse HTML event.
 
-![](timeline-images/image21.png)
+![](timeline-images/sync_events.png)
 
 #### About glue mode ####
 
@@ -218,7 +218,7 @@ Many events in an application are the result of asynchronous operations. A loadi
 
 The **Glue asynchronous events to causes** toggle at the bottom of the Timeline panel causes asynchronous events to be nested as children of the event that caused them.
 
-![](timeline-images/image08.png)
+![](timeline-images/glue_mode.png)
 
 #### Coloring of Timeline records with nested events
 
@@ -230,23 +230,22 @@ Timeline bars are color coded as follows:
 
 ![](timeline-images/image16.png)
 
-When you hover over a parent record, the following information is displayed:
+Selecting a parent record will display the following in the Details pane:
 
-*  **Duration** matches the bar length from the event start to the end of its last child.
-*  **Self Time** is the time the event took without any of its children.
-*  **CPU time** matches that of CPU bar.
+*  **Event type summary** in text and visualized in a pie chart.
+*  **Used JS Heap size** at this point in the recording, and what this operation's effect was to the heap size.
+*  **Other details** relevant to the event.
 
-![](timeline-images/image23.png)
+![](timeline-images/parent_record.png)
 
 ### Filtering and searching records ###
 
-You can filter the records shown according to their type (only show loading events, for example), or only show records longer or equal to 1 millisecond or 15 milliseconds.
+You can filter the records shown according to their type (only show loading events, for example), or only show records longer or equal to 1 millisecond or 15 milliseconds. You can also filter the view to show events that match a string.
 
-![](timeline-images/image19.png)
+![](timeline-images/filters.png)
 
-You can also search records for a particular string by pressing Ctrl+F (Window/Linux) or Cmd+F (Mac), while the Timeline has focus. You can optionally filter records to only show those that contain the search term.
+While looking at all the events, you may want to hunt for one, but maintain context of what's around it. In this case, you can find without filtering. Press Ctrl+F (Window/Linux) or Cmd+F (Mac), while the Timeline has focus to show those that contain the search term.
 
-![](timeline-images/image09.png)
 
 ### Zooming in on a Timeline section ###
 
@@ -300,11 +299,7 @@ to mark a range of time that code was executing. For example, in the following r
 
 ### View CPU time in recordings ###
 
-You can overlay CPU activity in Timeline recordings by enabling the Show CPU activity on the ruler option in DevTools settings.
-
-![](timeline-images/image13.png)
-
-When this option is enabled, light gray bars appear above the Timeline records, indicating when the CPU was busy. Hovering over a CPU bar highlights the Timeline region during which the CPU was active (as shown below). The length of a CPU bar is typically the sum of all the (highlighted) events below it in the Timeline. If these don't match, it may be due to one of the following:
+You will see ight gray bars appearing above the Timeline records, indicating when the CPU was busy. Hovering over a CPU bar highlights the Timeline region during which the CPU was active (as shown below). The length of a CPU bar is typically the sum of all the (highlighted) events below it in the Timeline. If these don't match, it may be due to one of the following:
 
 * Other pages running on the same threads as the page being inspected (for example, two tabs open from the same site, with one site doing something in a `setTimeout()` call).
 * Un-instrumented activity.
