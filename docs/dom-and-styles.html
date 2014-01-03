@@ -1048,13 +1048,17 @@ global.animationData = global.animationData || {};
   width: 565px;
 }
 
+.editable-dom-node {
+  width: 101px;
+}
+
 </style>
 
 
 <h1 id="editing-styles-and-the-dom">Editing Styles And The DOM</h1>
 <p>[[TOC]]</p>
 <h1 id="introduction">Introduction</h1>
-<p>The <strong>Elements panel</strong> lets you view structured information about the current page. In todayâ€™s applications, the HTML markup served on an initial page load is not necessarily what youâ€™ll see in the Document Object Model (<a href="http://docs.webplatform.org/wiki/dom">DOM</a>) tree. Having a real-time representation of the page can be a powerful tool when debugging and authoring web pages.</p>
+<p>The <strong>Elements panel</strong> lets you view structured information about the current page. In today's applications, the HTML markup served on an initial page load is not necessarily what you'll see in the Document Object Model (<a href="http://docs.webplatform.org/wiki/dom">DOM</a>) tree. Having a real-time representation of the page can be a powerful tool when debugging and authoring web pages.</p>
 <p>You can use the Elements panel for a variety of tasks:</p>
 <ul>
 <li>Inspect the HTML &amp; CSS of a web page.</li>
@@ -1141,7 +1145,7 @@ global.animationData = global.animationData || {};
 <p>Updating the in-memory DOM tree <strong>doesn't</strong> modify the source files. Reloading the page erases any DOM tree modifications.</p>
 <h3 id="editing-dom-nodes">Editing DOM nodes</h3>
 <p>For DOM nodes, double click the opening <strong>Element tag </strong>(<code>h2, section, img</code>). The field is now editable and can be renamed, the closing tag is automatically updated after renaming.</p>
-<p><img alt="" src="dom-and-styles-files/images/image_7.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/editable-dom-node.png" class="editable-dom-node" /></p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation" src="edit-element-name" speed="1800" repeatdelay="2"></animation>
 </div>
@@ -1153,7 +1157,7 @@ global.animationData = global.animationData || {};
 <li>Double click the attribute value <img alt="" src="dom-and-styles-files/images/image_9.png" /> to edit this portion independently of the attribute name.</li>
 </ul>
 <p>When edit mode is active,<strong> </strong>cycle through attribute values by pressing <strong>Tab.</strong> Once you reach the last attribute value, pressing tab again creates a new attribute field.</p>
-<p>Using <strong>Tab</strong> is not the only way to add and edit attributes, since itâ€™s a common pattern, there are dedicated items for it in the DOM node context menu titled <strong>Add Attribute</strong> and <strong>Edit Attribute</strong>.</p>
+<p>Using <strong>Tab</strong> is not the only way to add and edit attributes, since it's a common pattern, there are dedicated items for it in the DOM node context menu titled <strong>Add Attribute</strong> and <strong>Edit Attribute</strong>.</p>
 <p><img alt="" src="dom-and-styles-files/images/image_10.png" /></p>
 <ul>
 <li>Select <strong>Add Attribute</strong> to create a new field at the end of the opening tag.</li>
@@ -1219,7 +1223,7 @@ var element = document.getElementById('main-content');
 
 // class attribute of element has been modified
 
-element.className = â€˜activeâ€™;
+element.className = 'active';
 </pre>
 
 <p><strong>Node Removal</strong></p>
