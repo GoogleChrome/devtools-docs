@@ -24,23 +24,19 @@
   <h2 id="cpu-profiles">CPU Profiles</h2>
 
   <p class="note"><b>Note:</b> If you are a Web Developer and want to get the
-  latest version of Developer Tools, you should use the Google Chrome release
+  latest version of DevTools, you should use the Google Chrome release
   from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Developer
   Channel</a>.</p>
 
   <p>Using Google Chrome, open the <a href="http://v8.googlecode.com/svn/data/benchmarks/v7/run.html" target=
   "_blank">V8 Benchmark Suite</a> page. Click the <strong>Start
-  profiling</strong> button. The circle changes to red. Now return to
-  the V8 Benchmark Suite page, and either press
-  <strong>F5</strong> or click the browser's <strong>Reload</strong> button
-  to reload the page.</p>
+  profiling</strong> button or press <span class="kbd">Cmd</span> + <span class="kbd">E</span> start recording a JavaScript CPU profile. Now refresh the V8 Benchmark Suite page.</p>
 
   <p>When the page has completed reloading, a score for the benchmark tests
-  is shown. Return to the Developer Tools window and click the <strong>Stop
-  profiling</strong> button. The circle changes to gray.</p>
+  is shown. Return to the DevTools and stop the recording by clicking the Stop button or by pressing <span class="kbd">Cmd</span> + <span class="kbd">E</span> again.</p>
 
   <div class="screenshot">
-    <img src="cpu-profiling-files/profiling_cpu_1.png">
+    <img src="cpu-profiling-files/heavy-bottom-up.png">
   </div>
 
   <p>This <strong>Bottom Up</strong> view lists functions by impact on performance.
@@ -60,7 +56,7 @@
   icon on the right).</p>
 
   <div class="screenshot">
-    <img src="cpu-profiling-files/focus_selected_function.png">
+    <img src="cpu-profiling-files/focus-selected-function.png">
   </div>
 
   <p>This filters the profile to show only the selected function and its callers. Click the <strong>Reload</strong> button at the bottom-right of the window to restore the profile to its original state.</p>
@@ -71,7 +67,7 @@
   like this:</p>
 
   <div class="screenshot">
-    <img src="cpu-profiling-files/exclude_selected_function.png">
+    <img src="cpu-profiling-files/tree-top-down.png">
   </div>
 
   <p>The <strong>Exclude selected function</strong> button removes the selected function from the profile and charges its callers with the excluded function's total time. Click the <strong>Reload</strong> button to restore the profile to its original state.</p>
@@ -79,7 +75,7 @@
   <p>You can record multiple profiles. Click the <strong>Start profiling</strong> button, reload the V8 Benchmark page, then click the <strong>Stop profiling</strong> button.</p>
 
   <div class="screenshot">
-    <img src="cpu-profiling-files/two_profiles.png">
+    <img src="cpu-profiling-files/sidebar-profile-history.png">
   </div>
 
   <p>The sidebar on the left lists your recorded profiles, the tree view on the right shows the information gathered for the selected profile.</p>
@@ -103,7 +99,7 @@
   <p>When zoomed out you can identify repetitive patterns that could be optimized, or more importantly, you're able to spot outliers or unexpected executions much easier.</p>
 
   <div class="screenshot">
-    <img src="cpu-profiling-files/flamechart01.png">
+    <img src="cpu-profiling-files/flamechart-outliers.png">
   </div>
 
 
