@@ -1,6 +1,6 @@
 # The Chrome DevTools documentation
 
-This is the official DevTools documentation. We regularly update the docs and welcome any contributions or bug-fixes.
+This is the official [DevTools documentation](developers.google.com/chrome-developer-tools/). We regularly update the docs and welcome any contributions or bug-fixes.
 
 ## How to run the site
 
