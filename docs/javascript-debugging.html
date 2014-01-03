@@ -482,7 +482,7 @@ navigate to the onMouseOut() function</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_30.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/houseMouseOut.jpg"/></div></p>
 
 <ul>
 <li>Click the <strong>pause</strong> button to pause debugging</li>
@@ -494,7 +494,7 @@ sure to Save As.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_31.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pause-resume-mouseout.jpg"/></div></p>
 
 <p>This allows you to saved changes from within the DevTools without having to
 leave your browser.</p>
@@ -519,7 +519,7 @@ DevTools, you should use <a href="tools.google.com/dlpage/chromesxs">Chrome Cana
 Cmd+Option+J) and find a number of JavaScript error messages there. Each message
 has a link to the file name with the line number you can navigate to.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_32.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/tracking-exceptions.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -531,7 +531,7 @@ opened</strong>, exceptions in the console are accompanied with the <strong>comp
 JavaScript call stacks</strong>. You can expand these console messages to see the stack
 frames and navigate to the corresponding locations in the code:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_33.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/exception-stack-trace.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -544,7 +544,7 @@ and URL --> ) at the bottom of the Scripts panel enables you to switch between
 different exception handling modes: you can choose to either pause on all
 exception or only on the uncaught ones or you can ignore exceptions altogether.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_35.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pause-execution.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -562,7 +562,7 @@ doing that.</p>
 <p>Each Error object has a string property named stack that contains the stack
 trace:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_36.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/error-stack.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -571,7 +571,7 @@ trace:</p>
 <p>You can instrument your code with console.trace() calls that would print current
 JavaScript call stacks:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_37.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/console-trace.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -581,7 +581,7 @@ JavaScript call stacks:</p>
 console.assert() with the error condition as the first parameter. Whenever this
 expression evaluates to false you will see a corresponding console record:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_38.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/console-assert.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -595,7 +595,7 @@ passed as three arguments in that order. You may find it convenient to set an
 error handler that would collect information about uncaught exceptions and
 report it back to your server.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_39.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/window-onerror.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -606,13 +606,13 @@ DevTools, a pretty printing option is available to make life easier. Here is how
 a minified script displayed in the tools might look prior to being displayed in
 the DevTools:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_40.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pretty-print-off.jpg"/></div></p>
 
 <p>And by clicking on the curly brace <img src="javascript-debugging/image_45.png"/> ("Pretty Print") icon in the bottom left
 corner, the JavaScript is transformed into a more human readable form. This is
 also more easy for debugging and setting breakpoints.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_41.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pretty-print-on.jpg"/></div></p>
 
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
@@ -649,13 +649,13 @@ generated JavaScript you can do a lookup in the source map which returns the
 original location. The DevTools can parse the source map automatically and make
 it appear as though you're running unminified and uncombined files.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_42.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/source-mapping.jpg"/></div></p>
 
 <p>Before you view the following real world implementation of Source Maps make sure
 you've enabled the Source Maps feature by clicking the settings cog in the dev
 tools panel and checking the "Enable source maps" option.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_43.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/source-maps.jpg"/></div></p>
 
 <p>Take a look at the special build of the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome,
 with source mapping enabled, and you'll notice that the JavaScript isn't
@@ -717,7 +717,7 @@ abstractions.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_44.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/coffeescript.jpg"/></div></p>
 
 <p><h4>Read more</h4></p>
 
