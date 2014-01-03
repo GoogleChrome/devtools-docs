@@ -1,6 +1,6 @@
-# Mirror of the Chrome DevTools documentation
+# The Chrome DevTools documentation
 
-This repository contains a mirror of the official DevTools documentation. We regularly update the mirror with new changes made on the site and welcome any contributions or bug-fixes.
+This is the official DevTools documentation. We regularly update the docs and welcome any contributions or bug-fixes.
 
 ## How to run the site
 
@@ -15,3 +15,4 @@ This repository contains a mirror of the official DevTools documentation. We reg
   * it looks like this ![image](https://f.cloud.github.com/assets/39191/700211/6b936d08-dd3d-11e2-8d4b-19db48d65c56.png)
 * Things mostly work.
 
+Paul or Addy does the work of pushing this stuff live.
