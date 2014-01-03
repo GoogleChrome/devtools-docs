@@ -1060,6 +1060,10 @@ global.animationData = global.animationData || {};
   width: 131px;
 }
 
+.breakpoint-reason {
+  width: 455px;
+}
+
 </style>
 
 
@@ -1261,10 +1265,10 @@ element.className = 'active';
 <li><strong>Toggle </strong>the <strong>checkbox </strong>to enable or disable the breakpoint.</li>
 </ul>
 <p>When you trigger a DOM breakpoint, the breakpoint is highlighted in the DOM Breakpoints pane. The <strong>Call Stack</strong> pane displays the <strong>reason</strong> for a debugger pause:</p>
-<p><img alt="" src="dom-and-styles-files/images/image_13.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/breakpoint-reason.png" class="breakpoint-reason" /></p>
 <h2 id="viewing-element-event-listeners">Viewing element event listeners</h2>
 <p>View JavaScript event listeners associated with a DOM node in the <strong>Event Listeners</strong> pane.</p>
-<p><img alt="" src="dom-and-styles-files/images/image_14.png" /></p>
+<p><img alt="" src="dom-and-styles-files/images/view-event-listeners.png" class="full-screenshot" /></p>
 <p>The top-level items in the Event Listeners pane show the event types that have registered listeners.</p>
 <p>Click the expander arrow next to the event type (for example <code>click</code>) to see a list of registered event handlers. Each handler is identified by a CSS-selector like element identifier, such as "<code>document</code>" or "<code>button#call-to-action</code>". If more than one handler is registered for the same element, the element is listed repeatedly.</p>
 <div class="devtools-animation-container">
