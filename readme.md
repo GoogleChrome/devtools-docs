@@ -19,6 +19,9 @@ This will allow us to provide feedback and coordinate contribution efforts.
   <dt> ./index.html </dt>
   <dd> Contains the project <a href="https://developers.google.com/chrome-developer-tools/">overview</a> page. </dd>
 
+  <dt> ./images </dt>
+  <dd> Contains images for index.html. </dd>
+
   <dt> ./_book.yaml </dt>
   <dd> Contains the titles and paths of individual docs. </dd>
 
