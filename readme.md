@@ -47,3 +47,7 @@ This will allow us to provide feedback and coordinate contribution efforts.
 ### Deployment
 
 Paul or Addy does the work of pushing this stuff live.
+
+## License
+
+Except as otherwise noted, the content of the DevTools documentation is licensed under the [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/), and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
