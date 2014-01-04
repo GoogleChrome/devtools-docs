@@ -170,6 +170,8 @@ The memory graph starts with a root, which may be the `window` object of the bro
 
 Whatever is not reachable from the root gets GC.
 
+<p class="note"><strong>Note:</strong> Both the Shallow and Retained size columns represent data in bytes.</p>
+
 ### Object's Retaining Tree
 
 As we introduced earlier, the heap is a network of interconnected objects. In the mathematical world, this structure is called a *graph* or memory graph. A graph is constructed from *nodes* connected by means of *edges*, both of which are given labels.
