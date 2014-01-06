@@ -15,8 +15,8 @@ Aside from contributing to the source code for DevTools, all of the following
 are different ways you could help contribute:
 
 * **Documentation authoring**
-    * Both reference and tutorial guides benefit from your help
-    * Get in touch with [@addyosmani](http://twitter.com/addyosmani) or [@paul_irish](http://twitter.com/paul_irish)
+    * The [source](https://github.com/GoogleChrome/devtools-docs) for the DevTools documentation is on GitHub and contributions are always welcome. Both reference and tutorial guides benefit from your help.
+    * Get in touch with [@addyosmani](http://twitter.com/addyosmani) or [@paul_irish](http://twitter.com/paul_irish) for more information on how you can assist here.
 * **Share what you've learned**
     * Share what you've learned via GIFs, Vines or construction paper
     * Cover new experimental features
@@ -29,6 +29,7 @@ are different ways you could help contribute:
       for all reviews of pending code
     * Subscribe to the [RSS feed of devtools 
       commits](http://commits.peter.sh/feed/?tracker=devtools).
+    * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) on Twitter which also includes a feed of all commits.
     * There's plenty of action and developers are eager to hear what's landing
 * **Designing improved UX for all parts of DevTools**
     * Your ideas on the design and UX are quite welcome, for example the [new 

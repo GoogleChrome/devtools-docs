@@ -83,15 +83,14 @@ graphical interface to the <a href="https://code.google.com/p/v8/">V8</a> debugg
 <strong>Sources</strong> panel:</p>
 
 <ul>
-<li>Open <a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html">Google Closure hovercard demo
-page</a>.</li>
-<li>Open the DevTools window as described in the How to Access the DevTools
-section of this tutorial.</li>
+<li>Open a site such as the <a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html">Google Closure hovercard demo
+page</a> or the <a href="http://todomvc.com/architecture-examples/angularjs/">TodoMVC</a> Angular app.</li>
+<li>Open the DevTools window.</li>
 <li>If it is not already selected, select <strong>Sources</strong>.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_0.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/javascript-debugging-overview.jpg"/></div></p>
 
 <p>The <strong>Sources</strong> panel lets you see all the scripts that are part of the
 inspected page. Standard controls to pause, resume, and step through code are
@@ -100,7 +99,6 @@ exceptions is located at the bottom of the window. Sources are visible in
 separate tabs and clicking <img src="javascript-debugging/image_1.png"/> opens the file navigator
 which will display all open scripts.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_2.png"/></div></p>
 
 <h3>Execution control</h3>
 
@@ -145,29 +143,28 @@ aspects of an application.</p>
 <p>First, open the DevTools by hitting the <strong>Control-Shift-I</strong> shortcut. Click the
 <strong>line gutter</strong> to set a breakpoint for that line of code, select another script
 and set another breakpoint.</p>
-<div class="screenshot"><img src="javascript-debugging/image_3.png"/></div> <p>
+<div class="screenshot"><img src="javascript-debugging/sources-view-region.jpg"/></div> <p>
 All the breakpoints you have set appear under <strong>Breakpoints</strong> in the right-hand
 sidebar. Breakpoints can be enabled or disabled using the checkboxes in this
 sidebar.</p>
-<div class="screenshot"><img src="javascript-debugging/image_4.png"/></div> <p>
+<div class="screenshot"><img src="javascript-debugging/sources-breakpoints-region.jpg"/></div> <p>
 Clicking on the entry jumps to the <strong>highlighted line</strong> in the source file. You
 can <strong>set</strong> one or more breakpoints in one or more scripts.</p>
-<div class="screenshot"><img src="javascript-debugging/image_5.png"/></div> <p>
+<div class="screenshot"><img src="javascript-debugging/multiple-breakpoints-region.jpg"/></div> <p>
 Delete a breakpoint by clicking the <strong>blue tag</strong> breakpoint indicator. The
 breakpoint indicator menu has several options including "Continue to here",
 "Edit Breakpoint", "Disable Breakpoint" and "Save As", which will save the file
 locally.</p>
-<div class="screenshot"><img src="javascript-debugging/image_6.png"/></div> <p>
+<div class="screenshot"><img src="javascript-debugging/continue-to-here-region.jpg"/></div> <p>
 Once you have set a breakpoint, you can right-click on the blue arrow tag
 indicator in the gutter line to set a <strong>conditional statement</strong> for that
 specific breakpoint. Type any expression and the breakpoint will pause only if
 the condition is true. The tag cycles through its three states of active,
 inactive, and removed.</p>
- <div class="screenshot"><img src="javascript-debugging/image_7.png"/></div>
+ <div class="screenshot"><img src="javascript-debugging/conditional-breakpoint-region.jpg"/></div>
 <p>
-Click the <strong>Pause</strong> button then move your mouse over the Google Closure
-hovercard demo page.  </p>
-<div class="screenshot"><img src="javascript-debugging/image_8.png"/></div> <p>
+Click the <strong>Pause</strong> button then interact with your page.  </p>
+<div class="screenshot"><img src="javascript-debugging/callstack-region.jpg"/></div> <p>
 While a script is paused, you can see the current call stack and in-scope
 variables in the right-hand side bar. The call stack displays the <strong>complete execution path</strong> that led to the point where code was paused, giving us insights into the code flaws that caused the error.</p>
 
@@ -175,9 +172,11 @@ variables in the right-hand side bar. The call stack displays the <strong>comple
 
 <aside class="special">
   Remember: the console will be evaluating within the scope of where the debugger is currently paused.
+  <p>
   <div class="screenshot">
-    <img src="javascript-debugging/breakpoint-scope.png">
+    <img src="javascript-debugging/evaluate-while-paused.jpg">
   </div>
+</p>
 
 </aside>
 
@@ -206,21 +205,21 @@ arguments etc.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_10.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/live-editing-mouseout.jpg"/></div></p>
 
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
 <h3 id="breakpoints-dynamic-javascript">Breakpoints in Dynamic JavaScript</h3>
 
-<a href="/chrome-developer-tools/docs/scripts-breakpoints-files/dynamicScript.js" style="display: none">
+<a href="/chrome-developer-tools/docs/javascript-debugging/dynamicScript.js" style="display: none">
   This is used to mark dynamicScript.js as used.</a>
 
 {% framebox height="500px" %}
 <script>
 function loadDynamicScript() {
   var request = new XMLHttpRequest();
-  request.open('GET','https://developers.google.com/chrome-developer-tools/docs/scripts-breakpoints-files/dynamicScript.js', true);
+  request.open('GET','https://developers.google.com/chrome-developer-tools/docs/javascript-debugging/dynamicScript.js', true);
   request.send();
   request.onreadystatechange = function() {
     if (request.readyState != 4)
@@ -243,11 +242,11 @@ set breakpoint on line 2</li>
 <li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_9.png"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_12.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/dynamic-script.jpg"/></div></p>
 
 {% endframebox %}
 
-<p><strong>Note:</strong> Notice the <code>"//@ sourceURL=dynamicScript.js"</code> line at the end of
+<p><strong>Note:</strong> Notice the <code>"//# sourceURL=dynamicScript.js"</code> line at the end of
 dynamicScript.js file. This technique gives a name to a script created with eval, and will be discussed in more detail in the <a href="#source-maps">Source Maps</a> section. Breakpoints can be set in dynamic JavaScript only if it has a user supplied
 name.</p>
 
@@ -271,7 +270,7 @@ function onMouseOver(event) {
   function</li>
 <li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_14.png"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
-<p><div class="screenshot"><img src="javascript-debugging/image_15.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/continue-to-resume.jpg"/></div></p>
 
 {% endframebox %}
 
@@ -299,7 +298,7 @@ function raiseAndCatchException() {
   "source-code">raiseAndCatchException</span> function</li>
 <li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_17.png"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
-<p><div class="screenshot"><img src="javascript-debugging/image_18.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/append-child.jpg"/></div></p>
 
 {% endframebox %}
 
@@ -336,7 +335,7 @@ caught</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_21.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/raise-exception.jpg"/></div></p>
 
 {% endframebox %}
 
@@ -366,7 +365,7 @@ select <strong>Break on Subtree Modifications</strong></li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_23.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/append-child-element.jpg"/></div></p>
 
 {% endframebox %}
 
@@ -374,14 +373,14 @@ select <strong>Break on Subtree Modifications</strong></li>
 
 <h2 id="breakpoints-on-xhr">Breakpoints on XHR</h2>
 
-<a href="/chrome-developer-tools/docs/scripts-breakpoints-files/data.txt" style="display: none">
+<a href="/chrome-developer-tools/docs/javascript-debugging/data.txt" style="display: none">
   This is used to mark data.txt as used.</a>
 
 {% framebox height="500px" %}
 <script>
 function retrieveData() {
   var request = new XMLHttpRequest();
-  request.open('GET','scripts-breakpoints-files/data.txt', true);
+  request.open('GET','javascript-debugging/data.txt', true);
   request.send();
 }
 </script>
@@ -398,7 +397,7 @@ context menu item</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_26.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/request-send.jpg"/></div></p>
 
 {% endframebox %}
 
@@ -437,7 +436,7 @@ function hovermeMouseOut(event) {
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_27.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/resumed.jpg"/></div></p>
 
 <ul>
 <li>Move your mouse across the box below:</li>
@@ -447,7 +446,7 @@ function hovermeMouseOut(event) {
 <li>You should stop on <code>mouseout</code> event handler</li>
 <li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_28.png"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
-<p><div class="screenshot"><img src="javascript-debugging/image_29.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/continue-to-resume.jpg"/></div></p>
 {% endframebox %}
 
 
@@ -482,7 +481,7 @@ navigate to the onMouseOut() function</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_30.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/houseMouseOut.jpg"/></div></p>
 
 <ul>
 <li>Click the <strong>pause</strong> button to pause debugging</li>
@@ -494,7 +493,7 @@ sure to Save As.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_31.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pause-resume-mouseout.jpg"/></div></p>
 
 <p>This allows you to saved changes from within the DevTools without having to
 leave your browser.</p>
@@ -519,7 +518,7 @@ DevTools, you should use <a href="tools.google.com/dlpage/chromesxs">Chrome Cana
 Cmd+Option+J) and find a number of JavaScript error messages there. Each message
 has a link to the file name with the line number you can navigate to.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_32.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/tracking-exceptions.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -531,7 +530,7 @@ opened</strong>, exceptions in the console are accompanied with the <strong>comp
 JavaScript call stacks</strong>. You can expand these console messages to see the stack
 frames and navigate to the corresponding locations in the code:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_33.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/exception-stack-trace.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -544,7 +543,7 @@ and URL --> ) at the bottom of the Scripts panel enables you to switch between
 different exception handling modes: you can choose to either pause on all
 exception or only on the uncaught ones or you can ignore exceptions altogether.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_35.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pause-execution.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -562,7 +561,7 @@ doing that.</p>
 <p>Each Error object has a string property named stack that contains the stack
 trace:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_36.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/error-stack.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -571,7 +570,7 @@ trace:</p>
 <p>You can instrument your code with console.trace() calls that would print current
 JavaScript call stacks:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_37.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/console-trace.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -581,7 +580,7 @@ JavaScript call stacks:</p>
 console.assert() with the error condition as the first parameter. Whenever this
 expression evaluates to false you will see a corresponding console record:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_38.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/console-assert.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -595,7 +594,7 @@ passed as three arguments in that order. You may find it convenient to set an
 error handler that would collect information about uncaught exceptions and
 report it back to your server.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_39.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/window-onerror.jpg"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -606,13 +605,13 @@ DevTools, a pretty printing option is available to make life easier. Here is how
 a minified script displayed in the tools might look prior to being displayed in
 the DevTools:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_40.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pretty-print-off.jpg"/></div></p>
 
 <p>And by clicking on the curly brace <img src="javascript-debugging/image_45.png"/> ("Pretty Print") icon in the bottom left
 corner, the JavaScript is transformed into a more human readable form. This is
 also more easy for debugging and setting breakpoints.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_41.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/pretty-print-on.jpg"/></div></p>
 
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
@@ -649,13 +648,13 @@ generated JavaScript you can do a lookup in the source map which returns the
 original location. The DevTools can parse the source map automatically and make
 it appear as though you're running unminified and uncombined files.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_42.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/source-mapping.jpg"/></div></p>
 
 <p>Before you view the following real world implementation of Source Maps make sure
 you've enabled the Source Maps feature by clicking the settings cog in the dev
 tools panel and checking the "Enable source maps" option.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/image_43.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/source-maps.jpg"/></div></p>
 
 <p>Take a look at the special build of the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome,
 with source mapping enabled, and you'll notice that the JavaScript isn't
@@ -674,7 +673,7 @@ there are also tools available that support outputting Source Maps for
 CoffeeScript and SASS. A special comment is placed at the end of the file, signifying to the DevTools
 that a source map is available.</p>
 
-<p><code>//@ sourceMappingURL=/path/to/file.js.map</code></p>
+<p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
 
 <p>This enables DevTools to map calls back to their location in original source
 files. If you don't like the idea of the weird comment you can alternatively set
@@ -692,12 +691,12 @@ comments.</p>
 <p>While not part of the source map spec the following convention allows you to
 make development much easier when working with evals.</p>
 
-<p>This helper looks very similar to the <code>//@ sourceMappingURL</code> property and is
+<p>This helper looks very similar to the <code>//# sourceMappingURL</code> property and is
 actually mentioned in the source map V3 specifications. By including the
 following special comment in your code, which will be evaled, you can name evals
 so they appear as more logical names in your dev tools.</p>
 
-<p><code>//@ sourceURL=source.coffee</code></p>
+<p><code>//# sourceURL=source.coffee</code></p>
 
 <p><strong>Working with sourceURL</strong></p>
 
@@ -717,7 +716,7 @@ abstractions.</li>
 </ul>
 
 
-<p><div class="screenshot"><img src="javascript-debugging/image_44.png"/></div></p>
+<p><div class="screenshot"><img src="javascript-debugging/coffeescript.jpg"/></div></p>
 
 <p><h4>Read more</h4></p>
 

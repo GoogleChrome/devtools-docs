@@ -237,6 +237,8 @@ img{
 
 <p><img src="tips-and-tricks/consolerun.png"/></p>
 
+<p>For a multi-line console which supports persistence, read about <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">Snippets</a> - a feature which can save and execute custom snippets of JavaScripts which are always available inside the DevTools.</p>
+
 <h3 id="inspect-element-line">A shortcut to launch in inspect-element mode</h3>
 
 <p><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> will open up DevTools in inspect element mode (or switch focus to it) so you can inspect the current page immediately. Repeating returns focus to the page. On Mac, use <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> to achieve the same.</p>
@@ -292,7 +294,7 @@ console.table(family, ["firstName", "lastName"]);
 
 <h3 id="styled-console-multiple">Pass multiple arguments to styled console logs</h3>
 
-<p>As we’ve documented you can add style to your console logs via <code>%c</code>, just like you can in Firebug. e.g</p>
+<p>As we've documented you can add style to your console logs via <code>%c</code>, just like you can in Firebug. e.g</p>
 
 <pre>
 console.log("%cBlue!", "color: blue;");
@@ -321,11 +323,11 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <h3 id="access-elements-console">Accessing elements from the console</h3>
 
-<p>Select an element and type $0 in the console, it will be used by the script. If you have jQuery on the page, you can then use $($0) to reselect the element in the page.</p>
+<p>Select an element and type <code>$0</code> in the console, it will be used by the script. If you have jQuery on the page, you can then use <code>$($0)</code> to reselect the element in the page.</p>
 
 <p><img src="tips-and-tricks/image_15.png"  /></p>
 
-<p>You can also right click on any element output to the console and click “Reveal in Elements Panel” to find it in the DOM.</p>
+<p>You can also right click on any element output to the console and click 'Reveal in Elements Panel' to find it in the DOM.</p>
 
 <p><img src="tips-and-tricks/image_16.png"  /></p>
 
@@ -333,7 +335,7 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <p>XPath is a query language for selecting nodes from documents and generally returns a node-set, string, boolean or number. You can use XPath expressions to query the DOM from the DevTools JavaScript console.</p>
 
-<p>The <code>$x(xpath)</code> command will allow you to execute a query - see below for an example of how to search for the images in a page using <code>$x(‘//img’)</code>:</p>
+<p>The <code>$x(xpath)</code> command will allow you to execute a query - see below for an example of how to search for the images in a page using <code>$x('//img')</code>:</p>
 
 <p><img src="tips-and-tricks/image_17.png"  /></p>
 
@@ -500,7 +502,7 @@ $x('//'img, frame);
 
 <h2>Profiles</h2>
 
-<h3 id="three-snapshot-technique">Finding JavaScript memory leaks with the “3 snapshot” technique</h3>
+<h3 id="three-snapshot-technique">Finding JavaScript memory leaks with the '3 snapshot' technique</h3>
 
 <ol>
 <li><p>Open up the DevTools and switch to the Profiles panel</p></li>
@@ -508,8 +510,8 @@ $x('//'img, frame);
 <li><p>Take a new heap snaphot</p></li>
 <li><p>Repeat steps 2 and 3 three times</p></li>
 <li><p>Select the latest heap snapshot</p></li>
-<li><p>Change the filter “All Object” to “Objects between Snapshot 1 and 2”</p></li>
-<li><p>You should now see a set of leaked objects. You can select one and look at the list of retainers in the Object’s retaining tree for insights into what is causing leaks.</p></li>
+<li><p>Change the filter 'All Object' to 'Objects between Snapshot 1 and 2'</p></li>
+<li><p>You should now see a set of leaked objects. You can select one and look at the list of retainers in the Object's retaining tree for insights into what is causing leaks.</p></li>
 </ol>
 
 
@@ -537,7 +539,7 @@ $x('//'img, frame);
 
 <h3 id="moreinsights-heapprofiler">Additional insights with Heap profiler views</h3>
 
-<p>One common question we get asked is “what are the differences between the Comparison, Dominator, Containment and Summary views in DevTools > Profiles > Heap snapshot”. These views provide additional insights into the data exposed by the profiler and break down as follows:</p>
+<p>One common question we get asked is 'what are the differences between the Comparison, Dominator, Containment and Summary views in DevTools > Profiles > Heap snapshot'. These views provide additional insights into the data exposed by the profiler and break down as follows:</p>
 
 <p>Comparison view helps you track down memory leaks, by displaying which objects have been correctly cleaned up by the garbage collector. Generally used to record and compare two (or more) memory snapshots of before and after an operation. The idea is that inspecting the delta in freed memory and reference count lets you confirm the presence and cause of a memory leak.</p>
 

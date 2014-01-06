@@ -101,7 +101,7 @@ The [`console.assert()`](console-api#consoleassertexpression_object) method cond
 
 ### Filtering console output ###
 
-You can quickly filter console output by its severity level--errors, warning, or standard log statements--by selecting one of the filter options along the bottom of the Console, as shown below.
+You can quickly filter console output by its severity level--errors, warning, or standard log statements--by selecting one of the filter options. Click on the filter funnel (as shown below) and then select which filter you want to use.
 
 ![Only show console.error() output](console-files/filter-errors.png)
 
