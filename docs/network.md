@@ -18,29 +18,29 @@ The Network panel uses the [Resource Timing API](http://www.w3.org/TR/resource-t
 
 <img src="network-files/resource-timing-overview.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
-The API is available to any web page, not just DevTools. In Chrome, it's exposed as methods on the global `window.performance` object. The `performance.getEntries()` method returns an array of "resource timing objects", one for each requested resource on the page. 
+The API is available to any web page, not just DevTools. In Chrome, it's exposed as methods on the global `window.performance` object. The `performance.getEntries()` method returns an array of "resource timing objects", one for each requested resource on the page.
 
 Try this: open the JavaScript console on the current page, enter the following at the prompt, and hit Return:
 
     window.performance.getEntries()[0]
 
-This evaluates the first element in the array of resource timing objects and displays its properties in the console, as shown below. 
+This evaluates the first element in the array of resource timing objects and displays its properties in the console, as shown below.
 
 <img src="network-files/getentries.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
-Each timestamp is in microseconds, following the [High Resolution 
-Time](http://www.w3.org/TR/hr-time/#sec-high-resolution-time) specification. This API is [available in 
+Each timestamp is in microseconds, following the [High Resolution
+Time](http://www.w3.org/TR/hr-time/#sec-high-resolution-time) specification. This API is [available in
 Chrome](http://updates.html5rocks.com/2012/08/When-milliseconds-are-not-enough-performance-now) as the `window.performance.now()` method.
 
 ## Network panel overview
 
 The Network panel automatically records all network activity while DevTools is open. The first time you open the panel it may be empty. Reload the page to start recording, or simply wait for network activity to occur in your application.
 
-<img src="network-files/panel.png" alt="alt text"/> 
+<img src="network-files/panel.png" alt="alt text"/>
 
 Each requested resource is added as a row to the Network table, which contains the columns listed below. Note the following about the Network table:
 
-* Not all columns listed below are visible by default; you can easily [show or hide columns](#adding_and_removing_table_columns). 
+* Not all columns listed below are visible by default; you can easily [show or hide columns](#adding_and_removing_table_columns).
 * Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing_resource_row_size) both fields are shown; when using small resource rows only the primary field is shown.
 * You can [sort](#sorting_and_filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline_view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline_view) and [Sorting and filtering](#sorting_and_filtering) for more information.
 
@@ -51,7 +51,7 @@ Each requested resource is added as a row to the Network table, which contains t
 <th>Description</th>
 </tr>
 </thead>
-<tbody> 
+<tbody>
 <tr>
 <td><strong>Name</strong> and <strong>Path</strong></td>
 <td>The name and URL path of the resource, respectively.</td>
@@ -97,7 +97,7 @@ Each requested resource is added as a row to the Network table, which contains t
 </tr>
 <tr>
 <td><strong>Size</strong> and <strong>Content</strong></td>
-<td>Size is the combined size of the response headers (usually a few hundred bytes) plus the response body, as delivered by the server. 
+<td>Size is the combined size of the response headers (usually a few hundred bytes) plus the response body, as delivered by the server.
 Content is the size of the resource's decoded content.
 If the resource was loaded from the browser's cache rather than over the network, this field will contain the text (from cache).</td>
 </tr>
@@ -119,7 +119,7 @@ By default, the current network record log is discarded when you navigate to ano
 
 ### Sorting and filtering ###
 
-By default, resources in the Network table are sorted by the start time of each request (the network "waterfall"). You can sort the table by another column value by clicking the column header. Click the header again to change the sort order (ascending or descending). 
+By default, resources in the Network table are sorted by the start time of each request (the network "waterfall"). You can sort the table by another column value by clicking the column header. Click the header again to change the sort order (ascending or descending).
 
 <img src="network-files/sorting.png" alt="alt text"/>
 
@@ -148,7 +148,7 @@ You can change the default set of columns displayed by the Network table. To sho
 
 ### Changing resource row sizes
 
-You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="network-files/small-resource-rows.png" alt="alt text"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="network-files/large-rows.png" alt="alt text"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed. 
+You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="network-files/small-resource-rows.png" alt="alt text"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="network-files/large-rows.png" alt="alt text"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
 
 In the following screenshot, the Network table is viewed with small resource rows and just the Timeline column.
 
@@ -168,8 +168,8 @@ If you hover your mouse over the timeline bar itself, the complete timing data f
 
 <img src="network-files/timeline-view-hover.png" alt="alt text"/>
 
-The timeline indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded) 
-and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded. 
+The timeline indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
+and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded.
 
 <img src="network-files/dom-lines.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
@@ -239,13 +239,13 @@ The following menu actions apply to the selected resource:
 * **Copy Link Address** — Copies the resource URL to the system clipboard.
 * **Copy Request Headers** — Copies the HTTP request headers to the system clipboard.
 * **Copy Response Headers** — Copies the HTTP response headers to the system clipboard.
-* **Copy as cURL** — Copies the network request as a 
+* **Copy as cURL** — Copies the network request as a
   [cURL](http://curl.haxx.se/) command string to the system clipboard. See [Copying requests as cURL commands](#copying_requests_as_curl_commands).
 * **Replay XHR** — If the associated request is an XMLHTTPRequest, re-sends the original XHR.
 
 #### Copying requests as cURL commands
 
-[cURL](http://curl.haxx.se/) is a command line tool for making HTTP transactions. The Network panel's **Copy as cURL** command recreates an HTTP request (including HTTP headers, SSL certificates, and query string parameters) and copies it as a cURL command string to the clipboard. You can then paste the string into a terminal window (on a system with cURL) to execute the same request. 
+[cURL](http://curl.haxx.se/) is a command line tool for making HTTP transactions. The Network panel's **Copy as cURL** command recreates an HTTP request (including HTTP headers, SSL certificates, and query string parameters) and copies it as a cURL command string to the clipboard. You can then paste the string into a terminal window (on a system with cURL) to execute the same request.
 
 Below is an example cURL command line string taken from a XHR request on the Google News home page.
 
@@ -266,7 +266,7 @@ For more information, [Web Performance Power Tool: HTTP Archive (HAR)](http://ww
 
 ## Network resource details #
 
-When you click a resource name in the Network table a tabbed window appears that contains the following additional details: 
+When you click a resource name in the Network table a tabbed window appears that contains the following additional details:
 
 * [HTTP request and response headers](#http_headers)
 * [Resource preview](#resource_previews)
@@ -277,7 +277,7 @@ When you click a resource name in the Network table a tabbed window appears that
 
 ### HTTP headers
 
-The Headers tab displays the resource's request URL, HTTP method, and response status code. Additionally, it lists the HTTP response and request headers and their values, and any query string parameters. You can view HTTP headers parsed and formatted, or in their source form by clicking the **View parsed**/**View source** toggle button, respectively, located next to each header's section. You can also view parameter values in their decoded or URL encoded forms by clicking the **View decoded**/**View URL encoded** toggle button next to each query string section.  
+The Headers tab displays the resource's request URL, HTTP method, and response status code. Additionally, it lists the HTTP response and request headers and their values, and any query string parameters. You can view HTTP headers parsed and formatted, or in their source form by clicking the **View parsed**/**View source** toggle button, respectively, located next to each header's section. You can also view parameter values in their decoded or URL encoded forms by clicking the **View decoded**/**View URL encoded** toggle button next to each query string section.
 
 <img src="network-files/headers.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
@@ -287,12 +287,12 @@ You can also [copy request and response headers](#saving_and_copying network_inf
 
 The Preview tab displays a preview of the resource, when available. Previews are currently displayed for image and JSON resources, as shown below.
 
-<img src="network-files/resource-preview-json.png" alt="alt text"/> 
+<img src="network-files/resource-preview-json.png" alt="alt text"/>
 
 <img src="network-files/image-preview.png" alt="alt text"/>
 
-You can view the resource's unformatted response on the [Response 
-tab](#http_response). 
+You can view the resource's unformatted response on the [Response
+tab](#http_response).
 
 ### HTTP response
 
@@ -304,7 +304,7 @@ You can also [view formatted previews](#resource_previews) of some resource type
 
 ### Cookies
 
-The Cookies tab displays a table of all the cookies transmitted in the 
+The Cookies tab displays a table of all the cookies transmitted in the
 resource's HTTP request and response headers. You can also <a href="#right-click_menu_actions">clear all cookies</a>.
 
 <img src="network-files/cookies.png" alt="alt text"/>
@@ -383,7 +383,7 @@ The Frames tab shows messages sent or received over a WebSocket connection. This
 </tr>
 </table>
 
-Messages are color-coded according to their type. Outgoing text messages are color-coded light-green; incoming text messages are white: 
+Messages are color-coded according to their type. Outgoing text messages are color-coded light-green; incoming text messages are white:
 
 <p><img src="network-files/websocket-text2.png" alt="alt text"/> </p>
 
@@ -402,7 +402,7 @@ Errors are light-red.
 
 The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline_view).
 
-<img src="network-files/timing.png" alt="Network timging gra"/> 
+<img src="network-files/timing.png" alt="Network timging gra"/>
 
 The table below lists the network phases shown in the Timing tab and their descriptions.
 
@@ -447,7 +447,7 @@ The table below lists the network phases shown in the Timing tab and their descr
 To learn more optimizing the network performance of your application, see the following resources:
 
 * Use [PageSpeed Insights](/speed/pagespeed/insights) to identify performance best practices that can be applied to your site, and [PageSpeed optimization tools](/speed/pagespeed/optimization) to automate the process of applying those best practices.
-* [High Performance Networking in Google 
+* [High Performance Networking in Google
   Chrome](http://www.igvita.com/posa/high-performance-networking-in-google-chrome/) discusses Chrome network internals and how you can take advantage of them to make your site faster.
 * [How gzip compression works](/speed/articles/gzip) provides a high level overview gzip compression and why it's a good idea.
 * [Web Performance Best Practices](/speed/docs/best-practices/rules_intro) provides additional tips for optimizing the network performance of your web page or application.
