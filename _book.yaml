@@ -18,11 +18,8 @@ toc:
   section:
   - title: "Demo: Finding Forced Synchronous Layouts"
     path: /chrome-developer-tools/docs/demos/too-much-layout
-- title: "Profiling JavaScript Performance"
+- title: "Profiling JavaScript"
   path: /chrome-developer-tools/docs/cpu-profiling
-  section:
-  - title: "Flame Chart"
-    path: /chrome-developer-tools/docs/flame-chart
 - title: "JavaScript Memory Profiling"
   path: /chrome-developer-tools/docs/javascript-memory-profiling
   section:
@@ -53,7 +50,9 @@ toc:
   path: /chrome-developer-tools/docs/tips-and-tricks
 - title: "Settings"
   path: /chrome-developer-tools/docs/settings
-- title: "Remote Debugging on Android"
+- title: "Rendering Settings"
+  path: /chrome-developer-tools/docs/rendering-settings
+- title: "Remote Debugging Chrome on Android"
   path: /chrome-developer-tools/docs/remote-debugging
   section:
   - title: "Debugging Protocol"
