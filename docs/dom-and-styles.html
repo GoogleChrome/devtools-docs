@@ -216,8 +216,6 @@ element.className = 'active';
 <p>A node removal modification is triggered when the node in question is removed from the DOM:</p>
 <p><code>document.getElementById('main-content').remove();</code></p>
 
-<p>&nbsp;</p>
-
 <p>In the animation above, the following steps occur:</p>
 
 <ul>
@@ -242,8 +240,6 @@ element.className = 'active';
 <p><img alt="" src="dom-and-styles-files/images/view-event-listeners.png" class="full-screenshot" /></p>
 <p>The top-level items in the Event Listeners pane show the event types that have registered listeners.</p>
 <p>Click the expander arrow next to the event type (for example <code>click</code>) to see a list of registered event handlers. Each handler is identified by a CSS-selector like element identifier, such as "<code>document</code>" or "<code>button#call-to-action</code>". If more than one handler is registered for the same element, the element is listed repeatedly.</p>
-
-<p>&nbsp;</p>
 
 <p>Click the expander arrow next to an element identifier to see the properties of the event handler. The Event Listeners pane lists the following properties for each listener:</p>
 <ul>
@@ -280,7 +276,7 @@ element.className = 'active';
 <li>Matched CSS rules include any rules matched by the element. For example, the CSS selector <code>span</code> matches an HTML <code>&lt;span&gt;</code> element. </li>
 <li>Inherited styles include any inheritable style rules that match the selected element's ancestors.</li>
 </ul>
-<p><img alt="" src="dom-and-styles-files/images/image_18.jpg" /></p>
+<p><img alt="" src="dom-and-styles-files/images/styles-annotated.png" class="full-screenshot" /></p>
 <p>The labels on the image above correspond with the numbered items below.</p>
 <ol>
 <li>Styles associated with a selector that matches the element.</li>
@@ -340,8 +336,6 @@ video, audio, div, .message, body *, time {
 <h4 id="trigger-pseudo-classes-on-element">Trigger pseudo-classes on element</h4>
 <p>You can provide dynamic styling for your UI elements using pseudo-class selectors such as <code>:hover</code>. However, these dynamic states can be hard to debug. So DevTools lets you manually set pseudo-classes on individual elements. </p>
 
-<p>&nbsp;</p>
-
 <p>You may trigger any combination of the following four pseudo-classes:</p>
 
 <ul>
@@ -364,8 +358,6 @@ video, audio, div, .message, body *, time {
 <li>Select <strong>Local modifications</strong>.</li>
 </ul>
 
-<p>&nbsp;</p>
-
 <p>To create modifications, edit source code through the editor in the Sources panel.
 </p>
 
@@ -378,16 +370,12 @@ video, audio, div, .message, body *, time {
 <li>Select <strong>revert</strong> next to a file name to undo all local modifications against that file.</li>
 </ul>
 
-<p>&nbsp;</p>
-
 <p>
 You can also use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> on Mac) to quickly undo minor changes to the DOM or Styles via the Elements panel.
 </p>
 
 <h2 id="metrics-pane">Metrics pane</h2>
 <p>The metrics pane provides a visual illustration of how styles affect the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">CSS Box Model</a>.</p>
-
-<p>&nbsp;</p>
 
 <p>The Metrics pane shows a set of rectangles representing the box dimensions in the CSS box model. The inner, content box shows the dimensions of the content area. Outer boxes, such as the border box, show the values for each of the edges: border-top, border-right, border-bottom, and border-left.</p>
 <p>If no value is set for a given edge, a dash is displayed in place of the value</p>
