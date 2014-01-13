@@ -1,0 +1,327 @@
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>DevTools Extensions Gallery</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" >
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" >
+  </head>
+  <body>
+
+{% framebox width="auto"%}
+  <style>
+
+  body { 
+    background: #fff; 
+    font-family: 'Open Sans',arial,sans-serif;
+  }
+
+  .container { 
+    width: 100%; 
+    
+  }
+
+  .features {
+    list-style: none;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .webstore-icon {
+    float:left;
+    margin-left: 7px;
+    margin-top: 24px;
+  }
+
+  .webstore-text {
+    float:left;
+    width:100%;
+    margin-left:20px;
+  }
+
+  .webstore-search {
+    margin-left: 20px;
+    width: 50%;
+    height: 47px;
+    margin-top: 12px;
+    border: 1px solid #bdbdbd;
+    -webkit-box-shadow: inset 0px 2px 2px #ececec,0px 1px 1px #fff;
+    -moz-box-shadow: inset 0px 2px 2px #ececec,0px 1px 1px #fff;
+    box-shadow: inset 0px 2px 2px #ececec,0px 1px 1px #fff;
+    background-color: #fff;
+    padding: 2px 2px 2px 20px;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Open Sans',arial,sans-serif;
+  }
+
+  .flex-container.fixed-height {
+      width: 100%;
+  }
+
+  .webstore-tile {
+    width:240px;
+    height:360px; 
+    background:#f8f8f8;
+    overflow:hidden;
+    vertical-align: top;
+    border-bottom: 1px solid #c6c6c6;
+    border-right: 1px solid #c6c6c6;
+    -webkit-transform: translateZ(0);
+  }
+
+  .webstore-tile:hover {
+    background:#ececec;
+  }
+
+  .webstore-tiles {
+    width: 100%;
+    margin-top: -16px;
+  }
+
+  .webstore-bar {
+    height: 39px;
+    width: 100px;
+    background-color: #ececec;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 0px;
+    z-index: 100;
+    color: #333;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .webstore-tile a{
+    text-decoration:none;
+  }
+
+  .webstore-tile small{
+    clear:both;
+  }
+
+  .loader {
+    padding:20px;
+  }
+
+  .webstore-tile-imageholder {
+    width:218px;
+    height:142px;
+    overflow:hidden;
+    background:#ccc;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: solid 1px #ddd;
+  }
+
+  .webstore-tile-image {
+    width:222px;
+    border: solid 1px #ddd;
+    margin:0 auto;
+  }
+
+  .webstore-heading {
+    border-bottom:1px solid #c6c6c6;
+    width:723px;
+  }
+
+  .loadmore {
+    width: 100%;
+  }
+
+  .webstore-text h1{
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .webstore-tile-title {
+    width:211px;
+    margin-top: 8px;
+    margin-left: 19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: bold;
+    color: #262626;
+  }
+
+  .webstore-tile-description{
+    width:200px;
+    height: 200px;
+    margin-top: 8px;
+    margin-left: 19px;
+    font-size: 13px;
+    color: #5F5F5F;
+    overflow: hidden; 
+    text-overflow: ellipsis
+  }
+
+  .webstore-tile-subtitle {
+    width: 211px;
+    height: 218px;
+    margin-top: -201px;
+    margin-left: 19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 10px;
+    color: #AFAAAA;
+  }
+
+  .flex-container {
+    padding-left: 0;
+    border-left: 1px solid #ddd;
+    width:725px;
+  }
+
+  .flex-item {
+      float:left;
+      width:240px
+  }
+
+/* Buttons of all styles */
+.kd-button {
+    color: white;
+	float: left;
+font-weight: 300;
+height: 50px;
+font-size: 20px;
+	margin: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.kd-button-submit:focus, .kd-button-submit.focus{
+	border-color:#4D90FE
+}
+
+.kd-button-submit {
+	border-color: #3079ed;
+	background-color: #4d90fe;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#4787ed));
+	background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: linear-gradient(top,#4d90fe,#4787ed);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#4787ed');
+}
+.kd-button-submit:hover {
+	border-color: #2f5bb7;
+	background-color: #357ae8;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#357ae8));
+	background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: linear-gradient(top,#4d90fe,#357ae8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#357ae8');
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="webstore-tiles-view">
+    <div class="webstore-text">
+    <h1>Featured DevTools Extensions</h1>
+    <p>Recommended Chrome DevTools extensions for improving your delight during debugging and development</p>
+    </div>
+     <p><input class="webstore-search" type="text" id="filter" placeholder="Search the list below"/></p>
+     <p>&nbsp;</p>
+</div>
+
+    <div class="webstore-tiles">
+        <ul class="features flex-container flex-container-style fixed-height" id="results">
+        </ul>
+    </div> 
+    </div>
+  </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+<script>
+
+String.prototype.trunc = function(n){
+    return this.substr(0,n-1)+(this.length>n?'&hellip;':'');
+};
+
+!function(a){"use strict";"function"==typeof define&&define.amd?define("jquery.sheetrock",["jquery"],a):a(window.jQuery)}(function(a){"use strict";a.fn.sheetrock=function(a,b){return a.target=this.length?this:!1,a=t(a),a&&(y(b)&&null!==b?h(a,b):g(a)),this};var b={},c=0,d="sheetrockError",e="sheetrockLoaded",f="sheetrockRowOffset",g=function(b){a.fn.sheetrock.promise=a.fn.sheetrock.promise.pipe(function(){return i(b)}).pipe(function(){return j(b)})},h=function(a,b){k(a),l.call(a,b),n.call(a)},i=function(b){var c={sql:"select * limit 1",dataHandler:r,userCallback:a.noop,target:!1};return-1===b.sql.indexOf("%")||s(b)?a.Deferred().resolve():(z("Prefetching column labels."),j(a.extend({},b,c)))},j=function(b){k(b),b.chunkSize&&b.target&&(b.sql+=" limit "+(b.chunkSize+1)+" offset "+b.offset,B(b.target,f,b.offset+b.chunkSize)),b.callback="sheetrock_"+c++;var d={data:u(b),context:b,url:a.fn.sheetrock.server,dataType:"jsonp",cache:!0,jsonp:!1,jsonpCallback:b.callback};return z(d,b.debug),a.ajax(d).promise().done(l).fail(m).always(n)},k=function(b){b.loading.show(),a.fn.sheetrock.working++},l=function(a){o(a,"warnings"),o(a,"errors"),z(a,this.debug),x(a,"status","table")&&x(a.table,"cols","rows")?this.dataHandler.call(p.call(this,a),a):m.call(this,a)},m=function(){B(this.target,d,1),z("Request failed.")},n=function(){this.loading.hide(),this.userCallback(this),a.fn.sheetrock.working--},o=function(b,c){x(b,c)&&a.each(b[c],function(a,b){x(b,"detailed_message")?z(b.detailed_message):x(b,"message")&&z(b.message)})},p=function(b){var c=this;return c.parsed={},c.parsed.last=c.chunkSize?Math.min(b.table.rows.length,c.chunkSize):b.table.rows.length,c.parsed.loaded=!c.chunkSize||c.parsed.last<c.chunkSize?1:0,c.parsed.header=a.map(b.table.cols,F).length?1:0,c.parsed.labels=c.labels&&c.labels.length===b.table.cols.length?c.labels:a.map(b.table.cols,G),B(c.target,e,c.parsed.loaded),c},q=function(b){var c=this,d=c.target;a.extend(c,{thead:c.rowGroups?a("<thead/>").appendTo(d):d,tbody:c.rowGroups?a("<tbody/>").appendTo(d):d}),c.offset||c.headersOff||(c.parsed.header||!c.headers)&&c.thead.append(c.rowHandler({num:0,cells:J(c.parsed.labels)})),a.each(b.table.rows,function(b,d){if(x(d,"c")&&b<c.parsed.last){var e=w(c.offset+b+1+c.parsed.header-c.headers),f={num:e,cells:{}};(e||!c.headersOff)&&(a.each(d.c,function(a,b){var d=c.formatting?K(b):!1,e=b&&x(b,"v")?c.cellHandler(b.v):"";f.cells[c.parsed.labels[a]]=d?M(e,"span",d):e}),f.num?c.tbody.append(c.rowHandler(f)):c.thead.append(c.rowHandler(f)))}})},r=function(c){var d={};a.each(c.table.cols,function(a,b){d[b.id]=G(b)}),b[this.key+this.gid]=d},s=function(c){return a.isEmptyObject(c.columns)?b[c.key+c.gid]||!1:c.columns},t=function(b){if(b=a.extend({},a.fn.sheetrock.options,b),b.key=C(b.url),b.gid=D(b.url),b.chunkSize=b.target?w(b.chunkSize):0,b.headers=w(b.headers),b.offset=b.chunkSize?A(b.target,f):0,b.loading=I(b.loading),!b.target&&b.dataHandler===q)return z("No element targeted or data handler provided.");if(A(b.target,e))return z("No more rows to load!");if(A(b.target,d))return z("A previous request for this resource failed.");if(b.url){if(!b.key)return z("Could not find a key in the provided URL.");if(!b.gid)return z("Could not find a gid in the provided URL.")}else;return z(b,b.debug),b},u=function(a){var b={key:a.key,gid:a.gid,tqx:"responseHandler:"+a.callback};return a.sql&&(b.tq=H(a.sql,s(a))),b},v=function(a){return a.toString().replace(/^ +/,"").replace(/ +$/,"")},w=function(a){return Math.max(0,parseInt(a,10)||0)},x=function(a){for(var b=1;b<arguments.length;b++)if(!y(a[arguments[b]]))return!1;return!0},y=function(a){return"undefined"==typeof a?!1:!0},z=function(a,b){return b=!y(b)||y(b)&&b,b&&window.console&&console.log&&console.log(a),!1},A=function(b,c){return b.length?a.data(b[0],c)||0:0},B=function(b,c,d){return b.length?a.data(b[0],c,d)||0:0},C=function(a){var b=new RegExp("key=([^&#]+)","i");return b.test(a)?a.match(b)[1]:!1},D=function(a){var b=new RegExp("gid=([^&#]+)","i");return b.test(a)?a.match(b)[1]:!1},E=function(a){return x(a,"label")?a.label.replace(/\s/g,""):!1},F=function(a){return E(a)||null},G=function(a){return E(a)||a.id},H=function(b,c){return a.each(c,function(a,c){b=b.replace(new RegExp("%"+c+"%","g"),a)}),b},I=function(b){return!b||b instanceof a?b:a(b)},J=function(b){var c={};return a.each(b,function(a,b){c[b]=b}),c},K=function(a){return a&&x(a,"p")&&x(a.p,"style")?a.p.style:!1},L=function(a){var b,c="",d=a.num?"td":"th";for(b in a.cells)x(a.cells,b)&&(c+=M(a.cells[b],d,""));return M(c,"tr","")},M=function(a,b,c){var d=c?' style="'+c+'"':"";return"<"+b+d+">"+a+"</"+b+">"};a.fn.sheetrock.options={url:"",sql:"",chunkSize:0,columns:{},labels:[],rowHandler:L,cellHandler:v,dataHandler:q,userCallback:a.noop,loading:a(),debug:!1,headers:0,headersOff:!1,rowGroups:!1,formatting:!1},a.fn.sheetrock.server="https://spreadsheets.google.com/tq",a.fn.sheetrock.working=0,a.fn.sheetrock.promise=a.Deferred().resolve(),a.fn.sheetrock.version="0.1.6"});
+
+
+var data = {"version":"0.6","status":"ok","sig":"623784745","table":{"cols":[{"id":"A","label":"","type":"string","pattern":""},{"id":"B","label":"","type":"string","pattern":""},{"id":"C","label":"","type":"string","pattern":""},{"id":"D","label":"","type":"string","pattern":""},{"id":"E","label":"","type":"string","pattern":""},{"id":"F","label":"","type":"string","pattern":""},{"id":"G","label":"","type":"string","pattern":""},{"id":"H","label":"","type":"string","pattern":""},{"id":"I","label":"","type":"string","pattern":""},{"id":"J","label":"","type":"string","pattern":""},{"id":"K","label":"","type":"string","pattern":""}],"rows":[{"c":[{"v":"Angular Batarang"},{"v":"Extends the Developer Tools, adding tools for debugging and profiling AngularJS applications."},{"v":"AngularJS"},{"v":"This extension features tools to help find and address performance bottlenecks, and visualize and debug applications."},{"v":"https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk"},{"v":"https://github.com/angular/angularjs-batarang"},{"v":"http://i.imgur.com/V47o35o.jpg"},{"v":"http://2.bp.blogspot.com/-YgdghCiF9p0/UaL6XG_vJjI/AAAAAAAADGA/Z-8YrBWaY3A/s1600/batarang.png"},{"v":"https://github.com/angular/angularjs-batarang/raw/master/img/deps.png"},{"v":"https://raw.github.com/angular/angularjs-batarang/master/img/options.png"},{"v":"https://www.youtube.com/watch?feature=player_embedded&v=q-7mhcHXSfM"}]},{"c":[{"v":"DevTools Terminal"},{"v":"Local terminal in your browser."},{"v":"Dmitry Filimonov"},{"v":"DevTools Terminal is a new Chrome DevTools extension that brings the power of the terminal to your browser. If you ever find yourself context-switching between Chrome and the command-line for tasks like: pulling down assets, using git, grunt, wget or even vim - you may find this extension a useful time-saver."},{"v":"https://chrome.google.com/webstore/detail/devtools-terminal/leakmhneaibbdapdoienlkifomjceknl"},{"v":"https://github.com/petethepig/devtools-terminal"},{"v":"http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/image_0.png"},{"v":""},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"Ember Inspector"},{"v":"Tool for debugging Ember applications."},{"v":"EmberJS"},{"v":"The Ember Inspector is a plug-in for the Chrome developer tools that makes understanding and debugging your Ember.js application a snap.\n\nAfter installing this extension, you\u0027ll be able to easily:\n\n- View all of the routes defined in your application.\n- Reference Ember\u0027s naming conventions for your URLs, including what to name your controllers, templates, routes and more.\n- Overlay your application with information about what templates, controllers, and models are currently being rendered.\n- Inspect the objects in your application, such as models and controllers, with UI that fully supports Ember features such as bindings and computed properties.\n- Make your application\u0027s objects available in the console as the $E variable.\n- If you\u0027re using Ember Data, see all of the records that have been loaded.\n\nThe Ember Inspector is an open source project maintained by the Ember.js community. The source code is available for download at https://github.com/tildeio/ember-extension."},{"v":"https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi"},{"v":"https://github.com/tildeio/ember-extension"},{"v":"https://lh4.googleusercontent.com/oBZgX7bO-LoH5iqPDuST1HtHB46fdnmz1xDjBFz2Mw-Y4Yw7Vs90bHgqk1A9gWssFRxp2T4UXgo=s640-h400-e365-rw"},{"v":"https://lh6.googleusercontent.com/TGLbr4UoyLqBNvZACqghquEMo5bVWWrlA8f_UkCf4F5etIcqNM0HcBLVRRCQHHLWwBilJbznxrk=s640-h400-e365-rw"},{"v":"https://lh3.googleusercontent.com/xMVHoMRWR9XT_uFJhgGvsYJCWqOeAf0meOEHQBGFQcurLo4SDsLz7zkrU6cvC_a6vNEKodHwqQ=s640-h400-e365-rw"},{"v":"https://lh6.googleusercontent.com/i9LKsSo9Zd875XAQeFMpPL3OBItSq1g2z_UEVewoPE2MHgrzkd15z0WVTovFd4_wa6ugV5p-IA=s640-h400-e365-rw"},{"v":"http://www.youtube.com/watch?v=18OSYuhk0Yo"}]},{"c":[{"v":"Backbone Debugger"},{"v":"Developer Tools extension for debugging Backbone.js applications."},{"v":"Maluen"},{"v":"Adds a panel under the Chrome Developer Tools that displays in real-time all your application views, models, collections and routers. Data displayed includes:\n- Views: rendering status, html element, associated model and/or collection, handled page events, events triggered\n- Models: last sync status, attributes, id, cid, url, associated collection, events triggered, sync actions\n- Collections: last sync status, models, url, events triggered, sync actions\n- Routers: events triggered (include routes)\n\nExtends the sidebar of the developer tools \u0022Elements\u0022 panel to display the Backbone View of the inspected html element."},{"v":"https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd"},{"v":"https://github.com/Maluen/Backbone-Debugger"},{"v":"https://lh5.googleusercontent.com/kZnxEqqQ7pHQk3aUpR_Pq4OJp1iwmcdAxWrbS8DtOgODt2Xk2FXq8juI54-UOsmN9zs3LNv34w=s640-h400-e365-rw"},{"v":"https://lh4.googleusercontent.com/jAjsL39TfrNCm0FzAf7LRrWA1buncFsgKg8Vj3Xw42TeYDqmweXGFf02aeM5O90_Wtt0EIBxUjw=s640-h400-e365-rw"},{"v":"https://lh5.googleusercontent.com/2BaH6i4JT-UDybQIhqG8SleTC8kJF6oOmg-cRCTiFoQfy-lU1nDu-eEVf9SKsFwoe5wfSqyB1A=s640-h400-e365-rw"},{"v":"https://lh6.googleusercontent.com/iIGvk6e9EjsAMvXe4NXeH_qPk3WO7ezGPGnm5dmJpdkaCOJPYQtKFk3bajSrQBkg8mjwW51gxQ=s640-h400-e365-rw"},{"v":""}]},{"c":[{"v":"React Developer Tools"},{"v":""},{"v":""},{"v":"Adds React React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools (formerly WebKit Web Inspector).\n\nYou will get new tab called React in your Chrome DevTools. This shows you the root React components that was rendered on the page, as well as the subcomponents that they ended up rendering.\n\nBy selecting one of the components in the tree you can inspect and edit it\u0027s current props and state in the panel on the right. In the breadcrumbs you can inspect the selected Component, the Component that created it, the Component that created that one, and so on. tools to the Chrome Developer Tools."},{"v":"https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/internal?hl=en"},{"v":"https://github.com/facebook/react-devtools"},{"v":"https://lh4.googleusercontent.com/RO9s2sb_dmJ3NZqSFIFwYzix16uJbk3WS91GRSIWkj_jjvXqpuOBZjnP8k5EFUIoT46ccSA39A=s640-h400-e365-rw"},{"v":"https://lh6.googleusercontent.com/qRoMSCGDgOfrlH2Oh3adbmyDFCYOb1HjYHlvdiNylTaDlDS_SHiTWjHIH-xdTewAv6YJHJJ71g=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"Thorax Inspector"},{"v":"Inspector extension for Thorax, a Backbone + Handlebars framework to build large scale web applications. http://thoraxjs.org/"},{"v":"ThoraxJS"},{"v":"Inspector extension for Thorax, a Backbone + Handlebars framework to build large scale web applications."},{"v":"https://chrome.google.com/webstore/detail/thorax-inspector/poioalbefcopgeaeaadelomciijaondk"},{"v":"https://github.com/eastridge/thorax-inspector"},{"v":"https://lh5.googleusercontent.com/beJfKEvDoAZRDWtmY3DhXhXEljcSHgYGuXtg4vytp74KkZWfFx75pS9aedMwJ0FUx03FAvddIpM=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"Grunt DevTools"},{"v":"Extends the Developer Tools, adding tools for Grunt"},{"v":"vladfilippov.com"},{"v":"Extends the Developer Tools, adding tools for Grunt! \nA full GUI for your Gruntfile. \nSupports background tasks, such as \u0027watch\u0027. \nAllows you to run tasks for multiple projects in a single window.\nSee the GitHub page for installation details.  "},{"v":"https://chrome.google.com/webstore/detail/grunt-devtools/fbiodiodggnlakggeeckkjccjhhjndnb"},{"v":"https://github.com/vladikoff/grunt-devtools"},{"v":"https://github-camo.global.ssl.fastly.net/fba20e792d4e064a683bbd02a16e1b8b523533ef/687474703a2f2f763134642e636f6d2f752f6772756e742d646576746f6f6c732d6d61696e2e706e67"},{"v":"https://github-camo.global.ssl.fastly.net/a29ca457281aeea3886c3d11340fbddde22ac16d/687474703a2f2f763134642e636f6d2f692f353133333933636262376538622e6a7067"},{"v":"https://github-camo.global.ssl.fastly.net/b91122bc1cbc8b704a700f10a731c02b8bbb20f7/687474703a2f2f763134642e636f6d2f692f353133333934316365623662342e6a7067"},{"v":""},{"v":""}]},{"c":[{"v":"DevTools Redirect"},{"v":"Catch and redirect resources loaded from a specific domain to any file hosted on a local or remote server."},{"v":"http://devtools-redirect.kevenbouchard.com/"},{"v":"This devtools extension will allow you to work faster on your local files using the server environment, try modifications on a website without breaking it for other people. You\u0027re deciding which file(s) you want to redirect, so you can do whatever you want !\n\nIn order for the redirect to work, you need to have Devtools open for the specific tab you\u0027re testing in. Also, right now, you can only redirect .js .css .less resources.\n\n* 02/05/13 Added folders redirection. (e.g \u0022/images/*\u0022 -\u003e \u0022http://localhost/images/*\u0022)\n* 19/04/13 Added images support (.jpg .png .gif .ico .svg)\n* 18/04/13 Fixed the installation error.\n\nYou can NOT redirect resources to a local file using the file:// protocol. In order to redirect locally, you need to be running a local server (e.g Apache) and redirect the file to the right path using it (e.g http://localhost/my-project/css/style.css)."},{"v":"https://chrome.google.com/webstore/detail/devtools-redirect/jmhdebkkippcccflcoddckhjjfgnfhnp"},{"v":"https://github.com/kbouchard/devtools-redirect"},{"v":"https://lh3.googleusercontent.com/mvnmRdjnvFHatZnHTcCatCbs4vqvFzamq8_W8_85EsKjiq3SxZ9YxW9OcBJeo_ll4zrDM9ZZvQ=s640-h400-e365-rw"},{"v":"https://lh3.googleusercontent.com/YVjUMODWCoqp1FIsWcnJO_ioJ3QU8_fazUmj1BWMbd8p_LR-eAf3yWhcnk9K_7vo5xCgVwWsQA=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":"https://www.youtube.com/watch?feature=player_embedded&v=5J2-9lFaESI"}]},{"c":[{"v":"Knockoutjs context debugger"},{"v":"Shows the knockout context & data for the selected dom node in a sidebar of the elements pane."},{"v":"timstuyckens"},{"v":"Knockoutjs debugging extension.\nAdds a extra sidebar in the elements pane of the chrome dev tools with the relevant knockout context and data for the selected element.\nVery usefull if you got large/nested viewmodels.\n\nAllows to add tracing to every observable/computed.\n\n\nSource code is on github: https://github.com/timstuyckens/chromeextensions-knockoutjs\n\nMIT license.\n\n\nTip (based on comments)\nYou can view the content of any observable in the viewmodel in the \u0027$root_toJS\u0027 variable."},{"v":"https://chrome.google.com/webstore/detail/knockoutjs-context-debugg/oddcpmchholgcjgjdnfjmildmlielhof"},{"v":"https://github.com/timstuyckens/chromeextensions-knockoutjs"},{"v":"https://lh3.googleusercontent.com/P3WvrKqklL-j5cEBeGSNzUDv0seUxyEI6vc0a0SULABfChhWVwB0yARQuzHNtZGuj30nl4cRhA=s640-h400-e365-rw"},{"v":"https://lh5.googleusercontent.com/few6L0i1dkDRk9jD1wGhHt6jMe85vr20HnhcFsPQJBeM9CkAEqvOWWH-Upc2YuNJF5S2-_fZ=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"BatmanJS DevTools"},{"v":"Chrome developer utilities to help batman.js development"},{"v":"Alex.Angelini"},{"v":"If you work with Batman.js, this Batman.js Devtools Chrome extension is an invaluable tool. It includes a variety of tools useful for developing with Batman.js right in your browser."},{"v":"https://chrome.google.com/webstore/detail/batmanjs-devtools/lgdibimihnidbcllamkdnpfeppdhgala"},{"v":"https://github.com/batmanjs/batman-chrome-extension"},{"v":"https://lh3.googleusercontent.com/DaY0MKwtzbRuSVrgDGWf5YoHb-QptKgEMC78FwZTVLruj6k-_vC3-EP4XLyBffdukRN5SrIAVB8=s640-h400-e365-rw"},{"v":"https://lh5.googleusercontent.com/ThrzQ1_RrFDH6t26BEWT7m5YBhRXQT4L5cWZKtBNDQpXnqRP1Tcg8abtlrHGqCswhGHSrkGXtAA=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"Emmet LiveStyle"},{"v":"Live bi-directional CSS editing of new generation"},{"v":"emmet.io"},{"v":"Unlike other similar tools, LiveStyle doesn\u0027t replace CSS file in browser (or file system) to display changes, it performs structural analysis as-you-type and maps changes from one CSS source into another.\n\nBenefits are:\n* Easily live edit you production web-site with original CSS source, even if web-site contains minified and concatenated CSS.\n* No file saving, no page reloading\n* You need only web browser and editor for live editing: no special web-server or file watcher required.\n* It doesn\u0027t matter where your CSS file comes from: local file system, FTP or some fancy network mount \u2014 if it can be opened in editor, you can use it for live editing.\n* Use multiple windows to tweak responsive design: changes made in editor or DevTools are automatically spanned across windows.\n\nMore info and how to use it: http://livestyle.emmet.io"},{"v":"https://chrome.google.com/webstore/detail/emmet-livestyle/diebikgmpmeppiilkaijjbdgciafajmg"},{"v":""},{"v":"http://maxcdn.webappers.com/img/2013/08/live-edit.jpg"},{"v":""},{"v":""},{"v":""},{"v":"https://www.youtube.com/watch?feature=player_embedded&v=iQLhGbkupS4"}]},{"c":[{"v":"SnappySnippet"},{"v":"Easily extract CSS and HTML from selected element. Then send it to CodePen, jsFiddle or JS Bin with one click."},{"v":""},{"v":"SnappySnippet is a DevTools extension that allows you to extract CSS and HTML from selected DOM subtree (last inspected element). Then, with just one click, you can send selected code to CodePen, jsFiddle or JS Bin.\n\nOther features:\n- cleans up HTML (removing unnecessary attributes, fixing indentation)\n- optimizes CSS to make it readable\n- fully configurable (all filters can be turned off)\n- nice UI thanks to Bootstrap & Flat-UI projects\n- works with :before and :after pseudo elements\n\nSnappySnippet was inspired by StackOverflow question: http://stackoverflow.com/questions/4911338/tools-to-selectively-copy-htmlcssjs-from-existing-sites ."},{"v":"https://chrome.google.com/webstore/detail/snappysnippet/blfngdefapoapkcdibbdkigpeaffgcil"},{"v":""},{"v":"https://lh4.googleusercontent.com/v33unyvSYqUo_uZxi-1ageW3dSNO47-BE1hjStW6u8h-Uol-xo2Zv5BOB6HxzK7LrcBGNHpbGg=s640-h400-e365-rw"},{"v":"https://lh4.googleusercontent.com/zg-w4Qlc6rq4MdwroBG5_Q86TGTPSOB6MIla2gP38kH-K_sppxmYykhRqn0Gnd9llhKlZSk1=s640-h400-e365-rw"},{"v":"https://lh3.googleusercontent.com/PflGvnxRZNO3YKZDDH6kNxVex__m0aohZLbN-0FOoYoNf8YxFu3BRb2kcG_NZ91ucq0kFToifg=s640-h400-e365-rw"},{"v":"https://lh4.googleusercontent.com/d-EgO_x38YAV-WK4e1i4kM1HZ_28yN0A5XsFJC2BhEPfzYfSx-yDHuhdZf_fGNFJFTkJDQz_=s640-h400-e365-rw"},{"v":""}]},{"c":[{"v":"RapidJS DevTools"},{"v":"An extra developer panel for inspecting rAppid:js applications"},{"v":"www.rappidjs.com"},{"v":"An extra panel in the inspect dialog of the chrome developer tools, that let you inspect the insights of a rAppid:js application.\n\nTo enable the inspection for your application you need to add the following setting to your config.json file.\n\n\u0022enableInspection\u0022: true"},{"v":"https://chrome.google.com/webstore/detail/rappidjs-devtools/oalmajpfbgkkfeamkmgmmccnjfojogbh"},{"v":""},{"v":"https://lh6.googleusercontent.com/xMDQPmiknOqW7BktQtydMeznsjF8MW0Koelnl3ylajl4h-VCNokHUp8-lR6OIOJXJRbbob8A=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"RailsPanel"},{"v":"Devtools panel for Rails development"},{"v":"Dejan Simic"},{"v":"RailsPanel is a Chrome extension for Rails development that will end your tailing of development.log. Have all information about your Rails app requests right there in the Developer Tools panel. Provides insight to db/rendering/total times, parameter list, rendered views, text editor integration and more. \n\nTo use this extension you need to add meta_request gem to your app\u0027s Gemfile:\n\ngroup :development do\n  gem \u0027meta_request\u0027\nend"},{"v":"https://chrome.google.com/webstore/detail/railspanel/gjpfobpafnhjhbajcjgccbbdofdckggg"},{"v":"https://github.com/dejan/rails_panel"},{"v":"https://lh4.googleusercontent.com/lemKMju7dET6u2RZWK9gIG_2xyu0jDGlPa2kBfoJu3gzvNDL1HOcwNqV2c4dRNrDEP8bmB7rtg=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"App Inspector for Sencha"},{"v":"Google Chrome™ Dev Tools extension for debugging Sencha™ applications."},{"v":"bruno.tavares.me"},{"v":"Google Chrome™ Dev Tools extension for debugging Sencha™ applications."},{"v":"https://chrome.google.com/webstore/detail/app-inspector-for-sencha/pbeapidedgdpniokbedbfbaacglkceae"},{"v":""},{"v":"https://lh4.googleusercontent.com/cZiq75gy1K2ENi8iUFjj3--mgU1-r4Ftf-0vpVOKGwN3dwj0I3qV2woGG0lal0U1InLJlhAl=s640-h400-e365-rw"},{"v":"https://lh3.googleusercontent.com/2EmZZ5T3mUrs2r_dCLwP8gVCUumSWv0ImUewhvDpppKckSHEkfEQW7JLYkpqZ_vhsernEjRpIg=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"jQuery Debugger"},{"v":"Chrome Developer Tools extension for jQuery development"},{"v":"or.virnik"},{"v":"New Selector Inspector panel\nComfortably inspect your jQuery selectors, and watch their matching elements displayed on any website.\nDesigned to help you understand easily even the most complex selectors.\n\nTwo new sidebars on the Elements panel\njQuery Data sidebar - shows the jQuery and HTML5 data of the selected element.\njQuery Events sidebar - shows the event handlers of the selected element, including events that are live or delegated on other elements which have an affect on the selected element."},{"v":"https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi"},{"v":""},{"v":"https://lh5.googleusercontent.com/RNzDchmmCUoDzALHPCjQWbzKYA8n9oeULTF6Y2pTst8qBWwSNheEqdPXdbYvxzEdfD87VH48KA=s640-h400-e365-rw"},{"v":"https://lh3.googleusercontent.com/_Qwz_MraCAuZx3newJSd-dIowgt6dGHHYK38UdTu84QGJR-E9E8bf6Q0m85fpJX3rBXtwFNu=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""}]},{"c":[{"v":"PageSpeed Insights"},{"v":"PageSpeed Insights analyzes the performance of your web pages and provides suggestions to make them faster."},{"v":"developers.google.com"},{"v":"The PageSpeed Insights browser extensions, available for Chrome and Firefox, allow you to evaluate the performance of your web pages and to get suggestions on how to improve them.\n\nPageSpeed Insights for Chrome is a Chrome Developer tools extension. \n\nTo open and use PageSpeed Insights:\n\n  1. Open Chrome Developer tools by selecting the Wrench menu at the top-right of your browser window, then select Tools -\u003e Developer tools.\n\n  2. In the Chrome Developer Tools pane, click the Page Speed tab  to switch to the PageSpeed Insights panel.\n\n  3. Navigate Chrome to a web page, and click the red ANALYZE button to run PageSpeed Insights.\n\nBy installing this extension, you agree to the Terms of Service found at:\nhttps://ssl.gstatic.com/chrome/webstore/intl/en/gallery_tos.html"},{"v":"https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli"},{"v":""},{"v":"https://lh6.googleusercontent.com/npKUbXpGzk7BEopp5fdMn7bHsab0qFtw7VWXDZC4bUtrt0NB7OkE4_q2It1rYWvqATY-e5AQ6wQ=s640-h400-e365-rw"},{"v":"https://lh6.googleusercontent.com/JDR-And_pHs57svVlnpd6p-8HtoMMBEvSuOPK_htaor0Md185GtnRpYxUMtqsO3Z7lDVIjNXYq0=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":"https://www.youtube.com/watch?feature=player_embedded&v=_MuVoabSLeY"}]},{"c":[{"v":"Django Debug Panel"},{"v":"Django Debug Toolbar inside WebKit DevTools. Works fine with background AJAX requests and non-HTML responses."},{"v":"recamshak"},{"v":"Django Debug Toolbar inside WebKit DevTools. Works fine with background AJAX requests and non-HTML responses. Great for single-page applications and other AJAX intensive web applications.\n"},{"v":"https://chrome.google.com/webstore/detail/django-debug-panel/nbiajhhibgfgkjegbnflpdccejocmbbn"},{"v":""},{"v":"https://lh5.googleusercontent.com/wkehKd8vrTnWylMFv020TcdKFS5Grh0slrgh-s4S4FL0POoqf_WWK2Wt6gUNO68UJnd_WAbp=s640-h400-e365-rw"},{"v":""},{"v":""},{"v":""},{"v":""}]}]}};
+
+//https://spreadsheets.google.com/tq?key=0AhcraNy3sgspdFlKdGg5SDB2bWJMRWw1bkdFN0QwNkE&gid=0&tq=offset%201&tqx=responseHandler:c
+</script>
+
+<script type="text/html" id="tile">
+<li class="webstore-tile flex-item">
+  <a href="<%= cells.E %>">
+  <div class="webstore-tile-imageholder">
+     <img class="lazy webstore-tile-image" data-original="<%= cells.G %>" width="224px"/>
+  </div>
+  <div class="webstore-tile-title">
+    <%= (cells.A).trim() %>
+  </div>
+  <div class="webstore-tile-description">
+    <%= (cells.D).trunc(220) %>
+  </div>
+</a>
+</li>
+</script>
+
+<script>
+!function(a,b,c,d){var e=a(b);a.fn.lazyload=function(f){function g(){var b=0;i.each(function(){var c=a(this);if(!j.skip_invisible||c.is(":visible"))if(a.abovethetop(this,j)||a.leftofbegin(this,j));else if(a.belowthefold(this,j)||a.rightoffold(this,j)){if(++b>j.failure_limit)return!1}else c.trigger("appear"),b=0})}var h,i=this,j={threshold:0,failure_limit:0,event:"scroll",effect:"show",container:b,data_attribute:"original",skip_invisible:!0,appear:null,load:null,placeholder:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"};return f&&(d!==f.failurelimit&&(f.failure_limit=f.failurelimit,delete f.failurelimit),d!==f.effectspeed&&(f.effect_speed=f.effectspeed,delete f.effectspeed),a.extend(j,f)),h=j.container===d||j.container===b?e:a(j.container),0===j.event.indexOf("scroll")&&h.bind(j.event,function(){return g()}),this.each(function(){var b=this,c=a(b);b.loaded=!1,(c.attr("src")===d||c.attr("src")===!1)&&c.is("img")&&c.attr("src",j.placeholder),c.one("appear",function(){if(!this.loaded){if(j.appear){var d=i.length;j.appear.call(b,d,j)}a("<img />").bind("load",function(){var d=c.attr("data-"+j.data_attribute);c.hide(),c.is("img")?c.attr("src",d):c.css("background-image","url('"+d+"')"),c[j.effect](j.effect_speed),b.loaded=!0;var e=a.grep(i,function(a){return!a.loaded});if(i=a(e),j.load){var f=i.length;j.load.call(b,f,j)}}).attr("src",c.attr("data-"+j.data_attribute))}}),0!==j.event.indexOf("scroll")&&c.bind(j.event,function(){b.loaded||c.trigger("appear")})}),e.bind("resize",function(){g()}),/(?:iphone|ipod|ipad).*os 5/gi.test(navigator.appVersion)&&e.bind("pageshow",function(b){b.originalEvent&&b.originalEvent.persisted&&i.each(function(){a(this).trigger("appear")})}),a(c).ready(function(){g()}),this},a.belowthefold=function(c,f){var g;return g=f.container===d||f.container===b?(b.innerHeight?b.innerHeight:e.height())+e.scrollTop():a(f.container).offset().top+a(f.container).height(),g<=a(c).offset().top-f.threshold},a.rightoffold=function(c,f){var g;return g=f.container===d||f.container===b?e.width()+e.scrollLeft():a(f.container).offset().left+a(f.container).width(),g<=a(c).offset().left-f.threshold},a.abovethetop=function(c,f){var g;return g=f.container===d||f.container===b?e.scrollTop():a(f.container).offset().top,g>=a(c).offset().top+f.threshold+a(c).height()},a.leftofbegin=function(c,f){var g;return g=f.container===d||f.container===b?e.scrollLeft():a(f.container).offset().left,g>=a(c).offset().left+f.threshold+a(c).width()},a.inviewport=function(b,c){return!(a.rightoffold(b,c)||a.leftofbegin(b,c)||a.belowthefold(b,c)||a.abovethetop(b,c))},a.extend(a.expr[":"],{"below-the-fold":function(b){return a.belowthefold(b,{threshold:0})},"above-the-top":function(b){return!a.belowthefold(b,{threshold:0})},"right-of-screen":function(b){return a.rightoffold(b,{threshold:0})},"left-of-screen":function(b){return!a.rightoffold(b,{threshold:0})},"in-viewport":function(b){return a.inviewport(b,{threshold:0})},"above-the-fold":function(b){return!a.belowthefold(b,{threshold:0})},"right-of-fold":function(b){return a.rightoffold(b,{threshold:0})},"left-of-fold":function(b){return!a.rightoffold(b,{threshold:0})}})}(jQuery,window,document);
+</script>
+
+<script>
+$(function(){
+
+    var resultPane = $('#results');
+    var webstoreSearch = $('.webstore-search');
+    var tileTemplate = $('#tile').html();
+    var HRTemplate = _.template(tileTemplate);
+
+    function postLoader(){
+        $("img.lazy").lazyload();
+    }
+
+    function loadResults(){
+      resultPane.sheetrock({
+        url:'',
+        headersOff: true,
+        rowHandler: HRTemplate,
+        userCallback: postLoader
+      }, data);
+    }
+
+    webstoreSearch.keyup(function() {
+        filter(this); 
+    });
+
+    function filter(element) {
+        var value = $(element).val().toLowerCase();
+        var $li = $("#results > li");
+
+        $li.hide();
+        $li.filter(function() {
+            return $(this).text().toLowerCase().indexOf(value) > -1;
+        }).show();
+        $li.find("img").lazyload();
+    }
+
+    loadResults();
+});
+ 
+</script>
+
+
+{% endframebox %}
+
+</body>
+</html>
