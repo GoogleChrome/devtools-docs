@@ -3,7 +3,6 @@ Book: /chrome-developer-tools/_book.yaml
 
 {% framebox height="20600px" width="auto"%}
 
-
 <script>
 
 (function(global) {
@@ -1018,49 +1017,90 @@ global.animationData = global.animationData || {};
  background: url('dom-and-styles-files/images/play-icon.svg');
 }
 
+/* Retina image scaling */
+.inspect-icon {
+  width: 27px;
+  margin: 0 10px;
+}
+
+.collapsed-div {
+  width: 44px;
+}
+
+.expanded-body {
+  width: 49px;
+}
+
+.breadcrumb-body {
+  width: 79px;
+}
+
+.breadcrumb-footer {
+  width: 148px;
+}
+
+.breadcrumb-trail {
+  width: 143px;
+}
+
+.full-screenshot {
+  width: 565px;
+}
+
+.editable-dom-node {
+  width: 101px;
+}
+
+.edit-node-attribute {
+  width: 141px;
+}
+
+.edit-node-attribute-value {
+  width: 131px;
+}
+
+.breakpoint-reason {
+  width: 455px;
+}
+
 </style>
 
-# Editing Styles And The DOM
 
-[[TOC]]
-
-# Introduction
-
-The **Elements panel** lets you view structured information about the current page. In today’s applications, the HTML markup served on an initial page load is not necessarily what you’ll see in the Document Object Model ([DOM](http://docs.webplatform.org/wiki/dom)) tree. Having a real-time representation of the page can be a powerful tool when debugging and authoring web pages.
-
-You can use the Elements panel for a variety of tasks:
-
-* Inspect the HTML & CSS of a web page.
-* Test different layouts.
-* Live-edit CSS.
-
-To make better use of screen real estate, you may find it convenient to follow these workspace tips:
-
-* **Collapse** any panes you are not actively using.
-* **Resize the divider** between the DOM tree and the sidebar containing the panes.
-
+<h1 id="editing-styles-and-the-dom">Editing Styles And The DOM</h1>
+<p>[[TOC]]</p>
+<h1 id="introduction">Introduction</h1>
+<p>The <strong>Elements panel</strong> lets you view structured information about the current page. In today's applications, the HTML markup served on an initial page load is not necessarily what you'll see in the Document Object Model (<a href="http://docs.webplatform.org/wiki/dom">DOM</a>) tree. Having a real-time representation of the page can be a powerful tool when debugging and authoring web pages.</p>
+<p>You can use the Elements panel for a variety of tasks:</p>
+<ul>
+<li>Inspect the HTML &amp; CSS of a web page.</li>
+<li>Test different layouts.</li>
+<li>Live-edit CSS.</li>
+</ul>
+<p>To make better use of screen real estate, you may find it convenient to follow these workspace tips:</p>
+<ul>
+<li><strong>Collapse</strong> any panes you are not actively using.</li>
+<li><strong>Resize the divider</strong> between the DOM tree and the sidebar containing the panes.</li>
+</ul>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation" src="event-listener-resize" speed="1800" repeatdelay="2"></animation>
 </div>
 
 <p>&nbsp;</p>
 
-# DOM
-
-The DOM tree view displays the DOM structure of the current web page. The DOM tree is a tree of DOM nodes that represent individual HTML elements, such as `<body>` and `<p>`. For ease of reading, the DOM tree view displays the HTML element tags instead of the DOM node types: for example, `<p>` instead of <code>HTMLParagraphElement</code>.
-
-The DOM tree view shows the current state of the tree. This may not match the HTML that was originally loaded for a number of reasons:
-
-* You can modify the DOM tree using JavaScript.
-* The browser engine can try to correct invalid author markup and produce an unexpected DOM tree.
-
-## Inspecting elements
-
+<h1 id="dom">DOM</h1>
+<p>The DOM tree view displays the DOM structure of the current web page. The DOM tree is a tree of DOM nodes that represent individual HTML elements, such as <code>&lt;body&gt;</code> and <code>&lt;p&gt;</code>. For ease of reading, the DOM tree view displays the HTML element tags instead of the DOM node types: for example, <code>&lt;p&gt;</code> instead of <code>HTMLParagraphElement</code>.</p>
+<p>The DOM tree view shows the current state of the tree. This may not match the HTML that was originally loaded for a number of reasons:</p>
+<ul>
+<li>You can modify the DOM tree using JavaScript.</li>
+<li>The browser engine can try to correct invalid author markup and produce an unexpected DOM tree.</li>
+</ul>
+<h2 id="inspecting-elements">Inspecting elements</h2>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="inspect-element" speed="1200" repeatdelay="2"></animation>
 </div>
 
 <p>&nbsp;</p>
+
 <p>Inspecting an element shows you the DOM nodes and CSS responsible for a rendered element in the browser.</p>
 
 <div class="devtools-animation-container">
@@ -1068,149 +1108,115 @@ The DOM tree view shows the current state of the tree. This may not match the HT
 </div>
 
 <p>&nbsp;</p>
+
 <p>There are several ways to inspect an element:</p>
 
-* Right-click any element on the page the page and select **Inspect Element**.
-* Press <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> on mac) to open DevTools in Inspect Element mode, then click on an element.
-* Click **Inspect Element** ![](dom-and-styles-files/images/image_0.png) at the top of the DevTools window to go into Inspect Element Mode, then click on an element.
-* Use the `inspect()` method in the console, such as `inspect(document.body)`. See the [Command-Line API](https://developers.google.com/chrome-developer-tools/docs/commandline-api) for information on using inspect.
-
+<ul>
+<li>Right-click any element on the page the page and select <strong>Inspect Element</strong>.</li>
+<li>Press <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> on mac) to open DevTools in Inspect Element mode, then click on an element.</li>
+<li>Click <strong>Inspect Element</strong> <img src="dom-and-styles-files/images/inspect-icon.png" class="inspect-icon" alt="Inspect icon"> at the top of the DevTools window to go into Inspect Element Mode, then click on an element.</li>
+<li>Use the <code>inspect()</code> method in the console, such as <code>inspect(document.body)</code>. See the <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api">Command-Line API</a> for information on using inspect.</li>
+</ul>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="right-click-inspect-element" speed="800" repeatdelay="2"></animation>
 </div>
 
-## Navigate the DOM with a mouse or keyboard
-
-You can navigate through the DOM structure using either mouse or keyboard.
-
-* To expand a collapsed node ![](dom-and-styles-files/images/image_1.png), double-click the node or press **Right arrow**.
-* To collapse an expanded node ![](dom-and-styles-files/images/image_2.png), double-click the node or press **Left arrow**.
-
-Expanding a node automatically selects its first child, so you can expand a deeply-nested structure by pressing the **Right arrow** repeatedly.
-
+<h2 id="navigate-the-dom-with-a-mouse-or-keyboard">Navigate the DOM with a mouse or keyboard</h2>
+<p>You can navigate through the DOM structure using either mouse or keyboard.</p>
+<ul>
+<li>To expand a collapsed node <img alt="" src="dom-and-styles-files/images/collapsed-div.png" class="collapsed-div" />, double-click the node or press <strong>Right arrow</strong>.</li>
+<li>To collapse an expanded node <img alt="" src="dom-and-styles-files/images/expanded-body.png" class="expanded-body" />, double-click the node or press <strong>Left arrow</strong>.</li>
+</ul>
+<p>Expanding a node automatically selects its first child, so you can expand a deeply-nested structure by pressing the <strong>Right arrow</strong> repeatedly.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="navigating-dom" speed="1200" repeatdelay="2"></animation>
 </div>
 
 <p>&nbsp;</p>
+
 <p>As you navigate, the Elements panel shows a breadcrumb trail in the bottom bar: </p>
 
-![](dom-and-styles-files/images/image_3.png)
-
-The currently selected node is highlighted in blue. Navigating down the structure extends the trail:
-
-![](dom-and-styles-files/images/image_4.png)
-
-Navigating back up the structure moves the highlight:
-
-![](dom-and-styles-files/images/image_5.png)
-
-DevTools displays as many items as possible in the trail.
-
-![](dom-and-styles-files/images/image_6.png)
-
-If the entire trail doesn't fit in the status bar, an ellipsis (...) shows where the trail has been truncated. Click the ellipsis to show the hidden elements.
-
-For a complete list of keyboard shortcuts, see: [https://developers.google.com/chrome-developer-tools/docs/shortcuts](https://developers.google.com/chrome-developer-tools/docs/shortcuts)
-
-## Editing DOM nodes and attributes
-
-The Elements panel lets you modify the DOM:
-
-* Edit a DOM node as HTML.
-* Add and remove individual DOM nodes.
-* Edit attribute names and values.
-* Move DOM elements
-
-Updating the in-memory DOM tree **doesn't** modify the source files. Reloading the page erases any DOM tree modifications.
-
-### Editing DOM nodes
-
-For DOM nodes, double click the opening **Element tag **(`h2, section, img`). The field is now editable and can be renamed, the closing tag is automatically updated after renaming.
-
- ![](dom-and-styles-files/images/image_7.png)
-
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-body.png" class="breadcrumb-body" /></p>
+<p>The currently selected node is highlighted in blue. Navigating down the structure extends the trail:</p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-footer.png" class="breadcrumb-footer" /></p>
+<p>Navigating back up the structure moves the highlight:</p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-trail.png" class="breadcrumb-trail" /></p>
+<p>DevTools displays as many items as possible in the trail.</p>
+<p><img alt="" src="dom-and-styles-files/images/breadcrumb-ellipsis.png" class="full-screenshot" /></p>
+<p>If the entire trail doesn't fit in the status bar, an ellipsis (...) shows where the trail has been truncated. Click the ellipsis to show the hidden elements.</p>
+<p>For a complete list of keyboard shortcuts, see: <a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">https://developers.google.com/chrome-developer-tools/docs/shortcuts</a></p>
+<h2 id="editing-dom-nodes-and-attributes">Editing DOM nodes and attributes</h2>
+<p>The Elements panel lets you modify the DOM:</p>
+<ul>
+<li>Edit a DOM node as HTML.</li>
+<li>Add and remove individual DOM nodes.</li>
+<li>Edit attribute names and values.</li>
+<li>Move DOM elements</li>
+</ul>
+<p>Updating the in-memory DOM tree <strong>doesn't</strong> modify the source files. Reloading the page erases any DOM tree modifications.</p>
+<h3 id="editing-dom-nodes">Editing DOM nodes</h3>
+<p>For DOM nodes, double click the opening <strong>Element tag </strong>(<code>h2, section, img</code>). The field is now editable and can be renamed, the closing tag is automatically updated after renaming.</p>
+<p><img alt="" src="dom-and-styles-files/images/editable-dom-node.png" class="editable-dom-node" /></p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation" src="edit-element-name" speed="1800" repeatdelay="2"></animation>
 </div>
 
-### Editing attributes
-
-For DOM attributes, DevTools differentiates between the attribute name and value, click on either of these respective portions to make them editable.
-
-* Double click the attribute name ![](dom-and-styles-files/images/image_8.png) to edit it independently of the attribute value.
-* Double click the attribute value ![](dom-and-styles-files/images/image_9.png) to edit this portion independently of the attribute name.
-
-When edit mode is active,** **cycle through attribute values by pressing **Tab.** Once you reach the last attribute value, pressing tab again creates a new attribute field.
-
-Using **Tab** is not the only way to add and edit attributes, since it’s a common pattern, there are dedicated items for it in the DOM node context menu titled **Add Attribute** and **Edit Attribute**.
-
-![](dom-and-styles-files/images/image_10.png)
-
-* Select **Add Attribute** to create a new field at the end of the opening tag.
-* Select **Edit Attribute** to modify an existing attribute. This action is context-sensitive, the portion you **Right-click** on determines the editable portion of the node.
-
-### Editing DOM nodes as HTML
-
-To edit a DOM node and its children as HTML:
-
-* Right-click on the node and choose **Edit as HTML** (On Windows, press <span class="kbd">F2</span> to toggle editing mode on the currently selected node).
-
-Use the editable field to make your changes.
-
-* Click outside the editable field to update the DOM.
-
-Press <span class="kbd">Esc</span> to stop editing without modifying the DOM.
-
+<h3 id="editing-attributes">Editing attributes</h3>
+<p>For DOM attributes, DevTools differentiates between the attribute name and value, click on either of these respective portions to make them editable.</p>
+<ul>
+<li>Double click the attribute name <img alt="" src="dom-and-styles-files/images/edit-node-attribute.png" class="edit-node-attribute" /> to edit it independently of the attribute value.</li>
+<li>Double click the attribute value <img alt="" src="dom-and-styles-files/images/edit-node-attribute-value.png" class="edit-node-attribute-value" /> to edit this portion independently of the attribute name.</li>
+</ul>
+<p>When edit mode is active,<strong> </strong>cycle through attribute values by pressing <strong>Tab.</strong> Once you reach the last attribute value, pressing tab again creates a new attribute field.</p>
+<p>Using <strong>Tab</strong> is not the only way to add and edit attributes, since it's a common pattern, there are dedicated items for it in the DOM node context menu titled <strong>Add Attribute</strong> and <strong>Edit Attribute</strong>.</p>
+<p><img alt="" src="dom-and-styles-files/images/context-menu-add-edit-attribute.png" class="full-screenshot" /></p>
+<ul>
+<li>Select <strong>Add Attribute</strong> to create a new field at the end of the opening tag.</li>
+<li>Select <strong>Edit Attribute</strong> to modify an existing attribute. This action is context-sensitive, the portion you <strong>Right-click</strong> on determines the editable portion of the node.</li>
+</ul>
+<h3 id="editing-dom-nodes-as-html">Editing DOM nodes as HTML</h3>
+<p>To edit a DOM node and its children as HTML:</p>
+<ul>
+<li>Right-click on the node and choose <strong>Edit as HTML</strong> (On Windows, press <span class="kbd">F2</span> to toggle editing mode on the currently selected node).</li>
+</ul>
+<p>Use the editable field to make your changes.</p>
+<ul>
+<li>Click outside the editable field to update the DOM.</li>
+</ul>
+<p>Press <span class="kbd">Esc</span> to stop editing without modifying the DOM.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="tab-switch-html-attr" speed="2000" repeatdelay="2"></animation>
 </div>
 
-## Moving elements
-
-You can rearrange the DOM tree in the Elements panel to test out different arrangements for the page. 
-
-Drag a node within the Elements panel to move it to a new position in the DOM tree.
-
+<h2 id="moving-elements">Moving elements</h2>
+<p>You can rearrange the DOM tree in the Elements panel to test out different arrangements for the page. </p>
+<p>Drag a node within the Elements panel to move it to a new position in the DOM tree.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="rearrange-nodes" speed="2000" repeatdelay="2"></animation>
 </div>
 
-## Deleting elements
-
-Remove DOM nodes by using any of the following techniques:
-
-* Right-click on the node and select **Delete Node.**
-* Select the node and press **Delete**.
-
-You can also remove an element by deleting its tag when using **Edit as HTML**.
-
-If you delete a node by accident, use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Z</span> on Mac) to undo your last action.
-
-## Scrolling into view
-
-When you hover over or select a DOM node, the rendered element is highlighted in the main browser window. If the element is scrolled offscreen, a tooltip is displayed at the edge of the browser window indicating that the selected element is offscreen.
-
-To scroll the page so the element appears in the viewport, **Right-click** the element and select **Scroll into View**.
-
-![](dom-and-styles-files/images/image_11.png)
-
+<h2 id="deleting-elements">Deleting elements</h2>
+<p>Remove DOM nodes by using any of the following techniques:</p>
+<ul>
+<li>Right-click on the node and select <strong>Delete Node.</strong></li>
+<li>Select the node and press <strong>Delete</strong>.</li>
+</ul>
+<p>You can also remove an element by deleting its tag when using <strong>Edit as HTML</strong>.</p>
+<p>If you delete a node by accident, use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Z</span> on Mac) to undo your last action.</p>
+<h2 id="scrolling-into-view">Scrolling into view</h2>
+<p>When you hover over or select a DOM node, the rendered element is highlighted in the main browser window. If the element is scrolled offscreen, a tooltip is displayed at the edge of the browser window indicating that the selected element is offscreen.</p>
+<p>To scroll the page so the element appears in the viewport, <strong>Right-click</strong> the element and select <strong>Scroll into View</strong>.</p>
+<p><img alt="" src="dom-and-styles-files/images/scroll-into-view-tooltip.png" class="full-screenshot" /></p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation"  src="scroll-into-view" speed="2000" repeatdelay="2"></animation>
 </div>
 
-## Setting DOM breakpoints
-
-A DOM breakpoint is similar to a breakpoint in the Sources panel. It's used to pause execution of the running JavaScript under certain conditions. A JavaScript breakpoint is associated with a specific line of a JavaScript file, and is triggered when the line is reached. A DOM breakpoint is associated with a specific DOM element, and is triggered when the element is modified in some way.
-
-You can use a DOM breakpoint to debug complex JavaScript applications, when you're not sure what part of the JavaScript is updating a given element.
-
-For example, if your JavaScript is changing the styling of a DOM element, you can set a DOM breakpoint to fire when the element's attributes are modified.
-
-**Subtree Modifications**
-
-A subtree modification breakpoint is triggered when a child element is added, removed, or moved. For example, if you set a subtree modification breakpoint on the 'main-content' element, the following code triggers the breakpoint:
-
+<h2 id="setting-dom-breakpoints">Setting DOM breakpoints</h2>
+<p>A DOM breakpoint is similar to a breakpoint in the Sources panel. It's used to pause execution of the running JavaScript under certain conditions. A JavaScript breakpoint is associated with a specific line of a JavaScript file, and is triggered when the line is reached. A DOM breakpoint is associated with a specific DOM element, and is triggered when the element is modified in some way.</p>
+<p>You can use a DOM breakpoint to debug complex JavaScript applications, when you're not sure what part of the JavaScript is updating a given element.</p>
+<p>For example, if your JavaScript is changing the styling of a DOM element, you can set a DOM breakpoint to fire when the element's attributes are modified.</p>
+<p><strong>Subtree Modifications</strong></p>
+<p>A subtree modification breakpoint is triggered when a child element is added, removed, or moved. For example, if you set a subtree modification breakpoint on the 'main-content' element, the following code triggers the breakpoint:</p>
 <pre>
 var element = document.getElementById('main-content');
 
@@ -1221,132 +1227,100 @@ var mySpan = document.createElement('span');
 element.appendChild( mySpan );
 </pre>
 
-**Attributes Modifications**
-
-An attribute modification occurs when the attribute of an element (`class, id, name`) is changed dynamically:
-
+<p><strong>Attributes Modifications</strong></p>
+<p>An attribute modification occurs when the attribute of an element (<code>class, id, name</code>) is changed dynamically:</p>
 <pre>
 var element = document.getElementById('main-content');
 
 // class attribute of element has been modified
 
-element.className = ‘active’;
+element.className = 'active';
 </pre>
 
-**Node Removal**
-
-A node removal modification is triggered when the node in question is removed from the DOM:
-
-`document.getElementById('main-content').remove();`
-
+<p><strong>Node Removal</strong></p>
+<p>A node removal modification is triggered when the node in question is removed from the DOM:</p>
+<p><code>document.getElementById('main-content').remove();</code></p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation" src="dom-breakpoint" speed="1000" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
-<p>In the animation above, the following steps occur:</p>
+<p>In the video above, the following steps occur:</p>
 
-* User types in the search box, and the search box changes size.
-* User sets an attribute modification breakpoint on the search box. 
-* User types in the search box, triggering the breakpoint and pausing execution.
-* User hovers over a JavaScript variable, displaying a popover with more details.
-
-The Elements and Sources panels both include a pane for managing your DOM Breakpoints. 
-
-To see all of your DOM breakpoints, click the expander arrow next to DOM Breakpoints to show the pane. Each breakpoint is listed with an element identifier and the breakpoint type.
-
-![](dom-and-styles-files/images/image_12.png)
-
-You can interact with each listed breakpoint in any of the following ways:
-
-* **Hover **over the element identifier to show the element's corresponding position on the page (similar to hovering over nodes in the Elements panel).
-* **Click** an element to jump to its location in the Elements panel.
-* **Toggle **the **checkbox **to enable or disable the breakpoint.
-
-When you trigger a DOM breakpoint, the breakpoint is highlighted in the DOM Breakpoints pane. The **Call Stack** pane displays the **reason** for a debugger pause:
-
-![](dom-and-styles-files/images/image_13.png)
-
-## Viewing element event listeners
-
-View JavaScript event listeners associated with a DOM node in the **Event Listeners** pane.
-
-![](dom-and-styles-files/images/image_14.png)
-
-The top-level items in the Event Listeners pane show the event types that have registered listeners.
-
-Click the expander arrow next to the event type (for example `click`) to see a list of registered event handlers. Each handler is identified by a CSS-selector like element identifier, such as "`document`" or "`button#call-to-action`". If more than one handler is registered for the same element, the element is listed repeatedly.
-
+<ul>
+<li>User types in the search box, and the search box changes size.</li>
+<li>User sets an attribute modification breakpoint on the search box. </li>
+<li>User types in the search box, triggering the breakpoint and pausing execution.</li>
+<li>User hovers over a JavaScript variable, displaying a popover with more details.</li>
+</ul>
+<p>The Elements and Sources panels both include a pane for managing your DOM Breakpoints. </p>
+<p>To see all of your DOM breakpoints, click the expander arrow next to DOM Breakpoints to show the pane. Each breakpoint is listed with an element identifier and the breakpoint type.</p>
+<p><img alt="" src="dom-and-styles-files/images/active-dom-breakpoints.png" class="full-screenshot" /></p>
+<p>You can interact with each listed breakpoint in any of the following ways:</p>
+<ul>
+<li><strong>Hover </strong>over the element identifier to show the element's corresponding position on the page (similar to hovering over nodes in the Elements panel).</li>
+<li><strong>Click</strong> an element to jump to its location in the Elements panel.</li>
+<li><strong>Toggle </strong>the <strong>checkbox </strong>to enable or disable the breakpoint.</li>
+</ul>
+<p>When you trigger a DOM breakpoint, the breakpoint is highlighted in the DOM Breakpoints pane. The <strong>Call Stack</strong> pane displays the <strong>reason</strong> for a debugger pause:</p>
+<p><img alt="" src="dom-and-styles-files/images/breakpoint-reason.png" class="breakpoint-reason" /></p>
+<h2 id="viewing-element-event-listeners">Viewing element event listeners</h2>
+<p>View JavaScript event listeners associated with a DOM node in the <strong>Event Listeners</strong> pane.</p>
+<p><img alt="" src="dom-and-styles-files/images/view-event-listeners.png" class="full-screenshot" /></p>
+<p>The top-level items in the Event Listeners pane show the event types that have registered listeners.</p>
+<p>Click the expander arrow next to the event type (for example <code>click</code>) to see a list of registered event handlers. Each handler is identified by a CSS-selector like element identifier, such as "<code>document</code>" or "<code>button#call-to-action</code>". If more than one handler is registered for the same element, the element is listed repeatedly.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" class="devtools-animation" src="element-event-listener" speed="1800" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
-<p>Click the expander arrow next to an element identifier to see the properties of the event handler.</p>
-
-![](dom-and-styles-files/images/image_15.png)
-
-The Event Listeners pane lists the following properties for each listener:
-
-* **handler: **Contains a callback function. Right-click on the function and select **Show Function Definition** to view where the function is defined (if source code is available).
-* **isAttribute:** True if the event is registered through a DOM attribute (for example, `onclick`).
-* **lineNumber:** Line number containing the event registration.
-* **listenerBody:** String representation of the callback function.
-* **node:** The DOM node that the listener is registered on. Hover over the node to reveal its position in the page viewport.
-* **sourceName:** URL Path to the source file containing the event listener.
-* **type:** Type of event being listened for (for example, `click`).
-* **useCapture****:** A boolean value stating whether the [useCapture](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener) flag on `addEventListener` was set.
-
-By default, registered event handlers display for the following types of elements:
-
-* The currently selected element.
-* Ancestors of the currently selected element.
-
-If you find it excessive to view all event handlers, including those registered using event delegation, click **Filter**** **![](dom-and-styles-files/images/image_16.png) and select the menu item **Selected Node Only** which limits displayed event listeners to only those registered directly on the element.
-
-![](dom-and-styles-files/images/image_17.png)
-
+<p>Click the expander arrow next to an element identifier to see the properties of the event handler. The Event Listeners pane lists the following properties for each listener:</p>
+<ul>
+<li><strong>handler: </strong>Contains a callback function. Right-click on the function and select <strong>Show Function Definition</strong> to view where the function is defined (if source code is available).</li>
+<li><strong>isAttribute:</strong> True if the event is registered through a DOM attribute (for example, <code>onclick</code>).</li>
+<li><strong>lineNumber:</strong> Line number containing the event registration.</li>
+<li><strong>listenerBody:</strong> String representation of the callback function.</li>
+<li><strong>node:</strong> The DOM node that the listener is registered on. Hover over the node to reveal its position in the page viewport.</li>
+<li><strong>sourceName:</strong> URL Path to the source file containing the event listener.</li>
+<li><strong>type:</strong> Type of event being listened for (for example, <code>click</code>).</li>
+<li><strong>useCapture</strong><strong>:</strong> A boolean value stating whether the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener">useCapture</a> flag on <code>addEventListener</code> was set.</li>
+</ul>
+<p>By default, registered event handlers display for the following types of elements:</p>
+<ul>
+<li>The currently selected element.</li>
+<li>Ancestors of the currently selected element.</li>
+</ul>
+<p>If you find it excessive to view all event handlers, including those registered using event delegation, click <strong>Filter</strong><strong> </strong><img alt="" src="dom-and-styles-files/images/image_16.png" /> and select the menu item <strong>Selected Node Only</strong> which limits displayed event listeners to only those registered directly on the element.</p>
+<p><img alt="" src="dom-and-styles-files/images/image_17.png" /></p>
 <p class="note"><strong>Note:</strong> Many Chrome extensions add their own event listeners onto the DOM.</p>
 
-If you see a number of event listeners that aren't set by your code, you may want to reopen your page in an Incognito window. Incognito windows prevent extensions from running by default.
-
-# Styles
-
-CSS defines the presentation layer of your page. You can view and modify any CSS declaration which affects an element on the current page. An understanding of the cascade (in Cascading Style Sheets) and inheritance aids a development and debugging workflow:
-
-* The cascade relates to how CSS declarations are given weights to determine which rules should take precedence when they overlap with another rule.
-* Inheritance relates to how HTML elements inherit CSS properties from their containing elements (ancestors).
-
-See the W3C documentation on cascading and inheritance for more information: [http://www.w3.org/TR/CSS2/cascade.html](http://www.w3.org/TR/CSS2/cascade.html)
-
-## Styles Pane
-
-The Styles pane shows the CSS rules that apply to the selected element, from highest priority to lowest:
-
-* Element styles applied directly to the element using the style property (or applied in DevTools).
-* Matched CSS rules include any rules matched by the element. For example, the CSS selector `span` matches an HTML `<span>` element. 
-* Inherited styles include any inheritable style rules that match the selected element's ancestors.
-
-![](dom-and-styles-files/images/image_18.jpg)
-
-The labels on the image above correspond with the numbered items below.
-
-
-1. Styles associated with a selector that matches the element.
-2. **Cascade** rules dictate that if two rules have the same origin, weight, and specificity, the last defined rule takes precedence. In this case, the second color property takes precedence. The first color property is shown in strikethrough text to show that it's been overridden.
-3. [User agent stylesheets](http://meiert.com/en/blog/20070922/user-agent-style-sheets/) are clearly labelled, and are often overridden by the CSS on your web page.
-4. The **cascade** dictates that author styles have more weight than user agent styles, so the user-defined style of `display: inline-block;` overrides the user-agent defined style of `display: block`.
-5. **Inherited** styles are displayed as a group under the "Inherited from [node]" header. Click the DOM node in the header to navigate to its position in the DOM tree view. (The [CSS 2.1 properties table](http://www.w3.org/TR/CSS21/propidx.html) shows which properties are inheritable.)
-6. The selector `:root body` has a higher **specificity** than just `body`, therefore its style declarations take precedence.
-7. `font-family ` on the body is **overridden**. It is also a similar case for the `font-size` property (overridden due to [selector specificity](http://www.w3.org/TR/css3-selectors/#specificity))
-
-
-Comma separated selectors are colored differently depending on whether or not they match the selected DOM node.
-
-![](dom-and-styles-files/images/image_19.png)
-
-Greyed out selectors like `audio` and `video` do not apply to the selected node. The rules shown above corresponds to the following CSS source:
-
+<p>If you see a number of event listeners that aren't set by your code, you may want to reopen your page in an Incognito window. Incognito windows prevent extensions from running by default.</p>
+<h1 id="styles">Styles</h1>
+<p>CSS defines the presentation layer of your page. You can view and modify any CSS declaration which affects an element on the current page. An understanding of the cascade (in Cascading Style Sheets) and inheritance aids a development and debugging workflow:</p>
+<ul>
+<li>The cascade relates to how CSS declarations are given weights to determine which rules should take precedence when they overlap with another rule.</li>
+<li>Inheritance relates to how HTML elements inherit CSS properties from their containing elements (ancestors).</li>
+</ul>
+<p>See the W3C documentation on cascading and inheritance for more information: <a href="http://www.w3.org/TR/CSS2/cascade.html">http://www.w3.org/TR/CSS2/cascade.html</a></p>
+<h2 id="styles-pane">Styles Pane</h2>
+<p>The Styles pane shows the CSS rules that apply to the selected element, from highest priority to lowest:</p>
+<ul>
+<li>Element styles applied directly to the element using the style property (or applied in DevTools).</li>
+<li>Matched CSS rules include any rules matched by the element. For example, the CSS selector <code>span</code> matches an HTML <code>&lt;span&gt;</code> element. </li>
+<li>Inherited styles include any inheritable style rules that match the selected element's ancestors.</li>
+</ul>
+<p><img alt="" src="dom-and-styles-files/images/styles-annotated.png" class="full-screenshot" /></p>
+<p>The labels on the image above correspond with the numbered items below.</p>
+<ol>
+<li>Styles associated with a selector that matches the element.</li>
+<li><strong>Cascade</strong> rules dictate that if two rules have the same origin, weight, and specificity, the last defined rule takes precedence. In this case, the second color property takes precedence. The first color property is shown in strikethrough text to show that it's been overridden.</li>
+<li><a href="http://meiert.com/en/blog/20070922/user-agent-style-sheets/">User agent stylesheets</a> are clearly labelled, and are often overridden by the CSS on your web page.</li>
+<li>The <strong>cascade</strong> dictates that author styles have more weight than user agent styles, so the user-defined style of <code>display: inline-block;</code> overrides the user-agent defined style of <code>display: block</code>.</li>
+<li><strong>Inherited</strong> styles are displayed as a group under the "Inherited from [node]" header. Click the DOM node in the header to navigate to its position in the DOM tree view. (The <a href="http://www.w3.org/TR/CSS21/propidx.html">CSS 2.1 properties table</a> shows which properties are inheritable.)</li>
+<li>The selector <code>:root body</code> has a higher <strong>specificity</strong> than just <code>body</code>, therefore its style declarations take precedence.</li>
+<li><code>font-family</code> on the body is <strong>overridden</strong>. It is also a similar case for the <code>font-size</code> property (overridden due to <a href="http://www.w3.org/TR/css3-selectors/#specificity">selector specificity</a>)</li>
+</ol>
+<p>Comma separated selectors are colored differently depending on whether or not they match the selected DOM node.</p>
+<p><img alt="" src="dom-and-styles-files/images/selector-visibility.png" class="full-screenshot" /></p>
+<p>Greyed out selectors like <code>audio</code> and <code>video</code> do not apply to the selected node. The rules shown above corresponds to the following CSS source:</p>
 <pre>
 video, audio, div, .message, body *, time {
   /* visibility: hidden */
@@ -1354,146 +1328,117 @@ video, audio, div, .message, body *, time {
 }
 </pre>
 
-Since the visibility declaration is commented out, the Styles pane shows it as disabled.
-
-Use the shortcut <span class="kbd">Ctrl</span> + Click **(or <span class="kbd">Cmd</span> + Click **on Mac) on CSS properties or property values from the styles pane to navigate to their position in the source code within the Sources panel.
-
-### Edit and create styles
-
-You can add or edit styles within the **Styles pane** in the Elements panel. Unless the area containing the styling information is greyed out (as is the case with user agent stylesheets), all styles are editable. Edit styles in the following ways:
-
-* Edit an existing property name or value.
-* Add a new property declaration.
-* Add a new CSS rule.
-
-To enable or disable a style declaration, check or uncheck the checkbox next to it.
-
-#### Edit an existing property name or value
-
-Click a CSS property name to edit the name:
-
-![](dom-and-styles-files/images/image_20.png)
-
-Click on a property value to edit the value. If you're editing a property name, press Tab or Enter to edit the property value.
-
-![](dom-and-styles-files/images/image_21.png)
-
-By default, your CSS modifications are not permanent, changes are lost when you reload the page. To customise the behaviour, see [Workspaces](https://developers.google.com/chrome-developer-tools/docs/settings#workspace).
-
-When editing a numeric CSS property value, you can increment and decrement numeric CSS property values using the following shortcuts:
-
-* Press <span class="kbd">Up</span> or <span class="kbd">Down</span> to increment or decrement the value by 1 (or by .1 if the current value is between -1 and 1).
-* Press <span class="kbd">Alt</span> + <span class="kbd">Up</span> or <span class="kbd">Alt</span> + <span class="kbd">Down</span> to increment or decrement the value by 0.1.
-* Press <span class="kbd">Shift</span> + <span class="kbd">Up/Down</span> or <span class="kbd">PageUp</span>/<span class="kbd">PageDown</span> to increment or decrement the value by 10.
-* Press <span class="kbd">Shift</span> + <span class="kbd">PageUp</span>/<span class="kbd">PageDown</span> to increment or decrement the value by 100.
-
-#### Add a new property declaration
-
-Click an empty space within an editable CSS rule to create a new style. Edit mode now applies to the CSS property field, you can now enter a new property.
-
-To add a new property and view code hints in the CSS property field, follow these steps:
-
-* Begin typing into the CSS property field. Suggestions display in a drop down box.
-* Press <span class="kbd">Up</span> **or <span class="kbd">Down</span> arrows **to focus on a suggestion.
-* Accept a suggestion using <span class="kbd">Tab</span>, Right arrow or <span class="kbd">Enter</span>.
-
-After you have selected a valid CSS property, bring up suggestions for applicable CSS values by moving focus to the CSS property value field. For example, the property `display` suggests values such as `block, flex, none,` and others.
-
-Paste CSS into the Styles pane using <span class="kbd">Ctrl</span> + <span class="kbd">V</span> (or <span class="kbd">Cmd</span> + <span class="kbd">V</span> on Mac). Properties and their values are parsed and entered into the correct fields.
-
-#### Add a style rule
-
-You may find it preferable to add styles along with a **new selector**. Click **New Style Rule** ![](dom-and-styles-files/images/image_22.png) within the styles pane header bar to generate a new CSS rule.
-
+<p>Since the visibility declaration is commented out, the Styles pane shows it as disabled.</p>
+<p>Use the shortcut <span class="kbd">Ctrl</span> + Click <strong>(or <span class="kbd">Cmd</span> + Click </strong>on Mac) on CSS properties or property values from the styles pane to navigate to their position in the source code within the Sources panel.</p>
+<h3 id="edit-and-create-styles">Edit and create styles</h3>
+<p>You can add or edit styles within the <strong>Styles pane</strong> in the Elements panel. Unless the area containing the styling information is greyed out (as is the case with user agent stylesheets), all styles are editable. Edit styles in the following ways:</p>
+<ul>
+<li>Edit an existing property name or value.</li>
+<li>Add a new property declaration.</li>
+<li>Add a new CSS rule.</li>
+</ul>
+<p>To enable or disable a style declaration, check or uncheck the checkbox next to it.</p>
+<h4 id="edit-an-existing-property-name-or-value">Edit an existing property name or value</h4>
+<p>Click a CSS property name to edit the name:</p>
+<p><img alt="" src="dom-and-styles-files/images/image_20.png" /></p>
+<p>Click on a property value to edit the value. If you're editing a property name, press Tab or Enter to edit the property value.</p>
+<p><img alt="" src="dom-and-styles-files/images/image_21.png" /></p>
+<p>By default, your CSS modifications are not permanent, changes are lost when you reload the page. To customise the behaviour, see <a href="https://developers.google.com/chrome-developer-tools/docs/settings#workspace">Workspaces</a>.</p>
+<p>When editing a numeric CSS property value, you can increment and decrement numeric CSS property values using the following shortcuts:</p>
+<ul>
+<li>Press <span class="kbd">Up</span> or <span class="kbd">Down</span> to increment or decrement the value by 1 (or by .1 if the current value is between -1 and 1).</li>
+<li>Press <span class="kbd">Alt</span> + <span class="kbd">Up</span> or <span class="kbd">Alt</span> + <span class="kbd">Down</span> to increment or decrement the value by 0.1.</li>
+<li>Press <span class="kbd">Shift</span> + <span class="kbd">Up/Down</span> or <span class="kbd">PageUp</span>/<span class="kbd">PageDown</span> to increment or decrement the value by 10.</li>
+<li>Press <span class="kbd">Shift</span> + <span class="kbd">PageUp</span>/<span class="kbd">PageDown</span> to increment or decrement the value by 100.</li>
+</ul>
+<h4 id="add-a-new-property-declaration">Add a new property declaration</h4>
+<p>Click an empty space within an editable CSS rule to create a new style. Edit mode now applies to the CSS property field, you can now enter a new property.</p>
+<p>To add a new property and view code hints in the CSS property field, follow these steps:</p>
+<ul>
+<li>Begin typing into the CSS property field. Suggestions display in a drop down box.</li>
+<li>Press <span class="kbd">Up</span> <strong>or <span class="kbd">Down</span> arrows </strong>to focus on a suggestion.</li>
+<li>Accept a suggestion using <span class="kbd">Tab</span>, Right arrow or <span class="kbd">Enter</span>.</li>
+</ul>
+<p>After you have selected a valid CSS property, bring up suggestions for applicable CSS values by moving focus to the CSS property value field. For example, the property <code>display</code> suggests values such as <code>block, flex, none,</code> and others.</p>
+<p>Paste CSS into the Styles pane using <span class="kbd">Ctrl</span> + <span class="kbd">V</span> (or <span class="kbd">Cmd</span> + <span class="kbd">V</span> on Mac). Properties and their values are parsed and entered into the correct fields.</p>
+<h4 id="add-a-style-rule">Add a style rule</h4>
+<p>You may find it preferable to add styles along with a <strong>new selector</strong>. Click <strong>New Style Rule</strong> <img alt="" src="dom-and-styles-files/images/image_22.png" /> within the styles pane header bar to generate a new CSS rule.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="new-style-rule" speed="2000" repeatdelay="2"></animation>
 </div>
 
-#### Trigger pseudo-classes on element
-
-You can provide dynamic styling for your UI elements using pseudo-class selectors such as <code>:hover</code>. However, these dynamic states can be hard to debug. So DevTools lets you manually set pseudo-classes on individual elements. 
-
+<h4 id="trigger-pseudo-classes-on-element">Trigger pseudo-classes on element</h4>
+<p>You can provide dynamic styling for your UI elements using pseudo-class selectors such as <code>:hover</code>. However, these dynamic states can be hard to debug. So DevTools lets you manually set pseudo-classes on individual elements. </p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="pseudo-triggers" speed="2000" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
 <p>You may trigger any combination of the following four pseudo-classes:</p>
 
-* **:active** - Applies to a link in the process of activation (for example, upon click).
-* **:hover** - Applies to an element while a mouse cursor is over it.
-* **:focus** - Applies to an element which gains focus (for example, through pressing **Tab**).
-* **:visited** - Applies to a link previously visited in the browser.
-
-To set an element's state:
-
-* Click **Toggle Element State**![](dom-and-styles-files/images/image_23.png) next to **New Style Rule** within the styles pane header.
-* Right-click a DOM node in the Elements panel and select **Force Element State.**
-
-### Change history (Local modifications)
-
-Local modifications contain independent changes made to source files such as JavaScript and CSS. 
-
-Locate the local modifications pane using the following steps:
-
-* Open the **Sources **panel**.**
-* Right-click (or <span class="kbd">Ctrl</span> + Click on Mac) on a source file in the sidebar.
-* Select **Local modifications**.
-
+<ul>
+<li><strong>:active</strong> - Applies to a link in the process of activation (for example, upon click).</li>
+<li><strong>:hover</strong> - Applies to an element while a mouse cursor is over it.</li>
+<li><strong>:focus</strong> - Applies to an element which gains focus (for example, through pressing <strong>Tab</strong>).</li>
+<li><strong>:visited</strong> - Applies to a link previously visited in the browser.</li>
+</ul>
+<p>To set an element's state:</p>
+<ul>
+<li>Click <strong>Toggle Element State</strong><img alt="" src="dom-and-styles-files/images/image_23.png" /> next to <strong>New Style Rule</strong> within the styles pane header.</li>
+<li>Right-click a DOM node in the Elements panel and select <strong>Force Element State.</strong></li>
+</ul>
+<h3 id="change-history-local-modifications">Change history (Local modifications)</h3>
+<p>Local modifications contain independent changes made to source files such as JavaScript and CSS. </p>
+<p>Locate the local modifications pane using the following steps:</p>
+<ul>
+<li>Open the <strong>Sources </strong>panel<strong>.</strong></li>
+<li>Right-click (or <span class="kbd">Ctrl</span> + Click on Mac) on a source file in the sidebar.</li>
+<li>Select <strong>Local modifications</strong>.</li>
+</ul>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="revisions" speed="2000" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
 <p>To create modifications, edit source code through the editor in the Sources panel.
 </p>
 
-Make a modification to a CSS rule which originates from an external style sheet and notice the change shows in the local modifications pane.
-
-**Note**: When you create a new rule using New Style Rule ![](dom-and-styles-files/images/image_24.png), the new rule doesn't belong to an existing stylesheet. DevTools adds it to a special inspector stylesheet. The inspector stylesheet can be edited in the Sources panel, like other files.
-
-Explore the local modifications pane:
-
-* Expand top-level file names to view the time ![](dom-and-styles-files/images/image_25.png) a modification occurred.
-* Expand second-level items to view a [diff](http://en.wikipedia.org/wiki/Diff) (before and after) corresponding to the modification. A line with a pink background signifies a removal while a line with a green background signifies an addition.
-* Select **revert** next to a file name to undo all local modifications against that file.
-
+<p>Make a modification to a CSS rule which originates from an external style sheet and notice the change shows in the local modifications pane.</p>
+<p><strong>Note</strong>: When you create a new rule using New Style Rule <img alt="" src="dom-and-styles-files/images/image_24.png" />, the new rule doesn't belong to an existing stylesheet. DevTools adds it to a special inspector stylesheet. The inspector stylesheet can be edited in the Sources panel, like other files.</p>
+<p>Explore the local modifications pane:</p>
+<ul>
+<li>Expand top-level file names to view the time <img alt="" src="dom-and-styles-files/images/image_25.png" /> a modification occurred.</li>
+<li>Expand second-level items to view a <a href="http://en.wikipedia.org/wiki/Diff">diff</a> (before and after) corresponding to the modification. A line with a pink background signifies a removal while a line with a green background signifies an addition.</li>
+<li>Select <strong>revert</strong> next to a file name to undo all local modifications against that file.</li>
+</ul>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="revision-apply-original" speed="2000" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
 <p>
 You can also use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> on Mac) to quickly undo minor changes to the DOM or Styles via the Elements panel.
 </p>
 
-## Metrics pane
-
-The metrics pane provides a visual illustration of how styles affect the [CSS Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/box_model).
-
+<h2 id="metrics-pane">Metrics pane</h2>
+<p>The metrics pane provides a visual illustration of how styles affect the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">CSS Box Model</a>.</p>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="metrics-pane" speed="1200" repeatdelay="2"></animation>
 </div>
 
-<p>&nbsp;</p>
-
-The Metrics pane shows a set of rectangles representing the box dimensions in the CSS box model. The inner, content box shows the dimensions of the content area. Outer boxes, such as the border box, show the values for each of the edges: border-top, border-right, border-bottom, and border-left.
-
-If no value is set for a given edge, a dash is displayed in place of the value
-
+<p>The Metrics pane shows a set of rectangles representing the box dimensions in the CSS box model. The inner, content box shows the dimensions of the content area. Outer boxes, such as the border box, show the values for each of the edges: border-top, border-right, border-bottom, and border-left.</p>
+<p>If no value is set for a given edge, a dash is displayed in place of the value</p>
 <p class="note"><strong>Note:</strong> If you provide a value of anything other than <code>static</code> to the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">position</a> property, the metrics pane displays a box labelled <strong>position</strong>.</p>
 
-**Boxes** which may be displayed (from the outside in):
+<p><strong>Boxes</strong> which may be displayed (from the outside in):</p>
+<ul>
+<li>position</li>
+<li>margin</li>
+<li>border</li>
+<li>padding</li>
+<li><em>Content box</em> (no label as it is the innermost edge)</li>
+</ul>
+<p>Interact with the metrics pane using these techniques:</p>
+<ul>
+<li>Hover over a box to highlight the corresponding area in the main browser window.</li>
+<li>Edit a field within a box (a field with no value displays a dash), the change is reflected in the <code>element.style</code> section.</li>
+</ul>
 
-* position
-* margin
-* border
-* padding
-* *Content box* (no label as it is the innermost edge)
-
-Interact with the metrics pane using these techniques:
-
-* Hover over a box to highlight the corresponding area in the main browser window.
-* Edit a field within a box (a field with no value displays a dash), the change is reflected in the `element.style` section.
-
-{% endframebox %} 
+{% endframebox %}
