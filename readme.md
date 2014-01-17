@@ -1,6 +1,6 @@
 # The Chrome DevTools documentation
 
-This is the official [DevTools documentation](developers.google.com/chrome-developer-tools/). 
+This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/). 
 
 ## Contributing
 
