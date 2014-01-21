@@ -86,7 +86,6 @@ DevTools more efficient.</p>
 </ul>
 </li>
 </li>
-<li><a href="#persistence-extensions">Persistence Extensions</a></li>
 <li><a href="#resources">Resources</a></li>
 
 </ul>
@@ -287,7 +286,7 @@ click-event callbacks can however be changed and tested on the fly.</p>
 <p>For more information about debugging JavaScript in the <em>Sources</em> panel, read our
 related documentation on <a href="/chrome-developer-tools/docs/javascript-debugging">JavaScript Debugging</a>.</p>
 
-<p class="note"><strong>Note:</strong> There is currently also a Workspaces experiment available in Chrome Canary that allows you to select custom directories in your file system which are always available for editing in the Sources panel. <a href="https://plus.google.com/+GoogleChromeDevelopers/posts/644qQuBKZeL">Read more</a>.</p>
+<p class="note"><strong>Note:</strong> A Workspaces feature for persistent editing of local files is also available. <a href="http://www.html5rocks.com/en/tutorials/developertools/revolutions2013/#toc-workspaces">Read more</a>.</p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
@@ -560,38 +559,11 @@ keyboard shortcuts we mentioned earlier.</p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
-<h2 id="persistence-extensions">Persistence Extensions</h2>
-
-<p>You may find yourself switching back and forth between the DevTools and a text
-editor while debugging. This can feel like a time-consuming way to save edits to
-scripts and stylesheets as the tools don't persist changes automatically. Similarly, unless you have a watch or live Reload process setup, updates to your
-source files require a browser reload in order to view them in Chrome.</p>
-
-
-<p>Thankfully, there exist DevTools extensions to solve these problems in the form
-of <a href="http://tin.cr">Tin.cr</a> and <a href="https://github.com/NV/chrome-devtools-autosave">DevTools
-AutoSave</a>. The idea is that you
-can make changes inside the Tools (to scripts and styles) which are then
-automatically saved to your source files. Similarly, you can make changes to
-your source files (CSS/JavaScript) which result in a browser reload showing your
-changes.</p>
-
-<p>In short, you get bi-directional editing without the need to leave the DevTools
-and your debug session unless you really need to.</p>
-
-<div class="screenshot"><img src="authoring-development-workflow/sources_tincr.jpg"/></div>
-
-<p>These solve the problem of changes you make inside the DevTools only persisting
-until you've reloaded the page. You no longer have to worry about changes not
-being saved to the file-system nor do you have to worry about copying and pasting changes from the tools to your editor or going to the Sources panel to save edits.</p>
-
 <h2 id="resources">Resources</h2>
 
 <ul>
 <li><a href="http://remysharp.com/2012/12/21/my-workflow-never-having-to-leave-devtools/">My workflow: Never having to leave the DevTools | remy sharp</a></li>
 <li><a href="http://www.youtube.com/watch?feature=player_detailpage&v=ktwJ-EDiZoU#t=553s">The Breakpoint With Addy Osmani And Paul Lewis - Snippets | youtube</a></li>
-<li><a href="http://addyosmani.com/blog/lets-tincr-bi-directional-editing-and-saving-with-the-chrome-devtools/">Bi-directional editing and saving in the Chrome DevTools | addy osmani</a></li>
-<li><a href="http://addyosmani.com/blog/autosave-changes-chrome-dev-tools/">Auto-saving changes in the DevTools | addy osmani</a></li>
 <li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/chrome-dev-tools-javascript-and-performance/">Chrome Dev Tools: JavaScript and Performance | nettuts</a></li>
 <li><a href="http://www.youtube.com/watch?v=Phw6edMppKg">Iterating with the Chrome DevTools | jeremey kahn</a></li>
 </ul>
