@@ -89,21 +89,23 @@ grunt work for you.
 Run a local web server. The local web server will serve files from the directory 
 `blink/Source/devtools` on some port (e.g. `8000`).
 
-After the Blink repository has finished downloading go to the devtools folder:
+After the Blink repository has finished downloading go to the `devtools` folder:
 
-`cd blink/Source/devtools` 
+    cd blink/Source/devtools
 
-From there you can run a SimpleHTTPServer using Python with the following 
-command:<br/>
+From there you can run a local server on port 8000 with the following command:
 
     python -m SimpleHTTPServer
+
+Then, open `http://localhost:8000/front_end/inspector.html` in your favorite
+browser and start debugging!
 
 **Why does the server need to run from the devtools directory?**<br/>
 When remotely debugging and developing the front-end of Blink, the content of the 
 `InspectorBackendCommands.js` file is generated based on the content of 
 `protocol.json` instead as a fallback of the Chromium build system. The 
 `protocol.json` file is in the parent folder of the `front_end` folder which is 
-`/devtools`. This is why you need to run the web server from within the devtools 
+`/devtools`. This is why you need to run the web server from within the `devtools` 
 directory.
 
 <p class="note"><strong>Note:</strong> If you have checked out the entire Chromium source you will need to 
@@ -114,7 +116,7 @@ If your feature requires changes to the back-end code then you definitely need
 to checkout and build Chromium. Otherwise, you only need to setup a web server 
 for the front-end files and run Chrome with remote-debugging options.
 
-<p class="note"><strong>Note:</strong> protocol.json describes the API between front-end and back-end. It is 
+<p class="note"><strong>Note:</strong> `protocol.json` describes the API between front-end and back-end. It is 
 used for generating API stubs for the front-end and back-end at the build stage. 
 When remote debugging the front-end part of the API, <code>InspectorBackendCommands.js</code> 
 is generated on the fly by front-end code. For more information, read the <a href="http://www.chromium.org/developers/how-tos">Chromium How-tos</a>.
