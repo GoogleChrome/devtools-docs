@@ -1,6 +1,11 @@
 Project: /chrome-developer-tools/_project.yaml
 Book: /chrome-developer-tools/_book.yaml
 
+  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+  <style>
+    img { max-width: 800px; }
+  </style>
+
 # Evaluating network performance
 
 The Network panel records information about each network operation in your application, including detailed timing data, HTTP request and response headers, cookies, WebSocket data, and more. The Network panel helps you answer questions about the network performance of your web application, such as:
@@ -16,7 +21,7 @@ The Network panel records information about each network operation in your appli
 
 The Network panel uses the [Resource Timing API](http://www.w3.org/TR/resource-timing), a JavaScript API that provides detailed network timing data for each loaded resource. For example, the API can tell you precisely when the HTTP request for an image started, and when the image's final byte was received. The following illustration shows the network timing data points that the Resource Timing API provides.
 
-<img src="network-files/resource-timing-overview.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/resource-timing-overview.png" alt="Resource timing overview"/>
 
 The API is available to any web page, not just DevTools. In Chrome, it's exposed as methods on the global `window.performance` object. The `performance.getEntries()` method returns an array of "resource timing objects", one for each requested resource on the page.
 
@@ -26,7 +31,7 @@ Try this: open the JavaScript console on the current page, enter the following a
 
 This evaluates the first element in the array of resource timing objects and displays its properties in the console, as shown below.
 
-<img src="network-files/getentries.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/getentries.png" alt="Performance resource timing"/>
 
 Each timestamp is in microseconds, following the [High Resolution
 Time](http://www.w3.org/TR/hr-time/#sec-high-resolution-time) specification. This API is [available in
@@ -36,7 +41,7 @@ Chrome](http://updates.html5rocks.com/2012/08/When-milliseconds-are-not-enough-p
 
 The Network panel automatically records all network activity while DevTools is open. The first time you open the panel it may be empty. Reload the page to start recording, or simply wait for network activity to occur in your application.
 
-<img src="network-files/panel.png" alt="alt text"/>
+<img src="network-files/network-overview.png" alt="Network overview"/>
 
 Each requested resource is added as a row to the Network table, which contains the columns listed below. Note the following about the Network table:
 
@@ -115,17 +120,17 @@ Latency is the time to load the first byte in the response.</td>
 
 ### Preserving the network log upon navigation
 
-By default, the current network record log is discarded when you navigate to another page, or reload the current page. To preserve the recording log in these scenarios, click the black **Preserve log upon navigation** button <img src="network-files/keep-log-off.png" alt="alt text"/> at the bottom of the Network panel; new records are appended to the bottom of the table. Click the same button again (now red <img src="network-files/keep-log-on.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->) to disable log preservation.
+By default, the current network record log is discarded when you navigate to another page, or reload the current page. To preserve the recording log in these scenarios, click the black **Preserve log upon navigation** button <img src="network-files/keep-log-off.png" alt="Don't preserve log on navigation"/> at the bottom of the Network panel; new records are appended to the bottom of the table. Click the same button again (now red <img src="network-files/keep-log-on.png" alt="Preserve resources on navigation"/>) to disable log preservation.
 
 ### Sorting and filtering ###
 
 By default, resources in the Network table are sorted by the start time of each request (the network "waterfall"). You can sort the table by another column value by clicking the column header. Click the header again to change the sort order (ascending or descending).
 
-<img src="network-files/sorting.png" alt="alt text"/>
+<img src="network-files/sorting.png" alt="Sort by"/>
 
 The Timeline column is unique from the others in that, when clicked, it displays a menu of additional sort fields.
 
-<img src="network-files/timeline-column.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/timeline-column.png" alt="Timeline column"/>
 
 The menu contains the following sorting options:
 
@@ -138,21 +143,21 @@ The menu contains the following sorting options:
 
 To filter the Network table to only show certain types of resources, click one of the content types along the bottom of the panel: **Documents**, **Stylesheets**, **Images**, **Scripts**, **XHR**, **Fonts**, **WebSockets**, and **Other**. In the following screenshot only CSS resources are shown. To view all content types, click the **All** filter button.
 
-<img src="network-files/filter-type.png" alt="alt text"/>
+<img src="network-files/filter-type.png" alt="Filter type"/>
 
 ### Adding and removing table columns
 
 You can change the default set of columns displayed by the Network table. To show or hide a column, Right+click or Control+click (Mac only) in the table header and select or deselect column names from the list.
 
-<img src="network-files/add-remove-columns.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/add-remove-columns.png" alt="Add or remove columns"/>
 
 ### Changing resource row sizes
 
-You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="network-files/small-resource-rows.png" alt="alt text"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="network-files/large-rows.png" alt="alt text"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
+You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="network-files/small-resource-rows.png" alt="Small resource rows"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="network-files/large-rows.png" alt="Large resource rows"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
 
 In the following screenshot, the Network table is viewed with small resource rows and just the Timeline column.
 
-<img src="network-files/small-rows.png" alt="">
+<img src="network-files/small-rows.png" alt="Resized resource rows">
 
 ### Timeline view
 
@@ -162,21 +167,20 @@ The Timeline view in the Network panel graphs the time it took to load each reso
 
 When you hover your mouse over a timeline row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
 
-<img src="network-files/timeline-view-1.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/timeline-view-1.png" alt="Timeline view"/>
 
 If you hover your mouse over the timeline bar itself, the complete timing data for the resource is presented in a pop-up. This is the same information that's presented in the [Timing details tab](#resource_network_timing) for a given resource.
 
-<img src="network-files/timeline-view-hover.png" alt="alt text"/>
+<img src="network-files/timeline-view-hover.png" alt="Timeline view on hover"/>
 
 The timeline indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
 and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded.
 
-<img src="network-files/dom-lines.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/dom-lines.png" alt="DOM event lines"/>
 
 Timeline bars are color-coded as follows:
 
 <style>
-
 #colortable {
   width: 50%;
   border: none;
@@ -229,9 +233,9 @@ Timeline bars are color-coded as follows:
 
 ### Saving and copying network information ##
 
-Right+clicking or Control+clicking (Mac only) within the Network table a context menu appears with several actions. Some of these actions apply to the resource row under the mouse click (like [copying HTTP request headers](#copying_requests_as_curl_commands)), while others apply to the entire network recording (such as [saving a Network recording as a HAR file](#saving_network_data)).
+<span class="kbd">Right-clicking</span> or <span class="kbd">Ctrl</span> + <span class="kbd">Click</span> (Mac only) within the Network table a context menu appears with several actions. Some of these actions apply to the resource row under the mouse click (like [copying HTTP request headers](#copying_requests_as_curl_commands)), while others apply to the entire network recording (such as [saving a Network recording as a HAR file](#saving_network_data)).
 
-<img src="network-files/right-click.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/right-click.png" alt="Right-click on Network"/>
 
 The following menu actions apply to the selected resource:
 
@@ -279,7 +283,7 @@ When you click a resource name in the Network table a tabbed window appears that
 
 The Headers tab displays the resource's request URL, HTTP method, and response status code. Additionally, it lists the HTTP response and request headers and their values, and any query string parameters. You can view HTTP headers parsed and formatted, or in their source form by clicking the **View parsed**/**View source** toggle button, respectively, located next to each header's section. You can also view parameter values in their decoded or URL encoded forms by clicking the **View decoded**/**View URL encoded** toggle button next to each query string section.
 
-<img src="network-files/headers.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
+<img src="network-files/network-headers.png" alt="Network headers"/>
 
 You can also [copy request and response headers](#saving_and_copying network_information) to your clipboard.
 
@@ -287,9 +291,9 @@ You can also [copy request and response headers](#saving_and_copying network_inf
 
 The Preview tab displays a preview of the resource, when available. Previews are currently displayed for image and JSON resources, as shown below.
 
-<img src="network-files/resource-preview-json.png" alt="alt text"/>
+<img src="network-files/resource-preview-json.png" alt="Resource JSON preview"/>
 
-<img src="network-files/image-preview.png" alt="alt text"/>
+<img src="network-files/network-image-preview.png" alt="Resource image preview"/>
 
 You can view the resource's unformatted response on the [Response
 tab](#http_response).
@@ -298,7 +302,7 @@ tab](#http_response).
 
 The Response tab contains the resource's unformatted content. Below is a screenshot of a JSON data structure that was returned as the response for a request.
 
-<img src="network-files/response.png" alt="alt text"/>
+<img src="network-files/response.png" alt="Resource response preview"/>
 
 You can also [view formatted previews](#resource_previews) of some resource types, including JSON data structures and images.
 
@@ -307,7 +311,7 @@ You can also [view formatted previews](#resource_previews) of some resource type
 The Cookies tab displays a table of all the cookies transmitted in the
 resource's HTTP request and response headers. You can also <a href="#right-click_menu_actions">clear all cookies</a>.
 
-<img src="network-files/cookies.png" alt="alt text"/>
+<img src="network-files/cookies.png" alt="Resource cookies"/>
 
 The Cookies table contain the following columns:
 
@@ -385,11 +389,11 @@ The Frames tab shows messages sent or received over a WebSocket connection. This
 
 Messages are color-coded according to their type. Outgoing text messages are color-coded light-green; incoming text messages are white:
 
-<p><img src="network-files/websocket-text2.png" alt="alt text"/> </p>
+<p><img src="network-files/websocket-text2.png" alt="Websocket text"/> </p>
 
 WebSocket opcodes are light-yellow:
 
-<p><img src="network-files/frames-opcode.png" alt="alt text"/> </p>
+<p><img src="network-files/frames-opcode.png" alt="Websocket opcodes"/> </p>
 
 Errors are light-red.
 
@@ -402,7 +406,7 @@ Errors are light-red.
 
 The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline_view).
 
-<img src="network-files/timing.png" alt="Network timging gra"/>
+<img src="network-files/timing.png" alt="Resource network timing graph"/>
 
 The table below lists the network phases shown in the Timing tab and their descriptions.
 
