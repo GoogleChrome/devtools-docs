@@ -1,5 +1,4 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_multidevice_article}}
 
 # Using the Console
 
@@ -379,3 +378,5 @@ The calls to stop and start profiling do not need be properly nested. For exampl
     profile("B");
     profileEnd("A");
     profileEnd("B");
+
+{{/partials.standard_multidevice_article}}
