@@ -1,22 +1,21 @@
 {{+bindTo:partials.standard_devtools_article}}
-
 <h1>Settings</h1>
+
+
 
   <p>
     <strong>To modify the Settings in DevTools:</strong>
-    <ul>
-      <li>Click on the Settings cog <img src="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation/image_38.png"> and open up the General Settings pane to make changes. You can also use the shortcut <span class="kbd">?</span> to open to this pane.</li>
-    </ul>
-  </p>
 
   <div class="screenshot">
-    <img src="settings-files/settings.png">
+    <img src="settings-files/general-settings.png">
   </div>
 
+<div class="collapsible">
   <h2 id="general">General</h2>
-  
+
   <h4>Disable cache</h4>
   <p>Prevents the caching of resources <strong>ONLY</strong> for pages which have DevTools open. This will not disable caching if the DevTools are closed.</p>
+
 
   <h4>Disable JavaScript</h4>
   <p>Immediately suspends all JavaScript from running on the tab running the instance of DevTools which has this checked.</p>
@@ -34,38 +33,31 @@
   <h4>Split panels vertically when docked to right</h4>
   <p>Enabling this will change the layout of the panels so the main section is stacked on top of the sidebar sections. You may find this useful when there is not enough horizontal space when they are side-by-side which is the case for smaller screens.</p>
 
-   <div class="screenshot">
-     <img src="settings-files/dock-to-right.png">
-   </div>
+  <div class="screenshot">
+    <img src="settings-files/dock-to-right.png">
+  </div>
 
-   <h3 id="elements">Elements</h3>
 
-   <h4>Color format</h4>
-   <ul>
-     <li>As authored - <strong>(how the code was written in the stylesheet)</strong></li>
-     <li>HEX: <code>#DAC0DE</code></li>
-     <li>RGB: <code>rgb(128, 255, 255)</code></li>
-     <li>HSL: <code>hsl(300, 80%, 90%)</code></li>
-   </ul>
-   
-   <div class="screenshot">
-     <img src="settings-files/color-format.png">
-   </div>
+  <h3 id="elements">Elements</h3>
 
-  <p>The <strong>Color format</strong> setting lets you control how the color codes are displayed in the <strong>Styles Sidebar</strong> of the Elements panel. In addition to the Settings option for controlling the color format, you can click on the gear icon at the top of the Styles Sidebar to change the format of color codes.</p>
+  <h4>Color format</h4>
+  <div class="screenshot">
+    <img src="settings-files/color-format-settings.png">
+  </div>
+
+  <p>The <strong>color format</strong> setting lets you control how the color codes are displayed in the <strong>Styles Sidebar</strong> of the Elements panel. In addition to the Settings option for controlling the color format, you can click on the gear icon at the top of the Styles Sidebar to change the format of color codes.</p>
 
   <div class="screenshot">
-    <img src="settings-files/color-format2.png">
+    <img src="settings-files/color-picker-format.png">
   </div>
 
   <p>Selecting <strong>As authored</strong> will use the color format for properties as defined in the stylesheet.</p>
-
 
   <h4>Show user agent styles</h4>
   <p>You may find it useful to show <strong>user agent styles</strong> in the Styles Sidebar of the Elements panel.</p>
 
   <div class="screenshot">
-    <img src="settings-files/user-agent-styles.png">
+    <img src="settings-files/show-user-agent-styles.png">
   </div>
 
   <p>The <strong>user agent</strong> refers to the browser. Each browser implements a default stylesheet consisting of basic style rules which are applied to DOM Elements in a page. If you've ever had a difficult time removing white-space between two elements, for example, it may have been because of the user agent stylesheet adding a default margin or padding to that particular type of element.</p>
@@ -73,123 +65,52 @@
   <h4>Word wrap</h4>
   <p>As with any text editor you can choose to wrap long lines of code in the Elements panel.</p>
 
+
   <h4>Show Shadow DOM</h4>
   <p>With <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">Shadow DOM</a>, elements can get a new kind of node associated with them. This new kind of node is called a <strong>shadow root</strong>. An element that has a shadow root associated with it is called a shadow host. The child nodes of a shadow host isn't rendered; the content of the shadow root is rendered instead.</p>
 
   <div class="screenshot">
-    <img src="settings-files/shadow-dom.png">
+    <img src="settings-files/show-shadow-dom.png">
   </div>
-  
-  <ul>
-    <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/">Shadow DOM 201</a></li>
-    <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/">Shadow DOM 301</a></li>
-    <li><a href="http://www.polymer-project.org/platform/shadow-dom.html">Shadow DOM Polyfill</a></li>
-    <li><a href="http://updates.html5rocks.com/2013/03/Visualizing-Shadow-DOM-Concepts">Visualizing Shadow DOM Concepts</a></li>
-    <li><a href="http://blogs.adobe.com/webplatform/2013/04/03/defining-presentational-boxes-with-shadow-dom/">Define presentational boxes using shadow DOM</a></li>
-  </ul>
 
   <h4>Show rulers</h4>
   <p>This will display a ruler overlay along the top, left and bottom sides of the viewport.</p>
 
   <div class="screenshot">
-    <img src="settings-files/show-ruler.png">
-  </div>
-  
-  <h3 id="rendering">Rendering</h3>
-
-  <h4>Show paint rectangles</h4>
-  <p>
-    When this is enabled you be able to see the regions where Chrome paints. This can help diagnose and ultimately <a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary paints</a> on a page. You can also use this to <a href="http://www.paulirish.com/2011/viewing-chromes-paint-cycle/">study painting behaviors</a> just by hovering over links, popups, or some content which dynamically updates.
-  </p>
-  
-  <div class="screenshot">
-    <img src="settings-files/show-paint-rects.png">
-  </div>
-  
-  <p>Furthermore, showing paint rectangles shows repainted areas for each frame making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
-  
-  <h4>Show composited layer borders</h4>
-  <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
-
-  <p class="note"><strong>Note:</strong> The blue grid represents tiles, which you can think of as sub-units of a layer that Chrome uses to upload parts of a large layer at a time to the GPU. They aren't really too important in most cases.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/composited-layer-borders.png">
+    <img src="settings-files/show-rulers.png">
   </div>
 
-  <p>Enabling <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=23m42s">Show paint rectangles and Show layer borders</a> together can also be useful for finding any unnecessary paints which occur and cause a relayout on the Timeline panel.</p>
-
-
-  <p class="note"><strong>Note:</strong> Show paint rectangles and composited layer borders settings will only apply when DevTools is open.</p>
-
-
-  <h4>Show FPS meter</h4>
-  <p>Overlays an <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=23m17s">FPS meter</a> at the top right of the browser window which updates in real-time.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/fps-meter.png">
-    <img src="settings-files/fps-memory-meter.png">
-  </div>
-
-  <p>When running Chrome on Android you may also <strong>show a GPU memory meter</strong> as part of the overlay. Enabling the FPS meter is <em></em>specially helpful when developing pages that have animations.</p>
-
-
-  <h4>Enable continuous page repainting</h4>
-  <p>This is a tool that helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/continuous-page-repainting.png">
-  </div>
-
-  <h4>Show potential scroll bottlenecks</h4>
-  <p>Shows area of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled.</p>
 
   <h3 id="sources">Sources</h3>
-  
+
   <h4>Search in content scripts</h4>
   <p><a href="http://developer.chrome.com/extensions/content_scripts.html">Content scripts</a> are JavaScript files contained within Chrome extensions that run in the context of web pages but from a protected scope that is completely separate from ordinary page JavaScript. As such, content scripts and page scripts cannot interact with each other in an ordinary way.</p>
 
   <div class="screenshot">
-    <img src="settings-files/content-scripts.png">
+    <img src="settings-files/search-content-scripts.png">
   </div>
 
   <p>When looking at the <strong>Content Scripts</strong> tab in the Sources panel you will see both the scripts added by extensions (<em>or by <a href="http://www.chromium.org/developers/design-documents/user-scripts">User Scripts</a> which are compiled into extensions in Chrome</em>), and also content scripts that are built-in parts of the browser, specifically the API that extensions can use.</p>
 
-  <p class="note"><strong>Note:</strong> When developing Chrome apps or extensions enabling this setting is so you can search within these native API scripts is useful, otherwise it is not useful having it enabled.</p>
-
+  <p class="note"><strong>Note:</strong> When developing Chrome apps or extensions enable this setting so you can search within these native API scripts, otherwise it is not useful having it enabled.</p>
 
   <h4>Enable JS source maps</h4>
   <p>If you have code which is concatenated and minified it is difficult to tell what file a piece of code may be in when you need to debug it. Enabling this setting is useful for <a href="javascript-debugging.html#source-maps">debugging JavaScript</a> and <a href="http://www.youtube.com/watch?v=HijZNR6kc9A#t=1m32s">working with Source maps</a> in general.</p>
 
   <div class="screenshot">
-    <img src="settings-files/source-maps.png">
+    <img src="settings-files/js-source-maps.png">
   </div>
-  
-  
+
   <h4 id="css-source-maps">Enable CSS source maps</h4>
   <p>Enables Source Maps for CSS files generated using a preprocessor (for example, Sass).</p>
 
   <p>For details see <a href="css-preprocessors.html">Working with CSS Preprocessors</a>.</p>
 
   <h4>Auto-reload generated CSS</h4>
-
   <p>Only used if <b>Enable CSS source maps</b> is turned on. Determines whether generated CSS files should be reloaded when the source file is saved.</p>
-
-  <aside class="note">
-    <p><strong>Note:</strong> In Chrome 29 and earlier this appears as <b>Auto-reload CSS on Sass save</b>, and is not visible unless the <strong>Sass stylesheet debugging</strong> experiment is enabled.</p>
-
-    <p>An additional setting, <strong>Timeout</strong> specifies the delay in milliseconds between the time you update a source file and the time the browser reloads the generated CSS file. The timeout is no longer required in Chrome 30.</p>
-  </aside>
 
   <h4>Detect Indentation</h4>
   <p>Specifies how code is indented when editing in DevTools:</p>
-
-  <ul>
-    <li>2 spaces</li>
-    <li>4 spaces</li>
-    <li>8 spaces</li>
-    <li>Tab character</li>
-  </ul>
 
   <h4>Show whitespace characters</h4>
   <p>This will show dots for spaces and tab characters in the Sources panel.</p>
@@ -199,25 +120,6 @@
 
   <h4>High resolution CPU profiling</h4>
   <p>Enables you to zoom into the graph to view it by a tenth of a millisecond on Flame charts.</p>
-
-
-  <h3 id="timeline">Timeline</h3>
-
-  <h4>Show CPU activity on the ruler</h4>
-  <p>Enabling this setting will display the CPU activity in the ruler and appear as gray bars along the bottom of the timeline chart. When you hover over the gray bars you will see the details of the CPU activity for it, with just that bar highlighted.</p>
-
-  <div class="screenshot">
-    <img src="settings-files/show-cpu-activity-hover.png">
-  </div>
-
-  <h4>Limit number of captured JS stack frames</h4>
-  <ul>
-    <li><strong>-- Frames to capture:</strong> <code>30</code></li>
-  </ul>
-
-  <p>Controls the depth of the stack retrieved from the <strong>Timeline Events</strong> that are produced within JavaScript. Most of the time, the overhead associated with collecting the stack is negligible. However, for certain pages with long script URLs and deep call stacks, collecting stacks may skew the performance of the page or result in a very large logs. So you can reduce the performance impact by tweaking the number of stack frames we capture and display with each event.</p>
-
-  <p class="note"><strong>Note:</strong> Setting the option to <strong>0</strong> will entirely turn off stack sampling.</p>
 
 
   <h3 id="console">Console</h3>
@@ -231,7 +133,7 @@
   <p class="note"><strong>Note:</strong> Both of these settings can be changed by right clicking on the console.</p>
 
   <div class="screenshot">
-    <img src="settings-files/right-click-console.png">
+    <img src="settings-files/console-right-click.png">
   </div>
 
 
@@ -241,6 +143,8 @@
   <p></p>
 
 
+</div>
+<div class="collapsible">
   <h2 id="workspace">Workspace</h2>
 
   <p><a href="http://www.youtube.com/watch?v=bqfoYaKCYUI#t=3m39s">Workspaces</a> allow you to select <strong>custom directories</strong> in your file system which are always available for you to edit within the <strong>Sources panel</strong>. This can be one specific project directory or a directory that contains multiple different projects within it.</p>
@@ -255,5 +159,7 @@
 
   <p>In addition to adding a file system for your Workspace, you are also able to add file <strong>Mappings</strong> individual file urls to the path of the file on your local machine.</p>
 
-</body>
+
+
+</div>
 {{/partials.standard_devtools_article}}

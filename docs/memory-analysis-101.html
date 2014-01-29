@@ -1,7 +1,5 @@
 {{+bindTo:partials.standard_devtools_article}}
-
 <h1>Memory Analysis 101</h1>
-
 
 
 
@@ -12,6 +10,7 @@ described here are used in the Heap Profiler UI and the corresponding
 documentation. You need to be familiar with them to use the tool
 effectively.</p>
 
+<div class="collapsible">
 <h2 id="common_terms">Common Terms</h2>
 
 <p>This section describes common terms used in memory analysis,
@@ -79,6 +78,8 @@ not a spanning tree of the graph.</p>
 they dominate other objects. Such nodes of the tree are called
 <em>accumulation points</em>.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="v8_specifics">V8 Specifics</h2>
 
 <p>In this section we describe some memory-related topics that
@@ -132,9 +133,8 @@ as GC is smart enough to release object groups whose wrappers are no
 longer referenced. But forgetting to release a single wrapper will
 hold the whole group and associated wrappers.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
-  </body>
 
+</div>
 {{/partials.standard_devtools_article}}

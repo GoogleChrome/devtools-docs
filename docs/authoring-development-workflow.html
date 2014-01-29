@@ -1,6 +1,6 @@
 {{+bindTo:partials.standard_devtools_article}}
-
 <h1>Authoring &amp; development workflow</h1>
+
 
 <p>Developer workflow typically involves a number of steps used to achieve a <strong>goal</strong>.
 While authoring with the DevTools, it's possible to <strong>optimize</strong> this workflow to
@@ -11,6 +11,8 @@ simply rearranging the layout to better suit your needs.</p>
 <p>In this section, we'll explore a number of tips to make your workflow in the
 DevTools more efficient.</p>
 
+
+<div class="collapsible">
 <h2 id="dock-to-right">Dock-To-Right For Vertical-Split Editing</h2>
 
 <p>You may find that docking the DevTools to the bottom of the window provides a
@@ -21,13 +23,11 @@ debugging on the right.</p>
 
 <p>This is useful as:</p>
 
-<ul>
 <li>You may be on a widescreen monitor, wishing to maximize the space available to
 inspect and debug your code</li>
 <li>You can change the split to be less than 400px (the current minimum width of
 Chrome) to test resizing layouts</li>
 <li>Longer scripts are easier to debug with vertical space</li>
-</ul>
 
 <p>Navigate to a URL you wish to debug then toggle between
 <em>dock-to-right</em> and <em>dock-to-window</em> by clicking and <strong>long-holding</strong> on the
@@ -49,6 +49,8 @@ This means it is possible to have one tab's Tools docked to right whilst
 another's is docked to the bottom of the window.</p>
 
 
+</div>
+<div class="collapsible">
 <h2 id="drag-to-right">Drag-To-Right For Quicker Dock-Positioning</h2>
 
 <p>It is also possible to hold down and drag the DevTools toolbar to move its docking position, as demonstrated in the animation below.</p>
@@ -57,18 +59,17 @@ another's is docked to the bottom of the window.</p>
 
 <p>This can be a useful alternative to holding down the layout button to select your desired docking position as it only takes one step to toggle between dock-to-right and dock-to-window.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
+<div class="collapsible">
 <h2 id="search-navigate-filter">Search, Navigate And Filter</h2>
 
 <h3 id="filter-by-filename">Filter For A Script, Stylesheet Or Snippet By Filename</h3>
 
 <p>The ability to quickly locate a specific file can be essential to a developer's workflow. The DevTools allow you to search across all script, stylesheet and snippet files using the following shortcuts:</p>
 
-<ul>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
 <li><strong><span class="kbd">Cmd</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
-</ul>
 
 <p>which will work regardless of the panel you are currently in. For this
 <a href="http://todomvc.com/architecture-examples/angularjs/#/">Todo app</a>, using one of these
@@ -89,10 +90,8 @@ FooBarScript.js, you could just type FBaSc, which could save time.</p>
 
 <p>Searching for a specific string within the current file can be done using the following shortcut:</p>
 
-<ul>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
 <li><strong><span class="kbd">Cmd</span> + <span class="kbd">F</span> (Mac OSX)</strong></li>
-</ul>
 
 
 <p>Once a keyword has been entered into the search field, hit return to move to the
@@ -116,10 +115,8 @@ specify the replacement text.</p>
 <p>If you wish to search across all of the files loaded for a page for a particular
 string, you can load up the search pane using the following shortcut:</p>
 
-<ul>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
 <li><strong><span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">F</span> (Max OSX)</strong></li>
-</ul>
 
 
 <p>This supports both regular expressions and case sensitive search.</p>
@@ -143,10 +140,8 @@ search for) specific JavaScript functions or CSS rules within a file.</p>
 <p>Navigate to a page of your choosing then go to the <em>Sources </em>panel. You can now use the following shortcuts to bring up a function/selector-specific
 search box:</p>
 
-<ul>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
 <li><strong><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
-</ul>
 
 
 <div class="screenshot"><img src="authoring-development-workflow/function_filter.png"/></div>
@@ -162,17 +157,16 @@ taken directly to where it is defined in the current file.</p>
 launch the line number dialog, simply select a file for editing then use one of
 the following keyboard shortcuts to display the line picker:</p>
 
-<ul>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">L</span> (Windows)</strong></li>
 <li><strong><span class="kbd">Cmd</span> + <span class="kbd">L</span> (Mac OSX)</strong></li>
 <li><strong><span class="kbd">Ctrl</span> + <span class="kbd">G</span> (Linux)</strong></li>
-</ul>
 
 
 <div class="screenshot"><img src="authoring-development-workflow/sources_line.jpg"/></div>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
+<div class="collapsible">
 <h2 id="live-editing">Live Editing Scripts &amp; Styles</h2>
 
 <p>The DevTools support editing both styles and scripts live, without the need for
@@ -206,9 +200,8 @@ click-event callbacks can however be changed and tested on the fly.</p>
 <p>For more information about debugging JavaScript in the <em>Sources</em> panel, read our
 related documentation on <a href="javascript-debugging.html">JavaScript Debugging</a>.</p>
 
-<p class="note"><strong>Note:</strong> There is currently also a Workspaces experiment available in Chrome Canary that allows you to select custom directories in your file system which are always available for editing in the Sources panel. <a href="https://plus.google.com/+GoogleChromeDevelopers/posts/644qQuBKZeL">Read more</a>.</p>
+<p class="note"><strong>Note:</strong> A Workspaces feature for persistent editing of local files is also available. <a href="http://www.html5rocks.com/en/tutorials/developertools/revolutions2013/#toc-workspaces">Read more</a>.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
 <h3 id="styles">Styles</h3>
@@ -248,6 +241,8 @@ relevant CSS rule exists.</p>
 text editor, except changes you make are displayed in real time.</p>
 
 
+</div>
+<div class="collapsible">
 <h2 id="save-as">Save As</h2>
 
 <p>Once you are happy with the changes made to your files, you can save them.</p>
@@ -274,6 +269,8 @@ will save to the same location.</p>
 <div class="screenshot"><img src="authoring-development-workflow/saveas_save.jpg"/></div>
 
 
+</div>
+<div class="collapsible">
 <h2 id="local-modifications">Local Modifications</h2>
 
 <p>The DevTools also maintains a revision history of all changes made to local
@@ -285,11 +282,9 @@ and select "Local modifications" to view this history.</p>
 
 <p>A <em>Local modifications</em> panel will appear displaying:</p>
 
-<ul>
 <li>A diff of the changes<br/></li>
 <li>The time the change was made at<br/></li>
 <li>The domain under which a file was changed</li>
-</ul>
 
 
 <div class="screenshot"><img src="authoring-development-workflow/saveas_history.jpg"/></div>
@@ -309,8 +304,9 @@ changeset.</p>
 <p>Finally, <em>apply revision content </em>will apply the changes for a specific revision
 at a set time.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
+<div class="collapsible">
 <h2 id="snippets">Custom JavaScript Snippets</h2>
 
 <!--
@@ -337,7 +333,7 @@ where you can easily enable or disable experimental features.
 settings may require the DevTools to be restarted (i.e closed and reopened) order
 in to be accessible.</p>
 
-<div class="screenshot"><img src="authoring-development-workflow/settings.png" width="590px"/></div>
+<div class="screenshot"><img src="authoring-development-workflow/settings.png"/></div>
 !-->
 
 
@@ -348,12 +344,10 @@ in to be accessible.</p>
 
 <p>Some of the use-cases Snippets can help with are:</p>
 
-<ul>
   <li><strong>Bookmarklets</strong> - all of your bookmarklets could be stored as snippets, especially those you may wish to edit.</li>
   <li><strong>Utilities</strong> - debugging helpers for interacting with the current page can be stored and debugged. A community-curated <a href="https://github.com/paulirish/devtools-addons/wiki/Snippets">list</a> of such utilities is available.</li>
   <li><strong>Debugging</strong> - Snippets offer a multi-line console with syntax-highlighting and persistance, making it convenience for debugging code that is more than a one-liner.</li>
   <li><strong>Monkey-patching code</strong> - code you wish to patch at runtime can be done through Snippets, although many times you can just live-edit code in the <i>Sources</i> tab.</li>
-</ul>
 
 <aside class="special">
   Brian Grinstead maintains a repository of useful Snippets for developers at <a href="http://bgrins.github.io/devtools-snippets/">bgrins.github.io/devtools-snippets</a>.
@@ -477,44 +471,16 @@ keyboard shortcuts we mentioned earlier.</p>
 
 <div class="screenshot"><img src="authoring-development-workflow/snippet_filter.png"/></div>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
-<h2 id="persistence-extensions">Persistence Extensions</h2>
-
-<p>You may find yourself switching back and forth between the DevTools and a text
-editor while debugging. This can feel like a time-consuming way to save edits to
-scripts and stylesheets as the tools don't persist changes automatically. Similarly, unless you have a watch or live Reload process setup, updates to your
-source files require a browser reload in order to view them in Chrome.</p>
-
-
-<p>Thankfully, there exist DevTools extensions to solve these problems in the form
-of <a href="http://tin.cr">Tin.cr</a> and <a href="https://github.com/NV/chrome-devtools-autosave">DevTools
-AutoSave</a>. The idea is that you
-can make changes inside the Tools (to scripts and styles) which are then
-automatically saved to your source files. Similarly, you can make changes to
-your source files (CSS/JavaScript) which result in a browser reload showing your
-changes.</p>
-
-<p>In short, you get bi-directional editing without the need to leave the DevTools
-and your debug session unless you really need to.</p>
-
-<div class="screenshot"><img src="authoring-development-workflow/sources_tincr.jpg"/></div>
-
-<p>These solve the problem of changes you make inside the DevTools only persisting
-until you've reloaded the page. You no longer have to worry about changes not
-being saved to the file-system nor do you have to worry about copying and pasting changes from the tools to your editor or going to the Sources panel to save edits.</p>
-
+</div>
+<div class="collapsible">
 <h2 id="resources">Resources</h2>
 
-<ul>
 <li><a href="http://remysharp.com/2012/12/21/my-workflow-never-having-to-leave-devtools/">My workflow: Never having to leave the DevTools | remy sharp</a></li>
 <li><a href="http://www.youtube.com/watch?feature=player_detailpage&v=ktwJ-EDiZoU#t=553s">The Breakpoint With Addy Osmani And Paul Lewis - Snippets | youtube</a></li>
-<li><a href="http://addyosmani.com/blog/lets-tincr-bi-directional-editing-and-saving-with-the-chrome-devtools/">Bi-directional editing and saving in the Chrome DevTools | addy osmani</a></li>
-<li><a href="http://addyosmani.com/blog/autosave-changes-chrome-dev-tools/">Auto-saving changes in the DevTools | addy osmani</a></li>
 <li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/chrome-dev-tools-javascript-and-performance/">Chrome Dev Tools: JavaScript and Performance | nettuts</a></li>
 <li><a href="http://www.youtube.com/watch?v=Phw6edMppKg">Iterating with the Chrome DevTools | jeremey kahn</a></li>
-</ul>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
 {{/partials.standard_devtools_article}}

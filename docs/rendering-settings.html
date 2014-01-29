@@ -1,0 +1,62 @@
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Rendering Settings</h1>
+
+
+
+  <p>To access the Rendering Settings click on the drawer icon. You can press <span class="kbd">Esc</span> as a shortcut to open the drawer.</p>
+
+  <div class="screenshot">
+    <img src="rendering-settings-files/rendering-settings.png">
+  </div>
+
+
+  <h4>Show paint rectangles</h4>
+  <p>
+    When this is enabled you be able to see the regions where Chrome paints. This can help diagnose and ultimately <a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary paints</a> on a page. You can also use this to <a href="http://www.paulirish.com/2011/viewing-chromes-paint-cycle/">study painting behaviors</a> just by hovering over links, popups, or some content which dynamically updates.
+  </p>
+
+  <div class="screenshot">
+    <img src="rendering-settings-files/show-paint-rects.png">
+  </div>
+
+  <p>Furthermore, showing paint rectangles shows repainted areas for each frame making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
+
+
+  <h4>Show composited layer borders</h4>
+  <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
+
+  <p class="note"><strong>Note:</strong> The blue grid represents tiles, which you can think of as sub-units of a layer that Chrome uses to upload parts of a large layer at a time to the GPU. They aren't really too important in most cases.</p>
+
+  <div class="screenshot">
+    <img src="rendering-settings-files/composited-layer-borders.png">
+  </div>
+
+  <p>Enabling <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=23m42s">Show paint rectangles and Show layer borders</a> together can also be useful for finding any unnecessary paints which occur and cause a relayout on the Timeline panel.</p>
+
+
+  <p class="note"><strong>Note:</strong> Show paint rectangles and composited layer borders settings will only apply when DevTools is open.</p>
+
+
+  <h4>Show FPS meter</h4>
+  <p>Overlays an <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=23m17s">FPS meter</a> at the top right of the browser window which updates in real-time.</p>
+
+  <div class="screenshot">
+    <img src="rendering-settings-files/fps-meter.png">
+    <img src="rendering-settings-files/fps-memory-meter.png">
+  </div>
+
+  <p>When running Chrome on Android you may also <strong>show a GPU memory meter</strong> as part of the overlay. Enabling the FPS meter is <em></em>specially helpful when developing pages that have animations.</p>
+
+  <h4>Enable continuous page repainting</h4>
+  <p>This is a tool that helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
+
+  <div class="screenshot">
+    <img src="rendering-settings-files/continuous-page-repainting.png">
+  </div>
+
+  <h4>Show potential scroll bottlenecks</h4>
+  <p>Shows area of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled.</p>
+
+
+
+{{/partials.standard_devtools_article}}

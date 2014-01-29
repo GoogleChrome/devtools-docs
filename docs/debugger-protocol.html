@@ -1,7 +1,5 @@
 {{+bindTo:partials.standard_devtools_article}}
-
 <h1>Remote debugging protocol</h1>
-
 
 
 
@@ -18,13 +16,13 @@ done below.</p>
 
 <p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
 
+<div class="collapsible">
 <h2 id="protocol">Protocol</h2>
 <p>Interaction protocol consists of JSON commands that are sent to the page and
 events that the page is generating. We define this protocol in Blink
 ("upstream") so that any Blink-based browser supported it.</p>
 
 <p>
-<ul>
   <li>As of Google Chrome M31, we commit to supporting the version
 <a href="protocol/1.1/index.html">1.1</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
@@ -35,15 +33,12 @@ subsequent 1.* versions of the protocol are going to be backwards compatible wit
 <a href="protocol/0.1/index.html">0.1</a> of the protocol. All
 subsequent 0.* versions of the protocol are going to be backwards compatible with 0.1.</li>
 </li>
-</ul>
 </p>
 <p>
 Protocol backwards compatibility is defined as follows:
-<ul>
   <li>No commands or events are removed from the protocol</li>
   <li>No required parameters are added to the commands</li>
   <li>No required parameters are removed from command responses or events</li>
-</ul>
 </p>
 
 <p>There also is a <a href="protocol/tot/index.html">tip-of-tree</a> version of the
@@ -53,6 +48,8 @@ builds at your own risk. Note that unless tip of the tree revision is promoted t
 draft, there is no backwards compatibility support guaranteed for the capabilities it
 introduces.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="remote">Debugging over the wire</h2>
 <p>Today Developer Tools front-end can attach to a remotely running Chrome
 instance for debugging.
@@ -80,7 +77,6 @@ http://localhost:9222
 
 <p>You will find Developer Tools interface identical to the embedded one and
 here is why:</p>
-<ul>
 <li>When you navigate your <i>client</i> browser to the remote's Chrome port,
 Developer Tools front-end is being served from the <i>host</i> Chrome
 as a Web Application from the Web Server.</li>
@@ -88,7 +84,6 @@ as a Web Application from the Web Server.</li>
 <li>Once loaded, Developer Tools establishes a Web Socket connection to its
 host and starts interchanging JSON messages with it.
 </li>
-</ul>
 
 <p>In this scenario, you can substitute Developer Tools front-end with your
 own implementation. Instead of navigating to the HTML page at
@@ -110,6 +105,8 @@ instances of the browser or attaching to the embedded devices. Blink port
 owners are responsible for exposing debugging connections to the external
 users.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="extension">Using debugger extension API</h2>
 <p>To allow third parties to interact with the protocol, we introduced
 <a href="https://developer.chrome.com/extensions/debugger.html">
@@ -136,10 +133,9 @@ remote connection / detach the extension and will replace active debugger with
 itself. We are working on allowing several clients to instrument the page
 simultaneously.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
-  </body>
 
 
+</div>
 {{/partials.standard_devtools_article}}
