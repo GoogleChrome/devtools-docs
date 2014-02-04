@@ -10,7 +10,7 @@ The JavaScript Console provides two primary functions for developers  testing we
 This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api) and [Command Line API](commandline-api) reference guides.
 
 
-<div class="collapsible">
+
 ## Basic operation
 
 ### Opening the Console
@@ -50,8 +50,8 @@ You can also change these settings by right-clicking anywhere in the Console to 
 
 ![Console panel view](console-files/console-context-menu.png)
 
-</div>
-<div class="collapsible">
+
+
 ## Using the Console API
 
 The Console API is collection of methods provided by the global `console` object defined by DevTools. One of the API's main purposes is to [log information](#writing_to_the_console) (such as a property value, or an entire objects or DOM element) to the console while your application is running. You can also group output visually in the console to reduce visual clutter.
@@ -267,8 +267,8 @@ You can start a debugging session from your JavaScript code by calling the [`deb
 An interesting technique of using conditional breakpoints was explored by Brian Arnold in <a href="http://www.randomthink.net/blog/2012/11/breakpoint-actions-in-javascript/">Breakpoint Actions in JavaScript</a>.
 </aside>
 
-</div>
-<div class="collapsible">
+
+
 ## Using the Command Line API
 
 In addition to being a place where you can log information from your application, the Console is also a shell prompt where you can directly evaluate expressions or issue commands provided by the [Command Line API](commandline-api). This API provides the following features:
@@ -382,5 +382,5 @@ The calls to stop and start profiling do not need be properly nested. For exampl
     profile("B");
     profileEnd("A");
     profileEnd("B");
-</div>
+
 {{/partials.standard_devtools_article}}
