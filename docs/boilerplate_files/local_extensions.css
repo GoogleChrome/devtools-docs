@@ -1,0 +1,17 @@
+embed {
+  padding: 10px;
+}
+
+div.screenshot > img {
+  margin: 15px;
+}
+
+body.docs .screenshot {
+  border: none;
+}
+
+img.ui {
+  border: 0px;
+  position: relative;
+  top: 3px;
+}

@@ -1,13 +1,16 @@
 {{+bindTo:partials.standard_devtools_article}}
-    <h1>Remote Debugging Protocol v0.1</h1>
+<h1>Remote Debugging Protocol v0.1</h1>
+
+
+
 
 
 <p>Instrumentation is divided into a number of domains (DOM, Debugger, Network
 etc.). Each domain defines a number of commands it supports and events it
 generates. Both commands and events are serialized JSON objects of a fixed
-structure. You can either <a href="/devtools/docs/remote-debugging.html#remote">debug
+structure. You can either <a href="remote-debugging.html#remote">debug
 over the wire</a> using the raw messages as they are described in the corresponding domain
-documentation, or use <a href="/devtools/docs/remote-debugging.html#extension">extension
+documentation, or use <a href="remote-debugging.html#extension">extension
 JavaScript API.</a>
 </p>
 
@@ -15,26 +18,29 @@ JavaScript API.</a>
 <tr>
 <td style="border:none">
 <ul>
-  <li> <a href="console.html">Console</a> </li>
-  <li> <a href="debugger.html">Debugger</a> </li>
-  <li> <a href="dom.html">DOM</a> </li>
+  <li> <a href="protocol/0.1/console.html">Console</a> </li>
+  <li> <a href="protocol/0.1/debugger.html">Debugger</a> </li>
+  <li> <a href="protocol/0.1/dom.html">DOM</a> </li>
 </ul>
 </td>
 <td style="border:none">
 <ul>
-  <li> <a href="domdebugger.html">DOM Debugger</a> </li>
-  <li> <a href="network.html">Network</a> </li>
-  <li> <a href="page.html">Page</a> </li>
+  <li> <a href="protocol/0.1/domdebugger.html">DOM Debugger</a> </li>
+  <li> <a href="protocol/0.1/network.html">Network</a> </li>
+  <li> <a href="protocol/0.1/page.html">Page</a> </li>
 </ul>
 </td>
 <td style="border:none">
 <ul>
-  <li> <a href="runtime.html">Runtime</a> </li>
-  <li> <a href="timeline.html">Timeline</a> </li>
+  <li> <a href="protocol/0.1/runtime.html">Runtime</a> </li>
+  <li> <a href="protocol/0.1/timeline.html">Timeline</a> </li>
 </ul>
 </td>
 </tr>
 </table>
+
+
+
 
 
 {{/partials.standard_devtools_article}}

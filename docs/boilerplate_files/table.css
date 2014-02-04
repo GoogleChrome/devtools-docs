@@ -1,0 +1,106 @@
+/* Copyright 2008 Google Inc. All Rights Reserved. */
+
+.google-visualization-table-table {
+  font-family: arial, helvetica;
+  font-size: 10pt;
+  cursor: default;
+  margin: 0;
+  background: white;
+  border-spacing: 0;
+}
+
+.google-visualization-table-table tbody {
+  background: transparent;
+}
+
+.google-visualization-table-table * {
+  margin: 0;
+  vertical-align: middle;
+  padding: 2px;
+}
+
+.google-visualization-table-tr-head, .google-visualization-table-tr-head td, .google-visualization-table-tr-head-nonstrict {
+  font-weight: bold;
+  background: #fff url(title-bg.gif) repeat-x left bottom;
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(249,250,253,1) 30%, rgba(238,242,247,1) 60%, rgba(228,233,244,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(30%,rgba(249,250,253,1)), color-stop(60%,rgba(238,242,247,1)), color-stop(100%,rgba(228,233,244,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(249,250,253,1) 30%,rgba(238,242,247,1) 60%,rgba(228,233,244,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(249,250,253,1) 30%,rgba(238,242,247,1) 60%,rgba(228,233,244,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(249,250,253,1) 30%,rgba(238,242,247,1) 60%,rgba(228,233,244,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(249,250,253,1) 30%,rgba(238,242,247,1) 60%,rgba(228,233,244,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e4e9f4',GradientType=0 ); /* IE6-9 */
+  text-align: center;
+}
+
+.google-visualization-table-tr-even, .google-visualization-table-tr-even td, .google-visualization-table-tr-even-nonstrict {
+  background-color: #fff;
+}
+
+.google-visualization-table-tr-odd, .google-visualization-table-tr-odd td, .google-visualization-table-tr-odd-nonstrict {
+  background-color: #fafafa;
+}
+
+.google-visualization-table-tr-sel, .google-visualization-table-tr-sel td, .google-visualization-table-tr-sel-nonstrict {
+  background-color: #d6e9f8;
+}
+
+.google-visualization-table-tr-over, .google-visualization-table-tr-over td, .google-visualization-table-tr-over-nonstrict {
+  background-color: #e7e9f9;
+}
+
+.google-visualization-table-sorthdr {
+  cursor: pointer;
+}
+
+.google-visualization-table-sortind {
+  color: #ccc;
+  font-size: 9px;
+  padding-left: 6px; /* do not chage - see table.js */
+}
+
+.google-visualization-table-th {
+  border: 1px solid #eee;
+  padding: 6px;
+}
+
+.google-visualization-table-th-webkit td, .google-visualization-table-th-webkit-nonstrict {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 6px;
+}
+
+.google-visualization-table-td-freeze-rightmost {
+  border-right-width: 4px;
+}
+
+.google-visualization-table-td {
+  border: 1px solid #eee;
+  padding-right: 3px;
+  padding-left: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.google-visualization-table-td-bool {
+  text-align: center;
+  font-family: Arial Unicode MS, Arial, Helvetica;
+}
+
+.google-visualization-table-td-center {
+  text-align: center;
+}
+
+.google-visualization-table-td-number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.google-visualization-table-seq {
+  text-align: right;
+  color: #666;
+}
+
+.google-visualization-table-div-page {
+  margin: 2px 0 0 0;
+  padding: 0;
+}

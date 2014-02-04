@@ -1,6 +1,13 @@
-{{+bindTo:partials.standard_devtools_article}}
+{% include "chrome-developer-tools/_local_variables.html" %}
+<html devsite>
+  <head>
+    <title>Timeline demo: Diagnosing forced synchronous layouts</title>
+    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
+    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
 
-    <h1>Timeline demo: Diagnosing forced synchronous layouts</h1>
+  </head>
+  <body>
+    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
     <p>This demo shows how you can use the Timeline to identify a kind of performance bottle-neck called 'forced synchronous layouts'. The demo application animates several images back and forth using <code><a href="http://docs.webplatform.org/wiki/apis/timing/methods/requestAnimationFrame" _target="_blank">requestAnimationFrame()</a></code>, the <a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision" target="_blank">recommended approach</a> for performing frame-based animation. But there's a considerable amount of stuttering and jank as the animation runs We'll use the Timeline to diagnose what's going on.</p>
 
@@ -23,6 +30,7 @@
          <button type="button" class="button-red button expand-control" id="show-hide-1">Show/Hide Demo</button>
  -->
 
+        {% framebox height="600px" %}
         <style>
             .mover {
                 background: url("particle.png");
@@ -387,6 +395,7 @@
         </div>
 
         <script src="source.js"></script>        
+        {% endframebox %}    
 
     <h2>Analyze the recording</h2>
 
@@ -439,4 +448,5 @@ function update(timestamp) {
 
         <div class="screenshot"><img src="images/fixed.png"></div>
 
-{{/partials.standard_devtools_article}}
+  </body>
+</html>
