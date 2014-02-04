@@ -10,7 +10,7 @@ The Network panel records information about each network operation in your appli
 * How much time was spent in the various network phases for a particular resource?
 
 
-<div class="collapsible">
+
 ## About the Resource Timing API
 
 The Network panel uses the [Resource Timing API](http://www.w3.org/TR/resource-timing), a JavaScript API that provides detailed network timing data for each loaded resource. For example, the API can tell you precisely when the HTTP request for an image started, and when the image's final byte was received. The following illustration shows the network timing data points that the Resource Timing API provides.
@@ -31,8 +31,8 @@ Each timestamp is in microseconds, following the [High Resolution
 Time](http://www.w3.org/TR/hr-time/#sec-high-resolution-time) specification. This API is [available in
 Chrome](http://updates.html5rocks.com/2012/08/When-milliseconds-are-not-enough-performance-now) as the `window.performance.now()` method.
 
-</div>
-<div class="collapsible">
+
+
 ## Network panel overview
 
 The Network panel automatically records all network activity while DevTools is open. The first time you open the panel it may be empty. Reload the page to start recording, or simply wait for network activity to occur in your application.
@@ -265,8 +265,8 @@ You can save the data from a network recording as a HAR ([HTTP Archive](http://w
 
 For more information, [Web Performance Power Tool: HTTP Archive (HAR)](http://www.igvita.com/2012/08/28/web-performance-power-tool-http-archive-har/).
 
-</div>
-<div class="collapsible">
+
+
 ## Network resource details #
 
 When you click a resource name in the Network table a tabbed window appears that contains the following additional details:
@@ -445,8 +445,8 @@ The table below lists the network phases shown in the Timing tab and their descr
 </tr>
 </table>
 
-</div>
-<div class="collapsible">
+
+
 ## Additional resources
 
 To learn more optimizing the network performance of your application, see the following resources:
@@ -456,5 +456,5 @@ To learn more optimizing the network performance of your application, see the fo
   Chrome](http://www.igvita.com/posa/high-performance-networking-in-google-chrome/) discusses Chrome network internals and how you can take advantage of them to make your site faster.
 * [How gzip compression works](/speed/articles/gzip) provides a high level overview gzip compression and why it's a good idea.
 * [Web Performance Best Practices](/speed/docs/best-practices/rules_intro) provides additional tips for optimizing the network performance of your web page or application.
-</div>
+
 {{/partials.standard_devtools_article}}
