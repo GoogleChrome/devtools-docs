@@ -7,7 +7,6 @@ That could be by sharing what you know or helping out with documenting features
 or writing a patch to improve the tools we all use. 
 
 
-<div class="collapsible">
 ## How can you help?
 
 Aside from contributing to the source code for DevTools, all of the following 
@@ -44,8 +43,6 @@ are different ways you could help contribute:
 Read on to learn how to contribute a patch to DevTools source.
 
 
-</div>
-<div class="collapsible">
 ## Contributing to DevTools source code
 
 The Chrome DevTools are actually a web app written in JavaScript and CSS. If 
@@ -383,8 +380,6 @@ asking you the important questions. You can find more information and
 installation instructions at 
 [https://github.com/jankeromnes/cr](https://github.com/jankeromnes/cr).
 
-</div>
-<div class="collapsible">
 ## Troubleshooting workflows
 
 Below are a couple alternative perspectives from some of the contributors who 
@@ -465,5 +460,5 @@ are on Windows. Some failures are expected! (unfortunatly). A good process here
 is to run them before you make any changes, then run them after you make your 
 changes. It can also take an argument to a directory so you can just point it to 
 the `LayoutTests/inspector` directory to run. 
-</div>
+
 {{/partials.standard_devtools_article}}

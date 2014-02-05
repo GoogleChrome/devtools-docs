@@ -7,7 +7,6 @@ The Resources panel lets you inspect your application's local data sources, incl
 
 The Resources panel reveals your application's local data stores, including IndexedDB and WebSQL databases, local and session storage, cookies and Application Cache resources. 
 
-<div class="collapsible">
 ## IndexedDB
 
 You can inspect IndexedDB databases and object stores, page through an object store's records, and clear an object store of its records.
@@ -30,8 +29,6 @@ You can inspect IndexedDB databases and object stores, page through an object st
 
 <img src="resources-files/database-properties.png"/> 
 
-</div>
-<div class="collapsible">
 ## Web SQL
 
 You can inspect the content of Web SQL databases, and run SQL commands against 
@@ -52,8 +49,6 @@ query results in a tabular format. As you type out a command or table name, code
 
 <img src="resources-files/sql.png" />
 
-</div>
-<div class="collapsible">
 ## Cookies
 
 You can view detailed information about cookies that have been created by an HTTP header or with JavaScript. You can also clear individual cookies, groups of cookies from the same origin, or clear all cookies from a specific domain.
@@ -107,8 +102,6 @@ You can also refresh the table to reflect any changes to the page's cookies.
 **To refresh the cookies table**, click the refresh button <img 
 src="resources-files/refresh.png" /> at the bottom of the Resources panel. 
 
-</div>
-<div class="collapsible">
 ## Application Cache
 
 You can examine resources that Chrome has cached according to the Application Cache manifest file specified by the current document. You can view the current status of the Application Cache (idle or downloading, for 
@@ -161,8 +154,6 @@ of the application cache along with a colored status icon (green, yellow, or red
 </tr>
 </table>
 
-</div>
-<div class="collapsible">
 ## Local and session storage
 
 You can view and edit local and session storage key/value pairs you've created using the [Web Storage APIs](http://www.w3.org/TR/webstorage/). You can edit, delete, and create both local and session storage data.
@@ -210,5 +201,4 @@ Other tips:
 * **To view the bounding box of an embedded frame**, hover your mouse over a frame in the Resources panel:
 
 <img src="resources-files/frame-selected.png" />
-</div>
 {{/partials.standard_devtools_article}}

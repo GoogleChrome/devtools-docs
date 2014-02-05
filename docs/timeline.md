@@ -7,7 +7,6 @@
 The Timeline panel lets you record and analyze all the activity in your application as it runs. It's the best place to start investigating perceived performance issues in your application.
 
 
-<div class="collapsible">
 ## Timeline panel overview ##
 
 The Timeline has three primary sections: an overview section at the top, a records view, and a toolbar.
@@ -159,8 +158,6 @@ Here are some tips for making recordings:
     profile](http://support.google.com/chrome/bin/answer.py?hl=en&answer=142059) for
     testing.
 
-</div>
-<div class="collapsible">
 ## Analyzing Timeline recordings ##
 
 This section provides tips for analyzing Timeline recordings.
@@ -307,8 +304,6 @@ You will see ight gray bars appearing above the Timeline records, indicating whe
 
 ![](timeline-images/image24.png)
 
-</div>
-<div class="collapsible">
 ## Timeline event reference ##
 
 <style>
@@ -566,5 +561,5 @@ Location
 
 Dimensions
 :   For Paint events, the height and width of the painted region.
-</div>
+
 {{/partials.standard_devtools_article}}

@@ -7,10 +7,6 @@ presents a small selection of extensions. All of the extensions listed here are
 available for install from the Chrome Web Store. And they're all open source, so 
 you can use them as inspiration for your own extensions.
 
-#### Contents
-
-
-<div class="collapsible">
 ## AngularJS Batarang
 
 AngularJS Batarang is a swiss-army knife for the AngularJS framework, 
@@ -38,8 +34,6 @@ More information:
   [README on GitHub](https://github.com/angular/angularjs-batarang/#readme)
   provides a good overview.
 
-</div>
-<div class="collapsible">
 ## CoffeeScript Console
 
 If you use CoffeeScript, you may be interested in the CoffeeScript Console. As 
@@ -57,8 +51,6 @@ More information:
 * [Screencast](https://www.youtube.com/watch?feature=player_embedded&v=vKbTW2ICvIw) 
   by Jonathan Snook.
 
-</div>
-<div class="collapsible">
 ## Ember Inspector
 
 The Ember Inspector helps you debug [Ember.js](http://emberjs.com/) 
@@ -85,8 +77,6 @@ More information:
   screencasts](http://www.youtube.com/user/wycats/videos?query=inspector) from 
   Yehuda Katz.
 
-</div>
-<div class="collapsible">
 ## Grunt DevTools
 
 Grunt DevTools provides a GUI for triggering [Grunt](http://gruntjs.com/) tasks. 
@@ -100,8 +90,6 @@ More information:
   Store](https://chrome.google.com/webstore/detail/grunt-devtools/fbiodiodggnlakggeeckkjccjhhjndnb?hl=en).
 * Source available on [GitHub.](https://github.com/vladikoff/grunt-devtools)
 
-</div>
-<div class="collapsible">
 ## KnockoutJS Context Debugger
 
 This extension helps you debug your KnockoutJS application by showing the 
@@ -117,8 +105,6 @@ More information:
 * Source code available on 
   [GitHub.](https://github.com/timstuyckens/chromeextensions-knockoutjs)
 
-</div>
-<div class="collapsible">
 ## Rails Panel
 
 Rails Panel adds a new tab that shows information about requests to the Rails 
@@ -134,5 +120,5 @@ More information:
 * Source code available on [GitHub.](https://github.com/dejan/rails_panel)
 * See the [README file ](https://github.com/dejan/rails_panel#readme)for 
   information on setting up and using Rails Panel.
-</div>
+
 {{/partials.standard_devtools_article}}

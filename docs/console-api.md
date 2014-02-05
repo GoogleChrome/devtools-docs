@@ -5,7 +5,7 @@
 The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session.
 
 
-<div class="collapsible">
+
 ## console.assert(expression, object) ##
 
 If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than five child nodes:
@@ -15,8 +15,7 @@ If the specified expression is `false`, the message is written to the console al
 
 ![Example of console.assert()](console-files/assert-failed-list.png)
 
-</div>
-<div class="collapsible">
+
 ## console.clear() ##
 
 Clears the console.
@@ -25,8 +24,7 @@ Clears the console.
 
 Also see [Clearing the console](console#clearing_console_history).
 
-</div>
-<div class="collapsible">
+
 ## console.count(label) ##
 
 Writes the the number of times that `count()` has been invoked at the same line and with the same label.
@@ -49,14 +47,12 @@ In this example, `count()` is invoked with different labels, each of which is in
 
 ![Example of using console.count() with different string](console-files/count-unique.png)
 
-</div>
-<div class="collapsible">
+
 ## console.debug(object [, object, ...]) ##
 
 This method is identical to [`console.log()`](#consolelogobject_object).
 
-</div>
-<div class="collapsible">
+
 ## console.dir(object) ##
 
 Prints a JavaScript representation of the specified object. If the object being logged is an HTML element, then the properties of its DOM representation are displayed, as shown below:
@@ -79,8 +75,7 @@ Compare this with the behavior of `console.log()`, which displays the element in
 
 ![Using console.log() on an element](console-files/consolelog-body.png)
 
-</div>
-<div class="collapsible">
+
 ## console.dirxml(object) ##
 
 Prints an XML representation of the specified object, as it would appear in the Elements panel. For HTML elements, calling this method is equivalent to calling `console.log()`.
@@ -91,8 +86,7 @@ Prints an XML representation of the specified object, as it would appear in the 
 %O is a shortcut for dir
 %o acts either as dir or dirxml depending on the object type (non-dom or dom)
 
-</div>
-<div class="collapsible">
+
 ## console.error(object [, object, ...])
 
 Similar to [`console.log()`](#consolelog), `console.error()` and also includes a stack trace from where the method was called.
@@ -107,8 +101,7 @@ Similar to [`console.log()`](#consolelog), `console.error()` and also includes a
 
 ![Example of console.error()](console-files/error-server-not-resp.png)
 
-</div>
-<div class="collapsible">
+
 ## console.group(object[, object, ...]) ##
 
 Starts a new logging group with an optional title. All console output that occurs after calling this method and calling `console.groupEnd()` appears in the same visual group.
@@ -133,8 +126,7 @@ You can also nest groups:
 
 ![Nested logging group examples](console-files/nestedgroup-api.png)
 
-</div>
-<div class="collapsible">
+
 ## console.groupCollapsed(object[, object, ...]) ##
 
 Creates a new logging group that is initially collapsed instead of open, as with `console.group()`.
@@ -146,20 +138,17 @@ Creates a new logging group that is initially collapsed instead of open, as with
 
 ![Creating a collapsed group](console-files/groupcollapsed.png)
 
-</div>
-<div class="collapsible">
+
 ## console.groupEnd() ##
 
 Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject_object) and [console.groupCollapsed()](#consolegroupcollapsedobject_object) for examples.
 
-</div>
-<div class="collapsible">
+
 ## console.info(object [, object, ...]) ##
 
 This method is identical to [`console.log()`](#consolelogobject_object).
 
-</div>
-<div class="collapsible">
+
 ## console.log(object [, object, ...]) ##
 
 Displays a message in the console. You pass one or more objects to this method, each of which are evaluated and concatenated into a space-delimited string. The first parameter you pass to `log()` may contain _format specifiers_, a string token composed of the percent sign (`%`) followed by a letter that indicates the formatting to be applied.
@@ -197,8 +186,7 @@ The following example uses the **`%c`** format specifier to colorize the output 
 
 ![Console output styled with %c](console-files/log-format-styling.png)
 
-</div>
-<div class="collapsible">
+
 ## console.profile([label]) ##
 
 When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call `console.profileEnd()`. Each profile is added to the Profiles tab.
@@ -211,8 +199,7 @@ In the following example a CPU profile is started at the entry to a function tha
       console.profileEnd();
     }
 
-</div>
-<div class="collapsible">
+
 ## console.profileEnd() ##
 
 Stops the current JavaScript CPU profiling session, if one is in progress, and prints the report to the Profiles panel.
@@ -221,8 +208,7 @@ Stops the current JavaScript CPU profiling session, if one is in progress, and p
 
 See [console.profile()](#consoleprofilelabel) for example use.
 
-</div>
-<div class="collapsible">
+
 ## console.time(label) ##
 
 Starts a new timer with an associated label. When `console.timeEnd()` is called with the same label, the timer is stopped the elapsed time displayed in the Console. Timer values are accurate to the sub-millisecond.
@@ -238,32 +224,28 @@ Starts a new timer with an associated label. When `console.timeEnd()` is called 
 
 Note: The string you pass to the `time()` and `timeEnd()` methods must match for the timer to finish as expected.
 
-</div>
-<div class="collapsible">
+
 ## console.timeEnd(label) ##
 
 Stops the timer with the specified label and prints the elapsed time.
 
 For example usage, see [console.time()](#consoletimelabel).
 
-</div>
-<div class="collapsible">
+
 ## console.timeStamp([label]) ##
 
 This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.
 
 See [Marking the Timeline](console#marking_the_timeline) for an example of using `console.timeStamp()`.
 
-</div>
-<div class="collapsible">
+
 ## console.trace() ##
 
 Prints a stack trace from the point where the method was called, including links to the specific lines in the JavaScript source. A counter indicates the number of times that `trace()` method was invoked at that point, as shown in the screen shot below.
 
 ![Example of a stack trace with counter](console-files/console-trace.png)
 
-</div>
-<div class="collapsible">
+
 ## console.warn(object [, object, ...]) ##
 
 This method is like [`console.log()`](#consolelogobject_object) but also displays a yellow warning icon along with the logged message.
@@ -272,8 +254,7 @@ This method is like [`console.log()`](#consolelogobject_object) but also display
 
 ![Example of console.warn()](console-files/log-warn.png)
 
-</div>
-<div class="collapsible">
+
 ## debugger ##
 
 The global `debugger` function causes Chrome to stop program execution and start a debugging session at the line where it was called. It is equivalent to setting a "manual" breakpoint in the Sources tab of Chrome DevTools.
@@ -291,5 +272,5 @@ In the following example the JavaScript debugger is opened when an object's `bri
     }
 
 ![Example of using debugger command](console-files/debugger.png)
-</div>
+
 {{/partials.standard_devtools_article}}

@@ -94,13 +94,12 @@ A **memory leak** is a gradual loss of available computer memory. It occurs when
 
 Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting_demos) when learning about features to improve your awareness of how the tools work in practice.
 
-<div class="special"><p>Read
+<p>Read
 the <a href="memory-analysis-101.html">Memory 101</a> page to become
-familiar with the terms used in this document.</p></div>
+familiar with the terms used in this document.</p>
 <p class="note"><strong>Note:</strong> Some of these features we will be using are currently only available in <a href="http://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>. We recommend using this version to get the best memory profiling tooling for your applications.</p>
 
 
-<div class="collapsible">
 ## Questions to ask yourself
 
 In general, there are three questions you will want to answer when you think you have a memory leak:
@@ -116,8 +115,7 @@ In general, there are three questions you will want to answer when you think you
 **Table of contents**
 
 
-</div>
-<div class="collapsible">
+
 ## Terminology and Fundamentals
 
 This section describes common terms used in **memory analysis**, and is applicable to a variety of memory profiling tools for different languages. The terms and notions described here are used in the Heap Profiler UI and the corresponding documentation.
@@ -255,8 +253,7 @@ Each native objects group is made up from objects that hold mutual references to
 
 Each wrapper object holds a reference to the corresponding native object, for redirecting commands to it. In its own turn, an object group holds wrapper objects. However, this doesn't create an uncollectable cycle, as GC is smart enough to release object groups whose wrappers are no longer referenced. But forgetting to release a single wrapper will hold the whole group and associated wrappers.
 
-</div>
-<div class="collapsible">
+
 ## Prerequisites and helpful tips
 
 ### Chrome Task Manager
@@ -287,11 +284,9 @@ When investigating memory issues, the Timeline panel’s **Memory view** can be 
 
 ![](memory-profiling-files/image_6.png)
 
-<div class="drop-shadow extdoc">
-
 <p>To read more about how to isolate problems that might be causing leaks during your memory profiling sessions, see <a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">Memory profiling with the Chrome DevTools</a> by Zack Grossbart.</p>
 
-</div>
+
 
 #### **Proving a Problem Exists**
 
@@ -325,8 +320,7 @@ This often happens when you’ve written your code in such a way that variables 
 
 Remember to check and nullify variables that contain references to DOM elements which may be getting updated/destroyed during the lifecycle of your app. Check object properties which may reference other objects (or other DOM elements). Be sure to keep an eye on variable caches which may accumulate over time.
 
-</div>
-<div class="collapsible">
+
 ## Heap Profiler
 
 ### Taking a snapshot
@@ -391,8 +385,7 @@ Properties and property values of objects have different types and are colored a
 
 Objects designated as `System `do not have a corresponding JavaScript type. They are part of JavaScript VM's object system implementation. V8 allocates most of its internal objects in the same heap as the user's JS objects. So these are just v8 internals.
 
-</div>
-<div class="collapsible">
+
 ## Views in detail
 
 ### Summary view
@@ -527,11 +520,10 @@ DOM leaks can be bigger than you think. Consider the following sample - when is 
     Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/chrome-developer-tools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
 </p>
 
-<div class="drop-shadow extdoc">
 
 <p>To read more about DOM leaks and memory analysis fundamentals checkout <a href="http://slid.es/gruizdevilla/memory">Finding and debugging memory leaks with the Chrome DevTools</a> by Gonzalo Ruiz de Villa.</p>
 
-</div>
+
 
 Native objects are most easily accessible from Summary and Containment views — there are dedicated entry nodes for them:
 
@@ -555,8 +547,7 @@ The Dominators view shows the dominators tree for the heap graph. The Dominators
     Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/chrome-developer-tools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
 </p>
 
-</div>
-<div class="collapsible">
+
 ## Object allocation tracker
 
 The **object tracker** combines the detailed snapshot information of the [heap profiler](#heading=h.xfxcns9xlif4) with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects’ heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis.
@@ -587,8 +578,7 @@ In the example above, an action was performed 10 times.  The sample program cach
 
 Clicking on a specific object in the heap will show its retaining tree in the bottom portion of the heap snapshot. Examining the retaining path to the object should give you enough information to understand why the object was not collected, and you can make the necessary code changes to remove the unnecessary reference.
 
-</div>
-<div class="collapsible">
+
 ## Memory Profiling FAQ
 
 **Q: I don't see all the properties of objects, I don't see non-string values for them! Why?**
@@ -720,8 +710,7 @@ Apps, extensions and even console logging can have an implicit impact on your fi
 
 The JavaScript engines of today are highly capable of automatically cleaning garbage generated by our code in a number of situations. That said, they can only go so far and our applications are still prone to memory leaks caused by logical errors. Use the tools available to find out your bottlenecks and remember, don't guess it - test it.
 
-</div>
-<div class="collapsible">
+
 ## Supporting Demos
 
 ### Debugging Memory Leaks
@@ -770,8 +759,7 @@ Additional demos are available for:
 * [Finding accumulation points](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators)
 
 
-</div>
-<div class="collapsible">
+
 ## Community Resources
 
 There are a number of excellent resources written by the community on finding and fixing memory issues in web apps using the Chrome DevTools. Below are a selection of some you may find useful:
@@ -787,5 +775,5 @@ There are a number of excellent resources written by the community on finding an
 * [Rendering and memory profiling with the DevTools](http://www.slideshare.net/matenadasdi1/google-chrome-devtools-rendering-memory-profiling-on-open-academy-2013)
 
 * [Performance optimization with DevTools timeline and profile](http://addyosmani.com/blog/performance-optimisation-with-timeline-profiles/)
-</div>
+
 {{/partials.standard_devtools_article}}

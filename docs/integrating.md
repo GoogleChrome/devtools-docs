@@ -17,10 +17,6 @@ There are two basic ways to build a custom solution using the DevTools:
 
 The following sections discuss both approaches.
 
-#### Contents
-
-
-<div class="collapsible">
 ## DevTools Chrome extensions
 
 The DevTools UI is a web application embedded inside Chrome. 
@@ -42,8 +38,6 @@ For a list of sample DevTools extensions, see <a href="sample-extensions.md">Sam
 DevTools Extensions</a>. These samples include many open source extensions that 
 can be used for reference.
 
-</div>
-<div class="collapsible">
 ## Debugging protocol clients
 
 Third-party applications, such as IDEs, editors, continuous integration 
@@ -73,5 +67,5 @@ There are two ways to integrate with the debugging protocol:
 
 For some example integrations, see <a href="debugging-clients.md">Sample Debugging 
 Protocol Clients</a>.
-</div>
+
 {{/partials.standard_devtools_article}}

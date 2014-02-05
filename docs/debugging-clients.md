@@ -4,10 +4,6 @@
 
 There are a number third-party clients for the Chrome debugging protocol. This section presents a sample.
 
-#### Contents
-
-
-<div class="collapsible">
 ## Brackets
 
 Brackets is a web-based IDE that uses the Chrome debugging protocol to enable 
@@ -23,8 +19,6 @@ More information:
 * Download from [download.brackets.io](http://download.brackets.io/).
 * Source code available on [GitHub](https://github.com/adobe/brackets).
 
-</div>
-<div class="collapsible">
 ## Light Table
 
 Light Table is a new IDE that takes a novel approach to arranging the 
@@ -39,8 +33,6 @@ More information:
   describing new features in 0.4.0, including DevTools integration.
 * Download from the [official site.](http://www.lighttable.com/)
 
-</div>
-<div class="collapsible">
 ## NodeJS
 
 A number of modules have been developed to make use of the Chrome debugger from 
@@ -76,8 +68,6 @@ More information:
 
 *   Source code available on [GitHub](https://github.com/sidorares/crconsole).
 
-</div>
-<div class="collapsible">
 ## Sublime Text
 
 The Sublime Web Inspector project adds Chrome debugger integration to the 
@@ -93,8 +83,6 @@ More information:
 * Source code available on 
   [GitHub](https://github.com/sokolovstas/SublimeWebInspector).
 
-</div>
-<div class="collapsible">
 ## Telemetry
 
 Telemetry is a performance testing framework used by the Chromium project to 
@@ -106,8 +94,6 @@ More information:
 * [Introduction to Telemetry on 
   Chromium.org.](http://www.chromium.org/developers/telemetry)
 
-</div>
-<div class="collapsible">
 ## Vim
 
 Chrome.vim is an experimental plugin for the Vim editor that provides some basic 
@@ -117,8 +103,6 @@ More information:
 
 * [https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome](https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome) 
 
-</div>
-<div class="collapsible">
 ## WebDriver
 
 The Selenium browser automation tools use WebDriver API to abstract interactions 
@@ -132,8 +116,6 @@ More information:
 If you know of more, please let us know using the Feedback tool at the top right 
 of this page!
 
-</div>
-<div class="collapsible">
 ## WebStorm
 
 WebStorm is a commercial IDE that supports debugging and live-editing in Chrome. 
@@ -149,5 +131,4 @@ More information:
 * [Screencast describing the latest debugging 
   features.](http://tv.jetbrains.net/videocontent/improved-javascript-debugger-in-webstorm-7)
 
-</div>
 {{/partials.standard_devtools_article}}
