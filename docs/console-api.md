@@ -22,7 +22,7 @@ Clears the console.
 
     console.clear();
 
-Also see [Clearing the console](console#clearing_console_history).
+Also see [Clearing the console](console.md#clearing-console-history).
 
 
 ## console.count(label) ##
@@ -50,7 +50,7 @@ In this example, `count()` is invoked with different labels, each of which is in
 
 ## console.debug(object [, object, ...]) ##
 
-This method is identical to [`console.log()`](#consolelogobject_object).
+This method is identical to [`console.log()`](#consolelogobject-object).
 
 
 ## console.dir(object) ##
@@ -141,12 +141,12 @@ Creates a new logging group that is initially collapsed instead of open, as with
 
 ## console.groupEnd() ##
 
-Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject_object) and [console.groupCollapsed()](#consolegroupcollapsedobject_object) for examples.
+Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject-object) and [console.groupCollapsed()](#consolegroupcollapsedobject-object) for examples.
 
 
 ## console.info(object [, object, ...]) ##
 
-This method is identical to [`console.log()`](#consolelogobject_object).
+This method is identical to [`console.log()`](#consolelogobject-object).
 
 
 ## console.log(object [, object, ...]) ##
@@ -236,7 +236,7 @@ For example usage, see [console.time()](#consoletimelabel).
 
 This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.
 
-See [Marking the Timeline](console#marking_the_timeline) for an example of using `console.timeStamp()`.
+See [Marking the Timeline](console.md#marking-the-timeline) for an example of using `console.timeStamp()`.
 
 
 ## console.trace() ##
@@ -248,7 +248,7 @@ Prints a stack trace from the point where the method was called, including links
 
 ## console.warn(object [, object, ...]) ##
 
-This method is like [`console.log()`](#consolelogobject_object) but also displays a yellow warning icon along with the logged message.
+This method is like [`console.log()`](#consolelogobject-object) but also displays a yellow warning icon along with the logged message.
 
     console.warn("User limit reached! (%d)", userPoints);
 
