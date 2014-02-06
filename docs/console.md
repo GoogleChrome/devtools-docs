@@ -5,7 +5,7 @@
 The JavaScript Console provides two primary functions for developers  testing web pages and applications:
 
 * A place to log diagnostic information using methods provided by the [Console API](console-api.md), such as [console.log()](console-api.md#consolelogobject-object), or [console.profile()](console-api.md#consoleprofilelabel).
-* A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the [Command Line API](commandline-api.md), such as [$()](commandline-api.md#selector) command for selecting elements, or [profile()](commandline-api.md#profile) to start the CPU profiler.
+* A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the [Command Line API](commandline-api.md), such as [$()](commandline-api.md#selector) command for selecting elements, or [profile()](commandline-api.md#profilename) to start the CPU profiler.
 
 This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api.md) and [Command Line API](commandline-api.md) reference guides.
 
@@ -229,7 +229,7 @@ Note: You must pass the same string to `console.time()` and `timeEnd()` for the 
 
 ### Marking the Timeline
 
-The [Timeline panel](timeline) gives you a complete overview of where time is spent when loading and using your web app or page. The [`console.timeStamp()`](console-api.md#consoletimestamplabel) method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.
+The [Timeline panel](timeline.md) gives you a complete overview of where time is spent when loading and using your web app or page. The [`console.timeStamp()`](console-api.md#consoletimestamplabel) method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.
 
 Note: The `console.timeStamp()` method only functions while a Timeline recording is in progress.
 
@@ -319,7 +319,7 @@ For example, in the following screenshot the `$()` function is used to get a ref
 
 Often when testing you'll select DOM elements&mdash;either directly in the Elements panel or using the Selection tool (magnifying glass)&mdash;so that you can further inspect the element. Or, when analyzing a memory snapshot in the Profiles panel, you might select a JavaScript object to further inspect it.
 
-The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named [**`$0`**, **`$1`**, **`$2`**, **`$3`**](commandline-api.md#0_-_4) and [**`$4`**](commandline-api.md#0_-_4). The most recently selected element or object is available as **`$0`**, the second most as **`$1`**, and so forth.
+The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named [**`$0`**, **`$1`**, **`$2`**, **`$3`**](commandline-api.md#0-4) and [**`$4`**](commandline-api.md#0-4). The most recently selected element or object is available as **`$0`**, the second most as **`$1`**, and so forth.
 
 The following screenshot shows the values of these properties after selecting three different elements in turn from the Elements panel:
 
