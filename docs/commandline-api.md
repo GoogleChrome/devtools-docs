@@ -2,7 +2,7 @@
 
 # Command Line API Reference
 
-The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the [Console API](console-api), the Command Line API is only available from within the console itself.
+The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the [Console API](console-api.md), the Command Line API is only available from within the console itself.
 
 
 ## $_ ##
@@ -76,7 +76,7 @@ Clears the console of its history.
 
     clear();
 
-Also see [Clearing the console](console#clearing_the_console_history).
+Also see [Clearing the console](console.md#clearing-the-console-history).
 
 
 
@@ -203,7 +203,7 @@ To stop profiling and display the results in the Profiles panel:
 
     profileEnd("My profile")
 
-For more examples, see [Controlling the CPU profiler](console#controlling_the_cpu_profiler).
+For more examples, see [Controlling the CPU profiler](console.md#controlling-the-cpu-profiler).
 
 
 
@@ -224,7 +224,7 @@ You can also selectively stop monitoring specific events on an object. For examp
     monitorEvents($0, "mouse");
     unmonitorEvents($0, "mousemove");
 
-Also see [Monitoring events](console#monitoring_events).
+Also see [Monitoring events](console.md#monitoring-events).
 
 
 
