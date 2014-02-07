@@ -1,98 +1,10 @@
 {{+bindTo:partials.standard_devtools_article}}
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/overrides.css">
-
-<style>
-.slide {width:700px;}
-.extdoc:before{
-  left: 80px;
-  bottom: 5px;
-  width: 50%;
-  height: 35%;
-  max-width: 200px;
-  max-height: 50px;
-  -webkit-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -webkit-transform: skew(50deg);
-  -moz-transform: skew(50deg);
-  -ms-transform: skew(50deg);
-  -o-transform: skew(50deg);
-  transform: skew(50deg);
-  -webkit-transform-origin: 0 100%;
-  -moz-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-}
-
-img{
-  max-width:900px;
-}
-
-.drop-shadow{
-  position: relative;
-  padding: 1em;
-  margin: 2em 10px 4em;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-
-}
-
-.extdoc {
-  padding:10px;
-  background: hsl(218, 73%, 97%);
-}
-
-.extdoc img{
-  max-width:900px;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-.perspective:after {
-  display: none;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-/* custom keyboard shortcut styling */
-.kbd{
-  -moz-border-radius:3px;
-  -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  -webkit-border-radius:3px;
-  -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  background-color:#f7f7f7;
-  border:1px solid #ccc;
-  border-radius:3px;
-  box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  color:#333;
-  display:inline-block;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  line-height:1.4;
-  margin:0 .1em;
-  padding:.1em .6em;
-  text-shadow:0 1px 0 #fff;
-  white-space:nowrap;
-}
-</style>
-
 # JavaScript Memory Profiling
 
 A **memory leak** is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as **leaks** and bloat but they also have to deal with **garbage collection pauses.**
 
-Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting_demos) when learning about features to improve your awareness of how the tools work in practice.
+Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting-demos) when learning about features to improve your awareness of how the tools work in practice.
 
 <p>Read
 the <a href="memory-analysis-101.html">Memory 101</a> page to become
@@ -330,7 +242,7 @@ On the Profiles panel, choose ** *Take Heap Snapshot* **, then click **Start** o
 ![](memory-profiling-files/image_11.png)
 
 **
-**Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the [reachable](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#retaining_paths) JavaScript objects:
+**Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the [reachable](memory-analysis-101.html#retaining-paths) JavaScript objects:
 
 ![](memory-profiling-files/image_12.png)
 
@@ -368,7 +280,7 @@ There are three default views:
 
 * **Containment — **allows exploration of heap contents;
 
-The **Dominators **view, which can be enabled via the Settings panel **— **shows the [dominators tree.](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#dominators) and can be useful to find accumulation points.
+The **Dominators **view, which can be enabled via the Settings panel **— **shows the [dominators tree.](memory-analysis-101.html#dominators) and can be useful to find accumulation points.
 
 ### Looking up color coding
 
@@ -400,7 +312,7 @@ Top-level entries are "total" lines. They display:
 
 * the **number of object instances** is displayed in the # column
 
-* the **Shallow size** column displays the sum of [shallow sizes](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes) of all objects created by a certain constructor function
+* the **Shallow size** column displays the sum of [shallow sizes](memory-analysis-101.html#object-sizes) of all objects created by a certain constructor function
 
 * the **Retained size** column displays the maximum retained size among the same set of objects
 
@@ -748,15 +660,15 @@ expected</a></li>
 
 Additional demos are available for:
 
-* [Gathering scattered objects](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary)
+* [Gathering scattered objects](heap-profiling-summary.html)
 
-* [Verifying action cleanness](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison)
+* [Verifying action cleanness](heap-profiling-comparison.html)
 
-* [Exploring the heap contents](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment)
+* [Exploring the heap contents](heap-profiling-containment.html)
 
-* [Uncovering DOM leaks](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks)
+* [Uncovering DOM leaks](heap-profiling-dom-leaks.html)
 
-* [Finding accumulation points](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators)
+* [Finding accumulation points](heap-profiling-dominators.html)
 
 
 
