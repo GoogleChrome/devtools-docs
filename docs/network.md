@@ -42,7 +42,7 @@ The Network panel automatically records all network activity while DevTools is o
 Each requested resource is added as a row to the Network table, which contains the columns listed below. Note the following about the Network table:
 
 * Not all columns listed below are visible by default; you can easily [show or hide columns](#adding-and-removing-table-columns).
-* Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-size) both fields are shown; when using small resource rows only the primary field is shown.
+* Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-sizes) both fields are shown; when using small resource rows only the primary field is shown.
 * You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
 
 <table>
@@ -90,7 +90,7 @@ Each requested resource is added as a row to the Network table, which contains t
 </tr>
 <tr>
 <td><strong>Cookies</strong></td>
-<td>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#request-and-response-cookies">Cookies tab</a> when viewing details for a given resource.</td>
+<td>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#cookies">Cookies tab</a> when viewing details for a given resource.</td>
 </tr>
 <tr>
 <td><strong>Set-Cookies</strong></td>
@@ -284,7 +284,7 @@ The Headers tab displays the resource's request URL, HTTP method, and response s
 
 <img src="network-files/headers.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
-You can also [copy request and response headers](#saving-and-copying network-information) to your clipboard.
+You can also [copy request and response headers](#saving-network-data) to your clipboard.
 
 ### Resource previews
 
@@ -308,7 +308,7 @@ You can also [view formatted previews](#resource-previews) of some resource type
 ### Cookies
 
 The Cookies tab displays a table of all the cookies transmitted in the
-resource's HTTP request and response headers. You can also <a href="#right-click-menu-actions">clear all cookies</a>.
+resource's HTTP request and response headers. You can also clear all cookies.
 
 <img src="network-files/cookies.png" alt="alt text"/>
 
@@ -451,10 +451,10 @@ The table below lists the network phases shown in the Timing tab and their descr
 
 To learn more optimizing the network performance of your application, see the following resources:
 
-* Use [PageSpeed Insights](/speed/pagespeed/insights) to identify performance best practices that can be applied to your site, and [PageSpeed optimization tools](/speed/pagespeed/optimization) to automate the process of applying those best practices.
+* Use [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights) to identify performance best practices that can be applied to your site, and [PageSpeed optimization tools](https://developers.google.com/speed/pagespeed/optimization) to automate the process of applying those best practices.
 * [High Performance Networking in Google
   Chrome](http://www.igvita.com/posa/high-performance-networking-in-google-chrome/) discusses Chrome network internals and how you can take advantage of them to make your site faster.
-* [How gzip compression works](/speed/articles/gzip) provides a high level overview gzip compression and why it's a good idea.
-* [Web Performance Best Practices](/speed/docs/best-practices/rules_intro) provides additional tips for optimizing the network performance of your web page or application.
+* [How gzip compression works](https://developers.google.com/speed/articles/gzip) provides a high level overview gzip compression and why it's a good idea.
+* [Web Performance Best Practices](https://developers.google.com/speed/docs/best-practices/rules_intro) provides additional tips for optimizing the network performance of your web page or application.
 
 {{/partials.standard_devtools_article}}
