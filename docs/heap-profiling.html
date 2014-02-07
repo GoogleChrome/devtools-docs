@@ -25,7 +25,7 @@ from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Develope
 <p>On the <strong>Profiles</strong> tab, select the <strong>Take Heap
 Snapshot</strong> option and press <strong>Start</strong>:
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/take_snapshot_button.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/take_snapshot_button.png"></div>
 
 <p>Snapshots are initially stored in the renderer process memory. They are
 transferred to the DevTools on demand, when you click on the snapshot icon to
@@ -34,14 +34,14 @@ the number below the snapshot title appears and shows the total size of
 the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
 objects:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/snapshot_memory.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/snapshot_memory.png"></div>
 
 <h3 id="basics_clear">Clearing snapshots</h3>
 
 <p>Snapshots can be removed (both from DevTools and renderer's memory) by
 pressing the <strong>Clear all profiles</strong> button:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/clear_profiles.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/clear_profiles.png"></div>
 
 <p class="note"><b>Note:</b> Closing the DevTools window will not delete
 collected profiles from the renderer's memory. When reopening DevTools, all
@@ -52,7 +52,7 @@ previously taken snapshots will reappear in the list of snapshots.</p>
 <p>A snapshot can be viewed from different perspectives for different tasks. To
 switch between views, use the selector at the bottom of the view:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/view_selector_crop.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/view_selector_crop.png"></div>
 
 <p>There are four views:
   <li><strong>Summary</strong> &mdash; shows objects grouped by
@@ -72,7 +72,7 @@ switch between views, use the selector at the bottom of the view:</p>
 are colored accordingly. To view the type color legend, press the
 question mark button on the status bar:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/colors_legend.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/colors_legend.png"></div>
 
 <p>Each property has one of four types::
     <li><strong>property</strong> &mdash; a regular property with a name,
@@ -99,7 +99,7 @@ object system implementation.</p>
 <p>Initially, a snapshot opens in the <strong>Summary</strong> view, displaying
 object totals, which can be expanded to show instances:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/summary_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/summary_view.png"></div>
 
 <p>Top-level entries are &quot;total&quot; lines. They display the
 constructor name, and group all objects created using this
@@ -140,7 +140,7 @@ below:
 snapshots is displayed. When expanding a total entry, added and
 deleted object instances are shown:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/comparison_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/comparison_view.png"></div>
 
 <p>Try this <a href="heap-profiling-comparison.html" target="_blank">demo
 page</a> (opens in a new tab) to get an idea how to use snapshot comparison for
@@ -165,7 +165,7 @@ very low level.</p>
 <p>Below is the example of what the <strong>Containment</strong> view
 looks like:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/containment_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/containment_view.png"></div>
 
 <p>Try this <a href="heap-profiling-containment.html"
 target="_blank">demo page</a> (opens in a new tab) for finding out how
@@ -182,7 +182,7 @@ happening due to forgotten detached DOM subtrees floating around.</p>
 from <strong>Summary</strong> and <strong>Containment</strong> views
 &mdash; there are dedicated entry nodes for them:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/dom_leaks_summary.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/dom_leaks_summary.png"></div>
 
 <p>Try this <a href="heap-profiling-dom-leaks.html"
 target="_blank">demo page</a> (opens in a new tab) to play with
@@ -198,7 +198,7 @@ that is, the dominators tree is not a spanning tree of the graph. But
 this only serves for good, as helps us to identify memory accumulation
 points quickly.</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/dominators_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/dominators_view.png"></div>
 
 <p>Try this <a href="heap-profiling-dominators.html"
 target="_blank">demo page</a> (opens in a new tab) to train yourself
@@ -215,7 +215,7 @@ objects, instead of all GC roots. This is helpful for finding references
 originating from the application itself &mdash; they are the most probable
 sources for leaks:
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/retaining_paths_crop.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/retaining_paths_crop.png"></div>
 
 <p>In the simplest case, the path will only include &quot;true&quot;
 JavaScript objects and use references that are accessible from
