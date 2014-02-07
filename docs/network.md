@@ -41,9 +41,9 @@ The Network panel automatically records all network activity while DevTools is o
 
 Each requested resource is added as a row to the Network table, which contains the columns listed below. Note the following about the Network table:
 
-* Not all columns listed below are visible by default; you can easily [show or hide columns](#adding_and_removing_table_columns).
-* Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing_resource_row_size) both fields are shown; when using small resource rows only the primary field is shown.
-* You can [sort](#sorting_and_filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline_view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline_view) and [Sorting and filtering](#sorting_and_filtering) for more information.
+* Not all columns listed below are visible by default; you can easily [show or hide columns](#adding-and-removing-table-columns).
+* Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-size) both fields are shown; when using small resource rows only the primary field is shown.
+* You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
 
 <table>
 <thead>
@@ -90,7 +90,7 @@ Each requested resource is added as a row to the Network table, which contains t
 </tr>
 <tr>
 <td><strong>Cookies</strong></td>
-<td>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#request_and_response_cookies">Cookies tab</a> when viewing details for a given resource.</td>
+<td>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#request-and-response-cookies">Cookies tab</a> when viewing details for a given resource.</td>
 </tr>
 <tr>
 <td><strong>Set-Cookies</strong></td>
@@ -109,7 +109,7 @@ Latency is the time to load the first byte in the response.</td>
 </tr>
 <tr>
 <td><strong>Timeline</strong></td>
-<td>The Timeline column displays a <a href="#timeline_view">timeline view</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See Timeline view and Sorting and filtering for details.</td>
+<td>The Timeline column displays a <a href="#timeline-view">timeline view</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See Timeline view and Sorting and filtering for details.</td>
 </tr>
 </tbody>
 </table>
@@ -165,7 +165,7 @@ When you hover your mouse over a timeline row (but not over an actual bar) the r
 
 <img src="network-files/timeline-view-1.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
-If you hover your mouse over the timeline bar itself, the complete timing data for the resource is presented in a pop-up. This is the same information that's presented in the [Timing details tab](#resource_network_timing) for a given resource.
+If you hover your mouse over the timeline bar itself, the complete timing data for the resource is presented in a pop-up. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
 
 <img src="network-files/timeline-view-hover.png" alt="alt text"/>
 
@@ -230,7 +230,7 @@ Timeline bars are color-coded as follows:
 
 ### Saving and copying network information ##
 
-Right+clicking or Control+clicking (Mac only) within the Network table a context menu appears with several actions. Some of these actions apply to the resource row under the mouse click (like [copying HTTP request headers](#copying_requests_as_curl_commands)), while others apply to the entire network recording (such as [saving a Network recording as a HAR file](#saving_network_data)).
+Right+clicking or Control+clicking (Mac only) within the Network table a context menu appears with several actions. Some of these actions apply to the resource row under the mouse click (like [copying HTTP request headers](#copying-requests-as-curl-commands)), while others apply to the entire network recording (such as [saving a Network recording as a HAR file](#saving-network-data)).
 
 <img src="network-files/right-click.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
@@ -241,7 +241,7 @@ The following menu actions apply to the selected resource:
 * **Copy Request Headers** — Copies the HTTP request headers to the system clipboard.
 * **Copy Response Headers** — Copies the HTTP response headers to the system clipboard.
 * **Copy as cURL** — Copies the network request as a
-  [cURL](http://curl.haxx.se/) command string to the system clipboard. See [Copying requests as cURL commands](#copying_requests_as_curl_commands).
+  [cURL](http://curl.haxx.se/) command string to the system clipboard. See [Copying requests as cURL commands](#copying-requests-as-curl-commands).
 * **Replay XHR** — If the associated request is an XMLHTTPRequest, re-sends the original XHR.
 
 #### Copying requests as cURL commands
@@ -271,12 +271,12 @@ For more information, [Web Performance Power Tool: HTTP Archive (HAR)](http://ww
 
 When you click a resource name in the Network table a tabbed window appears that contains the following additional details:
 
-* [HTTP request and response headers](#http_headers)
-* [Resource preview](#resource_previews)
-* [HTTP response](#http_response)
+* [HTTP request and response headers](#http-headers)
+* [Resource preview](#resource-previews)
+* [HTTP response](#http-response)
 * [Cookie names and values](#cookies)
-* [WebSocket messages](#websocket_frames)
-* [Resource network timing](#resource_network_timing)
+* [WebSocket messages](#websocket-frames)
+* [Resource network timing](#resource-network-timing)
 
 ### HTTP headers
 
@@ -284,7 +284,7 @@ The Headers tab displays the resource's request URL, HTTP method, and response s
 
 <img src="network-files/headers.png" alt="alt text"/> <!-- TODO: Fix alt text and URL -->
 
-You can also [copy request and response headers](#saving_and_copying network_information) to your clipboard.
+You can also [copy request and response headers](#saving-and-copying network-information) to your clipboard.
 
 ### Resource previews
 
@@ -295,7 +295,7 @@ The Preview tab displays a preview of the resource, when available. Previews are
 <img src="network-files/image-preview.png" alt="alt text"/>
 
 You can view the resource's unformatted response on the [Response
-tab](#http_response).
+tab](#http-response).
 
 ### HTTP response
 
@@ -303,12 +303,12 @@ The Response tab contains the resource's unformatted content. Below is a screens
 
 <img src="network-files/response.png" alt="alt text"/>
 
-You can also [view formatted previews](#resource_previews) of some resource types, including JSON data structures and images.
+You can also [view formatted previews](#resource-previews) of some resource types, including JSON data structures and images.
 
 ### Cookies
 
 The Cookies tab displays a table of all the cookies transmitted in the
-resource's HTTP request and response headers. You can also <a href="#right-click_menu_actions">clear all cookies</a>.
+resource's HTTP request and response headers. You can also <a href="#right-click-menu-actions">clear all cookies</a>.
 
 <img src="network-files/cookies.png" alt="alt text"/>
 
@@ -403,7 +403,7 @@ Errors are light-red.
 
 ### Resource network timing
 
-The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline_view).
+The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline-view).
 
 <img src="network-files/timing.png" alt="Network timging gra"/>
 
