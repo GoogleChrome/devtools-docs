@@ -52,7 +52,7 @@ guide.</p>
 available, go to <strong>Settings > About phone</strong> and tap Build number seven times.
 Return to the previous screen to find Developer options.</li>
 
-<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="/chrome-developer-tools/docs/remote-debugging/image_4.png"/></div></p>
+<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="remote-debugging/image_4.png"/></div></p>
 
 </div>
 <div class="collapsible">
@@ -66,13 +66,13 @@ device.</li>
 <li>On the mobile device, launch Chrome. Open <strong>Settings > Advanced > DevTools</strong>
 and check the <strong>Enable USB Web debugging</strong> option as shown here:</li>
 
-<p><div class="screenshot"><img width="220" alt="Enable USB Web Debugging in Chrome for Android" src="/chrome-developer-tools/docs/remote-debugging/image_5.png"/></div></p>
+<p><div class="screenshot"><img width="220" alt="Enable USB Web Debugging in Chrome for Android" src="remote-debugging/image_5.png"/></div></p>
 
 <li>Issue the following command in the terminal or console on your development machine
 to enable port forwarding:<br/>
 <code>adb forward tcp:9222 localabstract:chrome_devtools_remote</code></li>
 
-<p><div class="screenshot"><img width="540" alt="Port forwarding using the adb tool" src="/chrome-developer-tools/docs/remote-debugging/image_6.png"/></div></p>
+<p><div class="screenshot"><img width="540" alt="Port forwarding using the adb tool" src="remote-debugging/image_6.png"/></div></p>
 
 <p class="note"><b>Note</b>: If you get a "device not found" error, run the <code>adb kill-server</code> command to
 resolve.</p>
@@ -82,7 +82,7 @@ resolve.</p>
 <li>You will be presented with the set of thumbnails for pages currently open in
 tabs on your mobile Chrome. Choose the page you would like to debug.</li>
 
-<p><div class="screenshot"><img width="700" alt="Inspectable pages" src="/chrome-developer-tools/docs/remote-debugging/image_7.png"/></div></p>
+<p><div class="screenshot"><img width="700" alt="Inspectable pages" src="remote-debugging/image_7.png"/></div></p>
 
 <li>You can now start debugging and profiling mobile content in the DevTools on
 your development machine.</li>
