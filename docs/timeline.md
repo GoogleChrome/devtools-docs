@@ -14,22 +14,22 @@ The Timeline has three primary sections: an overview section at the top, a recor
 ![](timeline-images/timeline_ui_annotated.png)
 
 *  To start or stop a recording, press the Record toggle button (see
-    [Making a recording](#making_a_recording)).
+    [Making a recording](#making-a-recording)).
 *  Press the Clear recording button to clear records from the Timeline.
-*  The Glue async events mode lets you more easily correlate asynchronous events to their causes (see [About nested events](#about_nested_events)).
-*  You can filter the records shown in the Timeline according to their type or duration (see [Filtering and searching records](#filtering_and_searching_records)).
+*  The Glue async events mode lets you more easily correlate asynchronous events to their causes (see [About nested events](#about-nested-events)).
+*  You can filter the records shown in the Timeline according to their type or duration (see [Filtering and searching records](#filtering-and-searching-records)).
 
 During a recording, a record for each event that occurs is added to the Records view in a "waterfall" presentation. Records are categorized into one of four basic groups: Loading, Scripting, Rendering, and Painting. These records are color-coded as follows:
 
 ![](timeline-images/image01.png)
 
-For example, the recording below is of an HTML page being loaded into Chrome. The first record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response record (for the corresponding HTTP response), some Receive Data records (for the actual page data), and then a Finish Loading record. For a complete list of events recorded by Timeline and their descriptions, see the [Timeline event reference](#timeline_event_reference).
+For example, the recording below is of an HTML page being loaded into Chrome. The first record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response record (for the corresponding HTTP response), some Receive Data records (for the actual page data), and then a Finish Loading record. For a complete list of events recorded by Timeline and their descriptions, see the [Timeline event reference](#timeline-event-reference).
 
  ![](timeline-images/image06.png)
 
 When you hover over a Timeline record, a pop-up appears with details
 about the associated event. For example, the screenshot below shows
-details for a Finish Loading record associated with an image resource. The [Timeline event reference](#timeline_event_reference) explains the details available for each record type.
+details for a Finish Loading record associated with an image resource. The [Timeline event reference](#timeline-event-reference) explains the details available for each record type.
 
 ![](timeline-images/image12.png)
 
@@ -45,7 +45,7 @@ The Events mode provides an overview of all events that were captured during the
 
 ![](timeline-images/events_mode.png)
 
-When you select a range of time from the Events view (see [Zooming in on a Timeline section](#zooming_in_on_a_timeline_section)), the Records view is restricted to only show those records.
+When you select a range of time from the Events view (see [Zooming in on a Timeline section](#zooming-in-on-a-timeline-section)), the Records view is restricted to only show those records.
 
 ![](timeline-images/timeline_records.png)
 
@@ -60,7 +60,7 @@ The time to render a frame is displayed atop of the Records view. If you hover o
 ![](timeline-images/frames_mode.png)
 
 See [Timeline demo: Diagnosing and fixing forced synchronous
-layout](/chrome-developer-tools/docs/demos/too-much-layout/) for a demonstration of using Frames mode.
+layout](demos/too-much-layout/) for a demonstration of using Frames mode.
 
 #### About clear or light-gray frames ####
 
@@ -98,7 +98,7 @@ haven’t been garbage collected).
 ![](timeline-images/image20.png)
 
 Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the [Heap
-Profiler](https://developers.google.com/chrome-developer-tools/docs/heap-profiling) to identify the specific code that is causing the leak.
+Profiler](https://heap-profiling.html) to identify the specific code that is causing the leak.
 
 ### Making a recording ###
 
@@ -135,14 +135,14 @@ A common task is to record a page loading from the initial network request. Keyb
 1.  Open any [web page](http://www.jankfree.com) in a new tab or window.
 2.  Open the Timeline and press Cmd+E (Mac) or Ctrl+E (Windows/Linux) to start recording.
 3.  Quickly press Cmd+R or Ctrl+R to reload the browser page.
-4.  Stop the recording when the page has finished loading (look for the red [event marker](#domcontentloaded_and_load_event_markers)).
+4.  Stop the recording when the page has finished loading (look for the red [event marker](#domcontentloaded-and-load-event-markers)).
 
 Your recording should look something like the following. The first
 record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response record for the corresponding HTTP response, followed by one or more Receive Data records, a Finish Loading record, and a Parse HTML record.
 
 ![](timeline-images/image06.png)
 
-See the [Timeline event reference](#timeline_event_reference) for details on each record type.
+See the [Timeline event reference](#timeline-event-reference) for details on each record type.
 
 ### Tips for making recordings ###
 
@@ -168,7 +168,7 @@ When you select a record in the Timeline, the Details pane displays additional i
 
 ![](timeline-images/frames_mode_event_selected.png)
 
-Certain details are present in events of all types, such as Duration and CPU Time, while some only apply to certain event types. For information on what details each kind of record contains, see the [Timeline event reference](#timeline_event_reference).
+Certain details are present in events of all types, such as Duration and CPU Time, while some only apply to certain event types. For information on what details each kind of record contains, see the [Timeline event reference](#timeline-event-reference).
 
 When you select a Paint record, DevTools highlights the region of the screen that was updated with a blue semi-transparent rectangle, as shown below.
 
@@ -189,11 +189,11 @@ The Timeline identifies when your application causes a forced asynchronous layou
 
 ![](timeline-images/forced_layout.png)
 
-If a record contains a [child record](#about_nested_events) that forced a layout, the parent record is marked with a slightly dimmed yellow icon. Expand the parent record to locate the child record that caused the forced layout.
+If a record contains a [child record](#about-nested-events) that forced a layout, the parent record is marked with a slightly dimmed yellow icon. Expand the parent record to locate the child record that caused the forced layout.
 
 
 <p class="note">See the [Forced Synchronous Layout
-demo](/chrome-developer-tools/docs/demos/too-much-layout) for a demonstration
+demo](demos/too-much-layout) for a demonstration
 of detecting and fixing these kinds of performance issues.</p>
 
 
@@ -202,9 +202,9 @@ of detecting and fixing these kinds of performance issues.</p>
 Events in Timeline recordings sometimes are nested visually beneath another event. You expand the "parent" event to view its nested "child" events. There are two reasons why the Timeline nests events:
 
 *  Synchronous events that occurred during the processing of an event that occurred previously. Each event internally generates two atomic events, one for the start and one for the end, that are converted to a single "continuous" event. Any other events that occur between these two atomic events become children of the outer event.
-*  Asynchronous events that occurred as a result of another event when [glue mode](#about_glue_mode) is enabled.
+*  Asynchronous events that occurred as a result of another event when [glue mode](#about-glue-mode) is enabled.
 
-Note: Glue mode is automatically disabled in [Frames mode](#frames_mode).
+Note: Glue mode is automatically disabled in [Frames mode](#frames-mode).
 
 The following screenshot shows an example of nested synchronous events. In this case, Chrome was parsing some HTML (the Parse HTML event) when it found several external resources that needed to be loaded. Those requests were made before Chrome has finished the parsing, so the Send Request events are displayed as children of the Parse HTML event.
 
@@ -223,7 +223,7 @@ The **Glue asynchronous events to causes** toggle at the bottom of the Timeline
 Timeline bars are color coded as follows:
 
 *  The **first, darkest part** of the bar represents how long the parent event and all of its _synchronous_ children took.
-*  The **next, slightly paler color** represents the CPU time that the event and all its _asynchronous_ children took. This would be the same as above if [glue mode](#about_glue_mode) is off, and for events that don't have asynchronous children.
+*  The **next, slightly paler color** represents the CPU time that the event and all its _asynchronous_ children took. This would be the same as above if [glue mode](#about-glue-mode) is off, and for events that don't have asynchronous children.
 *  The **palest bars** represent the time from the start of first asynchronous event to the end of last of its asynchronous children (only visible for events with asynchronous children while in glue mode).
 
 ![](timeline-images/image16.png)
@@ -288,7 +288,7 @@ Applications can add their own events to Timeline recordings. You can use the
 [console.timeStamp()](console-api#consoletimestamplabel) method to add an atomic event to a recording, or the
 [console.time()](console-api#consoletimelabel) and
 [console.timeEnd()](console-api#consoletimeendlabel) methods
-to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console#marking_the_timeline) in
+to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console#marking-the-timeline) in
 [Using the Console](console) for more information.
 
 
@@ -322,10 +322,10 @@ This section lists and describes the individual types of records that are genera
 Certain details are present in events of all types, while some only apply to certain event types. This section lists properties common to different event types. Properties specific to certain event types are listed in the references for those event types that follow.
 
 Aggregated time
-:   For events with <a href="#about_nested_events">nested events</a>, the time taken by each category of events.
+:   For events with <a href="#about-nested-events">nested events</a>, the time taken by each category of events.
 
 Call Stack
-:   For events with <a href="#about_nested_events">child events</a>, the time taken by each category of events.
+:   For events with <a href="#about-nested-events">child events</a>, the time taken by each category of events.
 
 CPU time
 :   How much CPU time the recorded event took.
