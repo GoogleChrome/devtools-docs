@@ -97,8 +97,7 @@ haven’t been garbage collected).
 
 ![](timeline-images/image20.png)
 
-Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the [Heap
-Profiler](https://heap-profiling.html) to identify the specific code that is causing the leak.
+Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the [Heap Profiler](heap-profiling.html) to identify the specific code that is causing the leak.
 
 ### Making a recording ###
 
@@ -193,7 +192,7 @@ If a record contains a [child record](#about-nested-events) that forced a layout
 
 
 <p class="note">See the [Forced Synchronous Layout
-demo](demos/too-much-layout) for a demonstration
+demo](demos/too-much-layout/index.html) for a demonstration
 of detecting and fixing these kinds of performance issues.</p>
 
 
@@ -285,11 +284,11 @@ You can save a Timeline recording as a JSON file, and later open it in the Timel
 ### User-produced Timeline events ###
 
 Applications can add their own events to Timeline recordings. You can use the
-[console.timeStamp()](console-api#consoletimestamplabel) method to add an atomic event to a recording, or the
-[console.time()](console-api#consoletimelabel) and
-[console.timeEnd()](console-api#consoletimeendlabel) methods
-to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console#marking-the-timeline) in
-[Using the Console](console) for more information.
+[console.timeStamp()](console-api.md#consoletimestamplabel) method to add an atomic event to a recording, or the
+[console.time()](console-api.md#consoletimelabel) and
+[console.timeEnd()](console-api.md#consoletimeendlabel) methods
+to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console.md#marking-the-timeline) in
+[Using the Console](console.md) for more information.
 
 
 ![](timeline-images/adding-result.png)
