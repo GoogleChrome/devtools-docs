@@ -20,9 +20,7 @@
     </ul>
   </strong>
 
-
   <h2 id="cpu-profiles">Introduction to JavaScript Profiling</h2>
-
 
   <p>Using Google Chrome, open the <a href="http://v8.googlecode.com/svn/data/benchmarks/v7/run.html" target=
   "_blank">V8 Benchmark Suite</a> page. Click the <strong>Start
@@ -122,7 +120,6 @@
 
   <p class="note"><strong>Note</strong>: The horizontal axis is time and vertical axis is the call stack. Expensive functions are wide. Call stacks are represented on the Y axis, so a tall flame is not necessarily significant. Pay close attention to wide bars, no matter their position in the call stack.</p>
 
-
   <h3>How to use the Flame Chart:</h3>
 
   <ol>
@@ -159,6 +156,8 @@
     <li><strong>Aggregated total time</strong> — Aggregate total time for all invocations of the function, including functions called by this function.</li>
   </ul>
 
+  <p>The colors in the Flame Chart are reused for same functions. This helps you see a common pattern and then spot outliers better. There is no correlation to colors used in the Timeline for things.</p>
+
   <div class="screenshot">
     <img src="cpu-profiling-files/flamechart06.png">
   </div>
@@ -170,4 +169,3 @@
 
 </body>
 </html>
-
