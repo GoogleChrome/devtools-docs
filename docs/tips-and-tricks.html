@@ -29,7 +29,7 @@
 
 <p><img src="tips-and-tricks/image_10.png"  /></p>
 
-<p><a href="console.html">More: Using The Console | DevTools Docs</a></p>
+<p><a href="console.md">More: Using The Console | DevTools Docs</a></p>
 
 <h3 id="console-table">Support for the console.table command</h3>
 
@@ -97,7 +97,7 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <h3 id="clear-console-history">Shortcut to clear the console history</h3>
 
-<p>With the console open you can easily clear your console history using the <span class="kbd">Ctrl</span> + <span class="kbd">L</span> or <span class="kbd">Cmd</span> + <span class="kbd">L</span>  <a href="shortcuts.html">shortcut</a><a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">.</a> A clear() command is also available at the shell prompt as is the <a href="https://developers.google.com/chrome-developer-tools/docs/console#clearing_the_console_history">console.clear()</a> method via the Console API from JavaScript.</p>
+<p>With the console open you can easily clear your console history using the <span class="kbd">Ctrl</span> + <span class="kbd">L</span> or <span class="kbd">Cmd</span> + <span class="kbd">L</span>  <a href="shortcuts.html">shortcut</a>. A clear() command is also available at the shell prompt as is the <a href="console.md#clearing-the-console-history">console.clear()</a> method via the Console API from JavaScript.</p>
 
 <h3 id="keyboard-ninja">Become a keyboard ninja</h3>
 
@@ -160,17 +160,17 @@ $x('//'img, frame);
 
 <h3 id="benchmarking-console">Benchmark loops using <code>console.time()</code> and <code>console.timeEnd()</code></h3>
 
-<p><a href="console-api.md#consoletimelabel">console.time()</a> begins a new timer using a specific label. When <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel">console.timeEnd()</a> is called using the same label the time is stopped and the elapsed time between both is logged to the console. This is particularly useful for benchmarking loops or code which doesn’t call a function.</p>
+<p><a href="console-api.md#consoletimelabel">console.time()</a> begins a new timer using a specific label. When <a href="console-api.md#consoletimeendlabel">console.timeEnd()</a> is called using the same label the time is stopped and the elapsed time between both is logged to the console. This is particularly useful for benchmarking loops or code which doesn’t call a function.</p>
 
 <p><img src="tips-and-tricks/image_21.png"  /></p>
 
 <h3 id="profiling-console">Profiling with <code>console.profile()</code> and <code>console.profileEnd()</code></h3>
 
-<p>With the DevTools open, calling <a href="console-api.md#consoleprofilelabel">console.profile()</a> begins a JavaScript CPU profile. A label for the profile can be optionally passed, as seen below in console.profile("Processing"). To complete a profile run, call <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoleprofileend">console.profileEnd()</a>.</p>
+<p>With the DevTools open, calling <a href="console-api.md#consoleprofilelabel">console.profile()</a> begins a JavaScript CPU profile. A label for the profile can be optionally passed, as seen below in console.profile("Processing"). To complete a profile run, call <a href="console-api.md#consoleprofileend">console.profileEnd()</a>.</p>
 
 <p><img src="tips-and-tricks/image_22.png"  /></p>
 
-<p>Each profile run gets added to the <a href="profiles.md">Profiles</a> panel:</p>
+<p>Each profile run gets added to the <a href="profiles.html">Profiles</a> panel:</p>
 
 <p><img src="tips-and-tricks/image_23.png"  /></p>
 
@@ -240,11 +240,11 @@ $x('//'img, frame);
 
 <h3 id="timeline-recordings">Annotating Timeline Recordings</h3>
 
-<p>Your code can add annotations to Timeline recordings using the <a href="console.md#marking_the_timeline">console.timeStamp()</a> method. This helps correlate code in your web app to other activity going on or browser events.</p>
+<p>Your code can add annotations to Timeline recordings using the <a href="console.md#marking-the-timeline">console.timeStamp()</a> method. This helps correlate code in your web app to other activity going on or browser events.</p>
 
 <p><img src="tips-and-tricks/image_7.png"  /></p>
 
-<p><a href="console.md#marking_the_timeline">More: DevTools Console API - Marking The Timeline | DevTools Docs</a></p>
+<p><a href="console.md#marking-the-timeline">More: DevTools Console API - Marking The Timeline | DevTools Docs</a></p>
 
 <p>Your application can add annotations to Timeline recordings by calling the console.timeStamp() method. This lets you easily correlate code in your application to other activity in your application or browser events. In the following recording, the Timeline is annotated with the string "Adding result". See Marking the Timeline in Using the Console for example code.</p>
 
@@ -268,9 +268,9 @@ $x('//'img, frame);
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with profiling using the Timeline, dive into <a href="using-timeline.md">Performance Profiling With The Timeline</a>:</p>
+  <p>For more key tricks with profiling using the Timeline, dive into <a href="timeline.md">Performance Profiling With The Timeline</a>:</p>
   <!--Screenshot -->
-<p><a href="using-timeline.md"><img src="tips-and-tricks/preview_timeline.png"/></a></p>
+<p><a href="timeline.md"><img src="tips-and-tricks/preview_timeline.png"/></a></p>
 
 </div>
 
@@ -336,7 +336,7 @@ $x('//'img, frame);
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with memory profiling, dive into <a href="heap-profiling.md">Profiling Memory Performance</a>:</p>
+  <p>For more key tricks with memory profiling, dive into <a href="heap-profiling.html">Profiling Memory Performance</a>:</p>
   <!--Screenshot -->
 <p><a href="heap-profiling.md"><img src="tips-and-tricks/preview_memory.png"/></a></p>
 
@@ -510,9 +510,9 @@ Object("hello")
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with your authoring workflow, dive into <a href="authoring-development-workflow.md">Authoring And Development Workflow</a>:</p>
+  <p>For more key tricks with your authoring workflow, dive into <a href="authoring-development-workflow.html">Authoring And Development Workflow</a>:</p>
   <!--Screenshot -->
-<p><a href="authoring-development-workflow.md"><img src="tips-and-tricks/preview_authoring.png"/></a></p>
+<p><a href="authoring-development-workflow.html"><img src="tips-and-tricks/preview_authoring.png"/></a></p>
 </div>
 
 
@@ -628,10 +628,10 @@ Object("hello")
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with working with elements and styles, dive into <a href="elements.md">Editing Styles And The DOM</a>:</p>
+  <p>For more key tricks with working with elements and styles, dive into <a href="dom-and-styles.html">Editing Styles And The DOM</a>:</p>
 </p>
   <!--Screenshot -->
-<p><a href="elements.md"><img src="tips-and-tricks/preview_elements.png"/></a></p>
+<p><a href="dom-and-styles.html"><img src="tips-and-tricks/preview_elements.png"/></a></p>
 
 </div>
 
@@ -701,7 +701,7 @@ Object("hello")
 
 <p><a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#1">More: Wait, DevTools Could Do That? | Igvita.com</a></p>
 
-<p><a href="http://blog.kaazing.com/2012/05/09/inspecting-websocket-traffic-with-chrome-developer-tools/">More: WebSocket inspection with DevTools | Zaaking</a></p>
+<p><a href="http://blog.kaazing.com/2012/05/09/inspecting-websocket-traffic-with-chrome-developer-tools/">More: WebSocket inspection with DevTools | Kaazing</a></p>
 
 <h3 id="find-filter-xhrs">Find and filter XHRs from the Network panel</h3>
 
@@ -763,7 +763,7 @@ Object("hello")
 <p class="note"><strong>Note:</strong> A caveat with touch event emulation is that the DOM0 event handlers do not currently work with the emulation
 mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">here</a> for the relevant bug to track.</p>
 
-<p><a href="mobile-emulation.md">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="emulating-ua-viewports">Emulating UA Strings &amp; Device Viewports</h3>
 
@@ -775,7 +775,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p>Now you can emulate the exact device metrics of devices like the Galaxy Nexus and the iPhone to test your media query-driven design.</p>
 
-<p><a href="mobile-emulation.md">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="emulating-gelocation">Emulating Geolocation</h3>
 
@@ -811,7 +811,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_90.png"  /></p>
 
-<p><a href="mobile-emulation.md">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="dock-to-right-viewport">Dock-to-right for viewport debugging</h3>
 
