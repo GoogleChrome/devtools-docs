@@ -1,12 +1,12 @@
 # The Chrome DevTools documentation
 
-This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/). 
+This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/).
 
 ## Contributing
 
 We regularly update the docs and welcome any contributions or bug-fixes.
 
-Before submitting a pull request, please open a [new issue](https://github.com/GoogleChrome/devtools-docs/issues/new) to let us know you're working on. 
+Before submitting a pull request, please open a [new issue](https://github.com/GoogleChrome/devtools-docs/issues/new) to let us know you're working on.
 
 This will allow us to provide feedback and coordinate contribution efforts.
 
@@ -30,6 +30,9 @@ This will allow us to provide feedback and coordinate contribution efforts.
 
 </dl>
 
+### Additional DevTools docs
+
+Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devtools-docs/wiki/Content-Inventory)
 
 ### Running the site
 
@@ -47,6 +50,14 @@ This will allow us to provide feedback and coordinate contribution efforts.
 ### Deployment
 
 Paul or Addy does the work of pushing this stuff live.
+
+* check last commit in google3 via `git log`
+* pull in latest from GH
+* g4 add/edit changed things
+  * look for changed items by `find . -type f -perm 0640`
+  * compare URL from last commit to master
+* check git status and p4 status
+* g4 change, imgsquish, g4 mail
 
 ## License
 
