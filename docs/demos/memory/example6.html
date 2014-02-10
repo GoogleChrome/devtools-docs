@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 6</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
+<h1>Example 6</h1>
 
-<body>
   {% framebox height="400px" %}
   <h1>Example 6: Leaking DOM nodes</h1>
 
@@ -68,7 +61,6 @@ function createNodes() {
 
   </script>
 </script>
-{% endframebox %}
 
   <hr>
   <pre>
@@ -103,5 +95,4 @@ function createNodes() {
     createGCNodes();
 }
 </pre>
-</body>
-</html>
+{{/partials.standard_devtools_article}}

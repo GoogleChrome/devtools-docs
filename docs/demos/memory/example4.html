@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 4</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
+<h1>Example 4</h1>
 
-<body>
   {% framebox height="400px" %}
   <h1>Example 4: Detached nodes</h1>
 
@@ -48,7 +41,6 @@ function cleanNodes() {
 }
 </script>
 </script>
-{% endframebox %} 
   <hr>
   <pre>
 'use strict';
@@ -77,5 +69,4 @@ function cleanNodes() {
     frags.length = 0;
 }
 </pre>
-</body>
-</html>
+{{/partials.standard_devtools_article}}

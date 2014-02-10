@@ -1,18 +1,11 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Timeline demo: Diagnosing forced synchronous layouts</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-
-  </head>
-  <body>
-    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Timeline demo: Diagnosing forced synchronous layouts</h1>
 
     <p>This demo shows how you can use the Timeline to identify a kind of performance bottle-neck called 'forced synchronous layouts'. The demo application animates several images back and forth using <code><a href="http://docs.webplatform.org/wiki/apis/timing/methods/requestAnimationFrame" _target="_blank">requestAnimationFrame()</a></code>, the <a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision" target="_blank">recommended approach</a> for performing frame-based animation. But there's a considerable amount of stuttering and jank as the animation runs We'll use the Timeline to diagnose what's going on.</p>
 
-   <p>For more information about using Frames mode and forced asynchronous layouts see <a href="/chrome-developer-tools/docs/using-timeline#locating_forced_synchronous_layouts">Locating forced synchronous layouts</a> in <a href="/chrome-developer-tools/docs/using-timeline">Using the Timeline</a>.</p>
+   <p>For more information about using Frames mode and forced asynchronous layouts see <a href="using-timeline.html#locating_forced_synchronous_layouts">Locating forced synchronous layouts</a> in <a href="/chrome-developer-tools/docs/using-timeline">Using the Timeline</a>.</p>
 
+<div class="collapsible">
     <h2>
         Make a recording
     </h2>
@@ -31,21 +24,6 @@
  -->
 
         {% framebox height="600px" %}
-        <style>
-            .mover {
-                background: url("particle.png");
-                height: 100px;
-                width: 100px;
-                position: absolute;
-            }
-
-            #toggle {
-                width: 70px;
-                height: 30px;
-                font-weight: bold;
-            }
-
-        </style>
 
         <button id="toggle">Start</button>
 
@@ -397,6 +375,8 @@
         <script src="source.js"></script>        
         {% endframebox %}    
 
+</div>
+<div class="collapsible">
     <h2>Analyze the recording</h2>
 
     <p>
@@ -430,6 +410,8 @@ function update(timestamp) {
 
 <p>We know that forcing a page layout during every animation frame is slowing things down. Now we can try to fix the problem directly in DevTools.</p>
 
+</div>
+<div class="collapsible">
     <h2>Apply fix within DevTools</h2>
 
     <p>Now that we have an idea what's causing the performance issues, we can modify the JavaScript file directly in the Sources panel and test our changes right away.</p>
@@ -442,11 +424,13 @@ function update(timestamp) {
         <li>Save your changes by pressing Cmd-S or Ctrl-S.</li>
     </ol>
 
+</div>
+<div class="collapsible">
 <h2>Verify with another recording</h2>
 
         <p>The animation is clearly faster and smoother than before, but it's always good practice to measure the difference with another recording. It should look something like the recording below.</p>
 
         <div class="screenshot"><img src="images/fixed.png"></div>
 
-  </body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}
