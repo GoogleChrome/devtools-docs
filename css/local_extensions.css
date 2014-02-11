@@ -17,6 +17,10 @@ img.ui {
   top: 3px;
 }
 
+img { max-width: 565px; }
+.carousel img { max-width: auto; }
+
+
 .kbd {
 background-color: #f7f7f7;
 border: 1px solid #ccc;

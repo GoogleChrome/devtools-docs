@@ -1,7 +1,10 @@
 Project: /chrome-developer-tools/_project.yaml
 Book: /chrome-developer-tools/_book.yaml
 
-<style> img { max-width: 565px; }</style>
+
+
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
 
 # Performance profiling with the Timeline #
 
