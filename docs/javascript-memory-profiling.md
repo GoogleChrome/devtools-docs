@@ -396,7 +396,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/chrome-developer-tools/docs/demos/memory/example8.html">heap allocations</a>.
+    Try out this example of <a href="demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/devtools/docs/demos/memory/example8.html">heap allocations</a>.
 </p>
 
 ### Uncovering DOM leaks
@@ -429,7 +429,7 @@ DOM leaks can be bigger than you think. Consider the following sample - when is 
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/chrome-developer-tools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
+    Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/devtools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
 </p>
 
 
@@ -456,7 +456,7 @@ The Dominators view shows the dominators tree for the heap graph. The Dominators
 
 <p class="note">
     <strong>Examples:</strong>
-    Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/chrome-developer-tools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
+    Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/devtools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
 </p>
 
 
@@ -630,32 +630,32 @@ The JavaScript engines of today are highly capable of automatically cleaning gar
 Although we've mentioned them throughout this guide, a good set of end-to-end examples for testing various memory issues, ranging from growing memory leaking DOM nodes can be found summarized below. You may wish to experiment with them before attempting to use the tooling on your own more complex page or application.
 
 <ul>
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example1.html">Example 1: Growing memory</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example1.html">Example 1: Growing memory</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example2.html">Example 2: Garbage collection in
+<li><a target="_blank" href="/devtools/docs/demos/memory/example2.html">Example 2: Garbage collection in
 action</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example3.html">Example 3: Scattered objects</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example3.html">Example 3: Scattered objects</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example4.html">Example 4: Detached nodes</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example4.html">Example 4: Detached nodes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example5.html">Example 5: Memory and hidden
+<li><a target="_blank" href="/devtools/docs/demos/memory/example5.html">Example 5: Memory and hidden
 classes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example6.html">Example 6: Leaking DOM nodes</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example6.html">Example 6: Leaking DOM nodes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example7.html">Example 7: Eval is evil (almost
+<li><a target="_blank" href="/devtools/docs/demos/memory/example7.html">Example 7: Eval is evil (almost
 always)</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example8.html">Example 8: Recording heap
+<li><a target="_blank" href="/devtools/docs/demos/memory/example8.html">Example 8: Recording heap
 allocations</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example9.html">Example 9: DOM leaks bigger than
+<li><a target="_blank" href="/devtools/docs/demos/memory/example9.html">Example 9: DOM leaks bigger than
 expected</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example10.html">Example 10: Retaining path</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example10.html">Example 10: Retaining path</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example11.html">Example 11: Last exercise</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example11.html">Example 11: Last exercise</a></li>
 </ul>
 
 Additional demos are available for:
