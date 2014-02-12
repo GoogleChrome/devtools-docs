@@ -1,6 +1,8 @@
 Project: /chrome-developer-tools/_project.yaml
 Book: /chrome-developer-tools/_book.yaml
 
+<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+
 # Using the Console
 
 The JavaScript Console provides two primary functions for developers  testing web pages and applications:
