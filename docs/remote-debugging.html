@@ -420,31 +420,5 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 <p><div class="screenshot"><img width="250" alt="Virtual host mapping on Chrome for Android" src="remote-debugging/vhost-mapping.jpg"/></div></p>
 
-<!--
-Yup you can tackle this with a proxy like Squid:
-
-On the host computer:
-1. Install any proxy software. I use Squid on my Linux box. 
-2. Make sure you know which port is uses. Squid uses 3128.
-
-On Android:
-1. Open Wi-Fi settings
-2. Long-press the current network (the proxy setting is per-network!)
-3. Select "Modify network"
-4. Tap "Show advanced options" checkbox below "IP Address"
-5. "Proxy settings" will appear. Select Manual
-6. Set "Proxy hostname" to "localhost"
-7. Set "Proxy port" to some port that Android will let you use. Suppose it is 9000
-8. Tap "Save"
-
-On Chrome:
-1. Open "chrome://inspect/#devices
-2. Open "Configure port forwarding"
-3. Add port 9000, location localhost:3128
-4. Do not forget to enable port forwarding
-
-Although the above is quite complex it only needs to be done once, and after that there is no need for forwarding any other ports. Everything is just forwarded through the host computer.
--->
-
 </body>
 </html>
