@@ -118,6 +118,7 @@ Filter options:
 
 You can visually group related console output statements together in the console with the [`console.group()`](console-api.md#consolegroupobject-object) and [`groupEnd()`](console-api.md#consolegroupend) commands.
 
+<code>
     var user = "jsmith", authenticated = false;
     console.group("Authentication phase");
     console.log("Authenticating user '%s'", user);
@@ -126,6 +127,7 @@ You can visually group related console output statements together in the console
         console.log("User '%s' not authenticated.", user)
     }
     console.groupEnd();
+</code>
 
 ![Logging group example](console-files/group.png)
 
