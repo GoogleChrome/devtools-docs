@@ -44,6 +44,7 @@
       <li> <a href="#connect-your-mobile-device"> Connect your mobile device </a> </li>
       <li> <a href="#enable-reverse-port-forwarding"> Enable reverse port forwarding </a> </li>
       <li> <a href="#add-a-port-forwarding-rule"> Add a port forwarding rule</a> </li>
+      <li> <a href="#virtual-host-mapping">Virtual host mapping</a> </li>
      </ul>
     </li>
    </ul>
@@ -323,7 +324,48 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 <div class="screenshot"><img style="max-width:722px"  src="remote-debugging/portforward.png"/></div>
 
+<h3 id="virtual-host-mapping">Virtual host mapping</h3>
 
+<p>Follow the instructions for virtual host mapping to preview customised local domains (something other than <code>localhost</code>) on your device. Consider the following use cases for local development to understand where this is useful:</p>
+
+<ul>
+  <li>You use a customised domain during development such as <code>http://local.dev</code> configured through any number of means, such as virtual hosts on your WebServer (e.g. <a href="http://www.mamp.info/en/mamp-pro/features/webserver.html">MAMP</a>).</li>
+  <li>You add a hosts file entry such as <code>127.0.0.1 production.com</code> as the third party JavaScript SDK on your page only works on a whitelisted domain.</li>
+</ul>
+
+<p>To configure virtual host mapping with Chrome for Android, the device will need to communicate with a proxy installed on the host machine.</p>
+
+
+
+<strong>On the Android device:</strong>
+<ol>
+  <li>Open Wi-Fi settings.</li>
+  <li>Long-press the current network, the proxy setting is per-network.</li>
+  <li>Select "Modify network".</li>
+  <li>Tap the "Show advanced options" checkbox below "IP Address".</li>
+  <li>"Proxy settings" will appear. Select Manual.</li>
+  <li>Set "Proxy hostname" to <code>localhost</code>.</li>
+  <li>Set "Proxy port" to a port that Android will let you use, for example <code>9000</code>.</li>
+  <li>Tap "Save".</li>
+</ol>
+
+<p><div class="screenshot"><img width="250" alt="Android Wi-Fi proxy settings" src="remote-debugging/android-proxy-settings.jpg"/></div></p>
+
+<strong>On the host machine:</strong>
+<ol>
+  <li>Install proxy software such as <a href="http://www.charlesproxy.com/">Charles Proxy</a> (free trial available) or <a href="http://www.squid-cache.org/">Squid</a>. </li>
+  <li>Make note of the port the proxy is using. In Charles, you can access this via Proxy > Proxy Settings and making note of the port number in the HTTP Proxy > Port field.</li>
+  <li>Navigate to <code>chrome://inspect/#devices</code> on Google Chrome.</li>
+  <li>Select "Port forwarding".</li>
+  <li>Enter <code>9000</code> in the Port field.</li>
+  <li>Enter <code>localhost:1234</code> where <code>1234</code> is the port retrieved in step 2.</li>
+  <li>Ensure the "Enable port forwarding" checkbox is checked.</li>
+</ol>
+
+
+<p>The steps above are required <strong>once</strong> per development session. Once port forwarding has been configured to forward requests to the host machines proxy (from the device), you can load local domains on Chrome for Android just as you would on the host machine. </p>
+
+<p><div class="screenshot"><img width="250" alt="Virtual host mapping on Chrome for Android" src="remote-debugging/vhost-mapping.jpg"/></div></p>
 
 </body>
 </html>
