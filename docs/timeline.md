@@ -1,7 +1,5 @@
 {{+bindTo:partials.standard_devtools_article}}
 
-<style> img { max-width: 565px; }</style>
-
 # Performance profiling with the Timeline #
 
 The Timeline panel lets you record and analyze all the activity in your application as it runs. It's the best place to start investigating perceived performance issues in your application.
