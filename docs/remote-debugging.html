@@ -311,7 +311,7 @@ Perform the following steps on Chrome on your development machine:
 <li>Open <b>about:inspect</b>. You should see your mobile device and a list of its open tabs.
 <li>Click <b>Port Forwarding</b> button at the top.</li>
 <li>In the Device port field, enter the port number the Android should device listen on (defaults to 8080).
-<li>In the Host field, add the IP (or hostname) and port number where your web application is running. This location can be any local location accessible from your development machine. Currently, it is limited to ports over 1024 and below 65535.</li>
+<li>In the Host field, add the IP (or hostname) and port number where your web application is running. This location can be any local location accessible from your development machine. Currently, it is limited to ports over 1024 and under 65535 (inclusive).</li>
 <li>Make sure to check <b>Enable port forwarding</b> before hitting <b>Done</b>.
 </ol>
 
@@ -363,7 +363,7 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 </ol>
 
 
-<p>The steps above are required <strong>once</strong> per development session. Once port forwarding has been configured to forward requests to the host machines proxy (from the device), you can load local domains on Chrome for Android just as you would on the host machine. </p>
+<p>The steps above are required <strong>once</strong> per development session. Once port forwarding has been configured to forward requests to the host machine's proxy (from the device), you can load local domains on Chrome for Android just as you would on the host machine. </p>
 
 <p><div class="screenshot"><img width="250" alt="Virtual host mapping on Chrome for Android" src="remote-debugging/vhost-mapping.jpg"/></div></p>
 
