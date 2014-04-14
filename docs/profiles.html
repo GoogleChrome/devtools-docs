@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Profiles Panel</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Profiles Panel</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 
@@ -19,18 +12,17 @@ understand where resources are being spent, and so help you to optimize your
 code:</p>
 
 <ul>
-  <li>The <b><a href="/chrome-developer-tools/docs/cpu-profiling">CPU profiler</a></b> shows where execution time is spent in your
+  <li>The <b><a href="cpu-profiling.html">CPU profiler</a></b> shows where execution time is spent in your
   page's JavaScript functions.</li>
 
-  <li>The <b><a href="/chrome-developer-tools/docs/heap-profiling">Heap profiler</a></b> shows memory distribution by your page's
+  <li>The <b><a href="heap-profiling.html">Heap profiler</a></b> shows memory distribution by your page's
   JavaScript objects and related DOM nodes.</li>
 
-  <li>The <b>CSS Selector Profiler</b> records the aggregate time spent matching selectors to elements in the DOM tree. This time is also captured within "Style Recalculation" <a href="/chrome-developer-tools/docs/using-timeline#rendering_events">Timeline events</a>.</li>
+  <li>The <b>CSS Selector Profiler</b> records the aggregate time spent matching selectors to elements in the DOM tree. This time is also captured within "Style Recalculation" <a href="timeline.md">Timeline events</a>.</li>
 
 </ul>
 
 
 
-  </body>
-</html>
 
+{{/partials.standard_devtools_article}}

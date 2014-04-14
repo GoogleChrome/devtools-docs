@@ -1,12 +1,5 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Creating A Clean Testing Environment</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
-  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Creating A Clean Testing Environment</h1>
  
 <p>A clean testing environment allows you to to easily determine the point of 
 failure for your site or web application, rather than wondering if it was 
@@ -15,7 +8,7 @@ something in the background that caused your slow-down or failure.</p>
 <p>Apps, extensions, background processes and unnecessary tabs are only some of the 
 things that can impact your profiling figures and should be avoided where 
 possible. This is of particular relevance when you wish to accurately profile 
-using the <a href="/chrome-developer-tools/docs/timeline">Timeline</a>, <a href="/chrome-developer-tools/docs/cpu-profiling">Profiles</a> or <code>about:tracing</code>.</p>
+using the <a href="timeline.html">Timeline</a>, <a href="cpu-profiling.html">Profiles</a> or <code>about:tracing</code>.</p>
 
 <strong>To set up a clean testing environment:</strong>
 
@@ -23,7 +16,7 @@ using the <a href="/chrome-developer-tools/docs/timeline">Timeline</a>, <a href=
 <li>
 Ensure Chrome is being run with a clean profile:
 <ul>
-    <li><p>Option 1: Use Incognito mode. Open the <b>Chrome menu</b> <img src="/chrome-developer-tools/images/chrome-menu.png" alt="Chrome menu"/> and select <b>New Incognito Window</b>, or launch 
+    <li><p>Option 1: Use Incognito mode. Open the <b>Chrome menu</b> <img src="/devtools/images/chrome-menu.png" alt="Chrome menu"/> and select <b>New Incognito Window</b>, or launch 
        Chrome with the <code>--incognito</code> switch.</p>
 
        <p><img src="clean-testing-environment/incognito.png"/></p></li>
@@ -59,7 +52,5 @@ Ensure Chrome is being run with a clean profile:
   is unrelated to new features or bugs.</li>
 </ul>
 
-  <p class="backtotop"><a href="#top">Back to top</a></p>
 
-</body>
-</html>
+{{/partials.standard_devtools_article}}

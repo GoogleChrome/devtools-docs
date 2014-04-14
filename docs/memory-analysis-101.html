@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Memory Analysis 101</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Memory Analysis 101</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 
@@ -17,6 +10,7 @@ described here are used in the Heap Profiler UI and the corresponding
 documentation. You need to be familiar with them to use the tool
 effectively.</p>
 
+<div class="collapsible">
 <h2 id="common_terms">Common Terms</h2>
 
 <p>This section describes common terms used in memory analysis,
@@ -84,6 +78,8 @@ not a spanning tree of the graph.</p>
 they dominate other objects. Such nodes of the tree are called
 <em>accumulation points</em>.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="v8_specifics">V8 Specifics</h2>
 
 <p>In this section we describe some memory-related topics that
@@ -120,7 +116,7 @@ the JavaScript object itself.</p>
 
 <p>A <em>map</em> object describes object kind and its layout. For example,
 maps are used to describe implicit object hierarchies, as described
-<a href="/v8/design.html#prop_access">here</a>.</p>
+<a href="https://developers.google.com/v8/design#prop_access">here</a>.</p>
 
 <h3 id="object_groups">Object Groups</h3>
 
@@ -137,9 +133,8 @@ as GC is smart enough to release object groups whose wrappers are no
 longer referenced. But forgetting to release a single wrapper will
 hold the whole group and associated wrappers.</p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
-  </body>
-</html>
 
+</div>
+{{/partials.standard_devtools_article}}

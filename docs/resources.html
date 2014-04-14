@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Resources Panel</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Resources Panel</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 <p>The <b>Resources</b> panel lets you inspect resources that are loaded
 in the inspected page. It lets you interact with HTML 5 Database, Local Storage,
@@ -22,21 +15,22 @@ panel:</p>
   <li>Open the <a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html"
   target="_blank">Google Closure Hovercard demo page</a>.</li>
 
-  <li>Open the Developer Tools window as described in the <a href="/chrome-developer-tools/docs/overview.html#access">How to Access the Developer Tools</a> section of this
+  <li>Open the Developer Tools window as described in the <a href="/devtools/index.html#access">How to Access the Developer Tools</a> section of this
   tutorial.</li>
 </ul>
 
 <ul>
   <li>If it is not already selected, select <strong>Resources</strong>.
     The page's components are shown in the sidebar.
-    <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_panel.png"></div>
+    <div class="screenshot"><img src="resources-files/resources_panel.png"></div>
   </li>
 </ul>
 
+<div class="collapsible">
 <h2>Frame resources</h2>
 
 <p>Click the <strong>hovercard.html</strong> resource in the sidebar.
-  <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_click_sidebar.png"></div>
+  <div class="screenshot"><img src="resources-files/resources_click_sidebar.png"></div>
   This lets you see the resource loaded for the page.</p>
 
 <p>You can directly access individual resources from within the Developer
@@ -44,8 +38,9 @@ panel:</p>
   Chrome window.</p>
 
 </ul>
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
+<div class="collapsible">
 <h2>HTML5 Databases</h2>
 
 <p>Using Google Chrome, open the <a href="http://webkit.org/demos/sticky-notes/index.html"
@@ -53,7 +48,7 @@ target="_blank">Webkit demo of HTML storage</a>.</p>
 
 <p>Click the triangle to the left of the <strong>NoteTest</strong>
 database to show the tables in the database.
-  <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_database.png"></div>This
+  <div class="screenshot"><img src="resources-files/resources_database.png"></div>This
   shows there is a single table, <strong>WebKitStickyNotes</strong>, in the
   <strong>NoteTest</strong> database.
 </p>
@@ -63,7 +58,7 @@ also run a SQL query at the chevron prompt in the main window. Type
 <strong>select * from WebKitStickyNotes</strong>. The input in this console
 has auto-completion and tab-completion for common SQL words and phrases
 along with table names for the database.
-  <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_sql_query.png"></div>The
+  <div class="screenshot"><img src="resources-files/resources_sql_query.png"></div>The
   <strong>note</strong> column is empty if you have not entered any text in
   the sticky note on the demo page.
 </p>
@@ -72,20 +67,20 @@ along with table names for the database.
 you can also add another note if you like. Return to the Developer Tools
 window and double click the <strong>WebKitStickyNotes</strong> table in the
 sidebar.
-  <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_sticky_note.png"></div>
+  <div class="screenshot"><img src="resources-files/resources_sticky_note.png"></div>
 </p>
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
+</div>
+<div class="collapsible">
 <h2>Cookies</h2>
 
 <p>Select the <b>webkit.org</b> cookie in the sidebar.
-  <div class="screenshot"><img src="/chrome-developer-tools/docs/resources-files/resources_cookie.png"></div>
+  <div class="screenshot"><img src="resources-files/resources_cookie.png"></div>
   Cookies view allows you browsing cookies associated with the selected domain,
   as well as deleting them.
 </p>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
-  </body>
-</html>
 
+</div>
+{{/partials.standard_devtools_article}}

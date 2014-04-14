@@ -1,18 +1,15 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
-
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{{+bindTo:partials.standard_devtools_article}}
 
 # Using the Console
 
 The JavaScript Console provides two primary functions for developers  testing web pages and applications:
 
-* A place to log diagnostic information using methods provided by the [Console API](console-api), such as [console.log()](console-api#consolelogobject_object), or [console.profile()](console-api#consoleprofilelabel).
-* A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the [Command Line API](commandline-api), such as [$()](commandline-api#selector) command for selecting elements, or [profile()](commandline-api#profile) to start the CPU profiler.
+* A place to log diagnostic information using methods provided by the [Console API](console-api.md), such as [console.log()](console-api.md#consolelogobject-object), or [console.profile()](console-api.md#consoleprofilelabel).
+* A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the [Command Line API](commandline-api.md), such as [$()](commandline-api.md#selector) command for selecting elements, or [profile()](commandline-api.md#profilename) to start the CPU profiler.
 
-This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api) and [Command Line API](commandline-api) reference guides.
+This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api.md) and [Command Line API](commandline-api.md) reference guides.
 
-[[TOC]]
+
 
 ## Basic operation
 
@@ -36,8 +33,8 @@ To toggle a split-view of the Console on another tab, press the **Esc** key on y
 To clear the console's history, do one of the following:
 
 * Right-click or Ctrl-click anywhere in the Console and choose **Clear Console** from the context menu that appears.
-* Enter the [**clear()**](commandline-api#clear) Command Line API at the shell prompt.
-* Invoke [**console.clear()**](console-api#consoleclear) Console API from JavaScript.
+* Enter the [**clear()**](commandline-api.md#clear) Command Line API at the shell prompt.
+* Invoke [**console.clear()**](console-api.md#consoleclear) Console API from JavaScript.
 * Use the keyboard shortcut **⌘K** or **⌃L** (Mac) **Control - L** (Windows and Linux).
 
 By default, the console history is cleared when you navigate to another page. You can change this behavior by enabling **Preserve log upon navigation** in the Console area of the Settings dialog (see [Console preferences](#consolepreferences)).
@@ -53,13 +50,15 @@ You can also change these settings by right-clicking anywhere in the Console to 
 
 ![Console panel view](console-files/console-context-menu.png)
 
+
+
 ## Using the Console API
 
-The Console API is collection of methods provided by the global `console` object defined by DevTools. One of the API's main purposes is to [log information](#writing_to_the_console) (such as a property value, or an entire objects or DOM element) to the console while your application is running. You can also group output visually in the console to reduce visual clutter.
+The Console API is collection of methods provided by the global `console` object defined by DevTools. One of the API's main purposes is to [log information](#writing-to-the-console) (such as a property value, or an entire objects or DOM element) to the console while your application is running. You can also group output visually in the console to reduce visual clutter.
 
 ### Writing to the console
 
-The [console.log()](console-api#consolelogobject_object) method takes one or more expressions as parameters and writes their current values to the console. For example:
+The [console.log()](console-api.md#consolelogobject-object) method takes one or more expressions as parameters and writes their current values to the console. For example:
 
     var a = document.createElement('p');
     a.appendChild(document.createTextNode('foo'));
@@ -76,7 +75,7 @@ Instead of concatenating expressions together with the "+" operator (as shown ab
 
 ### Errors and warnings
 
-The [`console.error()`](console-api#consoleerrorobject_object) method displays a red icon along with the message text, which is colored red.
+The [`console.error()`](console-api.md#consoleerrorobject-object) method displays a red icon along with the message text, which is colored red.
 
     function connectToServer() {
         console.error("Error: %s (%i)", "Server is  not responding",500);
@@ -85,7 +84,7 @@ The [`console.error()`](console-api#consoleerrorobject_object) method displays a
 
 ![](console-files/error-server-not-resp.png)
 
-The [`console.warn()`](console-api#consolewarnobject_object) method displays a yellow warning icon with the message text.
+The [`console.warn()`](console-api.md#consolewarnobject-object) method displays a yellow warning icon with the message text.
 
     if(a.childNodes.length < 3 ) {
         console.warn('Warning! Too few nodes (%d)', a.childNodes.length);
@@ -95,7 +94,7 @@ The [`console.warn()`](console-api#consolewarnobject_object) method displays a y
 
 ### Assertions
 
-The [`console.assert()`](console-api#consoleassertexpression_object) method conditionally displays an error string (its second parameter) only if its first parameter evaluates to `false`. For instance, in the following example an error message is written to the console only if the number of child nodes belonging to the `list` element is greater than 500.
+The [`console.assert()`](console-api.md#consoleassertexpression-object) method conditionally displays an error string (its second parameter) only if its first parameter evaluates to `false`. For instance, in the following example an error message is written to the console only if the number of child nodes belonging to the `list` element is greater than 500.
 
     console.assert(list.childNodes.length < 500, "Node count is > 500");
 
@@ -117,8 +116,9 @@ Filter options:
 
 ### Grouping output
 
-You can visually group related console output statements together in the console with the [`console.group()`](console-api#consolegroupobject_object) and [`groupEnd()`](console-api#consolegroupend) commands.
+You can visually group related console output statements together in the console with the [`console.group()`](console-api.md#consolegroupobject-object) and [`groupEnd()`](console-api.md#consolegroupend) commands.
 
+<pre class ="prettyprint">
     var user = "jsmith", authenticated = false;
     console.group("Authentication phase");
     console.log("Authenticating user '%s'", user);
@@ -127,6 +127,7 @@ You can visually group related console output statements together in the console
         console.log("User '%s' not authenticated.", user)
     }
     console.groupEnd();
+</pre>
 
 ![Logging group example](console-files/group.png)
 
@@ -151,7 +152,7 @@ You can also nest logging groups. In the following example a logging group is cr
 
 ![Nested logging group example](console-files/nestedgroup.png)
 
-To create a group that is initially collapsed, use [`console.groupCollapsed()`](console-api#consolegroupcollapsed) instead of `console.group()`, as shown below:
+To create a group that is initially collapsed, use [`console.groupCollapsed()`](console-api.md#consolegroupcollapsed) instead of `console.group()`, as shown below:
 
     console.groupCollapsed("Authenticating user '%s'", user);
     if (authenticated) {
@@ -201,7 +202,7 @@ You can also log an element's JavaScript representation with the `console.dir()`
 
 ![](console-files/dir-element.png)
 
-Equivalently, you can us the `%O` [format specifier](#string_substitution_and_formatting) with `console.log()`:
+Equivalently, you can us the `%O` [format specifier](#string-substitution-and-formatting) with `console.log()`:
 
     console.log("%O", document.body.firstElementChild);
 
@@ -215,7 +216,7 @@ You use the `%c` format specifier to apply custom CSS rules to any string you wr
 
 ### Measuring how long something takes
 
-You can use the [`console.time()`](console-api#consoletimelabel) and [`console.timeEnd()`](console-api#consoletimeendlabel) methods to measure how long a function or operation in your code takes to complete. You call `console.time()` at the point in your code where you want to start the timer and `console.timeEnd()` to stop the timer. The elapsed time between these two calls is displayed in the console.
+You can use the [`console.time()`](console-api.md#consoletimelabel) and [`console.timeEnd()`](console-api.md#consoletimeendlabel) methods to measure how long a function or operation in your code takes to complete. You call `console.time()` at the point in your code where you want to start the timer and `console.timeEnd()` to stop the timer. The elapsed time between these two calls is displayed in the console.
 
     console.time("Array initialize");
     var array= new Array(1000000);
@@ -230,7 +231,7 @@ Note: You must pass the same string to `console.time()` and `timeEnd()` for the 
 
 ### Marking the Timeline
 
-The [Timeline panel](timeline) gives you a complete overview of where time is spent when loading and using your web app or page. The [`console.timeStamp()`](console-api#consoletimestamplabel) method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.
+The [Timeline panel](timeline.md) gives you a complete overview of where time is spent when loading and using your web app or page. The [`console.timeStamp()`](console-api.md#consoletimestamplabel) method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.
 
 Note: The `console.timeStamp()` method only functions while a Timeline recording is in progress.
 
@@ -252,7 +253,7 @@ As shown in the following screenshot, the `timeStamp()` command annotates the Ti
 
 ### Setting breakpoints in JavaScript ###
 
-You can start a debugging session from your JavaScript code by calling the [`debugger`](console-api#debugger) command. For instance, in the following example the JavaScript debugger is opened when an object's `brightness()` function is invoked:
+You can start a debugging session from your JavaScript code by calling the [`debugger`](console-api.md#debugger) command. For instance, in the following example the JavaScript debugger is opened when an object's `brightness()` function is invoked:
 
     brightness : function() {
         debugger;
@@ -268,9 +269,11 @@ You can start a debugging session from your JavaScript code by calling the [`deb
 An interesting technique of using conditional breakpoints was explored by Brian Arnold in <a href="http://www.randomthink.net/blog/2012/11/breakpoint-actions-in-javascript/">Breakpoint Actions in JavaScript</a>.
 </aside>
 
+
+
 ## Using the Command Line API
 
-In addition to being a place where you can log information from your application, the Console is also a shell prompt where you can directly evaluate expressions or issue commands provided by the [Command Line API](commandline-api). This API provides the following features:
+In addition to being a place where you can log information from your application, the Console is also a shell prompt where you can directly evaluate expressions or issue commands provided by the [Command Line API](commandline-api.md). This API provides the following features:
 
 * Convenience functions for selecting DOM elements
 * Methods for controlling the CPU profiler
@@ -290,27 +293,27 @@ To enter a multi-line expression at the shell prompt (such as a function definit
 
 ### Selecting elements
 
-The Command Line API provides several methods to access DOM elements in your application. For example, the [**`$()`**](commandline-api#selector) method returns the first element that matches the specified CSS selector, just like [`document.querySelector()`](http://docs.webplatform.org/wiki/css/selectors_api/querySelector). For instance, the following code returns the element with the ID "loginBtn".
+The Command Line API provides several methods to access DOM elements in your application. For example, the [**`$()`**](commandline-api.md#selector) method returns the first element that matches the specified CSS selector, just like [`document.querySelector()`](http://docs.webplatform.org/wiki/css/selectors_api/querySelector). For instance, the following code returns the element with the ID "loginBtn".
 
     $('#loginBtn');
 
 ![](console-files/select-login-btn.png)
 
-The [**`$$()`**](commandline-api#selector_1) command returns an array of all the elements that match the specified CSS selector, just like [`document.querySelectorAll()`](http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll). For instance, the following displays selects all `<button>` elements with the CSS class "loginBtn":
+The [**`$$()`**](commandline-api.md#selector-1) command returns an array of all the elements that match the specified CSS selector, just like [`document.querySelectorAll()`](http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll). For instance, the following displays selects all `<button>` elements with the CSS class "loginBtn":
 
     $$('button.loginBtn');
 
 ![](console-files/select-multiple-login.png)
 
-Lastly, the [`x()`](commandline-api#xpath) method takes an XPath path as a parameter and returns an array of all elements that match the specified path. The following returns all the &lt;script> elements that are children of the `<body>` tag:
+Lastly, the [`x()`](commandline-api.md#xpath) method takes an XPath path as a parameter and returns an array of all elements that match the specified path. The following returns all the &lt;script> elements that are children of the `<body>` tag:
 
     $x('/html/body/script');
 
 ### Inspecting DOM elements and JavaScript heap objects
 
-The [`inspect()`](commandline-api#inspectobject) method takes a DOM element reference (or JavaScript reference) as a parameter and displays the element or object in the appropriate panel&mdash;the Elements panel for DOM elements, or the Profile panel for a JavaScript object.
+The [`inspect()`](commandline-api.md#inspectobject) method takes a DOM element reference (or JavaScript reference) as a parameter and displays the element or object in the appropriate panel&mdash;the Elements panel for DOM elements, or the Profile panel for a JavaScript object.
 
-For example, in the following screenshot the `$()` function is used to get a reference to an `<li>` element. Then the last evaluated expression property ([`$_`](commandline-api#_)) is passed to `inspect()` to open that element in the Elements panel.
+For example, in the following screenshot the `$()` function is used to get a reference to an `<li>` element. Then the last evaluated expression property ([`$_`](commandline-api.md#_)) is passed to `inspect()` to open that element in the Elements panel.
 
 ![](console-files/inspect2.png)
 
@@ -318,7 +321,7 @@ For example, in the following screenshot the `$()` function is used to get a ref
 
 Often when testing you'll select DOM elements&mdash;either directly in the Elements panel or using the Selection tool (magnifying glass)&mdash;so that you can further inspect the element. Or, when analyzing a memory snapshot in the Profiles panel, you might select a JavaScript object to further inspect it.
 
-The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named [**`$0`**, **`$1`**, **`$2`**, **`$3`**](commandline-api#0_-_4) and [**`$4`**](commandline-api#0_-_4). The most recently selected element or object is available as **`$0`**, the second most as **`$1`**, and so forth.
+The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named [**`$0`**, **`$1`**, **`$2`**, **`$3`**](commandline-api.md#0-4) and [**`$4`**](commandline-api.md#0-4). The most recently selected element or object is available as **`$0`**, the second most as **`$1`**, and so forth.
 
 The following screenshot shows the values of these properties after selecting three different elements in turn from the Elements panel:
 
@@ -328,7 +331,7 @@ Note: You can also Right-click or Control-click on any element in the Console an
 
 ### Monitoring events
 
-The [`monitorEvents()`](commandline-api#monitoreventsobject_events) command monitors an object for one or more specified events. When an event occurs on the monitored object, the corresponding Event object is logged to the Console. You specify the object and the events you want to monitor on that object. For example, the following code enables event monitoring for every "resize" event on the global window object.
+The [`monitorEvents()`](commandline-api.md#monitoreventsobject-events) command monitors an object for one or more specified events. When an event occurs on the monitored object, the corresponding Event object is logged to the Console. You specify the object and the events you want to monitor on that object. For example, the following code enables event monitoring for every "resize" event on the global window object.
 
     monitorEvents(window, "resize");
 
@@ -342,7 +345,7 @@ You can also pass one of the supported "event types" that DevTools maps to a set
 
     monitorEvents($('#scrollBar'), "touch");
 
-See [`monitorEvents()`](commandline-api#monitoreventsobject_events) in the Console API Reference for a list of supported event types.
+See [`monitorEvents()`](commandline-api.md#monitoreventsobject-events) in the Console API Reference for a list of supported event types.
 
 To stop monitoring events call `unmonitorEvents()`, passing the object to stop monitoring.
 
@@ -350,7 +353,7 @@ To stop monitoring events call `unmonitorEvents()`, passing the object to stop m
 
 ### Controlling the CPU profiler
 
-You can create JavaScript CPU profiles from the command line with the [`profile()`](commandline-api#profilename) and [`profileEnd()`](commandline-api#profileendname) commands. You can optionally specify a name that's applied to the profile you create.
+You can create JavaScript CPU profiles from the command line with the [`profile()`](commandline-api.md#profilename) and [`profileEnd()`](commandline-api.md#profileendname) commands. You can optionally specify a name that's applied to the profile you create.
 
 For example, the following shows an example of creating a new profile with the default name:
 
@@ -381,3 +384,5 @@ The calls to stop and start profiling do not need be properly nested. For exampl
     profile("B");
     profileEnd("A");
     profileEnd("B");
+
+{{/partials.standard_devtools_article}}

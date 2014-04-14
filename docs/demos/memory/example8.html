@@ -1,15 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 8</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
+<h1>Example 8</h1>
 
-<body>
-  {% framebox height="500px" %}
   <h1>Example 8: Recording heap allocations</h1>
 
   <p>Let's analyze the impact of closures on memory</p>
@@ -102,7 +94,6 @@ function stopAndClear() {
 }
 </script>
 </script>
-{% endframebox %}
   <hr>
   <pre>
 'use strict';
@@ -172,5 +163,4 @@ function stopAndClear(){
     clear();
 }
 </pre>
-</body>
-</html>
+{{/partials.standard_devtools_article}}

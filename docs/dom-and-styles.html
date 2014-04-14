@@ -1,18 +1,5 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Editing Styles & DOM</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
 
-
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
-
-
-{% framebox height="20600px" width="auto"%}
-<base target="_top">
 <script>
 
 (function(global) {
@@ -92,10 +79,10 @@ var hasCanvasSupport = ENABLE_CANVAS && (function() {
 
 
 /**
- * @typedef {{
+ * @typedef {
  *   timescale: number,
  *   repeatDelay: number
- * }}
+ * }
  */
 var AnimationOptions;
 
@@ -802,280 +789,9 @@ global.animationData = global.animationData || {};
 
 </script>
 
-<style>
-/* custom keyboard shortcut styling */
-.kbd{
-  -moz-border-radius:3px;
-  -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  -webkit-border-radius:3px;
-  -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  background-color:#f7f7f7;
-  border:1px solid #ccc;
-  border-radius:3px;
-  box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  color:#333;
-  display:inline-block;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  line-height:1.4;
-  margin:0 .1em;
-  padding:.1em .6em;
-  text-shadow:0 1px 0 #fff;
-  white-space:nowrap;
-}
-
-.animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:300ms;-moz-animation-duration:300ms;-ms-animation-duration:300ms;-o-animation-duration:300ms;animation-duration:300ms;}.animated.hinge{-webkit-animation-duration:2s;-moz-animation-duration:2s;-ms-animation-duration:2s;-o-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(.3);
-  } 50% {
-    opacity: 1;
-    -webkit-transform: scale(1.05);
-  }
-
-  70% {
-    -webkit-transform: scale(.9);
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-
-@-moz-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -moz-transform: scale(.3);
-  }
-
-  50% {
-    opacity: 1;
-    -moz-transform: scale(1.05);
-  }
-
-  70% {
-    -moz-transform: scale(.9);
-  }
-
-  100% {
-    -moz-transform: scale(1);
-  }
-}
-
-@-o-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -o-transform: scale(.3);
-  }
-
-  50% {
-    opacity: 1;
-    -o-transform: scale(1.05);
-  }
-
-  70% {
-    -o-transform: scale(.9);
-  }
-
-  100% {
-    -o-transform: scale(1);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(.3);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  70% {
-    transform: scale(.9);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.bounceIn {
-  -webkit-animation-name: bounceIn;
-  -moz-animation-name: bounceIn;
-  -o-animation-name: bounceIn;
-  animation-name: bounceIn;
-}
-@-webkit-keyframes bounceOut {
-  0% {
-    -webkit-transform: scale(1);
-  }
-
-  25% {
-    -webkit-transform: scale(.95);
-  }
-
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(.3);
-  }
-}
-
-@-moz-keyframes bounceOut {
-  0% {
-    -moz-transform: scale(1);
-  }
-
-  25% {
-    -moz-transform: scale(.95);
-  }
-
-  50% {
-    opacity: 1;
-    -moz-transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 0;
-    -moz-transform: scale(.3);
-  }
-}
-
-@-o-keyframes bounceOut {
-  0% {
-    -o-transform: scale(1);
-  }
-
-  25% {
-    -o-transform: scale(.95);
-  }
-
-  50% {
-    opacity: 1;
-    -o-transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 0;
-    -o-transform: scale(.3);
-  }
-}
-
-@keyframes bounceOut {
-  0% {
-    transform: scale(1);
-  }
-
-  25% {
-    transform: scale(.95);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(.3);
-  }
-}
-
-.bounceOut {
-  -webkit-animation-name: bounceOut;
-  -moz-animation-name: bounceOut;
-  -o-animation-name: bounceOut;
-  animation-name: bounceOut;
-}
 
 
-.devtools-animation-container {
-  border: 1px solid #000;
-  width: 600px;
-  overflow: hidden;
-  display: block;
-  position: relative;
-}
-
-.devtools-animation-container:hover .devtools-animation-icon {
-  display: inline-block;
-}
-
-.devtools-animation-icon {
-  position: absolute;
-  top: 44%;
-  right: 44%;
-  cursor: pointer;
-  color: #4D4D4D;
-  height: 50px;
-  width: 50px;
-  display: none;
-}
-
-.devtools-animation-icon-pause-circled {
- background: url('dom-and-styles-files/images/pause-icon.svg');
-}
-
-.devtools-animation-icon-play-circled {
- background: url('dom-and-styles-files/images/play-icon.svg');
-}
-
-/* Retina image scaling */
-.inspect-icon {
-  width: 27px;
-  margin: 0 10px;
-}
-
-.collapsed-div {
-  width: 44px;
-}
-
-.expanded-body {
-  width: 49px;
-}
-
-.breadcrumb-body {
-  width: 79px;
-}
-
-.breadcrumb-footer {
-  width: 148px;
-}
-
-.breadcrumb-trail {
-  width: 143px;
-}
-
-.full-screenshot {
-  width: 565px;
-}
-
-.editable-dom-node {
-  width: 101px;
-}
-
-.edit-node-attribute {
-  width: 141px;
-}
-
-.edit-node-attribute-value {
-  width: 131px;
-}
-
-.breakpoint-reason {
-  width: 455px;
-}
-
-</style>
-
-
+<h1 id="editing-styles-and-the-dom">Editing Styles And The DOM</h1>
 <h1 id="introduction">Introduction</h1>
 <p>The <strong>Elements panel</strong> lets you view structured information about the current page. In today's applications, the HTML markup served on an initial page load is not necessarily what you'll see in the Document Object Model (<a href="http://docs.webplatform.org/wiki/dom">DOM</a>) tree. Having a real-time representation of the page can be a powerful tool when debugging and authoring web pages.</p>
 <p>You can use the Elements panel for a variety of tasks:</p>
@@ -1102,6 +818,7 @@ global.animationData = global.animationData || {};
 <li>You can modify the DOM tree using JavaScript.</li>
 <li>The browser engine can try to correct invalid author markup and produce an unexpected DOM tree.</li>
 </ul>
+<div class="collapsible">
 <h2 id="inspecting-elements">Inspecting elements</h2>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="inspect-element" speed="1200" repeatdelay="2"></animation>
@@ -1123,12 +840,14 @@ global.animationData = global.animationData || {};
 <li>Right-click any element on the page the page and select <strong>Inspect Element</strong>.</li>
 <li>Press <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> on mac) to open DevTools in Inspect Element mode, then click on an element.</li>
 <li>Click <strong>Inspect Element</strong> <img src="dom-and-styles-files/images/inspect-icon.png" class="inspect-icon" alt="Inspect icon"> at the top of the DevTools window to go into Inspect Element Mode, then click on an element.</li>
-<li>Use the <code>inspect()</code> method in the console, such as <code>inspect(document.body)</code>. See the <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api">Command-Line API</a> for information on using inspect.</li>
+<li>Use the <code>inspect()</code> method in the console, such as <code>inspect(document.body)</code>. See the <a href="commandline-api.md">Command-Line API</a> for information on using inspect.</li>
 </ul>
 <div class="devtools-animation-container">
   <animation class="devtools-animation" src="right-click-inspect-element" speed="800" repeatdelay="2"></animation>
 </div>
 
+</div>
+<div class="collapsible">
 <h2 id="navigate-the-dom-with-a-mouse-or-keyboard">Navigate the DOM with a mouse or keyboard</h2>
 <p>You can navigate through the DOM structure using either mouse or keyboard.</p>
 <ul>
@@ -1152,7 +871,9 @@ global.animationData = global.animationData || {};
 <p>DevTools displays as many items as possible in the trail.</p>
 <p><img alt="" src="dom-and-styles-files/images/breadcrumb-ellipsis.png" class="full-screenshot" /></p>
 <p>If the entire trail doesn't fit in the status bar, an ellipsis (...) shows where the trail has been truncated. Click the ellipsis to show the hidden elements.</p>
-<p>For a complete list of keyboard shortcuts, see: <a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">https://developers.google.com/chrome-developer-tools/docs/shortcuts</a></p>
+<p>Take a look at our <a href ="shortcuts.html">complete list of keyboard shortcuts</a></p>
+</div>
+<div class="collapsible">
 <h2 id="editing-dom-nodes-and-attributes">Editing DOM nodes and attributes</h2>
 <p>The Elements panel lets you modify the DOM:</p>
 <ul>
@@ -1196,6 +917,8 @@ global.animationData = global.animationData || {};
   <animation class="devtools-animation" src="tab-switch-html-attr" speed="2000" repeatdelay="2"></animation>
 </div>
 
+</div>
+<div class="collapsible">
 <h2 id="moving-elements">Moving elements</h2>
 <p>You can rearrange the DOM tree in the Elements panel to test out different arrangements for the page. </p>
 <p>Drag a node within the Elements panel to move it to a new position in the DOM tree.</p>
@@ -1203,6 +926,8 @@ global.animationData = global.animationData || {};
   <animation class="devtools-animation" src="rearrange-nodes" speed="2000" repeatdelay="2"></animation>
 </div>
 
+</div>
+<div class="collapsible">
 <h2 id="deleting-elements">Deleting elements</h2>
 <p>Remove DOM nodes by using any of the following techniques:</p>
 <ul>
@@ -1211,6 +936,8 @@ global.animationData = global.animationData || {};
 </ul>
 <p>You can also remove an element by deleting its tag when using <strong>Edit as HTML</strong>.</p>
 <p>If you delete a node by accident, use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Cmd</span> + <span class="kbd">Z</span> on Mac) to undo your last action.</p>
+</div>
+<div class="collapsible">
 <h2 id="scrolling-into-view">Scrolling into view</h2>
 <p>When you hover over or select a DOM node, the rendered element is highlighted in the main browser window. If the element is scrolled offscreen, a tooltip is displayed at the edge of the browser window indicating that the selected element is offscreen.</p>
 <p>To scroll the page so the element appears in the viewport, <strong>Right-click</strong> the element and select <strong>Scroll into View</strong>.</p>
@@ -1219,6 +946,8 @@ global.animationData = global.animationData || {};
   <animation class="devtools-animation" class="devtools-animation"  src="scroll-into-view" speed="2000" repeatdelay="2"></animation>
 </div>
 
+</div>
+<div class="collapsible">
 <h2 id="setting-dom-breakpoints">Setting DOM breakpoints</h2>
 <p>A DOM breakpoint is similar to a breakpoint in the Sources panel. It's used to pause execution of the running JavaScript under certain conditions. A JavaScript breakpoint is associated with a specific line of a JavaScript file, and is triggered when the line is reached. A DOM breakpoint is associated with a specific DOM element, and is triggered when the element is modified in some way.</p>
 <p>You can use a DOM breakpoint to debug complex JavaScript applications, when you're not sure what part of the JavaScript is updating a given element.</p>
@@ -1271,6 +1000,8 @@ element.className = 'active';
 </ul>
 <p>When you trigger a DOM breakpoint, the breakpoint is highlighted in the DOM Breakpoints pane. The <strong>Call Stack</strong> pane displays the <strong>reason</strong> for a debugger pause:</p>
 <p><img alt="" src="dom-and-styles-files/images/breakpoint-reason.png" class="breakpoint-reason" /></p>
+</div>
+<div class="collapsible">
 <h2 id="viewing-element-event-listeners">Viewing element event listeners</h2>
 <p>View JavaScript event listeners associated with a DOM node in the <strong>Event Listeners</strong> pane.</p>
 <p><img alt="" src="dom-and-styles-files/images/view-event-listeners.png" class="full-screenshot" /></p>
@@ -1308,6 +1039,8 @@ element.className = 'active';
 <li>Inheritance relates to how HTML elements inherit CSS properties from their containing elements (ancestors).</li>
 </ul>
 <p>See the W3C documentation on cascading and inheritance for more information: <a href="http://www.w3.org/TR/CSS2/cascade.html">http://www.w3.org/TR/CSS2/cascade.html</a></p>
+</div>
+<div class="collapsible">
 <h2 id="styles-pane">Styles Pane</h2>
 <p>The Styles pane shows the CSS rules that apply to the selected element, from highest priority to lowest:</p>
 <ul>
@@ -1351,7 +1084,7 @@ video, audio, div, .message, body *, time {
 <p><img alt="" src="dom-and-styles-files/images/image_20.png" /></p>
 <p>Click on a property value to edit the value. If you're editing a property name, press Tab or Enter to edit the property value.</p>
 <p><img alt="" src="dom-and-styles-files/images/image_21.png" /></p>
-<p>By default, your CSS modifications are not permanent, changes are lost when you reload the page. To customise the behaviour, see <a href="https://developers.google.com/chrome-developer-tools/docs/settings#workspace">Workspaces</a>.</p>
+<p>By default, your CSS modifications are not permanent, changes are lost when you reload the page. To customise the behaviour, see <a href="workspaces.html">Workspaces</a>.</p>
 <p>When editing a numeric CSS property value, you can increment and decrement numeric CSS property values using the following shortcuts:</p>
 <ul>
 <li>Press <span class="kbd">Up</span> or <span class="kbd">Down</span> to increment or decrement the value by 1 (or by .1 if the current value is between -1 and 1).</li>
@@ -1425,6 +1158,8 @@ video, audio, div, .message, body *, time {
 You can also use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> on Mac) to quickly undo minor changes to the DOM or Styles via the Elements panel.
 </p>
 
+</div>
+<div class="collapsible">
 <h2 id="metrics-pane">Metrics pane</h2>
 <p>The metrics pane provides a visual illustration of how styles affect the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">CSS Box Model</a>.</p>
 <div class="devtools-animation-container">
@@ -1449,10 +1184,5 @@ You can also use <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> (or 
 <li>Edit a field within a box (a field with no value displays a dash), the change is reflected in the <code>element.style</code> section.</li>
 </ul>
 
-{% endframebox %}
-
-
-
-  </body>
-</html>
-
+</div>
+{{/partials.standard_devtools_article}}

@@ -1,11 +1,9 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Managing application storage
 
 The Resources panel lets you inspect your application's local data sources, including IndexedDB or Web SQL databases, local and session storage, cookies, and Application Cache resources. You can also quickly inspect your application's visual resources, including images, fonts and and style sheets.
 
-[[TOC]]
 
 The Resources panel reveals your application's local data stores, including IndexedDB and WebSQL databases, local and session storage, cookies and Application Cache resources. 
 
@@ -203,3 +201,4 @@ Other tips:
 * **To view the bounding box of an embedded frame**, hover your mouse over a frame in the Resources panel:
 
 <img src="resources-files/frame-selected.png" />
+{{/partials.standard_devtools_article}}
