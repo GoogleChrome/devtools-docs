@@ -1,22 +1,7 @@
-<<<<<<< HEAD
-{% include "chrome-developer-tools/_local_variables.html" %}
-<!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 7</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
-
-<body>
-  {% framebox height="500px" %}
-=======
 {{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
 <h1>Example 7</h1>
 
->>>>>>> migration/master
   <h1>Example 7: Eval is evil (almost always)</h1>
 
   <p>Let's analyze the impact of closures on memory</p>
@@ -42,10 +27,6 @@
 
     <script src="javascripts/closures.js" type="text/javascript">
 </script>
-<<<<<<< HEAD
-{% endframebox %}
-=======
->>>>>>> migration/master
 
   <hr>
   <pre>
@@ -53,7 +34,7 @@
 
 var intervalId,
     closures = [];
-    
+
 function createLargeClosure() {
     var largeStr = new Array(1000000).join('x');
     return function lC() {
@@ -90,7 +71,7 @@ function smallClosures() {
         intervalId = setInterval(function () {
         closures.push(createSmallClosure());
     }, 1000);
-    
+
 }
 
 function evalClosures() {
@@ -116,9 +97,4 @@ function stopAndClear(){
     clear();
 }
 </pre>
-<<<<<<< HEAD
-</body>
-</html>
-=======
 {{/partials.standard_devtools_article}}
->>>>>>> migration/master
