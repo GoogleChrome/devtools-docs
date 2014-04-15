@@ -1,23 +1,16 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Remote Debugging Protocol v0.1</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Remote Debugging Protocol v0.1</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/>
 
 
 
 <p>Instrumentation is divided into a number of domains (DOM, Debugger, Network
 etc.). Each domain defines a number of commands it supports and events it
 generates. Both commands and events are serialized JSON objects of a fixed
-structure. You can either <a href="/chrome-developer-tools/docs/debugger-protocol#remote">debug
+structure. You can either <a href="remote-debugging.html#remote">debug
 over the wire</a> using the raw messages as they are described in the corresponding domain
-documentation, or use <a href="/chrome-developer-tools/docs/debugger-protocol#extension">extension
+documentation, or use <a href="remote-debugging.html#extension">extension
 JavaScript API.</a>
 </p>
 
@@ -25,31 +18,29 @@ JavaScript API.</a>
 <tr>
 <td style="border:none">
 <ul>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/console">Console</a> </li>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/debugger">Debugger</a> </li>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/dom">DOM</a> </li>
+  <li> <a href="console.html">Console</a> </li>
+  <li> <a href="debugger.html">Debugger</a> </li>
+  <li> <a href="dom.html">DOM</a> </li>
 </ul>
 </td>
 <td style="border:none">
 <ul>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/domdebugger">DOM Debugger</a> </li>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/network">Network</a> </li>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/page">Page</a> </li>
+  <li> <a href="domdebugger.html">DOM Debugger</a> </li>
+  <li> <a href="network.html">Network</a> </li>
+  <li> <a href="page.html">Page</a> </li>
 </ul>
 </td>
 <td style="border:none">
 <ul>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/runtime">Runtime</a> </li>
-  <li> <a href="/chrome-developer-tools/docs/protocol/0.1/timeline">Timeline</a> </li>
+  <li> <a href="runtime.html">Runtime</a> </li>
+  <li> <a href="timeline.html">Timeline</a> </li>
 </ul>
 </td>
 </tr>
 </table>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
-  </body>
-</html>
 
 
+{{/partials.standard_devtools_article}}

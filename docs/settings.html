@@ -1,60 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Settings</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
-  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Settings</h1>
 
-  <style>
-    body.docs div h4 { font-size: 111%; font-weight: bold; margin-bottom: 0; }
-    img { max-width: 800px; }
-    .special {
-      background-color: #F9E5E5;
-      border-left-color: #C33;
-    }
-    body.docs pre {
-      background: #FAF7F7;
-      display: inline-block;
-      vertical-align: top;
-      white-space: pre-line;
-      margin: 0 0 1.5em;
-      padding: 0;
-    }
-    code {
-      background: #FAF7F7;
-      border: 1px solid #DDD;
-      display: inline-block;
-      line-height: 1em;
-      padding: 1.5px 2px;
-    }
-    pre code {
-      border: 0;
-      margin: 0;
-      padding: 0 10px 12px;
-    }
-  </style>
 
-  <strong>
-    <ul>
-      <li><a href="#general">General</a>
-        <ul>
-          <li><a href="#appearance">Appearance</a></li>
-          <li><a href="#elements">Elements</a></li>
-          <li><a href="#rendering">Rendering</a></li>
-          <li><a href="#sources">Sources</a></li>
-          <li><a href="#profiler">Profiler</a></li>
-          <li><a href="#console">Console</a></li>
-          <li><a href="#extensions">Extensions</a></li>
-        </ul>
-      </li>
-      <li><a href="#workspace">Workspace</a></li>
-      <!-- <li><a href="#port-forwarding">Port Forwarding</a></li> -->
-      <li><a href="#experiments">Experiments</a></li>
-    </ul>
-  </strong>
 
   <p>
     <strong>To modify the Settings in DevTools:</strong>
@@ -67,6 +14,7 @@
     <img src="settings-files/general-settings.png">
   </div>
 
+<div class="collapsible">
   <h2 id="general">General</h2>
 
   <h4>Disable cache</h4>
@@ -166,7 +114,7 @@
   <p class="note"><strong>Note:</strong> When developing Chrome apps or extensions enable this setting so you can search within these native API scripts, otherwise it is not useful having it enabled.</p>
 
   <h4>Enable JS source maps</h4>
-  <p>If you have code which is concatenated and minified it is difficult to tell what file a piece of code may be in when you need to debug it. Enabling this setting is useful for <a href="https://developers.google.com/chrome-developer-tools/docs/javascript-debugging#source-maps">debugging JavaScript</a> and <a href="http://www.youtube.com/watch?v=HijZNR6kc9A#t=1m32s">working with Source maps</a> in general.</p>
+  <p>If you have code which is concatenated and minified it is difficult to tell what file a piece of code may be in when you need to debug it. Enabling this setting is useful for <a href="javascript-debugging.html#source-maps">debugging JavaScript</a> and <a href="http://www.youtube.com/watch?v=HijZNR6kc9A#t=1m32s">working with Source maps</a> in general.</p>
 
   <div class="screenshot">
     <img src="settings-files/js-source-maps.png">
@@ -175,7 +123,7 @@
   <h4 id="css-source-maps">Enable CSS source maps</h4>
   <p>Enables Source Maps for CSS files generated using a preprocessor (for example, Sass).</p>
 
-  <p>For details see <a href="/chrome-developer-tools/docs/css-preprocessors">Working with CSS Preprocessors</a>.</p>
+  <p>For details see <a href="css-preprocessors.html">Working with CSS Preprocessors</a>.</p>
 
   <h4>Auto-reload generated CSS</h4>
   <p>Only used if <b>Enable CSS source maps</b> is turned on. Determines whether generated CSS files should be reloaded when the source file is saved.</p>
@@ -221,9 +169,11 @@
   <p></p>
 
 
+</div>
+<div class="collapsible">
   <h2 id="workspace">Workspace</h2>
 
-  <p><a href="http://www.youtube.com/watch?v=bqfoYaKCYUI#t=3m39s">Workspaces</a> allow you to select <strong>custom directories</strong> in your file system which are always available for you to edit within the <strong>Sources panel</strong>. This can be one specific project directory or a directory that contains multiple different projects within it.</p>
+  <p><a href="workspaces.html">Workspaces</a> allow you to select <strong>custom directories</strong> in your file system which are always available for you to edit within the <strong>Sources panel</strong>. This can be one specific project directory or a directory that contains multiple different projects within it.</p>
 
   <p>To use this feature it open the <strong>Workspaces tab</strong> via the Settings pane. Here you will see an <strong>Add Folder</strong> link allowing you to add local directories for editing (eg: project root directories).</p>
 
@@ -236,7 +186,6 @@
   <p>In addition to adding a file system for your Workspace, you are also able to add file <strong>Mappings</strong> individual file urls to the path of the file on your local machine.</p>
 
 
-  <p class="backtotop"><a href="#top">Back to top</a></p>
 
-</body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}

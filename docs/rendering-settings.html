@@ -1,17 +1,6 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Rendering Settings</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
-  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Rendering Settings</h1>
 
-  <style>
-    body.docs div h4 { font-size: 111%; font-weight: bold; margin-bottom: 0; }
-    img { max-width: 800px; }
-  </style>
 
 
   <p>To access the Rendering Settings click on the drawer icon. You can press <span class="kbd">Esc</span> as a shortcut to open the drawer.</p>
@@ -69,7 +58,5 @@
   <p>Shows area of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled. <a href="https://code.google.com/p/chromium/issues/detail?id=253552#c13">Additional details on causes in this ticket.</a></p>
 
 
-  <p class="backtotop"><a href="#top">Back to top</a></p>
 
-</body>
-</html>
+{{/partials.standard_devtools_article}}

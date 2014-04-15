@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Profiling memory performance</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Profiling memory performance</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 
@@ -16,7 +9,7 @@
 memory leaks in your applications.</p>
 
 <div class="special"><p>Read
-the <a href="/chrome-developer-tools/docs/memory-analysis-101">Memory 101</a> page to become
+the <a href="memory-analysis-101.html">Memory 101</a> page to become
 familiar with the terms used in this document.</p></div>
 
 <p class="note"><b>Note:</b> If you are a Web Developer and want to get the
@@ -24,31 +17,7 @@ latest version of Developer Tools, you should use the Google Chrome release
 from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Developer Channel</a>.
 </p>
 
-<h4>Contents</h4>
-
-<ol class="toc">
-  <li>
-    <a href="#basics">Basic functions</a>
-    <ol>
-      <li><a href="#basics_snapshot">Taking a snapshot</a></li>
-      <li><a href="#basics_clear">Clearing snapshots</a></li>
-      <li><a href="#basics_views">Switching between snapshot views</a></li>
-      <li><a href="#basics_colors">Looking up color coding</a></li>
-    </ol>
-  </li>
-  <li><a href="#views">Views in detail</a>
-    <ol>
-      <li><a href="#views_summary">Summary view</a> / <a href="/chrome-developer-tools/docs/heap-profiling-summary" target="_blank">Demo: Gathering Scattered Objects</a></li>
-      <li><a href="#views_comparison">Comparison view</a> / <a href="/chrome-developer-tools/docs/heap-profiling-comparison" target="_blank">Demo: Verifying Action Cleanness</a></li>
-      <li><a href="#views_containment">Containment view</a> / <a href="/chrome-developer-tools/docs/heap-profiling-containment" target="_blank">Demo: Exploring the Heap Contents</a></li>
-      <li><a href="#views_dom">Uncovering DOM leaks</a> / <a href="/chrome-developer-tools/docs/heap-profiling-dom-leaks" target="_blank">Demo page</a></li>
-      <li><a href="#views_dominators">Dominators view</a> / <a href="/chrome-developer-tools/docs/heap-profiling-dominators" target="_blank">Demo: Finding Accumulation Points</a></li>
-      <li><a href="#views_paths">Retaining paths</a></li>
-    </ol>
-  </li>
-  <li><a href="#qna">Q&amp;A</a></li>
-</ol>
-
+<div class="collapsible">
 <h2 id="basics">Basic functions</h2>
 
 <h3 id="basics_snapshot">Taking a snapshot</h3>
@@ -56,23 +25,23 @@ from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Develope
 <p>On the <strong>Profiles</strong> tab, select the <strong>Take Heap
 Snapshot</strong> option and press <strong>Start</strong>:
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/take_snapshot_button.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/take_snapshot_button.png"></div>
 
 <p>Snapshots are initially stored in the renderer process memory. They are
 transferred to the DevTools on demand, when you click on the snapshot icon to
 view it. After the snapshot has been loaded into DevTools and has been parsed,
 the number below the snapshot title appears and shows the total size of
-the <a href="/chrome-developer-tools/docs/memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
+the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
 objects:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/snapshot_memory.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/snapshot_memory.png"></div>
 
 <h3 id="basics_clear">Clearing snapshots</h3>
 
 <p>Snapshots can be removed (both from DevTools and renderer's memory) by
 pressing the <strong>Clear all profiles</strong> button:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/clear_profiles.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/clear_profiles.png"></div>
 
 <p class="note"><b>Note:</b> Closing the DevTools window will not delete
 collected profiles from the renderer's memory. When reopening DevTools, all
@@ -83,21 +52,21 @@ previously taken snapshots will reappear in the list of snapshots.</p>
 <p>A snapshot can be viewed from different perspectives for different tasks. To
 switch between views, use the selector at the bottom of the view:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/view_selector_crop.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/view_selector_crop.png"></div>
 
 <p>There are four views:
-<ul>
-  <li><strong>Summary</strong> &mdash; shows objects grouped by
-  the constructor name;</li>
-  <li><strong>Comparison</strong> &mdash; displays difference between
-  two snapshots;</li>
-  <li><strong>Containment</strong> &mdash; allows exploration of heap
-  contents;</li>
-  <li><strong>Dominators</strong> &mdash;
-  shows <a href="/chrome-developer-tools/docs/memory-analysis-101.html#dominators">dominators
-  tree.</a>
-</li>
-</ul></p>
+  <ul>
+    <li><strong>Summary</strong> &mdash; shows objects grouped by
+      the constructor name;</li>
+    <li><strong>Comparison</strong> &mdash; displays difference between
+      two snapshots;</li>
+    <li><strong>Containment</strong> &mdash; allows exploration of heap
+      contents;</li>
+    <li><strong>Dominators</strong> &mdash;
+      shows <a href="memory-analysis-101.html#dominators">dominators
+	tree.</a>
+    </li>
+  </ul>
 
 <h3 id="basics_colors">Looking up color coding</h3>
 
@@ -105,7 +74,7 @@ switch between views, use the selector at the bottom of the view:</p>
 are colored accordingly. To view the type color legend, press the
 question mark button on the status bar:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/colors_legend.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/colors_legend.png"></div>
 
 <p>Each property has one of four types::
   <ul>
@@ -115,9 +84,9 @@ question mark button on the status bar:</p>
     <li><strong>element</strong> &mdash; a regular property with a numeric
       index, accessed via <code>[]</code> (brackets) notation;</li>
     <li><strong>context variable</strong> &mdash; a variable in a function
-    context, accessible by its name from inside a function closure;</li>
+      context, accessible by its name from inside a function closure;</li>
     <li><strong>system property</strong> &mdash; property added by the
-    JavaScript VM, not accessible from JavaScript code.</li>
+      JavaScript VM, not accessible from JavaScript code.</li>
   </ul>
 </p>
 
@@ -125,6 +94,8 @@ question mark button on the status bar:</p>
 corresponding JavaScript types. They are part of JavaScript VM's
 object system implementation.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="views">Views in detail</h2>
 
 <h3 id="views_summary">Summary view</h3>
@@ -132,14 +103,14 @@ object system implementation.</p>
 <p>Initially, a snapshot opens in the <strong>Summary</strong> view, displaying
 object totals, which can be expanded to show instances:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/summary_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/summary_view.png"></div>
 
 <p>Top-level entries are &quot;total&quot; lines. They display the
 constructor name, and group all objects created using this
 constructor. The number of object instances is displayed in
 the <strong>#</strong> column. The <strong>Shallow size</strong>
 column displays the sum
-of <a href="/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes">shallow sizes</a>
+of <a href="memory-analysis-101.html#object_sizes">shallow sizes</a>
 of all objects created by a certain constructor
 function. The <strong>Retained Size</strong> column displays the
 maximum retained size among the same set of objects.</p>
@@ -150,7 +121,7 @@ sizes are displayed in the corresponding columns. The number after
 the <strong>@</strong> character is the object unique ID, allowing to
 compare heap snapshots on per-object basis.</p>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-summary" target="_blank">demo
+<p>Try this <a href="heap-profiling-summary.html" target="_blank">demo
 page</a> (opens in a new tab) to understand how
 the <strong>Summary</strong> view can be used.</p>
 
@@ -173,9 +144,9 @@ below:
 snapshots is displayed. When expanding a total entry, added and
 deleted object instances are shown:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/comparison_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/comparison_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-comparison" target="_blank">demo
+<p>Try this <a href="heap-profiling-comparison.html" target="_blank">demo
 page</a> (opens in a new tab) to get an idea how to use snapshot comparison for
 detecting leaks.</p>
 
@@ -190,19 +161,19 @@ very low level.</p>
 <p>The view provides several entry points:
   <ul>
     <li><code>DOMWindow</code> objects &mdash; these are objects
-    considered as &quot;global&quot; objects for JavaScript code;</li>
+      considered as &quot;global&quot; objects for JavaScript code;</li>
     <li>GC roots &mdash; actual GC roots used by VM's garbage collector;</li>
     <li>Native objects &mdash; browser objects that are &quot;pushed&quot;
-    inside the JavaScript virtual machine to allow automation, e.g. DOM nodes,
-    CSS rules (see the next section for more details.)</li>
-</ul></p>
+      inside the JavaScript virtual machine to allow automation, e.g. DOM nodes,
+      CSS rules (see the next section for more details.)</li>
+  </ul>
 
 <p>Below is the example of what the <strong>Containment</strong> view
 looks like:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/containment_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/containment_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-containment"
+<p>Try this <a href="heap-profiling-containment.html"
 target="_blank">demo page</a> (opens in a new tab) for finding out how
 to explore closures and event handlers using the view.</p>
 
@@ -217,9 +188,9 @@ happening due to forgotten detached DOM subtrees floating around.</p>
 from <strong>Summary</strong> and <strong>Containment</strong> views
 &mdash; there are dedicated entry nodes for them:</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/dom_leaks_summary.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/dom_leaks_summary.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-dom-leaks"
+<p>Try this <a href="heap-profiling-dom-leaks.html"
 target="_blank">demo page</a> (opens in a new tab) to play with
 detached DOM trees.</p>
 
@@ -233,9 +204,9 @@ that is, the dominators tree is not a spanning tree of the graph. But
 this only serves for good, as helps us to identify memory accumulation
 points quickly.</p>
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/dominators_view.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/dominators_view.png"></div>
 
-<p>Try this <a href="/chrome-developer-tools/docs/heap-profiling-dominators"
+<p>Try this <a href="heap-profiling-dominators.html"
 target="_blank">demo page</a> (opens in a new tab) to train yourself
 in finding accumulation points.</p>
 
@@ -250,7 +221,7 @@ objects, instead of all GC roots. This is helpful for finding references
 originating from the application itself &mdash; they are the most probable
 sources for leaks:
 
-<div class="screenshot"><img src="/chrome-developer-tools/docs/heap-profiling-files/retaining_paths_crop.png"></div>
+<div class="screenshot"><img src="heap-profiling-files/retaining_paths_crop.png"></div>
 
 <p>In the simplest case, the path will only include &quot;true&quot;
 JavaScript objects and use references that are accessible from
@@ -274,6 +245,7 @@ are displayed using the <code>-&gt;</code> notation:
     <li><code>DOMWindow@1234.callbacks[12]->context</code></li>
     <li><code>DOMWindow@1235.callback->nested->inside</code></li>
   </ul>
+
   Such paths can't be evaluated in the console.</p>
 
 <p>Even more advanced are paths including &quot;hidden&quot;
@@ -288,13 +260,15 @@ actually accesses it.) Knowing these details might help in getting an
 understanding of how the virtual machine works. However, for most of web
 application developers it is safe to ignore them. Below are some examples of
 &quot;internal&quot; paths:
-  <ul>
-    <li><code>GCRoots@1[254]</code></li>
-    <li><code>DOMWindow@1234{prop}{1}</code> &mdash; this is equivalent to a JavaScript path: <code>DOMWindow@1234.prop</code></li>
-    <li><code>DOMWindow@1235.object{properties}{2}</code></li>
-  </ul>
+<ul>
+  <li><code>GCRoots@1[254]</code></li>
+  <li><code>DOMWindow@1234{prop}{1}</code> &mdash; this is equivalent to a JavaScript path: <code>DOMWindow@1234.prop</code></li>
+  <li><code>DOMWindow@1235.object{properties}{2}</code></li>
+</ul>
 </p>
 
+</div>
+<div class="collapsible">
 <h2 id="qna">Q&amp;A</h2>
 
 <dl>
@@ -335,21 +309,20 @@ Is the ID value really unique?
 <dl>
   <dt>What comprises GC roots?
     <dd>Many things:
-  <ul>
-    <li>built-in object maps;</li>
-    <li>symbol table;</li>
-    <li>stacks of VM threads;</li>
-    <li>compilation cache;</li>
-    <li>handle scopes;</li>
-    <li>global handles.</li>
-  </ul>
+    <ul>
+      <li>built-in object maps;</li>
+      <li>symbol table;</li>
+      <li>stacks of VM threads;</li>
+      <li>compilation cache;</li>
+      <li>handle scopes;</li>
+      <li>global handles.</li>
+    </ul>
     </dd>
   </dt>
 </dl>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
 
-  </body>
-</html>
 
+</div>
+{{/partials.standard_devtools_article}}

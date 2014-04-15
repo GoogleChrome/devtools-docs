@@ -1,11 +1,10 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Console API Reference
 
 The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session.
 
-[[TOC]]
+
 
 ## console.assert(expression, object) ##
 
@@ -16,13 +15,15 @@ If the specified expression is `false`, the message is written to the console al
 
 ![Example of console.assert()](console-files/assert-failed-list.png)
 
+
 ## console.clear() ##
 
 Clears the console.
 
     console.clear();
 
-Also see [Clearing the console](console#clearing_console_history).
+Also see [Clearing the console](console.md#clearing-console-history).
+
 
 ## console.count(label) ##
 
@@ -46,9 +47,11 @@ In this example, `count()` is invoked with different labels, each of which is in
 
 ![Example of using console.count() with different string](console-files/count-unique.png)
 
+
 ## console.debug(object [, object, ...]) ##
 
-This method is identical to [`console.log()`](#consolelogobject_object).
+This method is identical to [`console.log()`](#consolelogobject-object).
+
 
 ## console.dir(object) ##
 
@@ -72,6 +75,7 @@ Compare this with the behavior of `console.log()`, which displays the element in
 
 ![Using console.log() on an element](console-files/consolelog-body.png)
 
+
 ## console.dirxml(object) ##
 
 Prints an XML representation of the specified object, as it would appear in the Elements panel. For HTML elements, calling this method is equivalent to calling `console.log()`.
@@ -81,6 +85,7 @@ Prints an XML representation of the specified object, as it would appear in the 
 
 %O is a shortcut for dir
 %o acts either as dir or dirxml depending on the object type (non-dom or dom)
+
 
 ## console.error(object [, object, ...])
 
@@ -95,6 +100,7 @@ Similar to [`console.log()`](#consolelog), `console.error()` and also includes a
     connectToServer();
 
 ![Example of console.error()](console-files/error-server-not-resp.png)
+
 
 ## console.group(object[, object, ...]) ##
 
@@ -120,6 +126,7 @@ You can also nest groups:
 
 ![Nested logging group examples](console-files/nestedgroup-api.png)
 
+
 ## console.groupCollapsed(object[, object, ...]) ##
 
 Creates a new logging group that is initially collapsed instead of open, as with `console.group()`.
@@ -131,13 +138,16 @@ Creates a new logging group that is initially collapsed instead of open, as with
 
 ![Creating a collapsed group](console-files/groupcollapsed.png)
 
+
 ## console.groupEnd() ##
 
-Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject_object) and [console.groupCollapsed()](#consolegroupcollapsedobject_object) for examples.
+Closes the most recently created logging group that previously created with `console.group()` or `console.groupCollapsed()`. See [console.group()](#consolegroupobject-object) and [console.groupCollapsed()](#consolegroupcollapsedobject-object) for examples.
+
 
 ## console.info(object [, object, ...]) ##
 
-This method is identical to [`console.log()`](#consolelogobject_object).
+This method is identical to [`console.log()`](#consolelogobject-object).
+
 
 ## console.log(object [, object, ...]) ##
 
@@ -176,6 +186,7 @@ The following example uses the **`%c`** format specifier to colorize the output 
 
 ![Console output styled with %c](console-files/log-format-styling.png)
 
+
 ## console.profile([label]) ##
 
 When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call `console.profileEnd()`. Each profile is added to the Profiles tab.
@@ -188,6 +199,7 @@ In the following example a CPU profile is started at the entry to a function tha
       console.profileEnd();
     }
 
+
 ## console.profileEnd() ##
 
 Stops the current JavaScript CPU profiling session, if one is in progress, and prints the report to the Profiles panel.
@@ -195,6 +207,7 @@ Stops the current JavaScript CPU profiling session, if one is in progress, and p
     console.profileEnd()
 
 See [console.profile()](#consoleprofilelabel) for example use.
+
 
 ## console.time(label) ##
 
@@ -211,17 +224,20 @@ Starts a new timer with an associated label. When `console.timeEnd()` is called 
 
 Note: The string you pass to the `time()` and `timeEnd()` methods must match for the timer to finish as expected.
 
+
 ## console.timeEnd(label) ##
 
 Stops the timer with the specified label and prints the elapsed time.
 
 For example usage, see [console.time()](#consoletimelabel).
 
+
 ## console.timeStamp([label]) ##
 
 This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.
 
-See [Marking the Timeline](console#marking_the_timeline) for an example of using `console.timeStamp()`.
+See [Marking the Timeline](console.md#marking-the-timeline) for an example of using `console.timeStamp()`.
+
 
 ## console.trace() ##
 
@@ -229,13 +245,15 @@ Prints a stack trace from the point where the method was called, including links
 
 ![Example of a stack trace with counter](console-files/console-trace.png)
 
+
 ## console.warn(object [, object, ...]) ##
 
-This method is like [`console.log()`](#consolelogobject_object) but also displays a yellow warning icon along with the logged message.
+This method is like [`console.log()`](#consolelogobject-object) but also displays a yellow warning icon along with the logged message.
 
     console.warn("User limit reached! (%d)", userPoints);
 
 ![Example of console.warn()](console-files/log-warn.png)
+
 
 ## debugger ##
 
@@ -254,3 +272,5 @@ In the following example the JavaScript debugger is opened when an object's `bri
     }
 
 ![Example of using debugger command](console-files/debugger.png)
+
+{{/partials.standard_devtools_article}}

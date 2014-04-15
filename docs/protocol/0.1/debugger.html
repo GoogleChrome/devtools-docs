@@ -1,15 +1,9 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
- <head>
- <title>draft-0.1: Debugger</title>
- <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
- <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
- </head>
- <body>
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/> 
+{{+bindTo:partials.standard_devtools_article}}
+<h1>draft-0.1: Debugger</h1>
 <div>
  <!-- TABLE OF CONTENTS -->
  <div id="toc">
+<div class="collapsible">
  <h2>Contents</h2>
  <ol>
  
@@ -301,7 +295,7 @@
  
  "result": {<br>
  
- &nbsp;&nbsp;"<span class="specific">result</span>": &lt;<a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>&gt;,<br>
+ &nbsp;&nbsp;"<span class="specific">result</span>": &lt;<a href="runtime.html.html#type-RemoteObject">Runtime.RemoteObject</a>&gt;,<br>
  
  &nbsp;&nbsp;"<span class="specific">wasThrown</span>": &lt;boolean&gt;<br>
  
@@ -432,7 +426,7 @@
  (
  
  
- <a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>
+ <a href="runtime.html.html#type-RemoteObject">Runtime.RemoteObject</a>
  
  )
  </div>
@@ -2122,7 +2116,7 @@
  (
  
  
- <a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>
+ <a href="runtime.html.html#type-RemoteObject">Runtime.RemoteObject</a>
  
  )
  </div>
@@ -2251,7 +2245,7 @@
  (
  
  
- <a href="runtime.html#type-RemoteObject">Runtime.RemoteObject</a>
+ <a href="runtime.html.html#type-RemoteObject">Runtime.RemoteObject</a>
  
  )
  </div>
@@ -2325,5 +2319,5 @@
   <!-- if types -->
  </div><!-- API PAGE -->
 </div>
- </body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}

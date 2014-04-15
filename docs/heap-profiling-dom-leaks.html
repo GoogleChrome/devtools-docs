@@ -1,18 +1,10 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Uncovering DOM Leaks</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Uncovering DOM Leaks</h1>
 
 
-{% framebox height="600px" %}
 <script type="text/javascript" src="/chrome-developer-tools/docs/heap-profiling-dom-leaks-files/script.js"></script>
 <script type="text/javascript">document.body.onload = start;</script>
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 <p>This page demonstrates how leaking of DOM nodes can be uncovered
@@ -79,10 +71,7 @@ confirm this, do the following:
   <li>Select <strong>to window objects</strong> on the top of the <strong>Retaining paths</strong> view</li>
 </ul>
 </p>
-{% endframebox %}
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
-  </body>
-</html>
 
+{{/partials.standard_devtools_article}}

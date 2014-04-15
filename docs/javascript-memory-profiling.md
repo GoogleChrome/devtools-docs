@@ -1,103 +1,14 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
-
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/overrides.css">
-
-<style>
-.slide {width:700px;}
-.extdoc:before{
-  left: 80px;
-  bottom: 5px;
-  width: 50%;
-  height: 35%;
-  max-width: 200px;
-  max-height: 50px;
-  -webkit-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -webkit-transform: skew(50deg);
-  -moz-transform: skew(50deg);
-  -ms-transform: skew(50deg);
-  -o-transform: skew(50deg);
-  transform: skew(50deg);
-  -webkit-transform-origin: 0 100%;
-  -moz-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-}
-
-img{
-  max-width:900px;
-}
-
-.drop-shadow{
-  position: relative;
-  padding: 1em;
-  margin: 2em 10px 4em;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-
-}
-
-.extdoc {
-  padding:10px;
-  background: hsl(218, 73%, 97%);
-}
-
-.extdoc img{
-  max-width:900px;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-.perspective:after {
-  display: none;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-/* custom keyboard shortcut styling */
-.kbd{
-  -moz-border-radius:3px;
-  -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  -webkit-border-radius:3px;
-  -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  background-color:#f7f7f7;
-  border:1px solid #ccc;
-  border-radius:3px;
-  box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-  color:#333;
-  display:inline-block;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  line-height:1.4;
-  margin:0 .1em;
-  padding:.1em .6em;
-  text-shadow:0 1px 0 #fff;
-  white-space:nowrap;
-}
-</style>
+{{+bindTo:partials.standard_devtools_article}}
 
 # JavaScript Memory Profiling
 
 A **memory leak** is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as **leaks** and bloat but they also have to deal with **garbage collection pauses.**
 
-Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting_demos) when learning about features to improve your awareness of how the tools work in practice.
+Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting-demos) when learning about features to improve your awareness of how the tools work in practice.
 
-<div class="special"><p>Read
-the <a href="/chrome-developer-tools/docs/memory-analysis-101">Memory 101</a> page to become
-familiar with the terms used in this document.</p></div>
+<p>Read
+the <a href="memory-analysis-101.html">Memory 101</a> page to become
+familiar with the terms used in this document.</p>
 <p class="note"><strong>Note:</strong> Some of these features we will be using are currently only available in <a href="http://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>. We recommend using this version to get the best memory profiling tooling for your applications.</p>
 
 
@@ -111,11 +22,11 @@ In general, there are three questions you will want to answer when you think you
 
 * **How frequently is my page forcing garbage collection?** - if you are GCing frequently, you may be allocating too frequently. The [Timeline memory view](#identifying_a_memory_problem_with_the_devtools_timeline) can help you identify pauses of interest.
 
-<img src="memory-profiling-files/image_0.png" style="max-width:900px;"/>
+<img src="memory-profiling-files/image_0.png"/>
 
 **Table of contents**
 
-[[TOC]]
+
 
 ## Terminology and Fundamentals
 
@@ -200,7 +111,7 @@ In the diagram above:
 
 In the example below, node `#3` is the dominator of `#10`, but `#7` also exists in every simple path from GC to `#10`. Therefore, an object B is a dominator of an object A if B exists in every simple path from the root to the object A.
 
-<img src="memory-profiling-files/dominators.gif" width="550px"/>
+<img src="memory-profiling-files/dominators.gif"/>
 
 ### V8 Specifics
 
@@ -254,15 +165,16 @@ Each native objects group is made up from objects that hold mutual references to
 
 Each wrapper object holds a reference to the corresponding native object, for redirecting commands to it. In its own turn, an object group holds wrapper objects. However, this doesn't create an uncollectable cycle, as GC is smart enough to release object groups whose wrappers are no longer referenced. But forgetting to release a single wrapper will hold the whole group and associated wrappers.
 
+
 ## Prerequisites and helpful tips
 
 ### Chrome Task Manager
 
-<p class="note"><strong>Note:</strong> When profiling memory issues in Chrome, it is a good idea to setup a <a href="https://developers.google.com/chrome-developer-tools/docs/clean-testing-environment">clean-room testing environment</a>.</p>
+<p class="note"><strong>Note:</strong> When profiling memory issues in Chrome, it is a good idea to setup a <a href="clean-testing-environment.html">clean-room testing environment</a>.</p>
 
 Using the Chrome Task Manager you can quickly see if a page is consuming a lot of memory by monitoring the memory columns while performing actions that may be causing this to happen. The Task Manager is accessed from the Chrome menu > Tools or by pressing <span class="kbd">Shift</span> + <span class="kbd">Esc</span>.
 
-<img src="memory-profiling-files/image_5.png"  style="max-width:900px"/>
+<img src="memory-profiling-files/image_5.png" />
 
 Once open, right-click on the heading area of the columns and enable the JavaScript memory column.
 
@@ -284,11 +196,9 @@ When investigating memory issues, the Timeline panel’s **Memory view** can be 
 
 ![](memory-profiling-files/image_6.png)
 
-<div class="drop-shadow extdoc">
-
 <p>To read more about how to isolate problems that might be causing leaks during your memory profiling sessions, see <a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">Memory profiling with the Chrome DevTools</a> by Zack Grossbart.</p>
 
-</div>
+
 
 #### **Proving a Problem Exists**
 
@@ -302,13 +212,13 @@ Below we see a memory leak pattern, where some nodes are not being collected:
 
 If after a few iterations you see a [sawtooth](http://en.wikipedia.org/wiki/Sawtooth_wave) shaped graph (in the memory pane at the top), you are allocating lots of shortly lived objects. But if the sequence of actions is not expected to result in any retained memory, and the DOM node count does not drop down back to the baseline where you began, you have good reason to suspect there is a leak.
 
-<img src="memory-profiling-files/image_10.png"  style="max-width:900px"/>
+<img src="memory-profiling-files/image_10.png" />
 
 Once you’ve confirmed that the problem exists, you can get help identifying the source of the problem using the **heap profiler **on the **Profiles panel**.
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example1.html">memory growth</a> where you can practice how to effectively use Timeline memory mode.
+    Try out this example of <a href="demos/memory/example1.html">memory growth</a> where you can practice how to effectively use Timeline memory mode.
 </p>
 
 
@@ -322,6 +232,7 @@ This often happens when you’ve written your code in such a way that variables 
 
 Remember to check and nullify variables that contain references to DOM elements which may be getting updated/destroyed during the lifecycle of your app. Check object properties which may reference other objects (or other DOM elements). Be sure to keep an eye on variable caches which may accumulate over time.
 
+
 ## Heap Profiler
 
 ### Taking a snapshot
@@ -331,13 +242,13 @@ On the Profiles panel, choose ** *Take Heap Snapshot* **, then click **Start** o
 ![](memory-profiling-files/image_11.png)
 
 **
-**Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the [reachable](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#retaining_paths) JavaScript objects:
+**Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the [reachable](memory-analysis-101.html#retaining-paths) JavaScript objects:
 
 ![](memory-profiling-files/image_12.png)
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example2.html">garbage collection in action</a> and monitor memory usage in the Timeline.
+    Try out this example of <a href="demos/memory/example2.html">garbage collection in action</a> and monitor memory usage in the Timeline.
 </p>
 
 ### Clearing snapshots
@@ -352,7 +263,7 @@ Remember that we mentioned earlier you can force GC from the DevTools as part of
 
 <img src="memory-profiling-files/force.png"/>
 
-<p class="note"><strong>Example:</strong> Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example3.html">scattered objects</a> and profile it using the Heap Profiler. You should see a number of (object) item allocations.</p>
+<p class="note"><strong>Example:</strong> Try out this example of <a href="demos/memory/example3.html">scattered objects</a> and profile it using the Heap Profiler. You should see a number of (object) item allocations.</p>
 
 ### Switching between snapshot views
 
@@ -369,7 +280,7 @@ There are three default views:
 
 * **Containment — **allows exploration of heap contents;
 
-The **Dominators **view, which can be enabled via the Settings panel **— **shows the [dominators tree.](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#dominators) and can be useful to find accumulation points.
+The **Dominators **view, which can be enabled via the Settings panel **— **shows the [dominators tree.](memory-analysis-101.html#dominators) and can be useful to find accumulation points.
 
 ### Looking up color coding
 
@@ -386,6 +297,7 @@ Properties and property values of objects have different types and are colored a
 
 Objects designated as `System `do not have a corresponding JavaScript type. They are part of JavaScript VM's object system implementation. V8 allocates most of its internal objects in the same heap as the user's JS objects. So these are just v8 internals.
 
+
 ## Views in detail
 
 ### Summary view
@@ -400,7 +312,7 @@ Top-level entries are "total" lines. They display:
 
 * the **number of object instances** is displayed in the # column
 
-* the **Shallow size** column displays the sum of [shallow sizes](https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101.html#object_sizes) of all objects created by a certain constructor function
+* the **Shallow size** column displays the sum of [shallow sizes](memory-analysis-101.html#object-sizes) of all objects created by a certain constructor function
 
 * the **Retained size** column displays the maximum retained size among the same set of objects
 
@@ -408,7 +320,7 @@ Top-level entries are "total" lines. They display:
 
 After expanding a total line in the upper view, all of its instances are displayed. For each instance, its shallow and retained sizes are displayed in the corresponding columns. The number after the @ character is the objects’ unique ID, allowing you to compare heap snapshots on per-object basis.
 
-<p class="note"><strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary">demo page</a> (opens in a new tab) to understand how the Summary view can be used.</p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-summary.html">demo page</a> (opens in a new tab) to understand how the Summary view can be used.</p>
 
 Remember that yellow objects have JavaScript references on them and red objects are detached nodes which are referenced from one with a yellow background.
 
@@ -428,7 +340,7 @@ In the Comparison view, the difference between two snapshots is displayed. When 
 
 ![](memory-profiling-files/image_21.png)
 
-<p class="note"><strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison">demo page</a> (opens in a new tab) to get an idea how to use snapshot comparison for detecting leaks.</p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-comparison.html">demo page</a> (opens in a new tab) to get an idea how to use snapshot comparison for detecting leaks.</p>
 
 ### Containment view
 
@@ -447,7 +359,7 @@ Below is the example of a populated Containment view:
 ![](memory-profiling-files/image_22.png)
 
 <p class="note">
-  <strong>Example:</strong> Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment">demo page</a> (opens in a new tab) for finding out how to explore closures and event handlers using the view.
+  <strong>Example:</strong> Try this <a href="heap-profiling-containment.html">demo page</a> (opens in a new tab) for finding out how to explore closures and event handlers using the view.
 </p>
 
 <strong>A tip about closures</strong>
@@ -484,7 +396,7 @@ function createLargeClosure() {
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/chrome-developer-tools/docs/demos/memory/example8.html">heap allocations</a>.
+    Try out this example of <a href="demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="/devtools/docs/demos/memory/example8.html">heap allocations</a>.
 </p>
 
 ### Uncovering DOM leaks
@@ -517,14 +429,13 @@ DOM leaks can be bigger than you think. Consider the following sample - when is 
 
 <p class="note">
     <strong>Examples:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/chrome-developer-tools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
+    Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="/devtools/docs/demos/memory/example9.html">DOM leaks being bigger than expected</a>.
 </p>
 
-<div class="drop-shadow extdoc">
 
 <p>To read more about DOM leaks and memory analysis fundamentals checkout <a href="http://slid.es/gruizdevilla/memory">Finding and debugging memory leaks with the Chrome DevTools</a> by Gonzalo Ruiz de Villa.</p>
 
-</div>
+
 
 Native objects are most easily accessible from Summary and Containment views — there are dedicated entry nodes for them:
 
@@ -532,7 +443,7 @@ Native objects are most easily accessible from Summary and Containment views —
 
 <p class="note">
     <strong>Example:</strong>
-    Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks">demo</a> (opens in a new tab) to play with detached DOM trees.
+    Try this <a href="heap-profiling-dom-leaks.html">demo</a> (opens in a new tab) to play with detached DOM trees.
 </p>
 
 ### Dominators view
@@ -545,8 +456,9 @@ The Dominators view shows the dominators tree for the heap graph. The Dominators
 
 <p class="note">
     <strong>Examples:</strong>
-    Try this <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/chrome-developer-tools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
+    Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="/devtools/docs/demos/memory/example10.html">retaining paths and dominators</a>.
 </p>
+
 
 ## Object allocation tracker
 
@@ -577,6 +489,7 @@ In the example above, an action was performed 10 times.  The sample program cach
 ![](memory-profiling-files/image_29.png)
 
 Clicking on a specific object in the heap will show its retaining tree in the bottom portion of the heap snapshot. Examining the retaining path to the object should give you enough information to understand why the object was not collected, and you can make the necessary code changes to remove the unnecessary reference.
+
 
 ## Memory Profiling FAQ
 
@@ -639,11 +552,11 @@ Yellow nodes (with a yellow background) however do have direct references from J
 
 An animation of where detached nodes fit into the overall picture can be seen below:
 
-<img src="memory-profiling-files/detached-nodes.gif" style="max-width:900px"/>
+<img src="memory-profiling-files/detached-nodes.gif"/>
 
 <p class="note">
     <strong>Example:</strong>
-    Try out this example of <a href="/chrome-developer-tools/docs/demos/memory/example4.html">detached nodes</a> where you can watch node evolution in the Timeline then take heap snapshots to find detached nodes.
+    Try out this example of <a href="demos/memory/example4.html">detached nodes</a> where you can watch node evolution in the Timeline then take heap snapshots to find detached nodes.
 </p>
 
 **Q: What do the Shallow and Retained Size columns represent and what are the differences between them?**
@@ -709,6 +622,7 @@ Apps, extensions and even console logging can have an implicit impact on your fi
 
 The JavaScript engines of today are highly capable of automatically cleaning garbage generated by our code in a number of situations. That said, they can only go so far and our applications are still prone to memory leaks caused by logical errors. Use the tools available to find out your bottlenecks and remember, don't guess it - test it.
 
+
 ## Supporting Demos
 
 ### Debugging Memory Leaks
@@ -716,45 +630,46 @@ The JavaScript engines of today are highly capable of automatically cleaning gar
 Although we've mentioned them throughout this guide, a good set of end-to-end examples for testing various memory issues, ranging from growing memory leaking DOM nodes can be found summarized below. You may wish to experiment with them before attempting to use the tooling on your own more complex page or application.
 
 <ul>
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example1.html">Example 1: Growing memory</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example1.html">Example 1: Growing memory</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example2.html">Example 2: Garbage collection in
+<li><a target="_blank" href="/devtools/docs/demos/memory/example2.html">Example 2: Garbage collection in
 action</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example3.html">Example 3: Scattered objects</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example3.html">Example 3: Scattered objects</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example4.html">Example 4: Detached nodes</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example4.html">Example 4: Detached nodes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example5.html">Example 5: Memory and hidden
+<li><a target="_blank" href="/devtools/docs/demos/memory/example5.html">Example 5: Memory and hidden
 classes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example6.html">Example 6: Leaking DOM nodes</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example6.html">Example 6: Leaking DOM nodes</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example7.html">Example 7: Eval is evil (almost
+<li><a target="_blank" href="/devtools/docs/demos/memory/example7.html">Example 7: Eval is evil (almost
 always)</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example8.html">Example 8: Recording heap
+<li><a target="_blank" href="/devtools/docs/demos/memory/example8.html">Example 8: Recording heap
 allocations</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example9.html">Example 9: DOM leaks bigger than
+<li><a target="_blank" href="/devtools/docs/demos/memory/example9.html">Example 9: DOM leaks bigger than
 expected</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example10.html">Example 10: Retaining path</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example10.html">Example 10: Retaining path</a></li>
 
-<li><a target="_blank" href="/chrome-developer-tools/docs/demos/memory/example11.html">Example 11: Last exercise</a></li>
+<li><a target="_blank" href="/devtools/docs/demos/memory/example11.html">Example 11: Last exercise</a></li>
 </ul>
 
 Additional demos are available for:
 
-* [Gathering scattered objects](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary)
+* [Gathering scattered objects](heap-profiling-summary.html)
 
-* [Verifying action cleanness](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison)
+* [Verifying action cleanness](heap-profiling-comparison.html)
 
-* [Exploring the heap contents](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment)
+* [Exploring the heap contents](heap-profiling-containment.html)
 
-* [Uncovering DOM leaks](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks)
+* [Uncovering DOM leaks](heap-profiling-dom-leaks.html)
 
-* [Finding accumulation points](https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators)
+* [Finding accumulation points](heap-profiling-dominators.html)
+
 
 
 ## Community Resources
@@ -772,3 +687,5 @@ There are a number of excellent resources written by the community on finding an
 * [Rendering and memory profiling with the DevTools](http://www.slideshare.net/matenadasdi1/google-chrome-devtools-rendering-memory-profiling-on-open-academy-2013)
 
 * [Performance optimization with DevTools timeline and profile](http://addyosmani.com/blog/performance-optimisation-with-timeline-profiles/)
+
+{{/partials.standard_devtools_article}}

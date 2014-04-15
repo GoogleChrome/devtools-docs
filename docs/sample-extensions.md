@@ -1,5 +1,4 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Sample DevTools Extensions
 
@@ -7,10 +6,6 @@ There are many DevTools extensions available or in development. This section
 presents a small selection of extensions. All of the extensions listed here are 
 available for install from the Chrome Web Store. And they're all open source, so 
 you can use them as inspiration for your own extensions.
-
-#### Contents
-
-[[TOC]]
 
 ## AngularJS Batarang
 
@@ -45,7 +40,7 @@ If you use CoffeeScript, you may be interested in the CoffeeScript Console. As
 the name suggests, this extension provides a console window that lets you run 
 CoffeeScript code in the context of the current window.
 
-<img src="sample-extensions-files/coffeescript.jpg" width="582px" alt=""/> 
+<img src="sample-extensions-files/coffeescript.jpg" alt=""/> 
 
 More information:
 
@@ -125,3 +120,5 @@ More information:
 * Source code available on [GitHub.](https://github.com/dejan/rails_panel)
 * See the [README file ](https://github.com/dejan/rails_panel#readme)for 
   information on setting up and using Rails Panel.
+
+{{/partials.standard_devtools_article}}

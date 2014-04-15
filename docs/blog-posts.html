@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Blog Posts</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Blog Posts</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 
@@ -55,6 +48,5 @@ Break on UI and network events in Chrome Developer Tools</a> (Dec 2011)</li>
 </ul>
 
 
-  </body>
-</html>
 
+{{/partials.standard_devtools_article}}

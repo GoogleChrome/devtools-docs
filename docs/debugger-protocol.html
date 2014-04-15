@@ -1,14 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Remote debugging protocol</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Remote debugging protocol</h1>
 
 
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/docs/protocol/css/protocol.css"/>
 
 
 
@@ -21,44 +14,39 @@ this protocol, there are ways for third parties to bypass it and start
 instrumenting browser pages explicitly. We will describe the ways it could be
 done below.</p>
 
-<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="/chrome-developer-tools/docs/remote-debugging">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
+<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
 
-<h4>Contents</h4>
-<ol class="toc">
-  <li><a href="#protocol">Protocol</a></li>
-  <li><a href="#remote">Debugging over the wire</a></li>
-  <li><a href="#extension">Using debugger extension API</a></li>
-</ol>
-
+<div class="collapsible">
 <h2 id="protocol">Protocol</h2>
 <p>Interaction protocol consists of JSON commands that are sent to the page and
 events that the page is generating. We define this protocol in Blink
 ("upstream") so that any Blink-based browser supported it.</p>
 
 <p>
-<ul>
-  <li>As of Google Chrome M31, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/1.1/index">1.1</a> of the protocol. All
+  <ul>
+<li>As of Google Chrome M31, we commit to supporting the version
+<a href="protocol/1.1/index.html">1.1</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
   <li>As of Google Chrome M18, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/1.0/index">1.0</a> of the protocol. All
+<a href="protocol/1.0/index.html">1.0</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.0.</li>
   <li>As of Google Chrome M16, we commit to supporting the version
-<a href="/chrome-developer-tools/docs/protocol/0.1/index">0.1</a> of the protocol. All
+<a href="protocol/0.1/index.html">0.1</a> of the protocol. All
 subsequent 0.* versions of the protocol are going to be backwards compatible with 0.1.</li>
 </li>
 </ul>
+
 </p>
 <p>
 Protocol backwards compatibility is defined as follows:
-<ul>
-  <li>No commands or events are removed from the protocol</li>
+  <ul>
+<li>No commands or events are removed from the protocol</li>
   <li>No required parameters are added to the commands</li>
   <li>No required parameters are removed from command responses or events</li>
 </ul>
 </p>
 
-<p>There also is a <a href="/chrome-developer-tools/docs/protocol/tot/index">tip-of-tree</a> version of the
+<p>There also is a <a href="protocol/tot/index.html">tip-of-tree</a> version of the
 protocol that reflects present state of the protocol in Blink repository. You can
 use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
 builds at your own risk. Note that unless tip of the tree revision is promoted to the
@@ -127,6 +115,8 @@ instances of the browser or attaching to the embedded devices. Blink port
 owners are responsible for exposing debugging connections to the external
 users.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="extension">Using debugger extension API</h2>
 <p>To allow third parties to interact with the protocol, we introduced
 <a href="https://developer.chrome.com/extensions/debugger.html">
@@ -152,11 +142,10 @@ and any other aspect that Developer Tools is instrumenting today.</p>
 remote connection / detach the extension and will replace active debugger with
 itself. We are working on allowing several clients to instrument the page
 simultaneously.</p>
-
-<p class="backtotop"><a href="#top">Back to top</a></p>
-
-
-  </body>
-</html>
+<p></p>
 
 
+
+
+</div>
+{{/partials.standard_devtools_article}}

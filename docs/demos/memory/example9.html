@@ -1,15 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 9</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
+<h1>Example 9</h1>
 
-<body>
-  {% framebox height="500px" %}
   <h1>Example 9: DOM leaks bigger than expected</h1>
 
   <ol>
@@ -91,7 +83,6 @@ function removeLeafReference() {
 
     </script>
 </script>
-{% endframebox %}
 
   <hr>
   <pre>
@@ -144,5 +135,4 @@ function removeLeafReference() {
     leaf = null;
 }
 </pre>
-</body>
-</html>
+{{/partials.standard_devtools_article}}

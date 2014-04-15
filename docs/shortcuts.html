@@ -1,32 +1,13 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Keyboard Shortcuts</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css">
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Keyboard Shortcuts</h1>
 
     <p>
       The DevTools has several built-in shortcut keys that developers can use to save time in their day to day workflow. Outlined below is each shortcut and the corresponding key for each on Windows/Linux and Mac. While some shortcuts are globally available across all of the DevTools, others are specific to a single panel, and are broken up based on where it can be used.
     </p>
 
 
-    <h4>Contents</h4>
 
-    <ol class="toc">
-       <li><a href="#opening-devtools">Opening DevTools</a></li>
-       <li><a href="#all-panels">All Panels</a></li>
-       <li><a href="#elements-panel">Elements Panel</a></li>
-       <li><a href="#styles-sidebar">Styles Sidebar</a></li>
-       <li><a href="#sources-panel">Sources Panel</a></li>
-       <li><a href="#timeline-panel">Timeline Panel</a></li>
-       <li><a href="#console">Console</a></li>
-       <li><a href="#other-shortcuts">Other Chrome Shortcuts</a></li>
-    </ol>
-
-
+<div class="collapsible">
       <h2 id="opening-devtools"> Opening DevTools </h2>
 
       <p> To access the DevTools, on any web page or app in Google Chrome you can use one of these options: </p>
@@ -69,6 +50,8 @@
       <p> To open up the General Settings dialog type <span class="kbd">?</span> or <span class="kbd">F1</span> when the Developer Tools window is open. Press <span class="kbd">Esc</span> to close the settings dialog.</p>
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="all-panels"> All Panels </h2>
 
         <table>
@@ -161,6 +144,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="elements-panel"> Elements Panel </h2>
 
         <table>
@@ -224,6 +209,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="styles-sidebar"> Styles Sidebar </h2>
 
         <table>
@@ -318,6 +305,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="sources-panel"> Sources Panel </h2>
 
         <table>
@@ -445,6 +434,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="timeline-panel"> Timeline Panel </h2>
 
         <table>
@@ -475,6 +466,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="timeline-panel"> Profiles Panel </h2>
 
         <table>
@@ -495,6 +488,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="console"> Console </h2>
 
         <table>
@@ -559,6 +554,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="screencasting"> Screencasting </h2>
 
         <table>
@@ -583,6 +580,8 @@
       </section>
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="emulation"> Emulation </h2>
 
         <table>
@@ -603,6 +602,8 @@
 
 
       <section>
+</div>
+<div class="collapsible">
         <h2 id="other-shortcuts"> Other Chrome Shortcuts </h2>
 
         <p>Here are some additional Chrome shortcuts which are useful for general use within the browser not specific to the DevTools. <a href="http://goo.gl/PsTNm">View all Chrome shortcuts</a> for Windows, Mac, and Linux. </p>
@@ -675,7 +676,6 @@
 
       </section>
 
-      <p class="backtotop"><a href="#top">Back to top</a></p>
 
-  </body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}

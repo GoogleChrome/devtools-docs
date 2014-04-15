@@ -1,230 +1,14 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Tips And Tricks</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css">
-  </head>
-  <body>
-
-
-<style type="text/css">
-
-.extdoc:before{
-  left: 80px;
-  bottom: 5px;
-  width: 50%;
-  height: 35%;
-  max-width: 200px;
-  max-height: 50px;
-  -webkit-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
-  -webkit-transform: skew(50deg);
-  -moz-transform: skew(50deg);
-  -ms-transform: skew(50deg);
-  -o-transform: skew(50deg);
-  transform: skew(50deg);
-  -webkit-transform-origin: 0 100%;
-  -moz-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-}
-
-.drop-shadow{
-  position: relative;
-  padding: 1em;
-  margin: 2em 10px 4em;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-
-}
-
-.extdoc {
-  padding:10px;
-  background: hsl(218, 73%, 97%);
-}
-
-.extdoc img{
-  max-width:800px;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-.perspective:after {
-  display: none;
-}
-
-.drop-shadow:before, .drop-shadow:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-}
-
-.kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.5;
-  white-space: nowrap;
-}
-
-body.docs .screenshot, body.docs .border {
-  border:0px;
-}
-
-img{
-  max-width:950px;
-}
-</style>
-
-
-<p>There are many <strong>power tools</strong> at your disposal when using the DevTools, some of which are more obvious than others. In this guide, we will highlight some of those great tools, tips and tricks that are less well known. Read on and learn about those capabilities you might not know yet!</p>
-
-
-<ul>
-
-<li><strong>Console
-
-<ul>
-<li><strong><a href="#multiline-commands">Write multi-line commands</a></strong></li>
-<li><strong><a href="#inspect-element-line">A shortcut to launch in inspect element mode</a></strong></li>
-<li><strong><a href="#console-table">Support for the console.table command</a></strong></li>
-<li><strong><a href="#preview-logged-objects">Preview logged console objects</a></strong></li>
-<li><strong><a href="#styled-console-multiple">Pass multiple arguments to styled console logs</a></strong></li>
-<li><strong><a href="#clear-console-history">Shortcut to clear the console history</a></strong></li>
-<li><strong><a href="#keyboard-ninja">Become a keyboard ninja</a></strong></li>
-<li><strong><a href="#access-elements-console">Accessing elements from the console</a></strong></li>
-<li><strong><a href="#last-console-result">Access the last console result</a></strong></li>
-<li><strong><a href="#dom-xpath-expressions">Querying the DOM using XPath expressions</a></strong></li>
-<li><strong><a href="#console-dir">Using console.dir</a></strong></li>
-<li><strong><a href="#console-iframe">Running the JS console in a specific iframe</a></strong></li>
-<li><strong><a href="#console-persist">Stop the console clearing when navigating to a new page</a></strong></li>
-<li><strong><a href="#benchmarking-console">Benchmark loops using console.time() and console.timeEnd()</a></strong></li>
-<li><strong><a href="#profiling-console">Profiling with console.profile() and console.profileEnd()</a></strong></li>
-</ul>
-</strong></li>
-
-<li><strong>Timeline
-
-<ul>
-<li><strong><a href="#timeline-frames-mode">Frame profiling with Timeline Frames Mode</a></strong></li>
-<li><strong><a href="#forced-layout-events">Spot forced layout events using warnings</a></strong></li>
-<li><strong><a href="#timeline-shared">Share and analyze a Timeline recorded by someone else</a></strong></li>
-<li><strong><a href="#timeline-recordings">Annotating Timeline Recordings</a></strong></li>
-<li><strong><a href="#counter-display">FPS Counter/HUD Display</a></strong></li>
-</ul>
-</strong></li>
-
-
-<li><strong>Profiles
-
-<ul>
-<li><strong><a href="#three-snapshot-technique">Finding JavaScript memory leaks with the “3 snapshot” technique</a></strong></li>
-<li><strong><a href="#nodes-heap-profiler">Understanding Nodes In The Heap Profiler</a></strong></li>
-<li><strong><a href="#timespent-cpu-profiler">Understanding time spent in CPU profiler</a></strong></li>
-<li><strong><a href="#moreinsights-heapprofiler">Additional insights with Heap profiler views</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>Sources
-
-<ul>
-<li><strong><a href="#debug-dom-modifications">Debug on DOM modifications</a></strong></li>
-<li><strong><a href="#tracking-uncaught-exceptions">Tracking uncaught exceptions</a></strong></li>
-<li><strong><a href="#conditional-breakpoint-actions">Conditional breakpoint actions with console.log</a></strong></li>
-<li><strong><a href="#prettyprint-javascript">Pretty Print JavaScript</a></strong></li>
-<li><strong><a href="#favorite-expression">‘Favourite’ an expression or variable value</a></strong></li>
-<li><strong><a href="#insights-internal">Get insights into internal properties</a></strong></li>
-<li><strong><a href="#debug-xhr">Easily debug XHRs</a></strong></li>
-<li><strong><a href="#retrive-handlers">Retrieve event handlers registered on elements</a></strong></li>
-<li><strong><a href="#escape-console">Escape to see the console</a></strong></li>
-<li><strong><a href="#paused-breakpoint">Become more effective when paused at a breakpoint</a></strong></li>
-<li><strong><a href="#pause-exceptions">Pause on exceptions</a></strong></li>
-<li><strong><a href="#textsearch-across-allscripts">Text search across all scripts</a></strong></li>
-<li><strong><a href="#coffeescript-sourcemaps">Debugging CoffeeScript With DevTools And Source Maps</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>Elements
-
-<ul>
-<li><strong><a href="#enable-rulers">Enable rulers</a></strong></li>
-<li><strong><a href="#dragdrop-elements">Drag and drop in the Elements panel</a></strong></li>
-<li><strong><a href="#css-autocomplete">Autocompletion of CSS properties</a></strong></li>
-<li><strong><a href="#colorpicker">Color picker in the DevTools</a></strong></li>
-<li><strong><a href="#adding-styles">Adding new CSS styles</a></strong></li>
-<li><strong><a href="#drag-around-html">Drag around HTML</a></strong></li>
-<li><strong><a href="#force-element-state">Force Element State</a></strong></li>
-<li><strong><a href="#debugging-sass">Writing and debugging Sass with the DevTools</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>Network
-
-<ul>
-<li><strong><a href="#replay-xhrs">Replay XHRs</a></strong></li>
-<li><strong><a href="#clear-network">Clear the network cache or cookies</a></strong></li>
-<li><strong><a href="#record-export-trace">Record a trace &amp; export the waterfall</a></strong></li>
-<li><strong><a href="#details-network">Use large resource rows in network timeline for more detail</a></strong></li>
-<li><strong><a href="#websocket-inspection">WebSocket inspection</a></strong></li>
-<li><strong><a href="#find-filter-xhrs">Find and filter XHRs from the Network panel</a></strong></li>
-<li><strong><a href="#dump-network-stack">Get a dump of the network stack’s internal state</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>Settings
-
-<ul>
-<li><strong><a href="#emulating-touch">Emulating touch events</a></strong></li>
-<li><strong><a href="#emulating-ua-viewports">Emulating UA Strings &amp; Device Viewports</a></strong></li>
-<li><strong><a href="#emulating-geolocation">Emulating Geolocation</a></strong></li>
-<li><strong><a href="#dock-to-right-viewport">Dock-to-right for viewport debugging</a></strong></li>
-<li><strong><a href="#disable-javascript">Disable JavaScript</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>General
-
-<ul>
-<li><strong><a href="#switch-between-tabs">Quickly switch between tabs</a></strong></li>
-<li><strong><a href="#improved-dock-to-right">Get an improved dock-to-right experience</a></strong></li>
-<li><strong><a href="#disable-cache">Use ‘Disable Cache’ for cache invalidation</a></strong></li>
-<li><strong><a href="#inspect-shadow-dom">Inspect Shadow DOM</a></strong></li>
-<li><strong><a href="#preview-inspectable-pages">Preview all inspectable pages</a></strong></li>
-<li><strong><a href="#appcached-sites">Get insights into which sites have appcached</a></strong></li>
-<li><strong><a href="#multiple-filters">Select multiple filters in the Network/Console panels</a></strong></li>
-<li><strong><a href="#hard-reload">Clear the cache and perform a hard reload</a></strong></li>
-<li><strong><a href="#chrome-task-manager">Insights with the Chrome Task Manager</a></strong></li>
-</ul>
-</strong></li>
-<li><strong>Additional Tools
-
-<ul>
-<li><strong><a href="#debugging-ios-apps">Debugging iOS apps in DevTools</a></strong></li>
-<li><strong><a href="#jsruntime">JSRunTime: Easily Greb Objects</a></strong></li>
-<li><strong><a href="#other-resources">Other Resources</a></strong></li>
-</ul>
-</strong></li>
-</ul>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Tips And Tricks</h1>
 
 
 
+
+
+
+
+
+<div class="collapsible">
 <h2>Console</h2>
 
 <h3 id="multiline-commands">Write multi-line commands</h3>
@@ -237,7 +21,7 @@ img{
 
 <p><img src="tips-and-tricks/consolerun.png"/></p>
 
-<p>For a multi-line console which supports persistence, read about <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">Snippets</a> - a feature which can save and execute custom snippets of JavaScripts which are always available inside the DevTools.</p>
+<p>For a multi-line console which supports persistence, read about <a href="authoring-development-workflow.html#snippets">Snippets</a> - a feature which can save and execute custom snippets of JavaScripts which are always available inside the DevTools.</p>
 
 <h3 id="inspect-element-line">A shortcut to launch in inspect-element mode</h3>
 
@@ -245,7 +29,7 @@ img{
 
 <p><img src="tips-and-tricks/image_10.png"  /></p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/console">More: Using The Console | DevTools Docs</a></p>
+<p><a href="console.md">More: Using The Console | DevTools Docs</a></p>
 
 <h3 id="console-table">Support for the console.table command</h3>
 
@@ -313,11 +97,11 @@ console.log('%cBlue! %cRed!', 'color: blue;', 'color: red;');
 
 <h3 id="clear-console-history">Shortcut to clear the console history</h3>
 
-<p>With the console open you can easily clear your console history using the <span class="kbd">Ctrl</span> + <span class="kbd">L</span> or <span class="kbd">Cmd</span> + <span class="kbd">L</span>  <a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">shortcut</a><a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">.</a> A clear() command is also available at the shell prompt as is the <a href="https://developers.google.com/chrome-developer-tools/docs/console#clearing_the_console_history">console.clear()</a> method via the Console API from JavaScript.</p>
+<p>With the console open you can easily clear your console history using the <span class="kbd">Ctrl</span> + <span class="kbd">L</span> or <span class="kbd">Cmd</span> + <span class="kbd">L</span>  <a href="shortcuts.html">shortcut</a>. A clear() command is also available at the shell prompt as is the <a href="console.md#clearing-the-console-history">console.clear()</a> method via the Console API from JavaScript.</p>
 
 <h3 id="keyboard-ninja">Become a keyboard ninja</h3>
 
-<p>With the DevTools open you can just use <span class="kbd">?</span> to see all of the <a href="https://developers.google.com/chrome-developer-tools/docs/shortcuts">supported shortcuts</a> in a convenient panel.</p>
+<p>With the DevTools open you can just use <span class="kbd">?</span> to see all of the <a href="shortcuts.html">supported shortcuts</a> in a convenient panel.</p>
 
 <p><img src="tips-and-tricks/image_14.png"  /></p>
 
@@ -358,7 +142,7 @@ $x('//'img, frame);
 
 <h3 id="console-dir">Using console.dir</h3>
 
-<p>The <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoledirobject">console.dir(object)</a> command lists out all of the properties of a provided object as an expandable JavaScript object. Below is an example displaying an expandable object representing the properties found under document.body.</p>
+<p>The <a href="console-api.md#consoledirobject">console.dir(object)</a> command lists out all of the properties of a provided object as an expandable JavaScript object. Below is an example displaying an expandable object representing the properties found under document.body.</p>
 
 <p><img src="tips-and-tricks/image_18.png"  /></p>
 
@@ -376,17 +160,17 @@ $x('//'img, frame);
 
 <h3 id="benchmarking-console">Benchmark loops using <code>console.time()</code> and <code>console.timeEnd()</code></h3>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel">console.time()</a> begins a new timer using a specific label. When <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel">console.timeEnd()</a> is called using the same label the time is stopped and the elapsed time between both is logged to the console. This is particularly useful for benchmarking loops or code which doesn’t call a function.</p>
+<p><a href="console-api.md#consoletimelabel">console.time()</a> begins a new timer using a specific label. When <a href="console-api.md#consoletimeendlabel">console.timeEnd()</a> is called using the same label the time is stopped and the elapsed time between both is logged to the console. This is particularly useful for benchmarking loops or code which doesn’t call a function.</p>
 
 <p><img src="tips-and-tricks/image_21.png"  /></p>
 
 <h3 id="profiling-console">Profiling with <code>console.profile()</code> and <code>console.profileEnd()</code></h3>
 
-<p>With the DevTools open, calling <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoleprofilelabel">console.profile()</a> begins a JavaScript CPU profile. A label for the profile can be optionally passed, as seen below in console.profile("Processing"). To complete a profile run, call <a href="https://developers.google.com/chrome-developer-tools/docs/console-api#consoleprofileend">console.profileEnd()</a>.</p>
+<p>With the DevTools open, calling <a href="console-api.md#consoleprofilelabel">console.profile()</a> begins a JavaScript CPU profile. A label for the profile can be optionally passed, as seen below in console.profile("Processing"). To complete a profile run, call <a href="console-api.md#consoleprofileend">console.profileEnd()</a>.</p>
 
 <p><img src="tips-and-tricks/image_22.png"  /></p>
 
-<p>Each profile run gets added to the <a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a> panel:</p>
+<p>Each profile run gets added to the <a href="profiles.html">Profiles</a> panel:</p>
 
 <p><img src="tips-and-tricks/image_23.png"  /></p>
 
@@ -398,19 +182,21 @@ $x('//'img, frame);
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with the console, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/console">Using The Console</a>:</p>
+  <p>For more key tricks with the console, dive into <a href="console.md">Using The Console</a>:</p>
   <p><ul>
-  <li>A place to log diagnostic information using methods provided by the <a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>, such as <code>console.log()</code>, or <code>console.profile()</code>.</li>
-  <li>The methods provided by the <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api">Command Line API</a>, such as <code>$()</code> command for selecting elements, or <code>profile()</code> to start the CPU profiler.</li>
+  <li>A place to log diagnostic information using methods provided by the <a href="console-api.md">Console API</a>, such as <code>console.log()</code>, or <code>console.profile()</code>.</li>
+  <li>The methods provided by the <a href="commandline-api.md">Command Line API</a>, such as <code>$()</code> command for selecting elements, or <code>profile()</code> to start the CPU profiler.</li>
   </ul>
 </p>
   <!--Screenshot -->
- <p><a href="https://developers.google.com/chrome-developer-tools/docs/console"><img src="tips-and-tricks/preview_console.png"/></a></p>
+ <p><a href="console.md"><img src="tips-and-tricks/preview_console.png"/></a></p>
 
 </div>
 
 
 
+</div>
+<div class="collapsible">
 <h2>Timeline</h2>
 
 <h3 id="timeline-frames-mode">Frame profiling with Timeline Frames Mode</h3>
@@ -439,7 +225,7 @@ $x('//'img, frame);
 
 <p>When we target 60fps, we have a max of 16.66ms to do everything. That's not a lot of time and so squeezing as much performance out of your animations as possible is important.</p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/timeline">More: Improving Performance With The DevTools Timeline | DevTools Docs</a></p>
+<p><a href="timeline.md">More: Improving Performance With The DevTools Timeline | DevTools Docs</a></p>
 
 <h3 id="forced-layout-events">Spot forced layout events using warnings</h3>
 
@@ -459,11 +245,11 @@ $x('//'img, frame);
 
 <h3 id="timeline-recordings">Annotating Timeline Recordings</h3>
 
-<p>Your code can add annotations to Timeline recordings using the <a href="https://developers.google.com/chrome-developer-tools/docs/console#marking_the_timeline">console.timeStamp()</a> method. This helps correlate code in your web app to other activity going on or browser events.</p>
+<p>Your code can add annotations to Timeline recordings using the <a href="console.md#marking-the-timeline">console.timeStamp()</a> method. This helps correlate code in your web app to other activity going on or browser events.</p>
 
 <p><img src="tips-and-tricks/image_7.png"  /></p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/console#marking_the_timeline">More: DevTools Console API - Marking The Timeline | DevTools Docs</a></p>
+<p><a href="console.md#marking-the-timeline">More: DevTools Console API - Marking The Timeline | DevTools Docs</a></p>
 
 <p>Your application can add annotations to Timeline recordings by calling the console.timeStamp() method. This lets you easily correlate code in your application to other activity in your application or browser events. In the following recording, the Timeline is annotated with the string "Adding result". See Marking the Timeline in Using the Console for example code.</p>
 
@@ -487,19 +273,21 @@ $x('//'img, frame);
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with profiling using the Timeline, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/using-timeline">Performance Profiling With The Timeline</a>:</p>
+  <p>For more key tricks with profiling using the Timeline, dive into <a href="timeline.md">Performance Profiling With The Timeline</a>:</p>
   <p><ul>
   <li>A place to record and analyze all the activity in your application as it runs. It's the best place to start investigating perceived performance issues in your application.</li>
   <li>Insights into frame-rate, individual types of records that are generated in recordings and the layout process by which Chrome calculates the positions and sizes of all the elements on the page.</li>
   </ul>
 </p>
   <!--Screenshot -->
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/using-timeline"><img src="tips-and-tricks/preview_timeline.png"/></a></p>
+<p><a href="timeline.md"><img src="tips-and-tricks/preview_timeline.png"/></a></p>
 
 </div>
 
 
 
+</div>
+<div class="collapsible">
 <h2>Profiles</h2>
 
 <h3 id="three-snapshot-technique">Finding JavaScript memory leaks with the '3 snapshot' technique</h3>
@@ -558,20 +346,22 @@ $x('//'img, frame);
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with memory profiling, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling">Profiling Memory Performance</a>:</p>
+  <p>For more key tricks with memory profiling, dive into <a href="heap-profiling.html">Profiling Memory Performance</a>:</p>
   <p><ul>
   <li>A place to learn how to use the Heap Profiler for uncovering memory leaks in your applications.</li>
   <li>Insights into the different views of data that are available - including Summary view, Comparison view Containment view and Dominator view.</li>
   </ul>
 </p>
   <!--Screenshot -->
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling"><img src="tips-and-tricks/preview_memory.png"/></a></p>
+<p><a href="heap-profiling.md"><img src="tips-and-tricks/preview_memory.png"/></a></p>
 
 </div>
 
 
 
 
+</div>
+<div class="collapsible">
 <h2>Sources</h2>
 
 <h3 id="debug-dom-modifications">Debug on DOM modifications</h3>
@@ -619,7 +409,6 @@ $x('//'img, frame);
 <li><p>Next, press the "Pretty print" button <img src="tips-and-tricks/image_37.png"  /> (marked with curly braces) from the bottom of the DevTools window.</p></li>
 <li><p>Your code should now be prettified!</p></li>
 </ul>
-
 
 <p>Before</p>
 
@@ -700,13 +489,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_45.png"  /></p>
 
-<p>A tri-state stop button ( <img src="tips-and-tricks/image_46.png"  />) at the bottom of the Scripts panel enables you to switch between different exception handling modes:</p>
-
-<ul>
-<li><p>Pause on all exceptions <img src="tips-and-tricks/image_47.png"  /></p></li>
-<li><p>Pause on uncaught exceptions <img src="tips-and-tricks/pauseuncaught.png"  /></p></li>
-<li><p>Don’t pause on exceptions (default) <img src="tips-and-tricks/image_49.png"  /></p></li>
-</ul>
+<p>A pause button ( <img src="tips-and-tricks/image_46.png"  />) at the top of the Scripts panel enables you to switch between different exception handling modes. You likely don't want to pause on all exceptions, unless you're debugging code that's wrapped in try/catch.</p>
 
 
 
@@ -718,7 +501,6 @@ Object("hello")
 <li><p><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> (Windows, Linux)</p></li>
 <li><p><span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">F</span> (Max OSX)</p></li>
 </ul>
-
 
 <p>This supports both regular expressions and case sensitive search.</p>
 
@@ -739,7 +521,6 @@ Object("hello")
 <li><p>Select "Enable source maps"</p></li>
 </ul>
 
-
 <p><img src="tips-and-tricks/image_51.png"  /></p>
 
 <p>Next:</p>
@@ -750,7 +531,6 @@ Object("hello")
 <li><p>Create a Source map file example.js.map which will hold the mapping information: <code>$ coffee-redux/bin/coffee --source-map -i example.coffee > example.js.map</code></p></li>
 <li><p>Make sure the generated JavaScript file, example.js, has the source mapping url at the end as follows: <code>//# sourceMappingURL=example.js.map</code></p></li>
 </ul>
-
 
 <p><img src="tips-and-tricks/image_52.png"  /></p>
 
@@ -764,18 +544,20 @@ Object("hello")
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with your authoring workflow, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow">Authoring And Development Workflow</a>:</p>
+  <p>For more key tricks with your authoring workflow, dive into <a href="authoring-development-workflow.html">Authoring And Development Workflow</a>:</p>
   <p><ul>
   <li>A place to learn how to optimize your development workflow to save time achieving common tasks, such as locating files or functions, persisting edits to scripts or stylesheets or simply rearranging the layout to better suit your needs.</li>
   <li>Learning about new features such as Snippets which can be used to save and execute custom snippets of JavaScripts which are always available inside the DevTools.</li>
   </ul>
 </p>
   <!--Screenshot -->
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow"><img src="tips-and-tricks/preview_authoring.png"/></a></p>
+<p><a href="authoring-development-workflow.html"><img src="tips-and-tricks/preview_authoring.png"/></a></p>
 </div>
 
 
 
+</div>
+<div class="collapsible">
 <h2>Elements</h2>
 
 <h3 id="enable-rulers">Enable rulers</h3>
@@ -848,7 +630,6 @@ Object("hello")
 <li><p>You can now choose one of :active, :hover, :focus or :visited to force the element into one of these states.</p></li>
 </ul>
 
-
 <p><img src="tips-and-tricks/image_67.png"  /></p>
 
 <h3 id="debugging-sass">Writing and debugging Sass with the DevTools</h3>
@@ -891,7 +672,7 @@ Object("hello")
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with working with elements and styles, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/elements">Editing Styles And The DOM</a>:</p>
+  <p>For more key tricks with working with elements and styles, dive into <a href="dom-and-styles.html">Editing Styles And The DOM</a>:</p>
   <p><ul>
 
   <li>A place to learn how to view the real underlying structure of the page. For example, you may be curious if an image has an HTML id attribute, and what that attribute's value is.</li>
@@ -900,11 +681,13 @@ Object("hello")
 
 </p>
   <!--Screenshot -->
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/elements"><img src="tips-and-tricks/preview_elements.png"/></a></p>
+<p><a href="dom-and-styles.html"><img src="tips-and-tricks/preview_elements.png"/></a></p>
 
 </div>
 
 
+</div>
+<div class="collapsible">
 <h2>Network</h2>
 
 <h3 id="replay-xhrs">Replay XHRs</h3>
@@ -926,7 +709,6 @@ Object("hello")
 <li><p>Export request meta-data: right click, "Copy Entry as HAR"</p></li>
 <li><p>Export entire waterfall: right click, "Copy All as HAR"</p></li>
 </ul>
-
 
 <p><img src="tips-and-tricks/image_76.png"  /></p>
 
@@ -996,7 +778,7 @@ Object("hello")
 
 <p><a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#1">More: Wait, DevTools Could Do That? | Igvita.com</a></p>
 
-<p><a href="http://blog.kaazing.com/2012/05/09/inspecting-websocket-traffic-with-chrome-developer-tools/">More: WebSocket inspection with DevTools | Zaaking</a></p>
+<p><a href="http://blog.kaazing.com/2012/05/09/inspecting-websocket-traffic-with-chrome-developer-tools/">More: WebSocket inspection with DevTools | Kaazing</a></p>
 
 <h3 id="find-filter-xhrs">Find and filter XHRs from the Network panel</h3>
 
@@ -1010,7 +792,7 @@ Object("hello")
 
 <p><img src="tips-and-tricks/image_83.png"  /></p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/network">More: Evaluating Network Performance | DevTools Docs</a></p>
+<p><a href="network.md">More: Evaluating Network Performance | DevTools Docs</a></p>
 
 <h3 id="dump-network-stack">Get a dump of the network stack’s internal state</h3>
 
@@ -1025,7 +807,7 @@ Object("hello")
 <div class="drop-shadow extdoc">
 
   <!--Description-->
-  <p>For more key tricks with measuring network performance, dive into <a href="https://developers.google.com/chrome-developer-tools/docs/network">Evaluating Network Performance</a>:</p>
+  <p>For more key tricks with measuring network performance, dive into <a href="network.md">Evaluating Network Performance</a>:</p>
   <p><ul>
 
   <li>A place to learn how to get insights each network operation in your application, including detailed timing data, HTTP request and response headers, cookies, WebSocket data, and more</li>
@@ -1034,12 +816,14 @@ Object("hello")
 
 </p>
   <!--Screenshot -->
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/network"><img src="tips-and-tricks/preview_network.png"/></a></p>
+<p><a href="network.md"><img src="tips-and-tricks/preview_network.png"/></a></p>
 
 </div>
 
 
 
+</div>
+<div class="collapsible">
 <h2>Settings</h2>
 
 <h3 id="emulating-touch">Emulating touch events</h3>
@@ -1062,7 +846,7 @@ Object("hello")
 <p class="note"><strong>Note:</strong> A caveat with touch event emulation is that the DOM0 event handlers do not currently work with the emulation
 mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">here</a> for the relevant bug to track.</p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="emulating-ua-viewports">Emulating UA Strings &amp; Device Viewports</h3>
 
@@ -1074,7 +858,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p>Now you can emulate the exact device metrics of devices like the Galaxy Nexus and the iPhone to test your media query-driven design.</p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="emulating-gelocation">Emulating Geolocation</h3>
 
@@ -1110,7 +894,7 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><img src="tips-and-tricks/image_90.png"  /></p>
 
-<p><a href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation">More: DevTools Mobile Emulation | DevTools Docs</a></p>
+<p><a href="mobile-emulation.html">More: DevTools Mobile Emulation | DevTools Docs</a></p>
 
 <h3 id="dock-to-right-viewport">Dock-to-right for viewport debugging</h3>
 
@@ -1120,7 +904,6 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 <li><p>Enable dock-to-right mode by long-holding on the layout switcher icon <img src="tips-and-tricks/image_91.png"  /> at the bottom of the DevTools window</p></li>
 <li><p>You can now drag the window splitter right and left to change the width of the viewport and trigger your media query breakpoints.</p></li>
 </ul>
-
 
 <p><img src="tips-and-tricks/image_92.png"  /></p>
 
@@ -1132,6 +915,8 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p>Should you require it, you can also run Chrome with the “-disable-javascript” flag to achieve the same effect.</p>
 
+</div>
+<div class="collapsible">
 <h2>General</h2>
 
 <h3 id="switch-between-tabs">Quickly switch between tabs</h3>
@@ -1217,6 +1002,8 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 <li><p>From there you can either select additional views to drill down to by right-clicking on any column or end a process by right-clicking on it.</p></li>
 </ol>
 
+</div>
+<div class="collapsible">
 <h2>Additional Tools</h2>
 
 <h3 id="debugging-ios-apps">Debugging iOS apps in DevTools</h3>
@@ -1233,6 +1020,8 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 
 <p><a href="https://plus.google.com/u/0/115133653231679625609/posts/ih85hKCyGve">More: JSRuntime - A DevTools Extension For Grepping Objects | G+</a>.</p>
 
+</div>
+<div class="collapsible">
 <h2 id="other-resources">Other Resources</h2>
 
 <p>In addition to the tips above, there are also a number of fantastic external resources, slides, articles and videos that discuss the lesser known capabilities of the DevTools. We recommend looking at:</p>
@@ -1251,10 +1040,6 @@ mode. See <a href="https://code.google.com/p/chromium/issues/detail?id=133915">h
 <li><a href="http://jtaby.com/2012/04/23/modern-web-development-part-1.html">Modern Web Development</a></li>
 </ul>
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
-  </body>
-</html>
-
-  </body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}

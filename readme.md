@@ -2,6 +2,8 @@
 
 This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/).
 
+
+
 ## Contributing
 
 We regularly update the docs and welcome any contributions or bug-fixes.
@@ -9,6 +11,8 @@ We regularly update the docs and welcome any contributions or bug-fixes.
 Before submitting a pull request, please open a [new issue](https://github.com/GoogleChrome/devtools-docs/issues/new) to let us know you're working on.
 
 This will allow us to provide feedback and coordinate contribution efforts.
+
+FYI The extension docs live in the chromium repo: `chromium/src/chrome/common/extensions/docs`
 
 ### Orientation
 

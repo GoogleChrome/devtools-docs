@@ -1,12 +1,4 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Workspaces</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-    <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
 
 <h1>Workspaces - Persistent authoring in the DevTools</h1>
 
@@ -137,5 +129,4 @@ Press <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span cla
 
 <p><img src="workspaces-files/searchacross.png" alt="Search Across Files" /></p>
 
-</body>
-</html>
+{{/partials.standard_devtools_article}}

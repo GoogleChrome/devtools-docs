@@ -1,15 +1,7 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
+{{+bindTo:partials.standard_devtools_article}}
 <!DOCTYPE html>
-<html devsite>
-<head>
-  <title>Example 2</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-</head>
+<h1>Example 2</h1>
 
-<body>
-  {% framebox height="170px" %}
   <h1>Example 2: Watching the GC work.</h1>
 
   <p>Look at the time spent by the GC.</p>
@@ -49,7 +41,6 @@ function stop() {
     intervalId = null;
 }
 </script>
-  {% endframebox %} 
   <hr>
   <pre>
 'use strict';
@@ -83,5 +74,4 @@ function stop() {
     intervalId = null;
 }
 </pre>
-</body>
-</html>
+{{/partials.standard_devtools_article}}

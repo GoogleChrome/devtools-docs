@@ -1,13 +1,8 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Sample Debugging Protocol Clients
 
 There are a number third-party clients for the Chrome debugging protocol. This section presents a sample.
-
-#### Contents
-
-[[TOC]]
 
 ## Brackets
 
@@ -136,3 +131,4 @@ More information:
 * [Screencast describing the latest debugging 
   features.](http://tv.jetbrains.net/videocontent/improved-javascript-debugger-in-webstorm-7)
 
+{{/partials.standard_devtools_article}}

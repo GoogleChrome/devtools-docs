@@ -1,146 +1,1201 @@
-<!DOCTYPE html>
-<html lang="en" class="devsite js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths wf-opensans-n4-active wf-active" style="">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+    <link type="image/ico" rel="icon" href="//www.google.com/images/icons/product/chrome-32.png">
 
-	<link rel="stylesheet" type="text/css" href="boilerplate_files/screen.css">
-
-	<link rel="shortcut icon" href="https://developers.google.com/_static/images/favicon.ico">
-	<link rel="apple-touch-icon" href="https://developers.google.com/_static/images/apple-touch-icon.png">
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<script src="boilerplate_files/marked.js"></script>
-
-
-    <link rel="stylesheet" type="text/css" href="https://developers.google.com/chrome-developer-tools/css/local_extensions.css">
+    <link href="https://developer.chrome.com/static/css/out/site.css" rel="stylesheet" type="text/css">
+    <link href="https://developer.chrome.com/static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="https://developer.chrome.com/static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro" rel="stylesheet" type="text/css">
 
 
-	<!--[if lt IE 9]> <script src="/_static/js/html5shim/html5.js"></script> <![endif]-->
+    <title>Overview - Google Chrome</title>
 
 
-	<title>TITLE - Chrome DevTools — Google Developers</title>
+  <link type="text/css" href="https://www.google.com/uds/api/search/1.0/ee93f9aae9c9e9dba5eea831d506e69a/default+en.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-	<link href="boilerplate_files/table.css" rel="stylesheet" type="text/css">
-</head>
-<body class="two-column docs" screen_capture_injected="true">
+  <link type="text/css" href="https://www.google.com/cse/style/look/v2/default.css" rel="stylesheet">
 
-<div id="sandbar">
-	<header id="gc-googlebar">
-		<a id="gc-logo" href="https://developers.google.com/">
-			<img src="boilerplate_files/developers-logo.svg" alt="Google">
-		</a>
-		<div class="gc-social">
-			<span class="signed-in">
-				<div>
-					<a class="email" href="https://plus.google.com/me">me@google.com</a>
-					<a href="https://www.google.com/accounts/Logout">Sign out</a>
-				</div>
-				<img src="boilerplate_files/developers-logo-footer.png" width="30" height="30">
-			</span>
-		</div>
-		<form class="gc-search" action="https://developers.google.com/search/results" method="GET">
-			<div class="searchbox" style="width: 395px;">
-				<span class="button button-blue mini">Chrome DevTools</span>
-				<input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off" style="width: 263px;">
-			</div>
-			<button class="button button-blue" style="top: 0px; left: 410px;">
-				<img src="boilerplate_files/search.png" alt="Search">
-			</button>
-			<input type="hidden" name="p" id="search_project" value="/chrome-developer-tools">
-		</form>
-	</header>
-</div>
+  <script type="text/javascript" src="https://www.google.com/uds/api/ads/3.0/bf94c7183308df0ed5c9e3310a271dc7/search.I.js"></script>
 
-<div id="gc-wrapper" itemscope="" itemtype="http://schema.org/Article">
-	<input id="gc-analytics" type="hidden" value="UA-24532603-1">
-	<div id="gc-topnav">
-		<div>
-			<ul>
-				<li class=""><a href="https://developers.google.com/">Home</a></li>
-				<li class="active"><a href="https://developers.google.com/products/">Products</a></li>
-				<li class=""><a href="https://developers.google.com/events/">Conferences</a></li>
-				<li class=""><a href="https://developers.google.com/showcase/">Showcase</a></li>
-				<li class=""><a href="https://developers.google.com/live/">Live</a></li>
-				<li class=""><a href="https://developers.google.com/groups/">Groups</a></li>
-			</ul>
-		</div>
-	  </div>
+  <style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #666666;
+background-color: #CECECE;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #E9E9E9;
+background-color: #E9E9E9;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #FF9900;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #FF9900;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #0000CC;
+}
+.gsc-cursor-page {
+color: #0000CC;
+}
+a.gsc-trailing-more-results:link {
+color: #0000CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #000000;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #E9E9E9;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #FF9900;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #336699;
+background-color: #FFFFFF;
+}
+.gsc-completion-title {
+color: #0000CC;
+}
+.gsc-completion-snippet {
+color: #000000;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #0000CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #000000;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #008000;
+}
+</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 2px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
 
-	  <div id="gc-appbar">
-		<h1>
-		  <a href="https://developers.google.com/chrome-developer-tools/">Chrome DevTools</a>
-		  <div class="plusone-container"></div>
-		  <div style="float:right;">
-			<a href="" class="google-feedback" data-p="83800" data-b="" data-context="">Feedback on this document</a>
-		  </div>
-		</h1>
-	</div>
+  <body>
+    <div id="gc-container">
+    <a href="#gc-pagecontent" class="element-invisible element-focusable">Skip to main content</a>
 
-	<div id="gc-main">
+    <header id="topnav" role="banner">
+      <div id="logo">
+        <a href="/">
+          <img alt="Chrome: developer" src="https://developer.chrome.com/static/images/chrome-logo_2x.png">
+        </a>
+        <span class="collase-icon"><!-- <img src="https://developer.chrome.com/static/images/burger-icon.png" class="collase-icon">--></span>
+      </div>
+      <nav id="fatnav" role="navigation">
+      <ul>
+          <li class="pillar">
+            <span class="toplevel">Devtools</span>
+            <ul class="expandee">
+                <li class="submenu">Learn Basics
+                  <ul>
+                      <li class="category">
+                        <a href="/devtools/index">
+                        Overview
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/authoring-development-workflow">
+                        Authoring &amp; Development Workflow
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/console">
+                        Using the Console
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/tips-and-tricks">
+                        Tips &amp; Tricks
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/videos">
+                        Additional Resources
+                        </a>
+                        <ul>
+                            <li><a href="/devtools/docs/videos">Videos</a>
+                            </li>
+                            <li><a href="/devtools/docs/blog-posts">Blog Posts</a>
+                            </li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">Mailing List</a>
+                            </li>
+                            <li><a href="/devtools/docs/contributing">Contributing to DevTools</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Use Tools
+                  <ul>
+                      <li class="category">
+                        <a href="/devtools/docs/dom-and-styles">
+                        Inspecting &amp; Tweaking
+                        </a>
+                        <ul>
+                            <li><a href="/devtools/docs/elements">Editing Styles &amp; DOM</a>
+                            </li>
+                            <li><a href="/devtools/docs/css-preprocessors">Working with CSS Preprocessors</a>
+                            </li>
+                            <li><a href="/devtools/docs/resource-panel">Managing Application Storage</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/javascript-debugging">
+                        Debugging JavaScript
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/mobile-emulation">
+                        Mobile Emulation
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/remote-debugging">
+                        Remote Debugging on Android
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Performance &amp; Profiling
+                  <ul>
+                      <li class="category">
+                        <a href="/devtools/docs/network">
+                        Evaluating Network Performance
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/timeline">
+                        Using the Timeline
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/demos/too-much-layout/index">
+                        Timeline Demo: Finding Forced Synchronous Layouts
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/cpu-profiling">
+                        Profiling JavaScript Performance
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/javascript-memory-profiling">
+                        JavaScript Memory Profiling
+                        </a>
+                        <ul>
+                            <li><a href="/devtools/docs/javascript-memory-profiling">JavaScript Memory Profiling</a>
+                            </li>
+                            <li><a href="/devtools/docs/heap-profiling-summary">Demos</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/clean-testing-environment">
+                        Setting Up a Clean Testing Environment
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Reference
+                  <ul>
+                      <li class="category">
+                        <a href="/devtools/docs/console-api">
+                        Console API Reference
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/commandline-api">
+                        Command Line API Reference
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/integrating">
+                        DevTools Extensions API
+                        </a>
+                        <ul>
+                            <li><a href="/devtools/docs/integrating">Integrating with DevTools</a>
+                            </li>
+                            <li><a href="/devtools/docs/sample-extensions">Sample DevTools Extensions</a>
+                            </li>
+                            <li><a href="/devtools/docs/debugging-clients">Sample DevTools Protocol Clients</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/shortcuts">
+                        Keyboard Shortcuts
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/settings">
+                        Settings
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/debugger-protocol">
+                        Remote Debugging Protocol
+                        </a>
+                        <ul>
+                            <li><a href="/devtools/docs/debugger-protocol">Remote Debugging Protocol</a>
+                            </li>
+                            <li><a href="/devtools/docs/protocol/1.1/index">Version 1.1</a>
+                            </li>
+                            <li><a href="/devtools/docs/protocol/1.0/index">Version 1.0</a>
+                            </li>
+                            <li><a href="/devtools/docs/protocol/0.1/index">Version .1</a>
+                            </li>
+                            <li><a href="/devtools/docs/protocol/tot/index">Tip-of-tree</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+            </ul>
+          </li>
+          <li class="pillar">
+            <span class="toplevel">Multi-device</span>
+            <ul class="expandee">
+                <li class="submenu">Getting Started
+                  <ul>
+                      <li class="category">
+                        <a href="/multidevice/index">
+                        Chrome for a Multi-Device World
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/data-compression">
+                        Data Compression Proxy
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/user-agent">
+                        User Agents
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/mobile-emulation">
+                        Mobile Emulation
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/devtools/docs/remote-debugging">
+                        Remote Debugging
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/faq">
+                        FAQ
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Chrome for Android
+                  <ul>
+                      <li class="category">
+                        <a href="/multidevice/android/overview">
+                        Overview
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/android/intents">
+                        Android Intents with Chrome
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/android/installtohomescreen">
+                        Add to Homescreen
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Chrome WebView
+                  <ul>
+                      <li class="category">
+                        <a href="/multidevice/webview/overview">
+                        WebView for Android
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/webview/gettingstarted">
+                        Getting Started
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/webview/pixelperfect">
+                        Pixel-Perfect UI
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/webview/workflow">
+                        WebView Workflow
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/webview/tipsandtricks">
+                        Tips &amp; Tricks
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Chrome for iOS
+                  <ul>
+                      <li class="category">
+                        <a href="/multidevice/ios/overview">
+                        Overview
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/ios/links">
+                        Opening Links in Chrome
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/multidevice/ios/case-studies">
+                        Case Studies
+                        </a>
+                        <ul>
+                            <li><a href="/multidevice/ios/case-studies">Case Studies</a>
+                            </li>
+                            <li><a href="/multidevice/ios/pocket">Pocket</a>
+                            </li>
+                            <li><a href="/multidevice/ios/feedly">Feedly</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+            </ul>
+          </li>
+          <li class="pillar">
+            <span class="toplevel">Platform</span>
+            <ul class="expandee">
+                <li class="submenu">Apps
+                  <ul>
+                      <li class="category">
+                        <a href="/apps/about_apps">
+                        Learn Basics
+                        </a>
+                        <ul>
+                            <li><a href="/apps/about_apps">What Are Chrome Apps?</a>
+                            </li>
+                            <li><a href="/apps/first_app">Create Your First App</a>
+                            </li>
+                            <li><a href="/apps/app_architecture">App Architecture</a>
+                            </li>
+                            <li><a href="/apps/app_lifecycle">App Lifecycle</a>
+                            </li>
+                            <li><a href="/apps/contentSecurityPolicy">Content Security Policy</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/app_codelab1_setup">
+                        Learn with Codelab
+                        </a>
+                        <ul>
+                            <li><a href="/apps/app_codelab1_setup">1 - Set Up Development Environment</a>
+                            </li>
+                            <li><a href="/apps/app_codelab2_basic">2 - Create Basic App</a>
+                            </li>
+                            <li><a href="/apps/app_codelab3_mvc">3 - Create MVC</a>
+                            </li>
+                            <li><a href="/apps/app_codelab5_data">4 - Save &amp; Fetch Data</a>
+                            </li>
+                            <li><a href="/apps/app_codelab6_lifecycle">5 - Manage App Lifecycle</a>
+                            </li>
+                            <li><a href="/apps/app_codelab7_useridentification">6 - Access User's Data</a>
+                            </li>
+                            <li><a href="/apps/app_codelab8_webresources">7 - Access Web Resources</a>
+                            </li>
+                            <li><a href="/apps/app_codelab_10_publishing">8 - Publish App</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/samples">
+                        Samples
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/offline_apps">
+                        Develop in the Cloud
+                        </a>
+                        <ul>
+                            <li><a href="/apps/offline_apps">Offline First</a>
+                            </li>
+                            <li><a href="/apps/app_external">Handling External Content</a>
+                            </li>
+                            <li><a href="/apps/app_storage">Storing Data</a>
+                            </li>
+                            <li><a href="/apps/cloudMessaging">Cloud Messaging</a>
+                            </li>
+                            <li><a href="/apps/app_identity">User Authentication</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/app_usb">
+                        User Low-Level System Services
+                        </a>
+                        <ul>
+                            <li><a href="/apps/app_usb">USB</a>
+                            </li>
+                            <li><a href="/apps/app_serial">Serial</a>
+                            </li>
+                            <li><a href="/apps/app_network">Network Communications</a>
+                            </li>
+                            <li><a href="/apps/app_bluetooth">Bluetooth</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/app_frameworks">
+                        MVC Architecture &amp; Frameworks
+                        </a>
+                        <ul>
+                            <li><a href="/apps/app_frameworks">About MVC Architecture</a>
+                            </li>
+                            <li><a href="/apps/angular_framework">Build Apps with AngularJS</a>
+                            </li>
+                            <li><a href="/apps/sencha_framework">Build Apps with SenchaJS</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/publish_app">
+                        Distribute Apps
+                        </a>
+                        <ul>
+                            <li><a href="/apps/publish_app">Publish Your App</a>
+                            </li>
+                            <li><a href="/apps/google_wallet">Monetize Your App</a>
+                            </li>
+                            <li><a href="/webstore/one_time_payments">One-Time Payments</a>
+                            </li>
+                            <li><a href="/apps/analytics">Analytics</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/api_index">
+                        Chrome Platform APIs
+                        </a>
+                        <ul>
+                            <li><a href="/apps/api_index">JavaScript APIs</a>
+                            </li>
+                            <li><a href="/apps/manifest">Manifest File Format</a>
+                            </li>
+                            <li><a href="/apps/tags/webview">Webview Tag</a>
+                            </li>
+                            <li><a href="/apps/api_other">Web APIs</a>
+                            </li>
+                            <li><a href="/apps/app_deprecated">Disabled Web Features</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/apps/faq">
+                        Help
+                        </a>
+                        <ul>
+                            <li><a href="/apps/faq">FAQ</a>
+                            </li>
+                            <li><a href="https://groups.google.com/a/chromium.org/forum/#!forum/chromium-apps">Google Groups</a>
+                            </li>
+                            <li><a href="http://stackoverflow.com/questions/tagged/google-chrome-app">Stack Overflow</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Extensions
+                  <ul>
+                      <li class="category">
+                        <a href="/extensions/overview">
+                        Learn Basics
+                        </a>
+                        <ul>
+                            <li><a href="/extensions/overview">Overview</a>
+                            </li>
+                            <li><a href="/extensions/hosting_changes">Hosting Changes</a>
+                            </li>
+                            <li><a href="/extensions/event_pages">Event Pages</a>
+                            </li>
+                            <li><a href="/extensions/content_scripts">Content Scripts</a>
+                            </li>
+                            <li><a href="/extensions/activeTab">activeTab Permission</a>
+                            </li>
+                            <li><a href="/extensions/whats_new">What's New?</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/getstarted">
+                        Getting Started Tutorial
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/samples">
+                        Samples
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/tut_migration_to_manifest_v2">
+                        Develop Extensions
+                        </a>
+                        <ul>
+                            <li><a href="/extensions/a11y">Accessibility</a>
+                            </li>
+                            <li><a href="/extensions/contentSecurityPolicy">Content Security Policy</a>
+                            </li>
+                            <li><a href="/extensions/xhr">Cross-Origin XHR</a>
+                            </li>
+                            <li><a href="/extensions/tut_debugging">Debugging</a>
+                            </li>
+                            <li><a href="/extensions/i18n">Internationalization</a>
+                            </li>
+                            <li><a href="/extensions/messaging">Message Passing</a>
+                            </li>
+                            <li><a href="/extensions/tut_migration_to_manifest_v2">Migrate to Manifest 2</a>
+                            </li>
+                            <li><a href="/extensions/tut_oauth">OAuth</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/hosting">
+                        Distribute Extensions
+                        </a>
+                        <ul>
+                            <li><a href="/extensions/hosting">Hosting</a>
+                            </li>
+                            <li><a href="/extensions/packaging">Packaging</a>
+                            </li>
+                            <li><a href="/webstore/one_time_payments">One-Time Payments</a>
+                            </li>
+                            <li><a href="/extensions/autoupdate">Autoupdating</a>
+                            </li>
+                            <li><a href="/extensions/external_extensions">Other Deployment Options</a>
+                            </li>
+                            <li><a href="/extensions/tut_analytics">Google Analytics</a>
+                            </li>
+                            <li><a href="/extensions/themes">Publishing Themes</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/api_index">
+                        Chrome Platform APIs
+                        </a>
+                        <ul>
+                            <li><a href="/extensions/api_index">JavaScript APIs</a>
+                            </li>
+                            <li><a href="/extensions/manifest">Manifest File Format</a>
+                            </li>
+                            <li><a href="/extensions/api_other">Web APIs</a>
+                            </li>
+                            <li><a href="/extensions/permission_warnings">Permission Warnings</a>
+                            </li>
+                            <li><a href="/extensions/permissions">Optional Permissions</a>
+                            </li>
+                            <li><a href="/extensions/match_patterns">Match Patterns</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/extensions/faq">
+                        Help
+                        </a>
+                        <ul>
+                            <li><a href="/extensions/faq">FAQ</a>
+                            </li>
+                            <li><a href="https://groups.google.com/a/chromium.org/forum/#!forum/chromium-extensions">Google Groups</a>
+                            </li>
+                            <li><a href="http://stackoverflow.com/tags/google-chrome-extension/info">Stack Overflow</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Native Client
+                  <ul>
+                      <li class="category">
+                        <a href="/native-client/overview">
+                        Learn Basics
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/overview">What Is Native Client?</a>
+                            </li>
+                            <li><a href="/native-client/nacl-and-pnacl">NaCl and PNaCl</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/sdk/download">
+                        SDK
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/sdk/download">Download SDK</a>
+                            </li>
+                            <li><a href="/native-client/sdk/examples">Examples</a>
+                            </li>
+                            <li><a href="/native-client/sdk/release-notes">SDK Release Notes</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/devguide/tutorial/tutorial-part1">
+                        Tutorial
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/devguide/tutorial/tutorial-part1">Part 1: Simple PNaCl Web App</a>
+                            </li>
+                            <li><a href="/native-client/devguide/tutorial/tutorial-part2">Part 2: SDK Build System and Chrome Apps</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/devguide/devcycle/building">
+                        Development Cycle
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/devguide/devcycle/building">Building</a>
+                            </li>
+                            <li><a href="/native-client/devguide/devcycle/running">Running</a>
+                            </li>
+                            <li><a href="/native-client/devguide/devcycle/debugging">Debugging</a>
+                            </li>
+                            <li><a href="/native-client/devguide/devcycle/vs-addin">Debugging with Visual Studio</a>
+                            </li>
+                            <li><a href="/native-client/devguide/devcycle/dynamic-loading">Dynamic Linking and Loading with GlibC</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/devguide/coding/application-structure">
+                        Coding Your Application
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/devguide/coding/application-structure">Application Structure</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/native-client-modules">Native Client Modules</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/3D-graphics">3D Graphics</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/audio">Audio</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/file-io">File I/O</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/nacl_io">The nacl_io Library</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/message-system">Messaging System</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/progress-events">Progress Events</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/url-loading">URL Loading</a>
+                            </li>
+                            <li><a href="/native-client/devguide/coding/view-focus-input-events">View Change, Focus, &amp; Input Events</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/devguide/distributing">
+                        Distribute Your Apps
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/pepper_stable/index">
+                        Pepper API Reference
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/pepper_stable/c/group___interfaces">Pepper C Interfaces</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/c/group___structs">Pepper C Structures</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/c/group___functions">Pepper C Functions</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/c/group___enums">Pepper C Enums</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/c/group___typedefs">Pepper C Typedefs</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/c/global_defs">Pepper C Macros</a>
+                            </li>
+                            <li><a href="/native-client/pepper_stable/cpp/inherits">Pepper C++ Classes</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/glossary">
+                        Additional Reference &amp; Versions
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/glossary">Glossary</a>
+                            </li>
+                            <li><a href="/native-client/reference/nacl-manifest-format">Native Client Manifest (nmf) Format</a>
+                            </li>
+                            <li><a href="/native-client/reference/pnacl-bitcode-abi">PNaCl Bitcode Reference Manual</a>
+                            </li>
+                            <li><a href="/native-client/reference/pnacl-c-cpp-language-support">PNaCl C/C++ Language Support</a>
+                            </li>
+                            <li><a href="/native-client/reference/sandbox_internals/index">Sandbox Internals</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/native-client/faq">
+                        Help
+                        </a>
+                        <ul>
+                            <li><a href="/native-client/faq">FAQ</a>
+                            </li>
+                            <li><a href="/native-client/help">Forums &amp; Issues Tracker</a>
+                            </li>
+                            <li><a href="/native-client/publications-and-presentations">Publications &amp; Presentations</a>
+                            </li>
+                            <li><a href="/native-client/community/security-contest/index">Security Contest Archive</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="submenu">Store
+                  <ul>
+                      <li class="category">
+                        <a href="/webstore/index">
+                        What Is the Chrome Web Store?
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/overview">
+                        What Can You Publish?
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/get_started_simple">
+                        Tutorial: Getting Started
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/samples">
+                        Samples
+                        </a>
+                        <ul>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/branding">
+                        Branding
+                        </a>
+                        <ul>
+                            <li><a href="/webstore/branding">Branding Guidelines</a>
+                            </li>
+                            <li><a href="/webstore/images">Supplying Images</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/money">
+                        Monetizing
+                        </a>
+                        <ul>
+                            <li><a href="/webstore/money">Monetizing Your App</a>
+                            </li>
+                            <li><a href="/webstore/identify_user">Using Google Accounts</a>
+                            </li>
+                            <li><a href="/webstore/check_for_payment">Checking for Payment</a>
+                            </li>
+                            <li><a href="/webstore/one_time_payments">One-Time Payments</a>
+                            </li>
+                            <li><a href="/webstore/pricing">Pricing</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/publish">
+                        Publishing
+                        </a>
+                        <ul>
+                            <li><a href="/webstore/publish">Publishing Tutorial</a>
+                            </li>
+                            <li><a href="/webstore/i18n">Internationalizing Your App</a>
+                            </li>
+                            <li><a href="/webstore/inline_installation">Using Inline Installation</a>
+                            </li>
+                            <li><a href="/webstore/rating">Rating Guidelines</a>
+                            </li>
+                            <li><a href="/webstore/program_policies">Program Policies</a>
+                            </li>
+                            <li><a href="/webstore/terms">Terms of Service</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="category">
+                        <a href="/webstore/best_practices">
+                        Help
+                        </a>
+                        <ul>
+                            <li><a href="/webstore/best_practices">Best Practices</a>
+                            </li>
+                            <li><a href="/webstore/faq">FAQ</a>
+                            </li>
+                            <li><a href="https://groups.google.com/a/chromium.org/forum/#!forum/chromium-apps">Google Groups</a>
+                            </li>
+                            <li><a href="/webstore/articles">Articles</a>
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                </li>
+            </ul>
+          </li>
+        <li id="search">
+          <img src="https://developer.chrome.com/static/images/search.png">
+          <div class="expandee">
 
-	  <div id="gc-sidebar" class="wide">
-		<nav class="gc-toc"><ul><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow" data-title="Authoring &amp; development workflow"><span>Authoring &amp; development workflow</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/elements" data-title="Editing styles &amp; DOM" class="tlw-title"><span>Editing styles &amp; DOM</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/elements-styles" data-title="Styles"><span>Styles</span></a></li></ul></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/resource-panel" data-title="Managing application storage"><span>Managing application storage</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/network" data-title="Evaluating network performance"><span>Evaluating network performance</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/javascript-debugging" data-title="Debugging JavaScript"><span>Debugging JavaScript</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/using-timeline" data-title="Performance profiling with the Timeline" class="tlw-title"><span>Performance profiling with the Timeline</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/demos/too-much-layout" data-title="Demo: Finding forced synchronous layouts"><span>Demo: Finding forced synchronous layouts</span></a></li></ul></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/cpu-profiling" data-title="Profiling JavaScript performance"><span>Profiling JavaScript performance</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling" data-title="Profiling memory performance" class="tlw-title"><span>Profiling memory performance</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/memory-analysis-101" data-title="Memory analysis 101"><span>Memory analysis 101</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><span class="tlw-title tlw-control-title" data-title="Heap profiler demos">Heap profiler demos</span><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-summary" data-title="Gathering scattered objects"><span>Gathering scattered objects</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-comparison" data-title="Verifying action cleanness"><span>Verifying action cleanness</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-containment" data-title="Exploring the heap contents"><span>Exploring the heap contents</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dom-leaks" data-title="Uncovering DOM Leaks"><span>Uncovering DOM Leaks</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/heap-profiling-dominators" data-title="Finding accumulation points"><span>Finding accumulation points</span></a></li></ul></li></ul></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation" data-title="Mobile emulation"><span>Mobile emulation</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/console" data-title="Using the Console" class="tlw-title"><span>Using the Console</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/console-api" data-title="Console API Reference"><span>Console API Reference</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api" data-title="Command Line API Reference"><span>Command Line API Reference</span></a></li></ul></li>
+      <!-- override search styles set globally by site.css -->
+      <style>
+      .gsc-above-wrapper-area, .gsc-result-info {
+        font-size: 11px;
+      }
+      .gs-webResult div, .gs-result div {
+        line-height: initial;
+      }
+      .gs-webResult a, .gs-result a {
+        text-decoration: none;
+      }
+      td.gcsc-branding-img-noclear, .gcsc-branding-img-noclear a {
+        width: 51px;
+        height: 15px;
+        vertical-align: top;
+      }
+      .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
+        padding: 0;
+      }
+      .gsc-control-cse tr, .gsc-control-cse td, .gsc-control-cse th {
+       padding: inherit;
+       border: none;
+      }
+      .gsc-control-cse {
+        white-space: normal;
+        border: none;
+        padding: 0 1em;
+      }
+      #search .gsc-control-cse img {
+        height: inherit;
+        width: inherit;
+      }
+      .gsc-control-cse table {
+        margin: initial;
+      }
+      .gsc-control-cse * {
+        box-sizing: initial;
+        -webkit-box-sizing: initial;
+        -moz-box-sizing: initial;
+      }
+      #fatnav .expandee .gsc-control-cse a {
+       padding: 0;
+       color: inherit;
+      }
+      </style>
 
-			<li class=""><a href="shortcuts.html" data-title="Keyboard Shortcuts"><span>Keyboard Shortcuts</span></a></li>
-			<li class=""><a href="settings.html" data-title="Settings"><span>Settings</span></a></li>
+            <form id="chrome-docs-cse-search-form" action="http://google.com/cse">
+              <input type="search" id="chrome-docs-cse-input" name="q" placeholder="What are you looking for?" dir="ltr" autocomplete="off" spellcheck="false" style="outline: none;">
+              <input type="hidden" name="cx" value="010997258251033819707:7owyldxmpkc">
+              <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oq"><input type="hidden" name="gs_l"></form>
+            <div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr" style="visibility: hidden;"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8" style="display: none;"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: -0.0625em 0px 0px; height: 1.25em; outline: none; background-image: url(https://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif); background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat no-repeat;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><input type="image" src="https://www.google.com/uds/css/v2/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="https://www.google.com/uds/css/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+          </div>
+        </li>
+      </ul>
+      </nav>
+          </header>
 
-			<li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging" data-title="Remote Debugging on Android" class="tlw-title"><span>Remote Debugging on Android</span></a><ul style="display: none;"><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/debugger-protocol" data-title="Debugging protocol" class="tlw-title"><span>Debugging protocol</span></a><ul style="display: none;"><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/index" data-title="1.0" class="tlw-title"><span>1.0</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/console" data-title="Console"><span>Console</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/debugger" data-title="Debugger"><span>Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/dom" data-title="DOM"><span>DOM</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/domdebugger" data-title="DOM Debugger"><span>DOM Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/network" data-title="Network"><span>Network</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/page" data-title="Page"><span>Page</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/runtime" data-title="Runtime"><span>Runtime</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/1.0/timeline" data-title="Timeline"><span>Timeline</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/index" data-title="0.1" class="tlw-title"><span>0.1</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/console" data-title="Console"><span>Console</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/debugger" data-title="Debugger"><span>Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/dom" data-title="DOM"><span>DOM</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/domdebugger" data-title="DOM Debugger"><span>DOM Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/network" data-title="Network"><span>Network</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/page" data-title="Page"><span>Page</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/runtime" data-title="Runtime"><span>Runtime</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/0.1/timeline" data-title="Timeline"><span>Timeline</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/index" data-title="tip-of-tree" class="tlw-title"><span>tip-of-tree</span></a><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/console" data-title="Console"><span>Console</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/debugger" data-title="Debugger"><span>Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/dom" data-title="DOM"><span>DOM</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/domdebugger" data-title="DOM Debugger"><span>DOM Debugger</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/input" data-title="Input"><span>Input</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/network" data-title="Network"><span>Network</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/page" data-title="Page"><span>Page</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/runtime" data-title="Runtime"><span>Runtime</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/timeline" data-title="Timeline"><span>Timeline</span></a></li></ul></li></ul></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><span class="tlw-title tlw-control-title" data-title="Additional resources">Additional resources</span><ul style="display: none;"><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/videos" data-title="Videos"><span>Videos</span></a></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/blog-posts" data-title="Blog posts"><span>Blog posts</span></a></li><li class=""><a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools" data-title="Forum"><span>Forum</span></a></li></ul></li><li class=""><a href="https://developers.google.com/chrome-developer-tools/docs/contributing" data-title="Contributing"><span>Contributing</span></a></li></ul></nav>
-	  </div>
-
-
-
-
-		<!-- MAIN PAGE CONTENT -->
-		<div id="gc-content" class="wide-sidebar">
-
-		<!--// END MAIN PAGE CONTENT -->
-
-
+    <main id="gc-pagecontent" role="main">
 
 
-			<div id="gc-content-footer">
-	  			<div id="gc-content-license">
-	  				<p>Except as otherwise <a href="https://developers.google.com/readme/policies">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>.</p>
-				</div>
-				<div itemprop="datePublished" content="2013-05-10T18:21:10.881250" id="gc-content-last-updated">Last updated May 10, 2013.</div>
-			</div>
-		</div>
-	</div>
-	<!--// END GC CONTENT -->
+<article class="article-content">
+  <div itemprop="articleBody">
+
+<div id="gc-content"></div>
 
 
-	<footer id="gc-footer">
-		<div id="gc-copyright">
-			<a href="https://developers.google.com/">
-				<img id="developers-logo-footer" src="boilerplate_files/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left">
-			</a>
-			<ul>
-				<li><a href="http://www.google.com/">Google</a></li>
-				<li><a href="https://developers.google.com/readme/terms">Terms of Service</a></li>
-				<li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
-				<li><a href="https://developers.google.com/jobs">Jobs</a></li>
-				<li><a class="google-feedback" data-p="81425" data-b="Documentation" data-v="devsite-20130504-rc76.default" href="">Report a bug</a></li>
-			</ul>
-		</div>
-	</footer>
-</div>
-<!--
-<script src="boilerplate_files/script_foot.js"></script>
--->
-<script>
-(function($) {
-	devsite.devsite.Init($, null, '');
-})(jQuery);
-devsite.localInit = function() {};
+    <footer id="cc-info">
+      <button id="send-feedback" class="google-button" data-feedback="">Send Feedback</button>
+      <!--p class="last-updated">Last updated August 2, 2013.</p-->
+      <p class="cc-logo"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://developer.chrome.com/static/images/cc_by.png" alt="Licensed Creative Commons by Attribution"></a></p>
+    </footer>
+    <nav class="inline-toc no-permalink">
+      <section class="related">
+                  <h3 title="" class="has-permalink">Learn Basics<a class="permalink" title="Permalink" href="#learn-basics">#</a></h3>
+      <ol class="toc">
+                        <li>
+                          <a href="/devtools/index" class="active">Overview</a>
+                        </li>
+                        <li>
+                          <a href="/devtools/docs/authoring-development-workflow">Authoring &amp; Development Workflow</a>
+                        </li>
+                        <li>
+                          <a href="/devtools/docs/console">Using the Console</a>
+                        </li>
+                        <li>
+                          <a href="/devtools/docs/tips-and-tricks">Tips &amp; Tricks</a>
+                        </li>
+                        <li>
+                          <a href="/devtools/docs/videos">Additional Resources</a>
+                        </li>
+      </ol>
+      </section>
+      <section id="toc">
+    <h3 class="has-permalink">Contents<a class="permalink" title="Permalink" href="#contents">#</a></h3>
+    <ol class="toc">
+      <li class="toplevel"><a data-list-item="" href="#access">How to access the DevTools</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#devtools-window">The DevTools window</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#dom-and-styles">Inspecting the DOM and styles</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#console">Working with the console</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#debugging-javascript">Debugging JavaScript</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#improving-network-performance">Improving network performance</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#audits">Audits</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#timeline">Improving rendering performance</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#javascript-performance">JavaScript  CSS performance</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#inspecting-storage">Inspecting storage</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#further-reading">Further reading</a>
+      </li>
+      <li class="toplevel"><a data-list-item="" href="#further-resources" "="" class="hastoc">Further resources</a>
+          <ol class="toc">
+              <li><a data-list-item="" href="#get-more">Get more</a>
+              </li>
+              <li><a data-list-item="" href="#take-the-course">Take the course</a>
+              </li>
+              <li><a data-list-item="" href="#get-involved">Get involved</a>
+              </li>
+              <li><a data-list-item="" href="#debugging-extensions">Debugging extensions</a>
+              </li>
+          </ol>
+      </li>
+    </ol>
+</section>
 
-google.load('visualization', '1', {packages: ['table']});
-</script>
+    </nav>
+  </div>
+</article>
+    </main>
 
-<script src="boilerplate_files/format+en,default,table.I.js" type="text/javascript"></script>
-<script src="boilerplate_files/preview.js"></script>
+    <footer id="gc-footer" role="contentinfo" class="span-full">
+      <div class="g-section g-tpl-50-50">
+        <div class="g-unit g-first">
+          <nav class="links">
+            <a href="https://www.google.com/">Google</a><a href="https://developers.google.com/site-terms">Terms of Service</a><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a><a href="" data-feedback="">Report a bug</a>
+          </nav>
+        </div>
+        <div class="g-unit g-last">
+          <div id="social-buttons">
+            <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 80px; height: 15px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 80px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" tabindex="0" vspace="0" width="100%" id="I0_1397599209932" name="I0_1397599209932" src="https://apis.google.com/u/0/_/+1/fastbutton?usegapi=1&amp;size=small&amp;annotation=bubble&amp;origin=https%3A%2F%2Fdeveloper.chrome.com&amp;url=http%3A%2F%2Fwww.google.com%2Fchrome&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.Z0T4ejFDQi8.O%2Fm%3D__features__%2Fam%3DIQ%2Frt%3Dj%2Fd%3D1%2Fz%3Dzcms%2Frs%3DAItRSTPlRCTNgrng4U9aj5m_687IPTtIVg#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1397599209932&amp;parent=https%3A%2F%2Fdeveloper.chrome.com&amp;pfname=&amp;rpctoken=23033929" data-gapiattached="true" title="+1"></iframe></div>
+            <a rel="publisher" target="_blank" href="https://plus.google.com/+GoogleChromeDevelopers?prsrc=3" data-g-label="plus" data-g-event="nav-subfooter">Add us on <span class="element-invisible">Google+</span><img src="//ssl.gstatic.com/images/icons/gplus-16.png" data-g-label="plus" data-g-event="nav-subfooter" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
 
 </body>
+
+<script src="boilerplate_files/marked.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="boilerplate_files/preview.js"></script>
+
+
+
 </html>
+

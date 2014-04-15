@@ -1,11 +1,9 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Command Line API Reference
 
-The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the [Console API](console-api), the Command Line API is only available from within the console itself.
+The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the [Console API](console-api.md), the Command Line API is only available from within the console itself.
 
-[[TOC]]
 
 ## $_ ##
 
@@ -16,6 +14,8 @@ Returns the value of the most recently evaluated expression. In the following ex
 In the next example, the evaluated expression is a call to the [`$$()`](#selector_1) method, which returns an array of elements that match the CSS selector. It then evaluates `$_.length` to get the length of the array (17), which becomes the most recently evaluated expression.
 
 <img src="commandline-api-files/last_expression_2.png" class="screenshot"/>
+
+
 
 ## $0 - $4 ##
 
@@ -29,6 +29,8 @@ The image below shows the `gc-content` element selected in the same page. The **
 
 ![image alt text](commandline-api-files/$1.png)
 
+
+
 ## $(selector) ##
 
 Returns reference to the first DOM element with the specified CSS selector.This function is an alias for [`document.querySelector()`](http://docs.webplatform.org/wiki/css/selectors_api/querySelector) function.
@@ -38,6 +40,8 @@ The following example saves a reference to the first `<img>` element in the docu
     $('img').src;
 
 ![image alt text](commandline-api-files/$img_src.png)
+
+
 
 ## $$(selector) ##
 
@@ -54,6 +58,8 @@ The following example uses `$$()` to create an array of all `<img>` elements in 
 
 Note: Press Shift+Enter in the console to start a new line without executing the script.
 
+
+
 ## $x(path) ##
 
 Returns an array of DOM elements that match the given XPath expression. For example, the following returns all the `<p>` elements that contain `<a>` elements:
@@ -62,19 +68,25 @@ Returns an array of DOM elements that match the given XPath expression. For exam
 
 ![Example of using an Xpath selector](commandline-api-files/$xpath.png)
 
+
+
 ## clear() ##
 
 Clears the console of its history.
 
     clear();
 
-Also see [Clearing the console](console#clearing_the_console_history).
+Also see [Clearing the console](console.md#clearing-the-console-history).
+
+
 
 ## copy(object) ##
 
 Copies a string representation of the specified object to the clipboard.
 
     copy($0);
+
+
 
 ## dir(object)
 
@@ -89,9 +101,13 @@ The following example shows the difference between evaluating `document.body` di
 
 For more information, see the [`console.dir()`](console-api#consoledirobject) entry in the Console API.
 
+
+
 ## dirxml(object)
 
 Prints an XML representation of the specified object, as seen in the Elements tab. This method is equivalent to the [`console.dirxml()`](console-api#consoledirxmlobject) method.
+
+
 
 ## inspect(object)
 
@@ -102,6 +118,8 @@ The following example opens the first child element of `document.body` in the El
     inspect(document.body.firstChild);
 
 ![Inspecting an element with inspect()](commandline-api-files/inspect.png)
+
+
 
 ## getEventListeners(object) ##
 
@@ -119,6 +137,8 @@ You can further expand each of these objects to explore their properties:
 
 ![Expanded view of listener object](commandline-api-files/geteventlisteners_expanded.png)
 
+
+
 ## keys(object)
 
 Returns an array containing the names of the properties belonging to the specified object. To get the associated values of the same properties, use [values()](#valuesobject).
@@ -133,6 +153,8 @@ For example, suppose your application defined the following object:
 Assuming `player1` was defined in the global namespace (for simplicity), typing `keys(player1)` and `values(player1)` in the Console would result in the following:
 
 <img src="commandline-api-files/keys-values2.png" style="max-width:100%" alt="Example of keys() and values() methods">
+
+
 
 ## monitorEvents(object[, events])
 
@@ -167,6 +189,8 @@ Below is sample output after typing two characters in the text field:
 
 <img src="commandline-api-files/monitor-key-events.png" class="screenshot" alt="">
 
+
+
 ## profile([name])
 
 Starts a JavaScript CPU profiling session with an optional name. To complete the profile call [`profileEnd()`](#profileendname).
@@ -179,11 +203,15 @@ To stop profiling and display the results in the Profiles panel:
 
     profileEnd("My profile")
 
-For more examples, see [Controlling the CPU profiler](console#controlling_the_cpu_profiler).
+For more examples, see [Controlling the CPU profiler](console.md#controlling-the-cpu-profiler).
+
+
 
 ## profileEnd([name])
 
 Stops the current profiling session started with the [profile()](#profilename) method and displays the results in the Profiles panel.
+
+
 
 ## unmonitorEvents(object[, events])
 
@@ -196,10 +224,14 @@ You can also selectively stop monitoring specific events on an object. For examp
     monitorEvents($0, "mouse");
     unmonitorEvents($0, "mousemove");
 
-Also see [Monitoring events](console#monitoring_events).
+Also see [Monitoring events](console.md#monitoring-events).
+
+
 
 ## values(object)
 
 Returns an array containing the values of all properties belonging to the specified object.
 
     values(object);
+
+{{/partials.standard_devtools_article}}

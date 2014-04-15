@@ -1,16 +1,8 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Verifying Action Cleanness</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Verifying Action Cleanness</h1>
 
 
-{% framebox height="1000px" %}
 <script type="text/javascript" src="/chrome-developer-tools/docs/heap-profiling-comparison-files/script.js"></script>
-<link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
 
 
 <p>This page demonstrates how action cleanness can be verified using
@@ -77,10 +69,7 @@ in order to fix the leak.</p>
 <p>You can also take multiple snapshots, and compare them arbitrarily
 (not necessary to complete the last one with the previous one.)</p>
 
-{% endframebox %}
 
-<p class="backtotop"><a href="#top">Back to top</a></p>
 
-  </body>
-</html>
 
+{{/partials.standard_devtools_article}}

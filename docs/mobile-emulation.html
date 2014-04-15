@@ -1,35 +1,5 @@
-{% include "chrome-developer-tools/_local_variables.html" %}
-<html devsite>
-  <head>
-    <title>Mobile emulation</title>
-    <meta name="project_path" value="/chrome-developer-tools/_project.yaml" />
-    <meta name="book_path" value="/chrome-developer-tools/_book.yaml" />
-  </head>
-  <body>
-  <link rel="stylesheet" type="text/css" href="/chrome-developer-tools/css/local_extensions.css"/>
-  <style>
-img {
-    border:1px solid #ccc;
-}
-
-.android-font-metrics-list {
-    margin-bottom: 0;
-}
- </style>
-
-<h4><strong>Contents</strong></h4>
-
-<ul>
-<li><a href="#enable-emulation-panel">Enabling the Emulation Panel</a></li>
-<li><a href="#emulate-touch-events">Emulating Touch Events</a></li>
-<li><a href="#emulate-devices">Emulating Devices</a></li>
-<li><a href="#useragent-spoofing">Useragent Spoofing</a></li>
-<li><a href="#network-throttling">Network Bandwidth Throttling</a></li>
-<li><a href="#device-geolocation-overrides">Geolocation Overrides</a></li>
-<li><a href="#device-orientation-overrides">Device Orientation Overrides</a></li>
-<li><a href="#css-media-type-emulation">CSS Media Type Emulation</a></li>
-<li><a href="#faq">Frequently Asked Questions</a></li>
-</ul>
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Mobile emulation</h1>
 
 <p>The mobile web has evolved to enable increasingly sophisticated applications,
 which we often wish to debug during development on the desktop. The DevTools
@@ -39,6 +9,7 @@ walk through in this section.</p>
 
 <p class="note"><b>Note</b>: Some of our documentation may be ahead of the stable version of Chrome. If you are unable to locate a feature listed, we recommend trying <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> which contains the latest version of the DevTools.</p>
 
+<div class="collapsible">
 <h2 id="enable-emulation-panel">Enabling the Emulation Panel</h2>
 
 <p><a href="https://www.google.com/intl/en/chrome/browser/canary.html" title="Chrome Canary">Chrome Canary</a> has received a number of improved mobile emulation tools which can be accessed by enabling the Emulation panel through the Settings panel. To enable:</p>
@@ -58,6 +29,8 @@ walk through in this section.</p>
 
 
 
+</div>
+<div class="collapsible">
 <h2 id="emulate-devices">Emulating Devices</h2>
 
 <p>It's often easier to start prototyping on the desktop and then tackle the
@@ -74,9 +47,7 @@ make this process more straightforward.</p>
   <li><strong>Device Pixel Ratio</strong> - matches the DPR of the selected device. Allows emulation of a retina device from a non-retina machine. This also means media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.</li>
   <li><strong>Emulate viewport</strong> - zooms the page out to the physical default viewport of that device. In the case of the Nexus 4 this is 768x1280. </li>
   <li><strong>Text autosizing</strong> - emulate font boosting which occurs on mobile devices.</li>
-  <ul class="android-font-metrics-list">
     <li><strong>Android font metrics</strong> - Android artificially increases the font metrics used by text autosizing based on the system settings and screen size. Enabled by default only when emulating an Android device.</li>
-  </ul>
   <li><strong>Touch screen</strong> (part of the Sensors pane) - uses touch events, see <a href="#emulate-touch-events">Emulating Touch Events</a>.</li>
 </ul>
 
@@ -100,13 +71,16 @@ make this process more straightforward.</p>
 
 <h4>Notes</h4>
 <ul>
-<li>The <strong>Swap dimensions</strong> button in between the <em>Resolution</em> values (<img src="mobile-emulation/image_6.png"/>) will swap the width and height.</li>
-<li><b>Shrink to fit</b> ensures the emulated device screen is completely visible within your browser window. This setting does not emulate the device differently.</li>
-<li>Device media queries (e.g <code>@media only screen and (min-device-width:768px)</code>) will be enabled according to the values defined in the Resolution settings.</li>
-<li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
-<li>Device settings can be configured independently of a device preset.</li>
-<li>If you would like to contribute patches to support new device presets, please see our <a href="contributing">contribution docs</a>.</li>
+  <li>The <strong>Swap dimensions</strong> button in between the <em>Resolution</em> values (<img src="mobile-emulation/image_6.png"/>) will swap the width and height.</li>
+  <li><b>Shrink to fit</b> ensures the emulated device screen is completely visible within your browser window. This setting does not emulate the device differently.</li>
+  <li>Device media queries (e.g <code>@media only screen and (min-device-width:768px)</code>) will be enabled according to the values defined in the Resolution settings.</li>
+  <li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
+  <li>Device settings can be configured independently of a device preset.</li>
+  <li>If you would like to contribute patches to support new device presets, please see our <a href="contributing.md">contribution docs</a>.</li>
+</ul>
 
+</div>
+<div class="collapsible">
 <h2 id="emulate-touch-events">Emulating Touch Events</h2>
 
 <p>Touch is an input method that's difficult to test on the desktop, since most
@@ -143,7 +117,6 @@ succeed on page refresh.</li>
 <li>On click, the order of events fired is currently: <code>touchstart > mousedown > touchmove > touchend > mouseup > click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</li>
 <li><code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
 </ul>
-
 <div class="screenshot"><img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/></img></div>
 
 <p><strong>Debugging touch events</strong></p>
@@ -162,7 +135,7 @@ Demo</a></li>
 
 <p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
 
-You may also monitor touch events as they fire on an element in the console. Use <a href="https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
+You may also monitor touch events as they fire on an element in the console. Use <a href="commandline-api.md#monitoreventsobject-events"><code>monitorEvents</code> from the command line API</a>:
 
 <pre class="prettyprint"><code>monitorEvents(document.body, 'touch')</code></pre>
 
@@ -176,6 +149,8 @@ development</b> guide on HTML5 Rocks</a>.</p>
 
 
 
+</div>
+<div class="collapsible">
 <h2 id="useragent-spoofing">Useragent Spoofing</h2>
 
 
@@ -205,6 +180,8 @@ After:
 </table>
 
 
+</div>
+<div class="collapsible">
 <h2 id="network-throttling">Network Bandwidth Throttling</h2>
 
 
@@ -220,6 +197,8 @@ After:
 
 <p>On Linux, there are many options for traffic shaping; <a href="http://info.iet.unipi.it/~luigi/dummynet/">dummynet</a> is the recommended option. </p>
 
+</div>
+<div class="collapsible">
 <h2 id="device-geolocation-overrides">Geolocation Overrides</h2>
 
 <p>When working with HTML5 geolocation support in an application, it can be useful
@@ -255,6 +234,8 @@ latitude. The DevTools support both overriding position values for <em>navigator
 
 
 
+</div>
+<div class="collapsible">
 <h2 id="device-orientation-overrides">Device Orientation Overrides</h2>
 
 <p>Many new mobile devices are now shipping with accelerometers, gyroscopes,
@@ -280,12 +261,10 @@ values listed above it.</li>
 <li>Check "Accelerometer".</li>
 <li>You will see three fields:
   <ul>
-    <li><b>α</b>: how much the device has been rotated around the
-z-axis.
-  <li><b>β</b>: how much the device is tilted left-to-right.
-  <li><b>γ</b>: how much it's
-tilted front-to-back.</li>
-</ul>
+    <li><b>α</b>: how much the device has been rotated around the z-axis.
+    <li><b>β</b>: how much the device is tilted left-to-right.
+    <li><b>γ</b>: how much it's tilted front-to-back.</li>
+  </ul>
 <li>Change the values to the following:
 
 <ol>
@@ -306,6 +285,8 @@ in our application being emulated as rotating in a clockwise direction.</p>
 
 
 
+</div>
+<div class="collapsible">
 <h2 id="css-media-type-emulation">CSS Media Type Emulation</h2>
 
 <p>CSS media types allow you to apply different styles to a page depending on the
@@ -337,14 +318,16 @@ After:
 </tr></tbody>
 </table>
 
+</div>
+<div class="collapsible">
 <h2 id="faq">Frequently Asked Questions</h2>
 
 <p><strong>Q: Do the DevTools supports remote debugging?</strong><br/>
-A: Yes. Please see our <a href="/chrome/mobile/docs/debugging">remote debugging</a>
+A: Yes. Please see our <a href="remote-debugging.html">remote debugging</a>
 documentation for more information.</p>
 
 <p><strong>Q: Can the DevTools emulate lower GPU memory limits or slower CPUs, as found on mobile devices?</strong><br>
 A: Currently there is no means within DevTools or Chrome to emulate these characteristics. </p>
 
-</body>
-</html>
+</div>
+{{/partials.standard_devtools_article}}

@@ -1,5 +1,4 @@
-Project: /chrome-developer-tools/_project.yaml
-Book: /chrome-developer-tools/_book.yaml
+{{+bindTo:partials.standard_devtools_article}}
 
 # Contributing to Chrome DevTools
 
@@ -7,7 +6,6 @@ There are many ways you can improve the productivity of your fellow developers.
 That could be by sharing what you know or helping out with documenting features 
 or writing a patch to improve the tools we all use. 
 
-[[TOC]]
 
 ## How can you help?
 
@@ -462,3 +460,5 @@ are on Windows. Some failures are expected! (unfortunatly). A good process here
 is to run them before you make any changes, then run them after you make your 
 changes. It can also take an argument to a directory so you can just point it to 
 the `LayoutTests/inspector` directory to run. 
+
+{{/partials.standard_devtools_article}}
