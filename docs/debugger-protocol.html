@@ -23,7 +23,8 @@ events that the page is generating. We define this protocol in Blink
 ("upstream") so that any Blink-based browser supported it.</p>
 
 <p>
-  <li>As of Google Chrome M31, we commit to supporting the version
+  <ul>
+<li>As of Google Chrome M31, we commit to supporting the version
 <a href="protocol/1.1/index.html">1.1</a> of the protocol. All
 subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
   <li>As of Google Chrome M18, we commit to supporting the version
@@ -33,12 +34,16 @@ subsequent 1.* versions of the protocol are going to be backwards compatible wit
 <a href="protocol/0.1/index.html">0.1</a> of the protocol. All
 subsequent 0.* versions of the protocol are going to be backwards compatible with 0.1.</li>
 </li>
+</ul>
+
 </p>
 <p>
 Protocol backwards compatibility is defined as follows:
-  <li>No commands or events are removed from the protocol</li>
+  <ul>
+<li>No commands or events are removed from the protocol</li>
   <li>No required parameters are added to the commands</li>
   <li>No required parameters are removed from command responses or events</li>
+</ul>
 </p>
 
 <p>There also is a <a href="protocol/tot/index.html">tip-of-tree</a> version of the
@@ -80,6 +85,7 @@ http://localhost:9222
 
 <p>You will find Developer Tools interface identical to the embedded one and
 here is why:</p>
+<ul>
 <li>When you navigate your <i>client</i> browser to the remote's Chrome port,
 Developer Tools front-end is being served from the <i>host</i> Chrome
 as a Web Application from the Web Server.</li>
@@ -87,6 +93,7 @@ as a Web Application from the Web Server.</li>
 <li>Once loaded, Developer Tools establishes a Web Socket connection to its
 host and starts interchanging JSON messages with it.
 </li>
+</ul>
 
 <p>In this scenario, you can substitute Developer Tools front-end with your
 own implementation. Instead of navigating to the HTML page at

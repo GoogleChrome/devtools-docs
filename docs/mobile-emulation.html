@@ -41,6 +41,7 @@ make this process more straightforward.</p>
 
 <p>DevTools contains built in presets for a number of devices, this allows you to emulate and debug mobile viewport issues like CSS media query breakpoints. Selecting a device preset automatically enables a number of settings:</p>
 
+<ul>
   <li><strong>User agent</strong> - a string available at <code>navigator.userAgent</code> and also sent as a request header for page resources. See <a href="#useragent-spoofing">Useragent Spoofing</a>.</li>
   <li><strong>Screen resolution</strong> - matches the actual dimensions (width and height) of the selected device. For example, selecting the Nexus S will emulate a resolution of 480x800.</li>
   <li><strong>Device Pixel Ratio</strong> - matches the DPR of the selected device. Allows emulation of a retina device from a non-retina machine. This also means media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.</li>
@@ -48,6 +49,7 @@ make this process more straightforward.</p>
   <li><strong>Text autosizing</strong> - emulate font boosting which occurs on mobile devices.</li>
     <li><strong>Android font metrics</strong> - Android artificially increases the font metrics used by text autosizing based on the system settings and screen size. Enabled by default only when emulating an Android device.</li>
   <li><strong>Touch screen</strong> (part of the Sensors pane) - uses touch events, see <a href="#emulate-touch-events">Emulating Touch Events</a>.</li>
+</ul>
 
 <p><div class="screenshot"><img width="746" src="mobile-emulation/viewport-emulation.gif" alt="Viewport emulation"/></div></p>
 
@@ -68,12 +70,14 @@ make this process more straightforward.</p>
 <p><div class="screenshot"><img width="375" src="mobile-emulation/device_metrics.png" alt="Viewport Overrides"/></div></p>
 
 <h4>Notes</h4>
-<li>The <strong>Swap dimensions</strong> button in between the <em>Resolution</em> values (<img src="mobile-emulation/image_6.png"/>) will swap the width and height.</li>
-<li><b>Shrink to fit</b> ensures the emulated device screen is completely visible within your browser window. This setting does not emulate the device differently.</li>
-<li>Device media queries (e.g <code>@media only screen and (min-device-width:768px)</code>) will be enabled according to the values defined in the Resolution settings.</li>
-<li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
-<li>Device settings can be configured independently of a device preset.</li>
-<li>If you would like to contribute patches to support new device presets, please see our <a href="contributing.md">contribution docs</a>.</li>
+<ul>
+  <li>The <strong>Swap dimensions</strong> button in between the <em>Resolution</em> values (<img src="mobile-emulation/image_6.png"/>) will swap the width and height.</li>
+  <li><b>Shrink to fit</b> ensures the emulated device screen is completely visible within your browser window. This setting does not emulate the device differently.</li>
+  <li>Device media queries (e.g <code>@media only screen and (min-device-width:768px)</code>) will be enabled according to the values defined in the Resolution settings.</li>
+  <li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
+  <li>Device settings can be configured independently of a device preset.</li>
+  <li>If you would like to contribute patches to support new device presets, please see our <a href="contributing.md">contribution docs</a>.</li>
+</ul>
 
 </div>
 <div class="collapsible">
@@ -103,6 +107,7 @@ mobile applications on the desktop.</p>
 
 <h4>Notes</h4>
 
+<ul>
 <li>Feature detects such as <code><a href="http://modernizr.com">Modernizr.touch</a></code> will now
 succeed on page refresh.</li>
 <li>This feature, like many other overrides, will only work while the DevTools are open.</li>
@@ -111,7 +116,7 @@ succeed on page refresh.</li>
 <li>Enabling "Emulate touch screen" does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>, touch is another option we can debug with.</li>
 <li>On click, the order of events fired is currently: <code>touchstart > mousedown > touchmove > touchend > mouseup > click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</li>
 <li><code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
-
+</ul>
 <div class="screenshot"><img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/></img></div>
 
 <p><strong>Debugging touch events</strong></p>
@@ -255,11 +260,11 @@ values listed above it.</li>
 <li>Open the Emulation panel in the DevTools and click the Sensors pane.</li>
 <li>Check "Accelerometer".</li>
 <li>You will see three fields:
-    <li><b>α</b>: how much the device has been rotated around the
-z-axis.
-  <li><b>β</b>: how much the device is tilted left-to-right.
-  <li><b>γ</b>: how much it's
-tilted front-to-back.</li>
+  <ul>
+    <li><b>α</b>: how much the device has been rotated around the z-axis.
+    <li><b>β</b>: how much the device is tilted left-to-right.
+    <li><b>γ</b>: how much it's tilted front-to-back.</li>
+  </ul>
 <li>Change the values to the following:
 
 <ol>

@@ -55,16 +55,18 @@ switch between views, use the selector at the bottom of the view:</p>
 <div class="screenshot"><img src="heap-profiling-files/view_selector_crop.png"></div>
 
 <p>There are four views:
-  <li><strong>Summary</strong> &mdash; shows objects grouped by
-  the constructor name;</li>
-  <li><strong>Comparison</strong> &mdash; displays difference between
-  two snapshots;</li>
-  <li><strong>Containment</strong> &mdash; allows exploration of heap
-  contents;</li>
-  <li><strong>Dominators</strong> &mdash;
-  shows <a href="memory-analysis-101.html#dominators">dominators
-  tree.</a>
-</li>
+  <ul>
+    <li><strong>Summary</strong> &mdash; shows objects grouped by
+      the constructor name;</li>
+    <li><strong>Comparison</strong> &mdash; displays difference between
+      two snapshots;</li>
+    <li><strong>Containment</strong> &mdash; allows exploration of heap
+      contents;</li>
+    <li><strong>Dominators</strong> &mdash;
+      shows <a href="memory-analysis-101.html#dominators">dominators
+	tree.</a>
+    </li>
+  </ul>
 
 <h3 id="basics_colors">Looking up color coding</h3>
 
@@ -75,15 +77,17 @@ question mark button on the status bar:</p>
 <div class="screenshot"><img src="heap-profiling-files/colors_legend.png"></div>
 
 <p>Each property has one of four types::
+  <ul>
     <li><strong>property</strong> &mdash; a regular property with a name,
       accessed via the <code>.</code> (dot) operator, or via
       <code>[]</code> (brackets) notation, e.g. <code>["foo bar"]</code>;</li>
     <li><strong>element</strong> &mdash; a regular property with a numeric
       index, accessed via <code>[]</code> (brackets) notation;</li>
     <li><strong>context variable</strong> &mdash; a variable in a function
-    context, accessible by its name from inside a function closure;</li>
+      context, accessible by its name from inside a function closure;</li>
     <li><strong>system property</strong> &mdash; property added by the
-    JavaScript VM, not accessible from JavaScript code.</li>
+      JavaScript VM, not accessible from JavaScript code.</li>
+  </ul>
 </p>
 
 <p>Objects designated as <strong>System</strong> don't have
@@ -155,12 +159,14 @@ JavaScript objects, and to understand how much memory your application uses at a
 very low level.</p>
 
 <p>The view provides several entry points:
+  <ul>
     <li><code>DOMWindow</code> objects &mdash; these are objects
-    considered as &quot;global&quot; objects for JavaScript code;</li>
+      considered as &quot;global&quot; objects for JavaScript code;</li>
     <li>GC roots &mdash; actual GC roots used by VM's garbage collector;</li>
     <li>Native objects &mdash; browser objects that are &quot;pushed&quot;
-    inside the JavaScript virtual machine to allow automation, e.g. DOM nodes,
-    CSS rules (see the next section for more details.)</li>
+      inside the JavaScript virtual machine to allow automation, e.g. DOM nodes,
+      CSS rules (see the next section for more details.)</li>
+  </ul>
 
 <p>Below is the example of what the <strong>Containment</strong> view
 looks like:</p>
@@ -220,8 +226,10 @@ sources for leaks:
 <p>In the simplest case, the path will only include &quot;true&quot;
 JavaScript objects and use references that are accessible from
 JavaScript code, e.g.:
+  <ul>
     <li><code>DOMWindow@1234.foo.bar</code></li>
     <li><code>DOMWindow@1235.listeners[34].handler["on click event"]</code></li>
+  </ul>
 </p>
 
 <p>Such paths can be easily evaluated in the debugger console if the appropriate
@@ -233,8 +241,11 @@ not captured in a snapshot.</p>
 
 <p>Often it happens that an object is retained via closures. Closure references
 are displayed using the <code>-&gt;</code> notation:
+  <ul>
     <li><code>DOMWindow@1234.callbacks[12]->context</code></li>
     <li><code>DOMWindow@1235.callback->nested->inside</code></li>
+  </ul>
+
   Such paths can't be evaluated in the console.</p>
 
 <p>Even more advanced are paths including &quot;hidden&quot;
@@ -249,9 +260,11 @@ actually accesses it.) Knowing these details might help in getting an
 understanding of how the virtual machine works. However, for most of web
 application developers it is safe to ignore them. Below are some examples of
 &quot;internal&quot; paths:
-    <li><code>GCRoots@1[254]</code></li>
-    <li><code>DOMWindow@1234{prop}{1}</code> &mdash; this is equivalent to a JavaScript path: <code>DOMWindow@1234.prop</code></li>
-    <li><code>DOMWindow@1235.object{properties}{2}</code></li>
+<ul>
+  <li><code>GCRoots@1[254]</code></li>
+  <li><code>DOMWindow@1234{prop}{1}</code> &mdash; this is equivalent to a JavaScript path: <code>DOMWindow@1234.prop</code></li>
+  <li><code>DOMWindow@1235.object{properties}{2}</code></li>
+</ul>
 </p>
 
 </div>
@@ -296,12 +309,14 @@ Is the ID value really unique?
 <dl>
   <dt>What comprises GC roots?
     <dd>Many things:
-    <li>built-in object maps;</li>
-    <li>symbol table;</li>
-    <li>stacks of VM threads;</li>
-    <li>compilation cache;</li>
-    <li>handle scopes;</li>
-    <li>global handles.</li>
+    <ul>
+      <li>built-in object maps;</li>
+      <li>symbol table;</li>
+      <li>stacks of VM threads;</li>
+      <li>compilation cache;</li>
+      <li>handle scopes;</li>
+      <li>global handles.</li>
+    </ul>
     </dd>
   </dt>
 </dl>

@@ -10,8 +10,10 @@ your preprocessor source files in the Sources panel, and view the results withou
 <figure class="screenshot"> <img src="css-preprocessors-files/sass-debugging.png" alt="Elements panel showing .scss stylesheet" /></figure>
 
 <p>To jump to the source file: </p>
+<ul>
 <li>Click the link to open the (editable) source file in the Sources panel.</li>
 <li><b>Control+click</b> (or <b>Command+click</b>) on any CSS property name or value to open the source file and jump to the appropriate line.</li>
+</ul>
 
 <figure class="screenshot"><img src="css-preprocessors-files/sass-sources.png" alt="Sources panel showing .scss file" /></figure>
 
@@ -29,6 +31,7 @@ containing the associated source file regains focus. Also, manual editing of a C
 
 <p>There are a few requirements to note when working with a CSS preprocessor:</p>
 
+<ul>
 <li><p>To use this workflow, your CSS preprocessor must support CSS source maps, specifically the Source Map v3 proposal. The CSS source maps must be built
 along with the CSS files, so DevTools can map each CSS property to the correct location in the original source file
 (for example, .scss file).</p></li>
@@ -48,6 +51,7 @@ If you are <em>not</em> using the Workspaces feature, the web server must also s
 You can start a web server to serve the contents of the current directory like this:</p>
 <pre class="prettyprint">python -m SimpleHTTPServer</pre>
 </li>
+</ul>
 
 </div>
 <div class="collapsible">
@@ -85,12 +89,14 @@ enable automatic reloading of generated CSS files. </p>
 
 <p>DevTools supports the <a href="https://docs.google.com/a/google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#">Source Map Revision 3 proposal</a>. This proposal is being implemented in several CSS preprocessors:</p>
 
+<ul>
 <li>Sass: As described above, this is supported in the prerelease version of Sass.</li>
 <li>Compass: <a href="https://github.com/chriseppstein/compass/blob/master/compass-style.org/content/CHANGELOG.markdown#100alpha16-12052013">Implemented in compass 1.0.0.alpha.16.</a>
 <li>Less: Implemented in 1.5.0. See <a href="https://github.com/less/less.js/issues/1050#issuecomment-25566463">issue #1050</a> for details and usage patterns.</li>
 <li>Autoprefixer: Implemented in 1.0. <a href="https://github.com/ai/autoprefixer#source-map">Autoprefixer docs</a> explain how to use it, along with absorbing an input sourcemap (from another preprocessor).</li>
 <li>Libsass: <a href="https://github.com/hcatlin/libsass/commit/366bc110c39c26c9267a1cc06e578beb94cd93ef">Implemented</a>.
 <li>Stylus: Under consideration. See <a href="https://github.com/LearnBoost/stylus/issues/1072">issue #1072</a>.</li>
+</ul>
 
 </div>
 <div class="collapsible">
@@ -148,8 +154,10 @@ h2 {
 See the following external articles for tutorials and alternate workflows.
 </p>
 
+<ul>
 <li><a href="https://medium.com/what-i-learned-building/b4daab987fb0">Getting started with CSS sourcemaps and in-browser Sass editing</a></li>
 <li><a href="http://benfrain.com/add-sass-compass-debug-info-for-chrome-web-developer-tools/">Faster Sass debugging and style iteration with source maps, Chrome Web Developer Tools and Grunt</a></li>
+</ul>
 
 <aside class="note"><strong>Note:</strong> External resources may not reflect the latest version of Chrome.</aside>
 </div>
