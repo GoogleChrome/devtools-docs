@@ -2,6 +2,9 @@ sidebar_style: wide
 toc:
 - title: "Authoring and Development Workflow"
   path: /chrome-developer-tools/docs/authoring-development-workflow
+  section:
+  - title: "Saving all changes with Workspaces"
+    path: /chrome-developer-tools/docs/workspaces
 - title: "Editing Styles And The DOM"
   path: /chrome-developer-tools/docs/dom-and-styles
   section:
