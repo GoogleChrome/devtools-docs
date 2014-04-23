@@ -176,7 +176,7 @@ flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):<br/>
 
 For example:
 
-    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" --user-data-dir=blink/chromeServerProfile
+    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front-end/inspector.html
 
 <img src="contributing-files/image02.png" alt="Command-line flags" width="700"/>
 
@@ -188,10 +188,10 @@ to the end of the path. Then paste the entire line into the field.</p>
 **Run Canary in the terminal with the flags added at the end of the path to the
 program.<br/>
 <br/>
-`/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary
---remote-debugging-port=9222 --n`[`o-first-run
---remote-debugging-frontend="http:`](http://localhost:8090/front-end/inspector.html)`//localhost:8000/front_end/inspector.html"
---user-data-dir=blink/chromeServerProfile`<br/>
+`/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary \
+--remote-debugging-port=9222 --no-first-run \
+--user-data-dir=blink/chromeServerProfile \
+http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
 <br/>
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as
@@ -201,9 +201,10 @@ shown in above.</p>
 **On Linux:<br/>
 **Run the chromium-browser command with the flags added after it:<br/>
 
-`chromium-browser --remote-debugging-port=9222 --no-first-run
---remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"
---user-data-dir=blink/chromeServerProfile`<br/>
+`chromium-browser --remote-debugging-port=9222 --no-first-run \
+--user-data-dir=blink/chromeServerProfile \
+http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
+
 
 **What do these switches do?**
 
@@ -211,17 +212,18 @@ shown in above.</p>
   This specifies where the browser will look for all of its state. This can be a
   relative path to the directory that you're running the web server from which
   should be blink/Source.
-
 * `--remote-debugging-port=9222`<br/>
   Enables remote debug over HTTP on the specified port. This is the port used
   when running localhost.
-* `--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"`<br/>
-  Uses a custom front-end URL for remote debugging. The port in the URL should
+* `--no-first-run`<br/>
+  Skip First Run tasks, whether or not it's actually the First Run.
+* `--remote-debugging-frontend`<br/>
+  <del>Uses a custom front-end URL for remote debugging. </del> <ins>
+   The `--remote-debugging-frontend` flag was retired. You now specify the frontend URL in the URL hash: `http://localhost:9222#<front-end url>`.</ins>
+  The port in the URL should
   match the port number used for the running the local web server and the path
   should point to the correct location of the inspector.html file assuming that
   your web server is running from the Source directory.
-* `--no-first-run`<br/>
-  Skip First Run tasks, whether or not it's actually the First Run.
 
 These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a [full list of command line switches](http://peter.sh/experiments/chromium-command-line-switches/) and what they do.
 
