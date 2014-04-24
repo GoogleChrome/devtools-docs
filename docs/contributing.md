@@ -176,7 +176,7 @@ flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):<br/>
 
 For example:
 
-    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front-end/inspector.html
+    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 <img src="contributing-files/image02.png" alt="Command-line flags" width="700"/>
 
@@ -191,7 +191,7 @@ program.<br/>
 `/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary \
 --remote-debugging-port=9222 --no-first-run \
 --user-data-dir=blink/chromeServerProfile \
-http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
+http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
 <br/>
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as
@@ -203,7 +203,7 @@ shown in above.</p>
 
 `chromium-browser --remote-debugging-port=9222 --no-first-run \
 --user-data-dir=blink/chromeServerProfile \
-http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
+http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
 
 
 **What do these switches do?**
@@ -211,7 +211,7 @@ http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
 * `--user-data-dir=blink/chromeServerProfile`<br/>
   This specifies where the browser will look for all of its state. This can be a
   relative path to the directory that you're running the web server from which
-  should be blink/Source.
+  should be blink/Source/devtools.
 * `--remote-debugging-port=9222`<br/>
   Enables remote debug over HTTP on the specified port. This is the port used
   when running localhost.
@@ -219,7 +219,7 @@ http://localhost:9222#http://localhost:8000/front-end/inspector.html`<br/>
   Skip First Run tasks, whether or not it's actually the First Run.
 * `--remote-debugging-frontend`<br/>
   <del>Uses a custom front-end URL for remote debugging. </del> <ins>
-   The `--remote-debugging-frontend` flag was retired. You now specify the frontend URL in the URL hash: `http://localhost:9222#<front-end url>`.</ins>
+   The `--remote-debugging-frontend` flag was retired. You now specify the frontend URL in the URL hash: `http://localhost:9222#<front_end url>`.</ins>
   The port in the URL should
   match the port number used for the running the local web server and the path
   should point to the correct location of the inspector.html file assuming that
