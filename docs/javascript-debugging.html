@@ -47,6 +47,7 @@ DevTools, you should use <a href="tools.google.com/dlpage/chromesxs">Chrome Cana
 <li><a href="#breakpoints-mutation-events">Breakpoints on DOM Mutation Events</a></li>
 <li><a href="#breakpoints-on-xhr">Breakpoints on XHR</a></li>
 <li><a href="#breakpoints-on-javascript-event-listeners">Breakpoints on JavaScript Event Listeners</a></li>
+<li><a href="#long-resume">The Long Resume</a></li>
 </ul>
 </li>
 <li><a href="#liveedit">Live Editing</a></li>
@@ -464,6 +465,18 @@ DOMAttrModified, DOMCharacterDataModified, DOMNodeInserted,
 DOMNodeInsertedIntoDocument, DOMNodeRemoved, DOMNodeRemovedFromDocument,
 DOMSubtreeModified, DOMContentLoaded<br>
 &nbsp;&nbsp;<b>Device:</b> deviceorientation, devicemotion</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="long-resume">The Long Resume</h2>
+
+<p>When paused, click and hold the resume button to use an additional button "Resume with all pauses blocked for 500 ms". This makes all breakpoints disabled for half a second as a quick way of getting the program to its idle state for scenarios when a program's response to user action is being repeatedly debugged.</p>
+
+<p>When "refresh" is initiated from DevTools (Ctrl+R in DevTools), all pauses are disabled until the new page load is commenced (or as a plan B, until the user presses the "Pause" button). This reflects the same scenario of giving up the debug iteration and user's waiting for the program to get to its basic state.</p>
+
+<p>The subtle fact is that the Browser's refresh still works as usually, i.e. without disabling any pauses. This fact could be used for those, who are actually interested in page unloading process.</p>
+
+<p><div class="screenshot"><img src="javascript-debugging/long-resume.png"/></div></p>
 
 <p class="backtotop"><a href="#top">Back to top</a></p>
 
