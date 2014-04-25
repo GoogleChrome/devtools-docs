@@ -470,11 +470,9 @@ DOMSubtreeModified, DOMContentLoaded<br>
 
 <h2 id="long-resume">The Long Resume</h2>
 
-<p>When paused, click and hold the resume button to use an additional button "Resume with all pauses blocked for 500 ms". This makes all breakpoints disabled for half a second as a quick way of getting the program to its idle state for scenarios when a program's response to user action is being repeatedly debugged.</p>
+<p>When paused, click and hold the resume button to "Resume with all pauses blocked for 500 ms". This makes all breakpoints disabled for half a second, naturally. Use this to get to the next event loop, so you can avoid hitting breakpoints continually exiting a loop, for example.</p>
 
-<p>When "refresh" is initiated from DevTools (Ctrl+R in DevTools), all pauses are disabled until the new page load is commenced (or as a plan B, until the user presses the "Pause" button). This reflects the same scenario of giving up the debug iteration and user's waiting for the program to get to its basic state.</p>
-
-<p>The subtle fact is that the Browser's refresh still works as usually, i.e. without disabling any pauses. This fact could be used for those, who are actually interested in page unloading process.</p>
+<p>Quick protip: When "refresh" is initiated from DevTools (Ctrl+R while focused in DevTools), all pauses are disabled until the new page load is commenced (or as a plan B, until the user presses the "Pause" button).  However, if you initiate refresh from the browser button (or Ctrl+R while focus is outside the DevTools), any remaining breakpoints will actually be hit. This fact could be used for those who are  interested in page unloading process.</p>
 
 <p><div class="screenshot"><img src="javascript-debugging/long-resume.png"/></div></p>
 
