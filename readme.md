@@ -51,13 +51,14 @@ Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devt
 
 Paul or Addy does the work of pushing this stuff live.
 
-* check last commit in google3 via `git log`
+* check last commit in google3 via `git log`, get the SHA
 * pull in latest from GH
 * g4 add/edit changed things
   * look for changed items by `find . -type f -perm 0640`
-  * compare URL from last commit to master
+  * compare URL from last commit to master: `github.com/GoogleChrome/devtools-docs/compare/<SHA>...master`, Files Changed, Show Diff Stats
 * check git status and p4 status
 * g4 change, imgsquish, g4 mail
+* commit any changed images back to GH
 
 ## License
 
