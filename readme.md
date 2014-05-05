@@ -60,6 +60,10 @@ Paul or Addy does the work of pushing this stuff live.
 * g4 change, imgsquish, g4 mail
 * commit any changed images back to GH
 
+#### Troublshooting
+* Make sure you've created CLs with any imported GH changes. 
+* `devsite publish` all relevant files.
+
 ## License
 
 Except as otherwise noted, the content of the DevTools documentation is licensed under the [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/), and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
