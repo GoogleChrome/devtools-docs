@@ -16,11 +16,11 @@ familiar with the terms used in this document.</p>
 
 In general, there are three questions you will want to answer when you think you have a memory leak:
 
-* **Is my page using too much memory?** - the [Timeline memory view](#heading=h.3gfl4k8caz0k) and [Chrome task manager](http://#heading=h.uhgze3ab3kb2%20) can help you identify if you’re using too much memory. Memory view can track the number of live DOM nodes, documents and JS event listeners in the inspected render process. As a rule of thumb: avoid holding references to DOM elements you no longer need to use, unbind unneeded event listeners and take care when storing large chunks of date you aren't going to use.
+* **Is my page using too much memory?** - the [Timeline memory view](#memory_mode) and [Chrome task manager](#chrome_task_manager) can help you identify if you’re using too much memory. Memory view can track the number of live DOM nodes, documents and JS event listeners in the inspected render process. As a rule of thumb: avoid holding references to DOM elements you no longer need to use, unbind unneeded event listeners and take care when storing large chunks of date you aren't going to use.
 
-* **Is my page free of memory leaks?** - the [Object allocation tracker](#heading=h.8yjlf68i8qix) can help you narrow down leaks by looking at JS object allocation in real-time. You can also use the [heap profiler](#heading=h.g0yxr1o33gky) to take JS heap snapshots, analyze memory graphs and compare snapshots to discover what objects are not being cleaned up by garbage collection.
+* **Is my page free of memory leaks?** - the [Object allocation tracker](#object_allocation_tracker) can help you narrow down leaks by looking at JS object allocation in real-time. You can also use the [heap profiler](#heap_profiler) to take JS heap snapshots, analyze memory graphs and compare snapshots to discover what objects are not being cleaned up by garbage collection.
 
-* **How frequently is my page forcing garbage collection?** - if you are GCing frequently, you may be allocating too frequently. The [Timeline memory view](#heading=h.3gfl4k8caz0k) can help you identify pauses of interest.
+* **How frequently is my page forcing garbage collection?** - if you are GCing frequently, you may be allocating too frequently. The [Timeline memory view](#identifying_a_memory_problem_with_the_devtools_timeline) can help you identify pauses of interest.
 
 <img src="memory-profiling-files/image_0.png"/>
 
@@ -462,7 +462,7 @@ The Dominators view shows the dominators tree for the heap graph. The Dominators
 
 ## Object allocation tracker
 
-The **object tracker** combines the detailed snapshot information of the [heap profiler](#heading=h.xfxcns9xlif4) with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects’ heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis.
+The **object tracker** combines the detailed snapshot information of the [heap profiler](#heap_profiler) with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects’ heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis.
 
 The object tracker takes heap snapshots periodically throughout the recording (as frequently as every 50 ms!) and one final snapshot at the end of the recording. The heap allocation profile shows where objects are being created and identifies the retaining path.
 

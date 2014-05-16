@@ -19,3 +19,6 @@ redirects:
 
 - from: /chrome-developer-tools/docs/elements
   to: /chrome-developer-tools/docs/dom-and-styles
+
+- from: /chrome-developer-tools/docs/elements-styles
+  to: /chrome-developer-tools/docs/dom-and-styles
