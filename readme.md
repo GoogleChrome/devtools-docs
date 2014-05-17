@@ -1,6 +1,6 @@
 # The Chrome DevTools documentation
 
-This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/).
+This is the source of the official [DevTools documentation](https://developer.chrome.com/devtools/index).
 
 
 
@@ -21,7 +21,7 @@ FYI The extension docs live in the chromium repo: `chromium/src/chrome/common/ex
   <dd> Contains all the working files. </dd>
 
   <dt> ./index.html </dt>
-  <dd> Contains the project <a href="https://developers.google.com/chrome-developer-tools/">overview</a> page. </dd>
+  <dd> Contains the project <a href="https://developer.chrome.com/devtools/index">overview</a> page. </dd>
 
   <dt> ./images </dt>
   <dd> Contains images for index.html. </dd>
