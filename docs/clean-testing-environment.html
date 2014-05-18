@@ -1,13 +1,13 @@
 {{+bindTo:partials.standard_devtools_article}}
 <h1>Creating A Clean Testing Environment</h1>
- 
-<p>A clean testing environment allows you to to easily determine the point of 
-failure for your site or web application, rather than wondering if it was 
+
+<p>A clean testing environment allows you to to easily determine the point of
+failure for your site or web application, rather than wondering if it was
 something in the background that caused your slow-down or failure.</p>
 
-<p>Apps, extensions, background processes and unnecessary tabs are only some of the 
-things that can impact your profiling figures and should be avoided where 
-possible. This is of particular relevance when you wish to accurately profile 
+<p>Apps, extensions, background processes and unnecessary tabs are only some of the
+things that can impact your profiling figures and should be avoided where
+possible. This is of particular relevance when you wish to accurately profile
 using the <a href="timeline.html">Timeline</a>, <a href="cpu-profiling.html">Profiles</a> or <code>about:tracing</code>.</p>
 
 <strong>To set up a clean testing environment:</strong>
@@ -16,24 +16,24 @@ using the <a href="timeline.html">Timeline</a>, <a href="cpu-profiling.html">Pro
 <li>
 Ensure Chrome is being run with a clean profile:
 <ul>
-    <li><p>Option 1: Use Incognito mode. Open the <b>Chrome menu</b> <img src="/devtools/images/chrome-menu.png" alt="Chrome menu"/> and select <b>New Incognito Window</b>, or launch 
+    <li><p>Option 1: Use Incognito mode. Open the <b>Chrome menu</b> <img src="/../../images/chrome-menu.png" alt="Chrome menu"/> and select <b>New Incognito Window</b>, or launch
        Chrome with the <code>--incognito</code> switch.</p>
 
        <p><img src="clean-testing-environment/incognito.png"/></p></li>
-    <li><p>Option 2: Use a fresh Chrome profile. Click the user icon in the top-right corner 
+    <li><p>Option 2: Use a fresh Chrome profile. Click the user icon in the top-right corner
 	of your Chrome window and select <b>New User</b>.</p>
 
         <p><img src="clean-testing-environment/screenprofile.jpg"/></p>
         <p>&nbsp;</p>
-       <p>To guarantee a clean profile that doesn't inherit 
-       any extensions or settings, launch Chrome using the <code>--user-data-dir</code> 
+       <p>To guarantee a clean profile that doesn't inherit
+       any extensions or settings, launch Chrome using the <code>--user-data-dir</code>
        switch with the path <code>'/dev/null'</code>.  e.g:</p>
 
        <p>
        <ul>
         <li>OSX:    <code>open -a "Google Chrome" --args --user-data-dir=/dev/null</code></li>
         <li>Linux:  <code>google-chrome --user-data-dir=/dev/null</code></li>
-        <li>Windows: <code>"C:\Users\username\AppData\Local\Google\Chrome\Application\chrome.exe" 
+        <li>Windows: <code>"C:\Users\username\AppData\Local\Google\Chrome\Application\chrome.exe"
           --user-data-dir=/dev/null</code></li>
         </ul>
       </p>
@@ -41,14 +41,14 @@ Ensure Chrome is being run with a clean profile:
 <p>This will ensure you get a completely empty profile instead of loading the user's profile as read-only.</p><br/>
 </li>
 
-<li>Close other tabs and processes/applications you may have running in the background. If these apps need to run in the background, use your system monitor to ensure apps are not stealing too much CPU or RAM. <img 
+<li>Close other tabs and processes/applications you may have running in the background. If these apps need to run in the background, use your system monitor to ensure apps are not stealing too much CPU or RAM. <img
   src="clean-testing-environment/activity.png"/></li>
 
 <li>Disable any Dynamic CPU overclocking you may have enabled on your system.</li>
 <li>Make sure you are up to date with the latest builds of Chrome. You can use <a href="http://download-chromium.appspot.com">http://download-chromium.appspot.com</a> to grab edge builds.</li>
 
-<li>If you are running into a bug and generally use Chrome Canary as your 
-  development browser, it is worth testing in Chrome Stable to ensure the issue 
+<li>If you are running into a bug and generally use Chrome Canary as your
+  development browser, it is worth testing in Chrome Stable to ensure the issue
   is unrelated to new features or bugs.</li>
 </ul>
 

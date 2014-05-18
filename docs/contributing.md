@@ -230,7 +230,7 @@ Adjust the path to `chromeServerProfile` to be some writable directory in your s
 ### Step 3: Inspector inception
 
 Once Canary is open go to any web page (the page doesn't matter because you're
-not going to use it for anything). Open up the DevTools for the page, and undock <img src="contributing-files/image03.png" alt="undock DevTools"/> from the window so it is in a separate window.<br/>
+not going to use it for anything). Open up the DevTools for the page, and undock <img src="../../images/layout-button.png" alt="undock DevTools"/> from the window so it is in a separate window.<br/>
 
 Next, open a new tab or launch another instance of Chrome (either Chrome Stable
 or Canary) and go to [http://localhost:9222](http://localhost:9222).

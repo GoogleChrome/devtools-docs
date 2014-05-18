@@ -22,7 +22,7 @@ You can inspect IndexedDB databases and object stores, page through an object st
 
 **To clear the object store**, do one of the following:
 
-* Click the **Clear object store** button <img src="resources-files/clear.png" /> at the bottom of the panel.
+* Click the **Clear object store** button <img src="../../images/clear.png" /> at the bottom of the panel.
 * Right-click or Control-click the object store and select **Clear** from the context menu.
 
 **To view properties of a database**, select it from the list of databases.
@@ -37,7 +37,7 @@ their contents.
 * **To view the available Web SQL databases**, expand the Web SQL item in the tree control.
 * **To view available tables in a database**, expand the database tree item.
 * **To view a table's records**, select the table. It's properties appear in the right-hand pane.
-* **To refresh the view of the database**, click the Refresh button <img src="resources-files/refresh.png" /> at the bottom of the panel. 
+* **To refresh the view of the database**, click the Refresh button <img src="../../images/refresh.png" /> at the bottom of the panel. 
 
 You can query a Web SQL database's tables with SQL commands and view 
 query results in a tabular format. As you type out a command or table name, code hints are provided for the names of supported SQL commands and clauses, and the names of tables that the database contains.
@@ -80,7 +80,7 @@ You can clear (delete) a single cookies, all cookies in the selected frame group
 
 **To clear all cookies from the selected frame group**, do one of the following:
 
-* Click the Clear button <img src="resources-files/clear.png" /> at the bottom of the Resources panel.
+* Click the Clear button <img src="../../images/clear.png" /> at the bottom of the Resources panel.
 * Right-click on the frame group and select **Clear** from the context menu.
 * Right-click on a cookie row in the table and select **Clear All**.
 
@@ -100,7 +100,7 @@ Note the following about this operation:
 You can also refresh the table to reflect any changes to the page's cookies.
 
 **To refresh the cookies table**, click the refresh button <img 
-src="resources-files/refresh.png" /> at the bottom of the Resources panel. 
+src="../../images/refresh.png" /> at the bottom of the Resources panel. 
 
 ## Application Cache
 
@@ -176,7 +176,7 @@ You can view and edit local and session storage key/value pairs you've created u
 * Right-click or Control-click the cell you want to edit and choose Edit from the context menu.
 
 **To refresh the table with new storage data**, click the Refresh button at the bottom of the panel.
-<img src="resources-files/refresh.png" />
+<img src="../../images/refresh.png" />
 
 # Inspecting page resources
 
