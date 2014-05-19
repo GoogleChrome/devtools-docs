@@ -43,12 +43,11 @@ Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devt
 1. In the root of the project, start a [server] (https://github.com/paulirish/dotfiles/blob/3fa2e7dc1f1ea5eaf7f6a2531b937ff8bd8833f9/.functions#L25-L32).
   * It's easier if your server can also do a directory listing.
 1. Open [http://localhost:8000/docs/_preview.html](http://localhost:8000/docs/_preview.html)
-1. You will see the boilerplate along with a directory listing
-![image](https://f.cloud.github.com/assets/39191/700223/d42cb838-dd3d-11e2-8bf3-af57e883cd80.png)
+1. You will see the boilerplate along with a directory listing ![image](https://cloud.githubusercontent.com/assets/39191/3017501/7e6985da-df7a-11e3-9a7c-51f964906839.png)
 1. Click one of them.
 1. It should bring you to a url like [http://localhost:8000/docs/_preview.html?settings.html](http://localhost:8000/docs/_preview.html?settings.html)
   * you can navigate to this directly if you like
-  * it looks like this ![image](https://f.cloud.github.com/assets/39191/700211/6b936d08-dd3d-11e2-8d4b-19db48d65c56.png)
+  * it looks like this ![image](https://cloud.githubusercontent.com/assets/39191/3017506/831921a8-df7a-11e3-8faa-8dc957057248.png)
 * Things mostly work.
 
 ### Deployment
