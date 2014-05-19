@@ -11,7 +11,7 @@ The Console API provides web applications with methods for writing information t
 If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than five child nodes:
 
     var list = document.querySelector('#myList');
-    console.assert(list.childNodes.length < 10, "List item count is > 10");
+    console.assert(list.childNodes.length < 10, "List item count is >= 10");
 
 ![Example of console.assert()](console-files/assert-failed-list.png)
 
@@ -23,6 +23,8 @@ Clears the console.
     console.clear();
 
 Also see [Clearing the console](console.md#clearing-console-history).
+
+However, if Preserve Logs is on, console.clear() will not do anything in case there's some iframe which calls console.clear() and can make your debugging process harder. "Clear console" in the context menu will still work, and actually clear the console.
 
 
 ## console.count(label) ##
@@ -232,6 +234,16 @@ Stops the timer with the specified label and prints the elapsed time.
 For example usage, see [console.time()](#consoletimelabel).
 
 
+## console.timeline(label)
+
+Starts a Timeline recording with an optional label.
+
+
+## console.timelineEnd()
+
+Stops the Timeline recording if one is in progress.
+
+
 ## console.timeStamp([label]) ##
 
 This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.
@@ -239,11 +251,15 @@ This method adds an event to the Timeline during a recording session. This lets 
 See [Marking the Timeline](console.md#marking-the-timeline) for an example of using `console.timeStamp()`.
 
 
-## console.trace() ##
+## console.trace(object) ##
 
 Prints a stack trace from the point where the method was called, including links to the specific lines in the JavaScript source. A counter indicates the number of times that `trace()` method was invoked at that point, as shown in the screen shot below.
 
 ![Example of a stack trace with counter](console-files/console-trace.png)
+
+It is also possible to pass in arguments to trace(). For example:
+
+![Example of a stack trace with arguments](console-files/console-trace-args.png)
 
 
 ## console.warn(object [, object, ...]) ##
