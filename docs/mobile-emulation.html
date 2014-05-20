@@ -12,20 +12,13 @@ walk through in this section.</p>
 <div class="collapsible">
 <h2 id="enable-emulation-panel">Enabling the Emulation Panel</h2>
 
-<p><a href="https://www.google.com/intl/en/chrome/browser/canary.html" title="Chrome Canary">Chrome Canary</a> has received a number of improved mobile emulation tools which can be accessed by enabling the Emulation panel through the Settings panel. To enable:</p>
-
-<ol>
-  <li>Open the Settings panel within the DevTools.</li>
-  <li>Enable "Show 'Emulation' view in console drawer."</li>
-</ol>
-
-<p><div class="screenshot"><img width="330" src="mobile-emulation/enable-emulation.png" alt="Enabling emulation"/></div></p>
+<p>Chrome has received a number of improved mobile emulation tools which can be accessed by enabling the Emulation panel through the Settings panel. To enable:</p>
 
 <p>Bring up the DevTools console drawer by hitting the <span class="kbd">Esc</span> key and then select the Emulation panel.</p>
 
 <p><div class="screenshot"><img width="468" src="mobile-emulation/emulation-panel.png" alt="Emulation panel"/></div></p>
 
-<p class="note"><b>Note</b>: Emulation tools within DevTools were previously contained within an <strong>Overrides</strong> pane inside the Settings panel. The Emulation panel is the new Overrides pane.</p>
+<p class="note"><b>Note</b>: Emulation tools within DevTools were previously contained within an <strong>Overrides</strong> pane inside the Settings panel. The Emulation panel is the new Overrides pane. If you do not see the Emulation tab, open the DevTools Settings and select "Show Emulation view in console drawer."</p>
 
 
 
@@ -196,6 +189,56 @@ After:
 <img src="http://jagt.github.io/clumsy/clumsy-demo.gif" alt="Clumsy Options" style="max-height: 300px">
 
 <p>On Linux, there are many options for traffic shaping; <a href="http://info.iet.unipi.it/~luigi/dummynet/">dummynet</a> is the recommended option. </p>
+
+<table>
+    <caption>It is recommended to use the following parameters for testing different network conditions.</caption>
+    <thead>
+        <tr>
+            <td></td>
+            <th>Download Speed</th>
+            <th>Upload Speed</th>
+            <th>RTT (ms)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Cable</th>
+            <td>5 Mbps</td>
+            <td>1 Mbps</td>
+            <td>28</td>
+        </tr>
+        <tr>
+            <th>DSL</th>
+            <td>1.5 Mbps</td>
+            <td>384 Kbps</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <th>FIOS</th>
+            <td>20 Mbps</td>
+            <td>5 Mbps</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <th>56K Dial-up</th>
+            <td>49 Kbps</td>
+            <td>30 Kbps</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <th>Mobile 3G</th>
+            <td>1.6 Mbps</td>
+            <td>768 Kbps</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <th>Mobile 3G - Fast</th>
+            <td>1.6 Mbps</td>
+            <td>768 Kbps</td>
+            <td>150</td>
+        </tr>
+   </tbody>
+</table>
 
 </div>
 <div class="collapsible">

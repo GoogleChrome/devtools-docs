@@ -1,6 +1,6 @@
 # The Chrome DevTools documentation
 
-This is the source of the official [DevTools documentation](http://developers.google.com/chrome-developer-tools/).
+This is the source of the official [DevTools documentation](https://developer.chrome.com/devtools/index).
 
 
 
@@ -21,7 +21,7 @@ FYI The extension docs live in the chromium repo: `chromium/src/chrome/common/ex
   <dd> Contains all the working files. </dd>
 
   <dt> ./index.html </dt>
-  <dd> Contains the project <a href="https://developers.google.com/chrome-developer-tools/">overview</a> page. </dd>
+  <dd> Contains the project <a href="https://developer.chrome.com/devtools/index">overview</a> page. </dd>
 
   <dt> ./images </dt>
   <dd> Contains images for index.html. </dd>
@@ -43,25 +43,29 @@ Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devt
 1. In the root of the project, start a [server] (https://github.com/paulirish/dotfiles/blob/3fa2e7dc1f1ea5eaf7f6a2531b937ff8bd8833f9/.functions#L25-L32).
   * It's easier if your server can also do a directory listing.
 1. Open [http://localhost:8000/docs/_preview.html](http://localhost:8000/docs/_preview.html)
-1. You will see the boilerplate along with a directory listing
-![image](https://f.cloud.github.com/assets/39191/700223/d42cb838-dd3d-11e2-8bf3-af57e883cd80.png)
+1. You will see the boilerplate along with a directory listing ![image](https://cloud.githubusercontent.com/assets/39191/3017501/7e6985da-df7a-11e3-9a7c-51f964906839.png)
 1. Click one of them.
 1. It should bring you to a url like [http://localhost:8000/docs/_preview.html?settings.html](http://localhost:8000/docs/_preview.html?settings.html)
   * you can navigate to this directly if you like
-  * it looks like this ![image](https://f.cloud.github.com/assets/39191/700211/6b936d08-dd3d-11e2-8d4b-19db48d65c56.png)
+  * it looks like this ![image](https://cloud.githubusercontent.com/assets/39191/3017506/831921a8-df7a-11e3-8faa-8dc957057248.png)
 * Things mostly work.
 
 ### Deployment
 
 Paul or Addy does the work of pushing this stuff live.
 
-* check last commit in google3 via `git log`
+* check last commit in google3 via `git log`, get the SHA
 * pull in latest from GH
 * g4 add/edit changed things
   * look for changed items by `find . -type f -perm 0640`
-  * compare URL from last commit to master
+  * compare URL from last commit to master: `github.com/GoogleChrome/devtools-docs/compare/<SHA>...master`, Files Changed, Show Diff Stats
 * check git status and p4 status
 * g4 change, imgsquish, g4 mail
+* commit any changed images back to GH
+
+#### Troublshooting
+* Make sure you've created CLs with any imported GH changes. 
+* `devsite publish` all relevant files.
 
 ## License
 
