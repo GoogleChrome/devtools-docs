@@ -117,7 +117,7 @@ an alert on the device requesting permission for USB debugging from this compute
 <ul>
   <li>On your device, verify you have <b>Developer Options</b> available, and <b>USB debugging</b> turned on. If it's working and connected, it'll set a notification on your device.</li>
   <li>Verify you're using Chrome for Android 32 or later.</li>
-  <li>If USB debugging is on, but <code>about:inspect</code> doesn't show your device check that <B>Discover USB devices</b> is checked. If so, unplug the device and try revoking all USB authorizations in Developer Options to retry.</li>
+  <li>If USB debugging is on, but <code>about:inspect</code> doesn't show your device check that <b>Discover USB devices</b> is checked. If so, unplug the device and try revoking all USB authorizations in Developer Options to retry.</li>
   <li>You can try Chrome Canary on desktop as new improvements land daily.</li>
 </ul>
 
@@ -156,7 +156,9 @@ network conditions.</li>
 
 <p>Screencasting lets you bring the experience of your device onto your machine. This allows you to keep your attention on one screen instead of switching back and forth between the device and the DevTools. </p>
 
-<iframe width="640" height="360" src="//www.youtube.com/embed/Q7rEFEMpwe4" frameborder="0" allowfullscreen></iframe>
+<div class="video-container">
+  <iframe width="640" height="360" src="//www.youtube.com/embed/Q7rEFEMpwe4" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <p>Clicking on the screencast icon <img alt="Screencast" src="remote-debugging/screencast0.png" /> in the toolbar opens up a panel on your computer displaying your device's screen. As you navigate, click, scroll, the screencast display will provide a live view of what's on your device.</p>
 
@@ -195,7 +197,7 @@ Android WebViews inside native Android applications. Debugging WebViews requires
 <ul>
 <li>An Android device or emulator running Android 4.4 or later, with USB debugging enabled as
     described in
-    <a href="#enable-usb-debugging"> 2. Enable USB debugging on your device </a>. </li>
+    <a href="#setting-up-device">Setting up your device</a>. </li>
 <li>Chrome 30 or later. Enhanced WebView debugging UI is available in Chrome 31 or later.</li>
 <li>An Android application with a WebView configured for debugging.</li>
 </ul>
@@ -235,7 +237,7 @@ if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 an alert on the device requesting permission for USB debugging from this computer.</p></li>
 <p>To avoid seeing this alert each time you debug, check <b>Always allow from this computer</b> and click <b>OK</b>.</p></li>
 <li>In Chrome on your development machine, open <b>about:inspect</b>.</li>
-<li>You should see the name of your application and a list of debuggable WebViews. Click the <code>inspect</code> link
+<li>You should see the name of your application and a list of debuggable WebViews. Click the <b>inspect</b> link
 next to one of the tabs to inspect the WebView's contents in DevTools.</li>
 </ol>
 
@@ -287,7 +289,7 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 <p>You should see the content being served by your development machine.</p>
 
-<div class="screenshot"><img style="max-width:722px"  src="remote-debugging/portforward.png"/></div>
+<div class="screenshot"><img src="remote-debugging/portforward.png"/></div>
 
 <h3 id="virtual-host-mapping">Virtual host mapping</h3>
 
