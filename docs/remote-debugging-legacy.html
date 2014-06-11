@@ -1,17 +1,16 @@
 {{+bindTo:partials.standard_devtools_article}}
 <h1>Remote Debugging on Android (Legacy Workflow)</h1>
 
-This document describes the legacy workflow for remotely debugging Chrome for Android. 
+<p>This document describes the legacy workflow for remotely debugging Chrome for Android.</p>
 
 <aside class="note">This document is included for reference in case you are already using this workflow.
-For Chrome 32 or later, we recommend using the newer workflow described in  <a href="/chrome-developer-tools/docs/remote-debugging">Remote Debugging</a>.</aside>
+For Chrome 32 or later, we recommend using the newer workflow described in  <a href="remote-debugging">Remote Debugging</a>.</aside>
 
 
-<div class="collapsible">
+<section class="collapsible">
 <h2 id="remote-debugging-stable">Overview</h2>
 
-<p><strong>To start debugging, you need:</strong></p>
-
+<p>To start debugging, you need:</p>
 
 <ul>
 <li>An Android phone or tablet with <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Google Chrome for Android</a> installed from Google Play.</li>
@@ -21,8 +20,10 @@ For Chrome 32 or later, we recommend using the newer workflow described in  <a h
 installed on your development machine .</li>
 </ul>
 
-</div>
-<div class="collapsible">
+</section>
+
+
+<section class="collapsible">
 <h2 id="installing-androidsdk">1. Install the Android SDK</h2>
 
 <p>The  <a href="http://developer.android.com/sdk/index.html">Android Developer Tools</a> (ADT) bundle 
@@ -35,8 +36,10 @@ a command-line tool included in Platform Tools (<code>&lt;sdk&gt;/platform-tools
 
 <p>For convenience, add Platform Tools to your <code>PATH</code> environment variable. If on Mac, run the following command from your terminal: <code>export PATH=$PATH:/&lt;path-to-SDK&gt;/platform-tools/</code>.</p>
 
-</div>
-<div class="collapsible">
+</section>
+
+
+<section class="collapsible">
 <h2 id="enable-usb-debugging-stable">2. Enable USB debugging on your device</h2>
 
 <p>In order to debug over USB, you need to setup your Android device for
@@ -55,10 +58,13 @@ available, go to <strong>Settings > About phone</strong> and tap Build number se
 Return to the previous screen to find Developer options.</li>
 </ul>
 
-<p><div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="remote-debugging/image_4.png"/></div></p>
+<figure>
+  <img width="500" alt="USB debugging settings in Developer options" src="remote-debugging/image_4.png">
+</figure>
 
-</div>
-<div class="collapsible">
+</section>
+
+<section class="collapsible">
 <h2 id="connect-device-via-usb-stable">3. Connect your device via USB</h2>
 
 <ol>
@@ -70,28 +76,30 @@ device.</li>
 to enable port forwarding:<br/>
 <code>adb forward tcp:9222 localabstract:chrome_devtools_remote</code></li>
 
-<p>This one line of code will be something you Google for and copy-paste again, so let's repeat it with a larger font, this time:</p>
+<p>This one line of code will be something you Google for and copy-paste again, so let's repeat it with a larger font this time:</p>
 
-<code style="font-size: 200%">adb forward tcp:9222 localabstract:chrome_devtools_remote</code>
+<p style="font-size: 150%"><code>adb forward tcp:9222 localabstract:chrome_devtools_remote</code></p>
 
 <p class="note"><b>Note</b>: If you get a "device not found" error, run the <code>adb kill-server</code> command to
 resolve.</p>
 
-<p><div class="screenshot"><img width="540" alt="Port forwarding using the adb tool" src="/chrome-developer-tools/docs/remote-debugging/image_6.png"/></div></p>
-
-
+<figure>
+  <img alt="Port forwarding using the adb tool" src="remote-debugging/image_6.png"/>
+</figure>
 
 <li>On your development machine, open Chrome and navigate to
-<a href="http://localhost:9222">localhost:9222</a>.<br/></li>
+<a href="http://localhost:9222">localhost:9222</a>.</li>
 <li>You will be presented with the set of thumbnails for pages currently open in
 tabs on your mobile Chrome. Choose the page you would like to debug.</li>
 
-<p><div class="screenshot"><img width="700" alt="Inspectable pages" src="remote-debugging/image_7.png"/></div></p>
+<figure>
+  <img alt="Inspectable pages" src="remote-debugging/image_7.png"/>
+</figure>
 
 <li>You can now start debugging and profiling mobile content in the DevTools on
 your development machine.</li>
 </ol>
 
-<p>See <a href="remote-debugging.html#debug-your-app">Debug your Application</a> for tips on getting started debugging your mobile application.</p>
-</div>
+<p>See <a href="remote-debugging#debug-your-app">Debug your Application</a> for tips on getting started debugging your mobile application.</p>
+</section>
 {{/partials.standard_devtools_article}}
