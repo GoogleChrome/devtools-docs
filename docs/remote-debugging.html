@@ -6,7 +6,7 @@
 <img alt="Debugging Chrome for Android using the Chrome Developer Tools" src="remote-debugging/remote-debug-banner.png">
 
 <section class="collapsible">
-<h2 id="setting-up-device">Set up your device for remote debugging</h2>
+<h2 id="setting-up-device">Set up remote debugging</h2>
 
 <p>To begin remote debugging, you will need:</p>
 
@@ -99,9 +99,9 @@ development.</figcaption>
 
 
 <section class="collapsible">
-<h2 id="debug-your-app">Debug a browser tab in Chrome for Android</h2>
+<h2 id="debug-your-app">Debug browser tabs</h2>
 
-<p>When inspecting a remote browser tab, the element you are mousing over in the DevTools window will highlight the element on your device in real time. In fact, turn on inspect mode by clicking the icon, and then tap on your device screen.</p>
+<p>When inspecting a remote browser tab in Chrome for Android, the element you are mousing over in the DevTools window will highlight the element on your device in real time. In fact, turn on inspect mode by clicking the icon, and then tap on your device screen.</p>
 
 <figure>
   <img alt="Debugging Chrome for Android using the Chrome Developer Tools" src="remote-debugging/remote-debug-overview.jpg"/>
@@ -132,7 +132,7 @@ network conditions.</li>
 
 
 <section class="collapsible">
-<h2 id="debugging-webviews">Debugging Android WebViews</h2>
+<h2 id="debugging-webviews">Debug WebViews</h2>
 
 <p>Starting Android 4.4 (KitKat), you can use the DevTools to debug the contents of
 Android WebViews inside native Android applications.
@@ -180,7 +180,7 @@ Setting a title on all of your WebViews simpifies the process of picking the cor
 
 
 <section class="collapsible">
-<h2 id="screencasting">Screencasting your device's screen</h2>
+<h2 id="screencasting">Screencasting</h2>
 
 <p>Screencasting lets you bring the experience of your device onto your machine. This allows you to keep your attention on one screen instead of switching back and forth between the device and the DevTools. As of KitKat 4.4.3, screencasting in now also available for Android WebViews.</p>
 
@@ -224,7 +224,7 @@ Setting a title on all of your WebViews simpifies the process of picking the cor
 
 
 <section class="collapsible">
-<h2 id="reverse-port-forwarding">Port Forwarding</h2>
+<h2 id="reverse-port-forwarding">Port forwarding</h2>
 
 <p>Commonly you have a web server running on your local development machine, and you want to
 connect to that site from your device. If the mobile device and the development machine are
@@ -305,7 +305,12 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
   <img width="250" alt="Virtual host mapping on Chrome for Android" src="remote-debugging/vhost-mapping.jpg"/>
 </figure>
 
-<h2>Additional information about ADB</h2>
+</section>
+
+<section class="collapsible">
+<h2>Additional information</h2>
+
+<h3>Remote debugging and ADB</h3>
 
 <p>DevTools now supports <strong>native USB debugging</strong> of connected devices. You no longer need to configure ADB or the ADB plugin to see all instances of Chrome and the Chrome-powered WebView on devices connected to your system. This functionality works on all operating systems: Windows, Mac, Linux and Chrome OS.</p>
 
@@ -316,7 +321,7 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 
 
-<h2>Remote debugging for DevTools extension developers</h2>
+<h3>Remote debugging for DevTools extension developers</h3>
 
 <p>For information on the interaction protocol we use for our remote debugging, please see the <a href="debugger-protocol">Debugger Protocol</a> documentation and <a href="/extensions/debugger">chrome.debugger</a>.</p>
 
