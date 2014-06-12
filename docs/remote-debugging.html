@@ -91,6 +91,8 @@ development.</figcaption>
   <li>On your desktop, verify you are using Chrome version 32 or later. You can check the version number in <b>chrome://version</b>.</li>
   <li>If USB debugging is on but <b>chrome://inspect</b> doesn't show your device, check that <b>Discover USB devices</b> is checked. If so, unplug the device and try revoking all the USB authorizations in the Android <b>Developer options</b> to retry.</li>
   <li>If you're running a web server on your development machine, and network restrictions prevent your mobile device from accessing the server, try <a href="#reverse-port-forwarding">enabling port forwarding</a> or setting up a <a href="#virtual-host-mapping">virtual host map</a>.</li>
+  <li>Lastly, if things still are not working, you may have to try the <a href="remote-debugging-legacy">legacy workflow for remote debugging</a> via the <code>adb</code> binary from the Android SDK.</li>
+
 </ul>
 
 </section>
@@ -307,10 +309,12 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 <p>DevTools now supports <strong>native USB debugging</strong> of connected devices. You no longer need to configure ADB or the ADB plugin to see all instances of Chrome and the Chrome-powered WebView on devices connected to your system. This functionality works on all operating systems: Windows, Mac, Linux and Chrome OS.</p>
 
-<p>This direct USB connection between Chrome and the device may interrupt an <code>adb</code> connection that you may be trying to establish. If you need to use the <code>adb</code> binary for other reasons, uncheck the <b>Discover USB Devices</b> checkbox, unplug the device, and plug it back in, before establishing your connection via <code>adb devices</code>.</p>
-
-<aside class="note"><strong>Note: </strong> If you encounter problems with the  above technique, or are using an older version of Chrome, you can try the legacy workflow for connectivity which uses the <code>adb</code> binary from the Android SDK:
+<aside class="note">However, if you do encounter problems, you can try the legacy workflow for connectivity which uses the <code>adb</code> binary from the Android SDK:
 <a href="remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
+
+<p>If you use the <code>adb</code> binary for other reasons, please note the direct USB connection between Chrome and the device may interrupt an <code>adb</code> connection that you may be trying to establish. To fix, just uncheck the <b>Discover USB Devices</b> checkbox, unplug the device, and plug it back in, before establishing your connection via <code>adb</code>.</p>
+
+
 
 <h2>Remote debugging for DevTools extension developers</h2>
 
