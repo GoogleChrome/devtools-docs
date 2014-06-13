@@ -87,6 +87,12 @@ Copies a string representation of the specified object to the clipboard.
     copy($0);
 
 
+## debug(function)
+
+When the function specified is called, the debugger will be invoked and will break inside the function on the Sources panel allowing you to be able to step through the code and debug it.
+
+    debug(getData);
+
 
 ## dir(object)
 
@@ -102,14 +108,12 @@ The following example shows the difference between evaluating `document.body` di
 For more information, see the [`console.dir()`](console-api#consoledirobject) entry in the Console API.
 
 
-
 ## dirxml(object)
 
 Prints an XML representation of the specified object, as seen in the Elements tab. This method is equivalent to the [`console.dirxml()`](console-api#consoledirxmlobject) method.
 
 
-
-## inspect(object)
+## inspect(object/function)
 
 Opens and selects the specified element or object in the appropriate panel: either the Elements panel for DOM elements and the Profiles panel for JavaScript heap objects.
 
@@ -119,6 +123,7 @@ The following example opens the first child element of `document.body` in the El
 
 ![Inspecting an element with inspect()](commandline-api-files/inspect.png)
 
+When passing a function to inspect, when the function is called it will open it up in the Sources panel for you to inspect.
 
 
 ## getEventListeners(object) ##
@@ -154,6 +159,18 @@ Assuming `player1` was defined in the global namespace (for simplicity), typing 
 
 <img src="commandline-api-files/keys-values2.png" style="max-width:100%" alt="Example of keys() and values() methods">
 
+
+
+## monitor(function)
+
+When the function specified is called, a message is logged to the console that indicates the function name along with the arguments that are passed to the function when it was called.
+
+    function sum(x, y) {
+        return x + y;
+    }
+    monitor(sum);
+
+<img src="commandline-api-files/monitor.png" style="max-width:100%" alt="Example of monitor() method">
 
 
 ## monitorEvents(object[, events])
@@ -203,6 +220,13 @@ To stop profiling and display the results in the Profiles panel:
 
     profileEnd("My profile")
 
+Profiles can also be nested. For example, this will work in any order:
+
+    profile('A');
+    profile('B');
+    profileEnd('A');
+    profileEnd('B');
+
 For more examples, see [Controlling the CPU profiler](console.md#controlling-the-cpu-profiler).
 
 
@@ -211,6 +235,33 @@ For more examples, see [Controlling the CPU profiler](console.md#controlling-the
 
 Stops the current profiling session started with the [profile()](#profilename) method and displays the results in the Profiles panel.
 
+
+## table(data[, columns])
+
+Log object data with table by passing in a data object in with optional column headings. For example, to display a list of names using a table in the console you would do:
+
+    var names = {
+        0: { firstName: "John", lastName: "Smith" },
+        1: { firstName: "Jane", lastName: "Doe" }
+    };
+
+    table(names);
+
+<img src="commandline-api-files/table.png" style="max-width:100%" alt="Example of table() method">
+
+
+## undebug(function)
+
+Stops the debugging of the specified function so that when the function is called the debugger will not be invoked, breaking inside the function on the Sources panel.
+
+    undebug(getData);
+
+
+## unmonitor(function)
+
+Stops the monitoring of the specified function. For example, the following stops the monitoring of a function named getData():
+
+    unmonitor(getData);
 
 
 ## unmonitorEvents(object[, events])
