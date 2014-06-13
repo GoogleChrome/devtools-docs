@@ -116,7 +116,7 @@ Latency is the time to load the first byte in the response.</td>
 
 ### Preserving the network log upon navigation
 
-By default, the current network record log is discarded when you navigate to another page, or reload the current page. To preserve the recording log in these scenarios, click the black **Preserve log upon navigation** button <img src="../../images/recording-off.png" alt="Don't preserve log on navigation"/> at the bottom of the Network panel; new records are appended to the bottom of the table. Click the same button again (now red <img src="../../images/recording-on.png" alt="Preserve resources on navigation"/>) to disable log preservation.
+By default, the current network record log is discarded when you navigate to another page, or reload the current page. To preserve the recording log in these scenarios, click the black **Preserve log upon navigation** button <img src="../images/recording-off.png" alt="Don't preserve log on navigation"/> at the bottom of the Network panel; new records are appended to the bottom of the table. Click the same button again (now red <img src="../images/recording-on.png" alt="Preserve resources on navigation"/>) to disable log preservation.
 
 ### Sorting and filtering ###
 
@@ -149,7 +149,7 @@ You can change the default set of columns displayed by the Network table. To sho
 
 ### Changing resource row sizes
 
-You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="../../images/small-resource-rows.png" alt="Small resource rows"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="../../images/large-resource-rows.png" alt="Large resource rows"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
+You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="../images/small-resource-rows.png" alt="Small resource rows"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="../images/large-resource-rows.png" alt="Large resource rows"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
 
 In the following screenshot, the Network table is viewed with small resource rows and just the Timeline column.
 

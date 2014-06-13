@@ -113,11 +113,11 @@ To make a recording, you start a recording session, interact with your applicati
     <li>Open the page you want to record.</li>
     <li>Open the Timeline panel and start recording by doing one of the following:</li>
     <ul>
-        <li>Click the round record button at the bottom of the Timeline panel. <img width="32px" style="vertical-align:middle" src="../../images/recording-off.png"></img></li>
+        <li>Click the round record button at the bottom of the Timeline panel. <img width="32px" style="vertical-align:middle" src="../images/recording-off.png"></img></li>
         <li>Press the keyboard shortcut Ctrl+E, or Cmd+E on Mac.
         </li>
     </ul>
-    <p>The Record button turns red during a recording. <img src="../../images/recording-on.png" style="vertical-align:middle" width="32px"></img> </p>
+    <p>The Record button turns red during a recording. <img src="../images/recording-on.png" style="vertical-align:middle" width="32px"></img> </p>
     <li>Perform any necessary user actions to record the desired behavior.</li>
     <li>Stop the recording by pressing the now red record button, or
     repeating the keyboard shortcut.</li>
