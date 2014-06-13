@@ -40,7 +40,7 @@ make this process more straightforward.</p>
   <li><strong>User agent</strong> - a string available at <code>navigator.userAgent</code> and also sent as a request header for page resources. See <a href="#useragent-spoofing">Useragent Spoofing</a>.</li>
   <li><strong>Screen resolution</strong> - matches the actual dimensions (width and height) of the selected device. For example, selecting the Nexus S will emulate a resolution of 480x800.</li>
   <li><strong>Device Pixel Ratio</strong> - matches the DPR of the selected device. Allows emulation of a retina device from a non-retina machine. This also means media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.</li>
-  <li><strong>Emulate viewport</strong> - zooms the page out to the physical default viewport of that device. In the case of the Nexus 4 this is 768x1280. </li>
+  <li><strong>Emulate viewport</strong> - zooms the page out to the physical default viewport of that device. In the case of the Nexus 4, the device-width would be 768. This box also makes sure scrollbars overlay (as they do on mobile and OS X), `window.screen` values are in CSS pixels, and the default body width of 980 pixels.</li>
   <li><strong>Text autosizing</strong> - emulate font boosting which occurs on mobile devices.</li>
     <li><strong>Android font metrics</strong> - Android artificially increases the font metrics used by text autosizing based on the system settings and screen size. Enabled by default only when emulating an Android device.</li>
   <li><strong>Touch screen</strong> (part of the Sensors pane) - uses touch events, see <a href="#emulate-touch-events">Emulating Touch Events</a>.</li>
