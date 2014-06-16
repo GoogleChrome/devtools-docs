@@ -96,7 +96,7 @@ When the function specified is called, the debugger will be invoked and will bre
 
 ![Breaking inside a function with debug()](commandline-api-files/debug.png)
 
-Use [undebug(fn)](#undebug-function-) to stop breaking on the function, or use the UI to disable all breakpoints.
+Use [undebug(fn)](#undebugfunction) to stop breaking on the function, or use the UI to disable all breakpoints.
 
 ## dir(object)
 
@@ -176,7 +176,7 @@ When the function specified is called, a message is logged to the console that i
 
 <img src="commandline-api-files/monitor.png" style="max-width:100%" alt="Example of monitor() method">
 
-Use [unmonitor(function)](#unmonitor-function-) to cease monitoring.
+Use [unmonitor(function)](#unmonitorfunction) to cease monitoring.
 
 
 ## monitorEvents(object[, events])
@@ -265,7 +265,7 @@ Stops the debugging of the specified function so that when the function is calle
 
 ## unmonitor(function)
 
-Stops the monitoring of the specified function. Used in concert with [monitor(fn)](#monitor-function-).
+Stops the monitoring of the specified function. Used in concert with [monitor(fn)](#monitorfunction).
 
     unmonitor(getData);
 
