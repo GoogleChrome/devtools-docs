@@ -94,6 +94,10 @@ When the function specified is called, the debugger will be invoked and will bre
     debug(getData);
 
 
+![Breaking inside a function with debug()](commandline-api-files/debug.png)
+
+Use [undebug(fn)](#undebug-function-) to stop breaking on the function, or use the UI to disable all breakpoints.
+
 ## dir(object)
 
 Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's [`console.dir()`](console-api#consoledirobject) method.
@@ -171,6 +175,8 @@ When the function specified is called, a message is logged to the console that i
     monitor(sum);
 
 <img src="commandline-api-files/monitor.png" style="max-width:100%" alt="Example of monitor() method">
+
+Use [unmonitor(function)](#unmonitor-function-) to cease monitoring.
 
 
 ## monitorEvents(object[, events])
@@ -252,14 +258,14 @@ Log object data with table by passing in a data object in with optional column h
 
 ## undebug(function)
 
-Stops the debugging of the specified function so that when the function is called the debugger will not be invoked, breaking inside the function on the Sources panel.
+Stops the debugging of the specified function so that when the function is called the debugger will no longer be invoked.
 
     undebug(getData);
 
 
 ## unmonitor(function)
 
-Stops the monitoring of the specified function. For example, the following stops the monitoring of a function named getData():
+Stops the monitoring of the specified function. Used in concert with [monitor(fn)](#monitor-function-).
 
     unmonitor(getData);
 
