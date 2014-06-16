@@ -35,7 +35,7 @@ page</a> or the <a href="http://todomvc.com/architecture-examples/angularjs/">To
 inspected page. Standard controls to pause, resume, and step through code are
 provided below the panel selection icons. A button to force a pause at
 exceptions is located at the bottom of the window. Sources are visible in
-separate tabs and clicking <img src="../../images/show-file-navigator.png"/> opens the file navigator
+separate tabs and clicking <img src="../images/show-file-navigator.png"/> opens the file navigator
 which will display all open scripts.</p>
 
 
@@ -43,11 +43,11 @@ which will display all open scripts.</p>
 
 <p>The <strong>execution control</strong> buttons are located at the top of the side panels and allow you to step through code. The buttons available are:</p>
 
-<p><strong><img src="../../images/continue.jpg"/> Continue:</strong> continues code execution until we encounter another breakpoint.</p>
-<p><strong><img src="../../images/step_over.jpg"/> Step over:</strong> step through code line-by-line to get insights into how each line affects the variables being updated. Should your code call another function, the debugger won't jump into its code, instead stepping over so that the focus remains on the current function.</p>
-<p><strong><img src="../../images/step_into.jpg"/> Step into:</strong> like Step over, however clicking Step into at the function call will cause the debugger to move its execution to the first line in the functions definition.</p>
-<p><strong><img src="../../images/step_out.jpg"/>Step out:</strong> having stepped into a function, clicking this will cause the remainder of the function definition to be run and the debugger will move its execution to the parent function.</p>
-<p><strong><img src="../../images/disable-breakpoints.png"/>Toggle breakpoints:</strong> toggles breakpoints on/off while leaving their enabled states intact.</p>
+<p><strong><img src="../images/continue.jpg"/> Continue:</strong> continues code execution until we encounter another breakpoint.</p>
+<p><strong><img src="../images/step_over.jpg"/> Step over:</strong> step through code line-by-line to get insights into how each line affects the variables being updated. Should your code call another function, the debugger won't jump into its code, instead stepping over so that the focus remains on the current function.</p>
+<p><strong><img src="../images/step_into.jpg"/> Step into:</strong> like Step over, however clicking Step into at the function call will cause the debugger to move its execution to the first line in the functions definition.</p>
+<p><strong><img src="../images/step_out.jpg"/>Step out:</strong> having stepped into a function, clicking this will cause the remainder of the function definition to be run and the debugger will move its execution to the parent function.</p>
+<p><strong><img src="../images/disable-breakpoints.png"/>Toggle breakpoints:</strong> toggles breakpoints on/off while leaving their enabled states intact.</p>
 
 <p>There are also several related keyboard shortcuts available in the <strong>Sources</strong> panel:</p>
 
@@ -141,7 +141,7 @@ drop-down</p>
 <li>Hover over the source code to inspect local and global variables, function
 arguments etc.</li>
 <li>Delete the breakpoint by clicking the blue tag breakpoint indicator</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 
@@ -177,7 +177,7 @@ set breakpoint on line 2</li>
   "dynamicScriptFunction()" disabled>Call function from dynamic
   script</button></li>
 <li>You should stop on the breakpoint</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 <p><div class="screenshot"><img src="javascript-debugging/dynamic-script.jpg"/></div></p>
@@ -199,11 +199,11 @@ function onMouseOver(event) {
 }
 </script>
 <ul>
-<li>Click the <strong>Pause</strong> <img class="ui" src="../../images/pause-icon.png"/> button</li>
+<li>Click the <strong>Pause</strong> <img class="ui" src="../images/pause-icon.png"/> button</li>
 <li>Move your mouse over this section</li>
 <li>You should stop in <code>onMouseOver</code>
   function</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 <p><div class="screenshot"><img src="javascript-debugging/continue-to-resume.jpg"/></div></p>
@@ -223,13 +223,13 @@ function raiseAndCatchException() {
 }
 </script>
 <ul>
-<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../../images/pause-gray.png"/>button at the bottom of the window to switch to
+<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-gray.png"/>button at the bottom of the window to switch to
 <strong>Pause on all exceptions</strong> mode</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
 <li>You should stop in <span class=
   "source-code">raiseAndCatchException</span> function</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 <p><div class="screenshot"><img src="javascript-debugging/append-child.jpg"/></div></p>
@@ -254,7 +254,7 @@ function raiseException() {
 }
 </script>
 <ul>
-<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../../images/pause-blue.png"/>button again to switch to <strong>Pause on uncaught
+<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-blue.png"/>button again to switch to <strong>Pause on uncaught
 exceptions</strong> mode</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
@@ -262,7 +262,7 @@ exceptions</strong> mode</li>
 caught</li>
 <li><button onclick="raiseException()">Raise uncaught exception!</button></li>
 <li>You should stop in <code>raiseException</code> function</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 
@@ -291,7 +291,7 @@ context menu     <div id="parent" style="border: solid 2px; padding: 5px; margin
 select <strong>Break on Subtree Modifications</strong></li>
 <li><button onclick="appendChildButtonClicked()">Append child!</button></li>
 <li>You should stop on <code>appendChild</code> function call</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/>  button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/>  button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 
@@ -314,7 +314,7 @@ function retrieveData() {
 }
 </script>
 <ul>
-<li>Click the <strong>Add</strong> <img class="ui" src="../../images/plus.png"/> button on <strong>XHR Breakpoints</strong> sidebar pane on the right side
+<li>Click the <strong>Add</strong> <img class="ui" src="../images/plus.png"/> button on <strong>XHR Breakpoints</strong> sidebar pane on the right side
 of <strong>Sources</strong> panel</li>
 <li>Type "data.txt" in text input and hit <strong>enter</strong></li>
 <li><button onclick="retrieveData()">Retrieve data.txt by XHR</button></li>
@@ -322,7 +322,7 @@ of <strong>Sources</strong> panel</li>
   call</li>
 <li>Right-click on the newly created breakpoint and select <strong>Remove Breakpoint</strong>
 context menu item</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 
@@ -372,7 +372,7 @@ function hovermeMouseOut(event) {
       Hover me!
     </div></li>
 <li>You should stop on <code>mouseout</code> event handler</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
 </ul>
 
 <p><div class="screenshot"><img src="javascript-debugging/continue-to-resume.jpg"/></div></p>
@@ -470,7 +470,7 @@ frames and navigate to the corresponding locations in the code:</p>
 
 <p>You may also want to pause JavaScript execution next time exception is thrown
 and inspect its call stack, scope variables and state of your app. A tri-state
-stop button ( <img src="../../images/pause-gray.png"/> <!-- TODO: Fix alt text
+stop button ( <img src="../images/pause-gray.png"/> <!-- TODO: Fix alt text
 and URL --> ) at the bottom of the Scripts panel enables you to switch between
 different exception handling modes: you can choose to either pause on all
 exception or only on the uncaught ones or you can ignore exceptions altogether.</p>
@@ -539,7 +539,7 @@ the DevTools:</p>
 
 <p><div class="screenshot"><img src="javascript-debugging/pretty-print-off.jpg"/></div></p>
 
-<p>And by clicking on the curly brace <img src="../../images/prettyprint-icon.png"/> ("Pretty Print") icon in the bottom left
+<p>And by clicking on the curly brace <img src="../images/prettyprint-icon.png"/> ("Pretty Print") icon in the bottom left
 corner, the JavaScript is transformed into a more human readable form. This is
 also more easy for debugging and setting breakpoints.</p>
 
