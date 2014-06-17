@@ -1,6 +1,6 @@
 # The Chrome DevTools documentation
 
-This is the source of the official [DevTools documentation](https://developer.chrome.com/devtools/index).
+This is the source of the official [DevTools documentation](https://developer.chrome.com/devtools/index) on developer.chrome.com (aka "DCC").
 
 
 
@@ -48,24 +48,16 @@ Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devt
 1. It should bring you to a url like [http://localhost:8000/docs/_preview.html?settings.html](http://localhost:8000/docs/_preview.html?settings.html)
   * you can navigate to this directly if you like
   * it looks like this ![image](https://cloud.githubusercontent.com/assets/39191/3017506/831921a8-df7a-11e3-8faa-8dc957057248.png)
-* Things mostly work.
+  * Things mostly work but is not exactly the same as viewing through DCC.
 
 ### Deployment
 
-Paul or Addy does the work of pushing this stuff live.
-
-* check last commit in google3 via `git log`, get the SHA
-* pull in latest from GH
-* g4 add/edit changed things
-  * look for changed items by `find . -type f -perm 0640`
-  * compare URL from last commit to master: `github.com/GoogleChrome/devtools-docs/compare/<SHA>...master`, Files Changed, Show Diff Stats
-* check git status and p4 status
-* g4 change, imgsquish, g4 mail
-* commit any changed images back to GH
+Once pushed to master, updates will go live to the DCC site within a few minutes or so.
 
 #### Troublshooting
 * Make sure you've created CLs with any imported GH changes. 
-* `devsite publish` all relevant files.
+* If you can't find the content with the devtools-docs repo, it might be part of the Chromium repo
+  * CSS, JavaScript, and navigation bugs related to developer.chrome.com can be logged to the [Chromium issue tracker](http://crbug.com) 
 
 ## License
 
