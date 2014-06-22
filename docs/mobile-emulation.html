@@ -16,13 +16,10 @@ walk through in this section.</p>
 
 <p>Bring up the DevTools console drawer by hitting the <span class="kbd">Esc</span> key and then select the Emulation panel.</p>
 
-<p><div class="screenshot"><img width="468" src="mobile-emulation/emulation-panel.png" alt="Emulation panel"/></div></p>
-
+<div class="screenshot"><img width="468" src="mobile-emulation/emulation-panel.png" alt="Emulation panel"/></div>
 <p class="note"><b>Note</b>: Emulation tools within DevTools were previously contained within an <strong>Overrides</strong> pane inside the Settings panel. The Emulation panel is the new Overrides pane. If you do not see the Emulation tab, open the DevTools Settings and select "Show Emulation view in console drawer."</p>
-
-
-
 </div>
+
 <div class="collapsible">
 <h2 id="emulate-devices">Emulating Devices</h2>
 
@@ -46,8 +43,7 @@ make this process more straightforward.</p>
   <li><strong>Touch screen</strong> (part of the Sensors pane) - uses touch events, see <a href="#emulate-touch-events">Emulating Touch Events</a>.</li>
 </ul>
 
-<p><div class="screenshot"><img width="746" src="mobile-emulation/viewport-emulation.gif" alt="Viewport emulation"/></div></p>
-
+<div class="screenshot"><img width="746" src="mobile-emulation/viewport-emulation.gif" alt="Viewport emulation"/></div>
 
 
 <p>Emulate a device via a preset using the following steps:</p>
@@ -58,12 +54,11 @@ make this process more straightforward.</p>
   <li>Click Emulate.</li>
 </ol>
 
-<p><div class="screenshot"><img width="550" src="mobile-emulation/image_3.png" alt="Viewport Overrides"/></div></p>
+<div class="screenshot"><img width="550" src="mobile-emulation/image_3.png" alt="Viewport Overrides"/></div>
 
 <p>You are now in device emulation mode. The Screen, User Agent, and Sensors panes reflect the device settings which are now enabled. </p>
 
-<p><div class="screenshot"><img width="375" src="mobile-emulation/device_metrics.png" alt="Viewport Overrides"/></div></p>
-
+<div class="screenshot"><img width="375" src="mobile-emulation/device_metrics.png" alt="Viewport Overrides"/></div>
 <h4>Notes</h4>
 <ul>
   <li>The <strong>Swap dimensions</strong> button in between the <em>Resolution</em> values (<img src="../images/swap-dimensions-button.png"/>) will swap the width and height.</li>
@@ -96,7 +91,7 @@ mobile applications on the desktop.</p>
 <li>Enable "Emulate touch screen" in the Sensors pane.</li>
 </ol>
 
-<div class="screenshot"><img width="480" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"/></img></div>
+<div class="screenshot"><img width="480" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"/></div>
 
 <p>Your mouse actions will now also trigger the relevant touch events: <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>.</p>
 
@@ -112,7 +107,7 @@ succeed on page refresh.</li>
 <li>On click, the order of events fired is currently: <code>touchstart > mousedown > touchmove > touchend > mouseup > click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</li>
 <li><code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
 </ul>
-<div class="screenshot"><img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/></img></div>
+<div class="screenshot"><img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/></div>
 
 <p><strong>Debugging touch events</strong></p>
 
@@ -128,7 +123,7 @@ Demo</a></li>
 </ol>
 
 
-<p><div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div></p>
+<div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"/></div>
 
 You may also monitor touch events as they fire on an element in the console. Use <a href="commandline-api.md#monitoreventsobject-events"><code>monitorEvents</code> from the command line API</a>:
 
@@ -260,14 +255,14 @@ latitude. The DevTools support both overriding position values for <em>navigator
 </ol>
 
 
-<p><div class="screenshot"><img src="mobile-emulation/image_11.png"/></div></p>
+<div class="screenshot"><img src="mobile-emulation/image_11.png"/></div>
 
 <ol start="4">
 <li>Refresh the page. The demo will now use your overridden position for geolocation.</li>
 </ol>
 
 
-<p><div class="screenshot"><img src="mobile-emulation/image_12.png"/></div></p>
+<div class="screenshot"><img src="mobile-emulation/image_12.png"/></div>
 
 <ol start="5">
 <li>Check the "Emulate position unavailable" option.</li>
@@ -275,7 +270,7 @@ latitude. The DevTools support both overriding position values for <em>navigator
 </ol>
 
 
-<p><div class="screenshot"><img src="mobile-emulation/image_13.png"/></div></p>
+<div class="screenshot"><img src="mobile-emulation/image_13.png"/></div>
 
 
 
@@ -321,12 +316,12 @@ values listed above it.</li>
 </ol>
 
 
-<p><div class="screenshot"><img width="401" src="mobile-emulation/image_14.png" alt="Enabling device orientation overrides"/></div></p>
+<div class="screenshot"><img width="401" src="mobile-emulation/image_14.png" alt="Enabling device orientation overrides"/></div>
 
 <p>We have altered the left/right tilt and front/back tilt, in this case resulting
 in our application being emulated as rotating in a clockwise direction.</p>
 
-<p><div class="screenshot"><img width="369" src="mobile-emulation/image_15.png" alt="Device orientation allows us to emulate the directions a device may be turned" /></div></p>
+<div class="screenshot"><img width="369" src="mobile-emulation/image_15.png" alt="Device orientation allows us to emulate the directions a device may be turned" /></div>
 
 
 
