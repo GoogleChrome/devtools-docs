@@ -55,9 +55,7 @@ IRC channel on [Freenode](http://webchat.freenode.net/?channels=blink):
 
 In this guide, we'll cover how to get set up and running locally so you can
 start developing and contributing to the DevTools. You may also find it helpful
-to read the [Chromium
-g](http://dev.chromium.org/developers/contributing-code)[uide for contributing
-code](http://dev.chromium.org/developers/contributing-code).
+to read the [Chromium guide for contributing code](http://dev.chromium.org/developers/contributing-code).
 
 <p class="note"><strong>Note:</strong> You will need to sign and submit a completed <a href="https://developers.google.com/open-source/cla/individual">CLA (Contributor License Agreement)</a> before we are able to consider any contributions you may wish to make.
 </p>
