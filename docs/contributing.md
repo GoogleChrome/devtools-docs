@@ -227,14 +227,14 @@ Adjust the path to `chromeServerProfile` to be some writable directory in your s
 
 ### Step 3: Inspector inception
 
-Once Canary is open go to any web page (the page doesn't matter because you're
-not going to use it for anything). Open up the DevTools for the page, and undock <img src="../images/layout-button.png" alt="undock DevTools"/> from the window so it is in a separate window.<br/>
+<p class="note">If you're not developing the DevTools, the easy way to inspect the DevTools is undock them from your tab <img src="../images/layout-button.png" alt="undock DevTools"/> so it is in a separate window. Then hit your keyboard shortcut for inspecting (like cmd-alt-i). This will bring up a new DevTools window that's inspecting the previous once. You can now redock these windows as you wish. </p>
 
-Next, open a new tab or launch another instance of Chrome (either Chrome Stable
-or Canary) and go to [http://localhost:9222](http://localhost:9222).
 
-Here you will see a grid menu of every page that is currently open which you are
-able to inspect and debug.
+Once Canary is up, open a new tab and navigate to any web page, like `chromium.org`. <br/>
+
+Next, return to the "Inspectable Pages" tab, [http://localhost:9222](http://localhost:9222).
+
+Here you will see a grid menu of every open page that can be inspected. Refresh to update it.
 
 <img src="contributing-files/image01.png" alt="Inspectable pages" width="700"/>
 
@@ -244,22 +244,24 @@ Since the web server is running from your local git repo in the
 `/blink/Source/devtools` directory, so the files within the devtools folder will
 be used for the inspector you see when clicking any of one these pages.
 
-Clicking on the Developer Tools thumbnail opens up a second instance of the
-DevTools, which is inspecting the first undocked DevTools instance.
-
-<img src="contributing-files/image00.png" alt="inspector inception" width="700"/>
+Clicking on the thumbnail of the tab you opened. You'll then have a full tab of DevTools that's inspecting your other tab.
 
 Nice job, so far!
 
-Notice that the URL address of the second DevTools instance points to
+Notice that the URL address of this DevTools instance points to
 [http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html).
-This is because of the command line parameter
-`--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html`
-that was passed into the first instance, before running Canary. It connects to
+This is because of the inspector URL `http://localhost:9222#http://localhost:8000/front_end/inspector.html`
+that was passed as a hash to the "Inspectable Pages" URL. It connects to
 your local repo through a websocket, which you may notice, is part of the URL
-`?ws=localhost:9222/devtools/`.
+`?ws=localhost:9222/devtools/`. (You can also use DevTools to look at this WebSocket frame data). Back to hacking…
 
-Now you can [start
+
+Now, use your keyboard shortcut to open DevTools within this window. You now have achieved inspector inception.
+
+<img src="contributing-files/image00.png" alt="inspector inception" width="700"/>
+
+
+Well done. Now you can [start
 contributing](http://dev.chromium.org/developers/contributing-code) and
 developing the DevTools front-end code located in the directory
 `/blink/Source/devtools/front_end`.<br/><br/>
@@ -453,12 +455,12 @@ On a Mac or Linux machine you can simply run:
 If you have problems with this step you can look at [Clang](https://code.google.com/p/chromium/wiki/Clang) for Mac help and the [Linux build instructions](https://code.google.com/p/chromium/wiki/LinuxBuildInstructions) for Linux help.
 
 
-This will also take some time. Once it has finished providing you with warmth from your laptop then you are 
-good to run the layout tests which can be run with from your src directory 
-`webkit/tools/layout_tests/run_webkit_tests.sh`. Replace the .sh with .bat if you 
-are on Windows. Some failures are expected! (unfortunatly). A good process here 
-is to run them before you make any changes, then run them after you make your 
-changes. It can also take an argument to a directory so you can just point it to 
-the `LayoutTests/inspector` directory to run. 
+This will also take some time. Once it has finished providing you with warmth from your laptop then you are
+good to run the layout tests which can be run with from your src directory
+`webkit/tools/layout_tests/run_webkit_tests.sh`. Replace the .sh with .bat if you
+are on Windows. Some failures are expected! (unfortunatly). A good process here
+is to run them before you make any changes, then run them after you make your
+changes. It can also take an argument to a directory so you can just point it to
+the `LayoutTests/inspector` directory to run.
 
 {{/partials.standard_devtools_article}}
