@@ -70,84 +70,75 @@ Shift-Control-; (semi-colon) on other platforms.</li>
 
 </div>
 <div class="collapsible">
-<h2 id="breakpoints">Debugging With Breakpoints</h2>
+<h2 id="breakpoints">Debugging with breakpoints</h2>
 
-<p>A breakpoint is an <strong>intentional</strong> stopping or pausing place in a script, put in
-place for debugging purposes. Let's look at <strong>debugging</strong>JavaScript using
-breakpoints set on JavaScript code and breakpoints targeted at UI and network
-aspects of an application.</p>
+<p>A <strong>breakpoint</strong> is an <em>intentional</em> stopping or pausing place in a script. Use breakpoints in DevTools to debug JavaScript code, DOM updates, and network calls.</p>
 
+<h3 id="add-remove-breakpoints">Add and remove breakpoints</h3>
 
-<h3>Workflow</h3>
+<p>In the <b>Sources</b> panel, open a JavaScript file for debugging. In the example below, we are debugging the <b>todoCtrl.js</b> file from the <a href="http://todomvc.com/architecture-examples/angularjs/">AngularJS version of TodoMVC</a>.</p>
 
-<p>First, open the DevTools by hitting the <strong>Control-Shift-I</strong> shortcut. Click the
-<strong>line gutter</strong> to set a breakpoint for that line of code, select another script
-and set another breakpoint.</p>
-<div class="screenshot"><img src="javascript-debugging/sources-view-region.jpg"/></div> <p>
-All the breakpoints you have set appear under <strong>Breakpoints</strong> in the right-hand
-sidebar. Breakpoints can be enabled or disabled using the checkboxes in this
+<div class="screenshot"><img src="javascript-debugging/sources-select-todoCtrl-js.png"/></div>
+
+<p>Click the <b>line gutter</b> to set a breakpoint for that line of code. A blue tag will indicate if a breakpoint has been set:</p>
+
+<div class="screenshot"><img src="javascript-debugging/sources-view-region.jpg"/></div>
+
+<p>You can add multiple breakpoints. Click the <b>line gutter</b> of another line
+to set another breakpoint. All the breakpoints you have set appear under <b>Breakpoints</b> in the right-hand
 sidebar.</p>
-<div class="screenshot"><img src="javascript-debugging/sources-breakpoints-region.jpg"/></div> <p>
-Clicking on the entry jumps to the <strong>highlighted line</strong> in the source file. You
-can <strong>set</strong> one or more breakpoints in one or more scripts.</p>
-<div class="screenshot"><img src="javascript-debugging/multiple-breakpoints-region.jpg"/></div> <p>
-Delete a breakpoint by clicking the <strong>blue tag</strong> breakpoint indicator. The
-breakpoint indicator menu has several options including "Continue to here",
-"Edit Breakpoint", "Disable Breakpoint" and "Save As", which will save the file
-locally.</p>
-<div class="screenshot"><img src="javascript-debugging/continue-to-here-region.jpg"/></div> <p>
-Once you have set a breakpoint, you can right-click on the blue arrow tag
-indicator in the gutter line to set a <strong>conditional statement</strong> for that
-specific breakpoint. Type any expression and the breakpoint will pause only if
-the condition is true. The tag cycles through its three states of active,
-inactive, and removed.</p>
- <div class="screenshot"><img src="javascript-debugging/conditional-breakpoint-region.jpg"/></div>
-<p>
-Click the <strong>Pause</strong> button then interact with your page.  </p>
-<div class="screenshot"><img src="javascript-debugging/callstack-region.jpg"/></div> <p>
-While a script is paused, you can see the current call stack and in-scope
-variables in the right-hand side bar. The call stack displays the <strong>complete execution path</strong> that led to the point where code was paused, giving us insights into the code flaws that caused the error.</p>
 
-<p>You may also open up the console to experiment while paused. Hit the <span class="kbd">Esc</span> key to bring the console into view.
+<p>Breakpoints can be enabled or disabled using the checkboxes in this
+sidebar. If a breakpoint is disabled, the blue tag will appear faded out.</p>
 
-<aside class="special">
-  Remember: the console will be evaluating within the scope of where the debugger is currently paused.
-  <p>
-  <div class="screenshot">
-    <img src="javascript-debugging/evaluate-while-paused.jpg">
-  </div>
-</p>
+<p>Click on a breakpoint entry to jump to that particular line in the source file:</p>
 
-</aside>
+<div class="screenshot"><img src="javascript-debugging/multiple-breakpoints-region.jpg"/></div>
 
+<p>Remove a breakpoint by clicking the <b>blue tag</b> breakpoint indicator.</p>
 
-<p>Remember, if your code happens to be using a loop which fires every 20ms, you likely won't want the debugger to <strong>halt</strong> on each iteration. Using conditional statements/breakpoints can assist with this. In the below example, code execution will only break if the <code>minLevel</code> variable is greater than 2004, helping us avoid a number of additional clicks in the debugger.</p>
+<p>Right-click on the <b>blue tag</b> to access a menu with several options including: <b>Continue to Here</b>,
+<b>Remove Breakpoint</b>, <b>Edit Breakpoint</b>, and <b>Disable Breakpoint</b>.</p>
 
- <div class="screenshot"><img src="javascript-debugging/conditional.png"/></div>
+<div class="screenshot"><img src="javascript-debugging/continue-to-here-region.jpg"/></div>
 
- <p class="note"><strong>Note:</strong> It may not be desirable to set breakpoints from the DevTools interface. Should you wish to launch the debugger from your code, you may use <a href="console.md#setting-breakpoints-in-javascript">the <code>debugger</code> keyword</a> to achieve this.</p>
+<p>To set a <strong>conditional breakpoint</strong>, choose <b>Edit Breakpoint</b>. Alternatively, right-click on the <b>gutter line</b> and choose <b>Add Conditional Breakpoint</b>. In the input field, type any expression that could resolve to true or false. The breakpoint will pause code execution only if
+the condition is true.</p>
 
+<div class="screenshot"><img src="javascript-debugging/conditional-breakpoint-region.jpg"/></div>
 
-<h3>Using Breakpoints</h3>
+<p>Conditional breakpoints are especially useful when you're looking to analyze code in a loop or an event callback that fires often.</p>
 
-<p>Make sure the <strong>Sources</strong> panel is open and select "script.js" from scripts
-drop-down</p>
+<p class="note"><strong>Note:</strong> It may not be desirable to set breakpoints from the DevTools interface. Should you wish to launch the debugger from your code, you may use <a href="console.md#setting-breakpoints-in-javascript">the <code>debugger</code> keyword</a> to achieve this.</p>
 
-<ul>
-<li>Set a breakpoint on line 8 by clicking the line gutter (you can use the
-<strong>Control-G</strong> shortcut to reveal a line in a large file)</li>
-<li>Move your mouse over this page</li>
-<li>You should stop on the breakpoint</li>
-<li>Hover over the source code to inspect local and global variables, function
-arguments etc.</li>
-<li>Delete the breakpoint by clicking the blue tag breakpoint indicator</li>
-<li>Click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or hit <strong>F8</strong> in DevTools window to resume</li>
-</ul>
+<h3 id="breakpoints-paused">Interact with paused breakpoints</h3>
 
+<p>Once you have one or more breakpoints set, return to the browser window and interact with your page. In the example below, a breakpoint was added within <code>removeTodo()</code>. Now any attempts to delete a todo item in the TodoMVC app will trigger a breakpoint pause:</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/live-editing-mouseout.jpg"/></div></p>
+<div class="screenshot"><img src="javascript-debugging/breakpoint-paused-app.png"/></div>
 
+<p>To resume code execution, click the <strong>Continue</strong> <img class="ui" src="../images/continue.jpg"/> button or use the <span class="kbd">F8</span> keyboard shortcut in the DevTools window.</p>
 
+<p>While a script is paused, you can interact with the <b>Watch Expressions</b>, <b>Call Stack</b>, and <b>Scope
+Variables</b> panels in the right-hand side bar.</p>
+
+<h4 id="call-stack-panel">Call Stack panel</h4>
+
+<p>The <b>Call Stack</b> panel displays the complete execution path that led to the point where code was paused, giving us insights into the code flaws that caused the error.</p>
+
+<div class="screenshot"><img src="javascript-debugging/callstack-region.png"/></div>
+
+<p>To view the execution path including asynchronous JavaScript callbacks such as timer and XHR events, check the <b>Async</b> checkbox.</p>
+
+<div class="screenshot"><img src="javascript-debugging/enable-async-toggle.png"/></div>
+
+<p>Further information and examples using async call stacks can be found in <a href="http://www.html5rocks.com/en/tutorials/developertools/async-call-stack/">Debugging Asynchronous JavaScript with Chrome DevTools</a> on HTML5Rocks.com.</p>
+
+<h4 id="mini-console-panel">Console drawer</h4>
+
+<p>The DevTools <b>console drawer</b> will allow you to experiment within the scope of where the debugger is currently paused. Hit the <span class="kbd">Esc</span> key to bring the console into view. The <span class="kbd">Esc</span> key also closes this drawer.
+
+<div class="screenshot"><img src="javascript-debugging/console-scope-time-travel.gif"/></div>
 
 <h3 id="breakpoints-dynamic-javascript">Breakpoints in Dynamic JavaScript</h3>
 
