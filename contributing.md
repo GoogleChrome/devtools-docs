@@ -48,9 +48,9 @@ Small changes can go in as a pull request directly.
 Spellchecker, built into just about every document editor.
 
 [Hemingway](http://www.hemingwayapp.com/) will run an analysis on the given text and point out possible grammatical issues.
-    * Do not have any hard to read sentences.
-    * Have as few adverbs as possible.
-    * Use the simplest words.
+* Do not have any hard to read sentences.
+* Have as few adverbs as possible.
+* Use the simplest words.
 
 For image compression the following tools are available
 * [ImageOptim](https://imageoptim.com/) on a Mac.
