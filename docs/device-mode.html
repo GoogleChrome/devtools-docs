@@ -1,0 +1,372 @@
+{{+bindTo:partials.standard_devtools_article}}
+<h1>Device Mode</h1>
+
+<p>
+  The web has evolved to enable complex applications across a wide variety of devices.
+  This has increased complexity in debugging during development.
+  The DevTools includes many features to aid the process.
+</p>
+
+<div class="collapsible">
+  <h2 id="enable-device-mode">Enabling Device Mode</h2>
+  <p>
+    To enable device mode, press the Toggle Device Mode button <img src="../images/emulation-off-icon.png" alt="device mode off icon">.
+    When device mode is enabled this icon will turn blue <img src="../images/emulation-on-icon.png" alt="device mode on icon">.
+    This adds a simple overlay to the viewport.
+  </p>
+  <figure>
+    <img src="device-mode-files/initial-start.png" alt="Initial start for device mode">
+    <figcaption>
+      The initial device mode view.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="collapsible">
+  <h2 id="screen-emulation">Screen emulation</h2>
+  <p>
+    Emulating different screen resolutions is essential to responsive design.
+    These settings allow you to set the exact width and height (in pixels) of the target.
+    In addition to resolution, you can also set the pixel ratio of the target device.
+  </p>
+  <p>
+    You can emulate the device pixel ratio which is useful for when you don't have a retina device to test on.
+    Also media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.
+  </p>
+  <figure>
+    <img src="device-mode-files/screen-controls.png" alt="screen controls">
+    <figcaption>
+      Use the device preset dropdown to quickly emulate a particular device.
+      You can also toggle the individual <a href="#device-emulation">device settings</a> which is directly below the preset dropdown.
+      These individual settings are, Resolution, Device Pixel Ratio, and Fit viewport.
+    </figcaption>
+  </figure>
+  <p>
+    If you are testing a resolution that your monitor is not big enough for then fit viewport is available.
+    This will scale the emulated viewport down to fit on your monitor.
+  </p>
+  <figure>
+    <img src="device-mode-files/viewport-fit.png" alt="fit mode">
+    <figcaption>
+      How a fit viewport looks for a high DPI notebook on the DevTool Docs.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="collapsible">
+  <h2 id="network-conditions">Network Conditions</h2>
+  <p>
+    One key aspect for the responsiveness of a site is its performance.
+    Remember that users visit from a variety of networks.
+    Fear not, the DevTools offers network throttling.
+    Now you can test your site against different network conditions and optimize for them.
+  </p>
+  <p>
+    Network conditioning does bandwidth throttling and latency manipulation.
+    The bandwidth is how much speed the client has to talk to the server while latency is the delay in connection.
+    This can be set in the controls through the network dropdown.
+    You can set the <abbr title="User Agent">UA</abbr> string to test different server responses.
+  </p>
+  <figure>
+    <img src="device-mode-files/network-controls.png" alt="network controls">
+    <figcaption>
+      The dropdown sets the network conditions.
+      The input sets the <abbr title="User Agent">UA</abbr> string.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="collapsible">
+  <h2 id="media-queries">Media Query Inspector</h2>
+  <p>
+    A critical part of implementing responsive sites is using <a href="http://docs.webplatform.org/wiki/css/mediaqueries">media queries</a>.
+    The DevTools provide two aids in helping you see the different places being targeted.
+    You may see orange indicators <img src="device-mode-files/media-query-point-on-ruler.png" alt="orange indicator"> in the horizontal ruler which signifies a break point.
+    The media queries button <img src="../images/view-media-queries-off-icon.png" alt="media queries off icon">  on the left will bring up a panel that displays a bar for each query detected in your stylesheets.
+    If you click on one, the resolution setting will be configured to display that query.
+  </p>
+  <figure>
+    <img src="device-mode-files/media-queries.png" alt="media queries view">
+  </figure>
+</div>
+
+<div class="collapsible">
+  <h2 id="device-emulation">Device Emulation</h2>
+  <p>
+    No one wants to set the <abbr title="User Agent">UA</abbr> string by hand or change the resolution all the time.
+    For this reason, there are a variety of device configurations built in.
+    These will do the following:
+  </p>
+  <ul>
+    <li>Set the <abbr title="User Agent">UA</abbr> string for requests.</li>
+    <li>Configure the devices resolution and pixel ratio.</li>
+    <li>Enable touch emulation if applicable.</li>
+    <li>Emulate mobile scrollbar overlays and meta viewport.</li>
+    <li>Boost fonts if the target device attempts that with text autosizing.</li>
+  </ul>
+</div>
+
+<div class="collapsible">
+  <h2 id="clearing-emulations">Clearing Emulations</h2>
+  <p>
+    To clear the set configurations, just click the aptly named clear all overrides button <img src="../images/clear-emulation-overrides-icon.png" alt="clear overrides"> on the left.
+    This will reset everything to no emulation, remember to refresh the page also.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h2 id="more-controls">More controls</h2>
+  <p>
+    To get more precise controls over the emulations taking place, access the emulation drawer.
+    You access this by pressing the ellipses button <img src="../images/more-overrides-icon.png" alt="more overrides"> in the bottom right corner of the controls.
+    This will bring up the emulation panel in the drawer.
+  </p>
+  <figure>
+    <img src="device-mode-files/emulation-drawer.png" alt="emulation drawer">
+    <figcaption>
+      The emulation drawer provides more granular control for overrides.
+      It also provides some more uncommon overrides for testing.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="collapsible">
+  <h2 id="device-pane">Device Pane</h2>
+  <p>
+    The overrides available in the devices pane offers two options over the primary controls.
+    These are text autosizing and mobile emulation.
+    Text autosizing boosts the font as mobile devices do.
+  </p>
+  <p>
+    Mobile emulation does a few things.
+    Primarily, it zooms the page out to the physical default viewport of the device.
+    Then it makes the scrollbars overlays as seen on mobile devices.
+    Values such as <code>window.screen</code> are in CSS pixels.
+    Finally, the default body width is set to 980 pixels.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h2 id="media-pane">Media Pane</h2>
+  <p>
+    The media pane offers a quick way to emulate different <a href="http://www.w3.org/TR/CSS21/media.html#media-types">CSS media types</a>.
+    This allows you to easily test the various types right in the main viewport.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h2 id="sensors-pane">Sensors Pane</h2>
+  <p>
+    The sensors pane allows the emulation of sensors uncommon to desktops.
+    These include touch events, geolocation, and device orientation data.
+  </p>
+  <p>
+    Touch emulation allows the triggering of touch events using the mouse.
+    Only single points are emulatable unless you have a device that supports multi-touch.
+    For more information on multi-touch emulation, check out <a href="http://www.html5rocks.com/en/mobile/touch/#toc-touchdev">HTML5 Rocks</a>.
+    While emulating touch events, the cursor will change and look like a small circle to emulate a fingertip size.
+  </p>
+  <p class="note">
+    <b>Tip: </b> <kbd class="kbd">Shift</kbd> and drag using the mouse will emulate "pinch".
+  </p>
+  <p>
+    You can emulate coordinates for the <a href="http://www.w3.org/TR/geolocation-API/">Geolocation API</a>.
+    The DevTools support both overriding position values for <code>navigator.geolocation</code> and simulating geolocation not being available.
+  </p>
+  <p>
+    Finally emulation of the device orientation sensors for use with the <a href="http://www.w3.org/TR/screen-orientation/">Orientation API</a>.
+    To emulate the values the API calls will recieve, you can manipulate the paramters as follows:
+  </p>
+  <ul>
+    <li><b><abbr title="alpha">α</abbr></b>: Rotation around the z-axis.</li>
+    <li><b><abbr title="beta">β</abbr></b>: Left-to-right tilt.</li>
+    <li><b><abbr title="gamma">γ</abbr></b>: Front-to-back tilt.</li>
+  </ul>
+  <p class="note">
+    <b>Note: </b> If you have JavaScript that checks for sensors onload (such as modernizr) then you will need to reload the page for those to trigger.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h2 id="limitations">Limitations</h2>
+  <p>
+    As powerful as the DevTools are, there are some things that currently aren’t emulated.
+    Some examples are:
+  </p>
+  <ul>
+    <li>WebGL will operate when emulating an iOS7 device even though they don’t support it.</li>
+    <li>Line-height will work while operating as Opera Mini even though that browser doesn’t support it.</li>
+    <li>iOS7 has MathML support, which Chrome does not.</li>
+    <li><a href="hhttps://github.com/scottjehl/device-bugs/issues/2">iOS5 orientation zoom bug</a> is not emulated.</li>
+    <li>CSS rule limits such as those in<a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx">Internet Explorer</a>.</li>
+    <li>GPU and CPU behavior of devices.</li>
+    <li>Browser UI
+      <ul>
+        <li>System displays like the address bar.</li>
+        <li>Native displays such as <code>&lt;select></code> elements are not emulated as a modal list.</li>
+        <li>Depending on your OS some enhancements like a number input won’t pop open a number keypad. Windows 8 at least will do this.</li>
+      </ul>
+    </li>
+    <li><a href="https://code.google.com/p/chromium/issues/detail?id=334120">UA for appcache requests</a></li>
+    <li><a href="https://code.google.com/p/chromium/issues/detail?id=119767">UA for view source</a></li>
+    <li>The compositor layer works the same throughout while certain devices act differently. <a href="https://code.google.com/p/chromium/issues/detail?id=345520">Like android</a>.</li>
+  </ul>
+</div>
+
+<div class="collapsible">
+  <h2 id="diving-deeper">Diving Deeper</h2>
+  <p>
+    Paul Bakaus gave a talk at <a href="http://youtu.be/t1PxmN_QNFI">Google I/O 2014</a> going in depth with device mode.
+  </p>
+  <p>
+    The emulation overrides complement <a href="https://developer.chrome.com/devtools/docs/remote-debugging">remote debugging</a>.
+    The emulated sensors will override the device’s native sensors.
+    Remote debugging also allows for testing against actual device specifications, such as CPU and GPU limits.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h2 id="examples">Examples</h2>
+
+  <h3 id="debugging-touch-events">Debugging Touch Events</h3>
+    <ol>
+      <li>Open the Canvas Fingerpain Demo.</li>
+      <li>Navigate to the Sources panel.</li>
+      <li>Expand the "Event Listener Breakpoints" sub-panel.
+      <li>Check the "touchstart" and "touchmove" events under "Touch".</li>
+      <li>Move your curosr over the paint area.</li>
+      <li>The debugger should pause on the draw() method.</li>
+    </ol>
+    <figure>
+      <img src="device-mode-files/debugging-touch-events.png" alt="Sources pane listening for touchstart and touchmove events.">
+    </figure>
+    <p>
+      You may also monitor touch events as they fire on an element in the console.
+      Use monitorEvents from the <a href="https://developer.chrome.com/devtools/docs/commandline-api#monitoreventsobject-events">command line API</a>:
+      <code>monitorEvents(document.body, 'touch')</code>
+    </p>
+    <h4>Multi-touch</h4>
+    <p>
+      Multi-touch events can be simulated if you have a device with touch input, such as a modern Apple MacBook.
+      For further assistance with multi-touch event simulation, see the "Developer tools" chapter of the <a href="http://www.html5rocks.com/en/mobile/touch/#toc-touchdev">Multi-touch web development guide on HTML5 Rocks</a>.
+    </p>
+
+  <h3 id="user-agent-spoofing">User Agent Spoofing</h3>
+  <ol>
+    <li>Navigate to the <a href="https://www.google.com">Google homepage</a>.</li>
+    <li>Enable Device Mode.</li>
+    <li>Select "Nexus 4" from the device list. You will then see the <abbr title="User Agent">UA</abbr> string in the network section update automatically.
+      <figure>
+        <img src="device-mode-files/ua-spoof-example.png" alt="Nexus 4 selected from devices">
+        <figcaption>
+          Nexus 4 device selected and the <abbr title="User Agent">UA</abbr> string for the device.
+        </figcaption>
+      </figure>
+    </li>
+    <li>Refresh the page.</li>
+  </ol>
+  <figure>
+    <table>
+      <thead>
+        <tr>
+          <td>Before:</td>
+          <td>After:</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="device-mode-files/ua-spoof-google-before-example.png" alt="Before User Agent Spoofing"></td>
+          <td><img src="device-mode-files/ua-spoof-google-after-example.png" alt="After User Agent Spoofing"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figcaption>
+      Google's homepage before and after <abbr title="User Agent">UA</abbr> spoofing.
+    </figcaption>
+  </figure>
+
+  <h3 id="geolocation-overrides">Geolocation Overrides</h3>
+  <ol>
+    <li>Open the <a href="http://html5demos.com/geo">Geolocation Demo</a> and allow the page access to your position.</li>
+    <li>Open the Emulation Panel</li>
+    <li>Enable "Emulate Geolocation Coordinates" in the sensors pane.</li>
+    <li>Enter the following values:
+      <!-- The seemingly odd class names here are microformats markup to bots seeing the page. http://microformats.org/wiki/h-geo -->
+      <ul class="h-geo">
+        <li>Latitude: <span class="p-latitude">41.4949819</span></li>
+        <li>Longitude: <span class="p-longitutde">-0.1461206</span></li>
+      </ul>
+    </li>
+    <li>Refresh the page for the demo to see your new coordinates.</li>
+  </ol>
+  <figure>
+    <img src="device-mode-files/geolocation-online.png" alt="geolocation online">
+    <figcaption>
+      The demo displays a map with a marker at your location.
+    </figcaption>
+  </figure>
+  <p>
+    If you check “Emulate position unavailable” and refresh then you will see that the location lookup as failed.
+  </p>
+  <figure>
+    <img src="device-mode-files/geolocation-offline.png" alt="geolocation offline">
+    <figcaption>
+      The demo displays a failed message without a map.
+    </figcaption>
+  </figure>
+  <h3 id="device-orientation-overrides">Device Orientation Overrides</h3>
+  <ol>
+    <li>Open the <a href="http://www.html5rocks.com/en/tutorials/device/orientation/deviceorientationsample.html">Device Orientation Demo</a> at HTML5 Rocks</li>
+    <li>Open the emulation panel.</li>
+    <li>Enable "Accelerometer" in the sensors pane.</li>
+    <li>Set the values to the following:
+      <ul>
+        <li><abbr title="alpha">α</abbr> - 0</li>
+        <li><abbr title="beta">β</abbr> - 10</li>
+        <li><abbr title="gamma">γ</abbr> - 60</li>
+      </ul>
+    </li>
+  </ol>
+  <p>
+    This alters the left/right tilt and front/back tilt.
+    In this case resulting in our application being emulated as rotating in a clockwise direction.
+  </p>
+  <figure>
+    <img src="device-mode-files/device-orientation-example.png" alt="Device Orientation Example">
+    <figcaption>
+      The look of the example image after emulation takes effect.
+    </figcaption>
+  </figure>
+
+  <h3 id="css-media-types-emulation">CSS Media Types Emulation</h3>
+  <ol>
+    <li>Navigate to <a href="http://www.html5rocks.com/en/">HTML5 Rocks</a>.</li>
+    <li>Open the Emulation Panel.</li>
+    <li>Enable "CSS Media" in the media pane.</li>
+    <li>Select "Print" from the media type dropdown.</li>
+    <li>The page will now adjust for the selected media type.</li>
+  </ol>
+  <figure>
+    <table>
+      <thead>
+        <tr>
+          <td>Before:</td>
+          <td>After:</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="device-mode-files/emulatecss-before.jpg" alt="Before CSS type emulation."></td>
+          <td><img src="device-mode-files/emulatecss-after.jpg" alt="After CSS type emulation."></td>
+        </tr>
+      </tbody>
+    </table>
+    <figcaption>
+      HTML5 Rocks before and after print type emulation.
+    </figcaption>
+  </figure>
+
+</div>
+
+{{/partials.standard_devtools_article}}
