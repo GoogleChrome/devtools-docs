@@ -28,10 +28,7 @@ A few guidelines to follow when writing are:
   <dt> images</dt>
   <dd> Contains images for index.html and minor images used within the documents.</dd>
 
-  <dt> _book.yaml</dt>
-  <dd> Contains the titles and paths of individual docs.</dd>
-
-  <dt> _redirect.yaml</dt>
+  <dt> docs/redirects.json</dt>
   <dd> Contains redirects from one location to another.</dd>
 </dl>
 ## Tips
