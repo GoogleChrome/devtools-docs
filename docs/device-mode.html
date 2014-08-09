@@ -33,8 +33,6 @@
   <p>
     Emulating different screen resolutions is essential to responsive design.
   </p>
-
-
   <figure>
     <img src="device-mode-files/screen-controls.png" alt="screen controls">
     <figcaption>
@@ -43,17 +41,12 @@
       These individual settings are, Resolution, Device Pixel Ratio, and Fit viewport.
     </figcaption>
   </figure>
-
-
-<ul>
-  <li><strong>Screen resolution</strong> - matches the actual CSS pixel dimensions (width and height) of the selected device. For example, selecting the Nexus S will emulate a resolution of 480x800.</li>
-
-  <li>The <strong>Swap dimensions</strong> button following the dimension values will swap the width and height.</li>
-  <li><strong>Device Pixel Ratio</strong> - matches the dPR of the selected device. Allows emulation of a retina device from a non-retina machine and vice versa. This also means media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.</li>
-
-  <li><b>Fit</b> ensures the emulated device screen is completely visible within your browser window, shrinking it to fit if neccessary. This setting does not emulate the device differently.</li>
+  <ul>
+    <li><strong>Screen resolution</strong> - matches the actual CSS pixel dimensions (width and height) of the selected device. For example, selecting the Nexus S will emulate a resolution of 480x800.</li>
+    <li>The <strong>Swap dimensions</strong> button following the dimension values will swap the width and height.</li>
+    <li><strong>Device Pixel Ratio</strong> - matches the dPR of the selected device. Allows emulation of a retina device from a non-retina machine and vice versa. This also means media queries such as <code>@media only screen and (min-device-pixel-ratio: 2)</code> can be tested.</li>
+    <li><b>Fit</b> ensures the emulated device screen is completely visible within your browser window, shrinking it to fit if neccessary. This setting does not emulate the device differently.</li>
   </ul>
-
   <figure>
     <img src="device-mode-files/viewport-fit.png" alt="fit mode">
     <figcaption>
@@ -118,8 +111,8 @@
   <p>
     Network conditioning does bandwidth throttling and latency manipulation.
     The bandwidth is how much speed the client has to talk to the server while latency is the delay in connection.
-    A few presets are available in the network dropdown, as well as the ability to go completely offline. All changes only affect this tab's traffic; your other tabs are unaffected.
-
+    A few presets are available in the network dropdown, as well as the ability to go completely offline.
+    All changes only affect this tab's traffic; your other tabs are unaffected.
   </p>
   <figure>
     <img src="device-mode-files/network-controls.png" alt="network controls">
@@ -164,7 +157,8 @@
 <div class="collapsible">
   <h3 id="media-pane">Media Emulation</h3>
   <p>
-    If you want to test how the page looks in print mode, you can toggle on that  <a href="http://www.w3.org/TR/CSS21/media.html#media-types">CSS media type</a>. If <b>print</b> is chosen, print stylesheets will be applied and "screen" media will not.
+    If you want to test how the page looks in print mode, you can toggle on that  <a href="http://www.w3.org/TR/CSS21/media.html#media-types">CSS media type</a>.
+    If <b>print</b> is chosen, print stylesheets will be applied and "screen" media will not.
   </p>
 </div>
 
@@ -176,15 +170,15 @@
   </p>
   <p>
     Touch is an input method that's difficult to test on the desktop, since most desktops don't have touch input. Having to test on mobile can lengthen your development cycle, since every change you make needs to be pushed out to a server and then loaded on the device.
-      </p><p>
-    <b>Emulate touch screen</b> fires touch events (e.g. <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>) the same as it does on a mobile device. The  events and their sequence will be identical.
-      While emulating touch events, the cursor will change and look like a small circle to emulate a fingertip size. This mode does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>, touch is another option we can debug with.</li></p>
-<p>
+  </p>
+  <p>
+    <b>Emulate touch screen</b> fires touch events (e.g. <code>touchstart</code>, <code>touchmove</code>, and <code>touchend</code>) the same as it does on a mobile device. The  events and their sequence will be identical.
+      While emulating touch events, the cursor will change and look like a small circle to emulate a fingertip size. This mode does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>, touch is another option we can debug with.
+  </p>
+  <p>
     Only single points are emulatable unless you have a device that supports multi-touch.
     For more information on multi-touch emulation, check out <a href="http://www.html5rocks.com/en/mobile/touch/#toc-touchdev">HTML5 Rocks</a>.
-
   </p>
-
 
   <figure>
     <img width="495" src="mobile-emulation/scrolling-emulation.gif" alt="Emulating pinch to zoom"/>
@@ -231,7 +225,7 @@
     <li>Line-height will work while operating as Opera Mini even though that browser doesn’t support it.</li>
     <li>iOS7 has MathML support, which Chrome does not.</li>
     <li><a href="hhttps://github.com/scottjehl/device-bugs/issues/2">iOS5 orientation zoom bug</a> is not emulated.</li>
-    <li>CSS rule limits such as those in<a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx">Internet Explorer</a>.</li>
+    <li>CSS rule limits such as those in <a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx">Internet Explorer</a>.</li>
     <li>GPU and CPU behavior of devices.</li>
     <li>Browser UI
       <ul>
@@ -245,17 +239,20 @@
     <li>The compositor layer works the same throughout while certain devices act differently. <a href="https://code.google.com/p/chromium/issues/detail?id=345520">Like android</a>.</li>
   </ul>
 
-  <p>Despite these limitations around emulating browser quirks and issues, the emulation offered in Device Mode is rather complete for most tasks. When you need to go to a device, you can get a lot of insight from <a href="remote-debugging">remote debugging</a> .</p>
+  <p>
+    Despite these limitations around emulating browser quirks and issues, the emulation offered in Device Mode is rather complete for most tasks.
+    When you need to go to a device, you can get a lot of insight from <a href="remote-debugging">remote debugging</a>.
+  </p>
 </div>
 
 <div class="collapsible">
   <h2 id="diving-deeper">Diving Deeper</h2>
   <p>
     The <a href="//youtu.be/t1PxmN_QNFI"> Developing across Devices - DevTools in 2014</a> talk from Google I/O 2014 goes in depth with device mode:
-     </p>
-    <div class="video-container">
-  <iframe width="640" height="360" src="//www.youtube.com/embed/t1PxmN_QNFI?start=616" frameborder="0" allowfullscreen></iframe>
-</div>
+  </p>
+  <div class="video-container">
+    <iframe width="640" height="360" src="//www.youtube.com/embed/t1PxmN_QNFI?start=616" frameborder="0" allowfullscreen></iframe>
+  </div>
 
   <p>
     The emulation overrides complement <a href="remote-debugging">remote debugging</a>.
@@ -269,7 +266,7 @@
 
   <h3 id="debugging-touch-events">Debugging Touch Events</h3>
     <ol>
-      <li>Open the Canvas Fingerpain Demo.</li>
+      <li>Open the <a href="http://www.paulirish.com/demo/multi">Canvas Fingerpaint Demo</a>.</li>
       <li>Navigate to the Sources panel.</li>
       <li>Expand the "Event Listener Breakpoints" sub-panel.
       <li>Check the "touchstart" and "touchmove" events under "Touch".</li>
@@ -282,6 +279,7 @@
     <p>
       You may also monitor touch events as they fire on an element in the console.
       Use monitorEvents from the <a href="https://developer.chrome.com/devtools/docs/commandline-api#monitoreventsobject-events">command line API</a>:
+      <br>
       <code>monitorEvents(document.body, 'touch')</code>
     </p>
     <h4>Multi-touch</h4>
