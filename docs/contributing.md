@@ -2,19 +2,16 @@
 
 # Contributing to Chrome DevTools
 
-There are many ways you can improve the productivity of your fellow developers.
-That could be by sharing what you know or helping out with documenting features
-or writing a patch to improve the tools we all use.
+There are many ways you can improve the productivity of your fellow developers. That could be by sharing what you know or helping out with documenting features or writing a patch to improve the tools we all use.
 
 
 ## How can you help?
 
-Aside from contributing to the source code for DevTools, all of the following
-are different ways you could help contribute:
+Aside from contributing to the source code for DevTools, all of the following are different ways you could help contribute:
 
 * **Documentation authoring**
     * The [source](https://github.com/GoogleChrome/devtools-docs) for the DevTools documentation is on GitHub and contributions are always welcome. Both reference and tutorial guides benefit from your help.
-    * Get in touch with [@addyosmani](http://twitter.com/addyosmani) or [@paul_irish](http://twitter.com/paul_irish) for more information on how you can assist here.
+    * Get in touch with [@paul_irish](http://twitter.com/paul_irish) for more information on how you can assist here.
 * **Share what you've learned**
     * Share what you've learned via GIFs, Vines or construction paper
     * Cover new experimental features
@@ -22,17 +19,13 @@ are different ways you could help contribute:
     * Triage and manage issues
     * Work on features or bugs
 * **Coverage of new experimental features**
-    * Subscribe to [devtools-reviews@chromium.org mailing
-      list](https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews)
+    * Subscribe to [devtools-reviews@chromium.org mailing list](https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews)
       for all reviews of pending code
-    * Subscribe to the [RSS feed of devtools
-      commits](http://commits.peter.sh/feed/?tracker=devtools).
+    * Subscribe to the [RSS feed of devtools commits](http://commits.peter.sh/feed/?tracker=devtools).
     * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) on Twitter which also includes a feed of all commits.
     * There's plenty of action and developers are eager to hear what's landing
 * **Designing improved UX for all parts of DevTools**
-    * Your ideas on the design and UX are quite welcome, for example the [new
-      tooltip
-      design](https://code.google.com/p/chromium/issues/detail?id=181703)
+    * Your ideas on the design and UX are quite welcome.
 * **Issue triage & management**
     * View [all open DevTools tickets](http://goo.gl/N6OH9). Ask for reductions
       when appropriate or provide them yourself.
@@ -50,8 +43,7 @@ you're familiar with these technologies, you know enough to write a patch. A few
 folks have already done this, giving us a colorpicker, a file picker
 and other features, all contributed by developers just like you.
 
-IRC channel on [Freenode](http://webchat.freenode.net/?channels=blink):
-**#****chrome-devtools **and **#blink**
+IRC channel on [Freenode](http://webchat.freenode.net/?channels=blink): #chrome-devtools and #blink
 
 In this guide, we'll cover how to get set up and running locally so you can
 start developing and contributing to the DevTools. You may also find it helpful
@@ -65,15 +57,12 @@ to read the [Chromium guide for contributing code](http://dev.chromium.org/devel
 There are a few things you need in order to contribute to DevTools.
 
 **Get the code**<br/>
-Download the [Blink](http://www.chromium.org/blink) source code by [cloning the
-git repository](https://chromium.googlesource.com/chromium/blink). This process
+Download the [Blink](http://www.chromium.org/blink) source code by [cloning the git repository](https://chromium.googlesource.com/chromium/blink). This process
 can take anywhere between 30-60 minutes (depending on your connection).<br/>
 <br/>
 `git clone https://chromium.googlesource.com/chromium/blink`<br/><br/>
 **Install Canary**<br/>
-While Blink downloads, install Chrome Canary on [Mac OS /
-Windows](https://tools.google.com/dlpage/chromesxs) or download [the latest
-Chromium build](https://download-chromium.appspot.com/).<br/>
+While Blink downloads, install Chrome Canary on [Mac OS / Windows](https://tools.google.com/dlpage/chromesxs) or download [the latest Chromium build](https://download-chromium.appspot.com/).<br/>
 
 <p class="note"><strong>Note:</strong> To save you time, we created a <a href="https://github.com/jankeromnes/cr">helpful bash
 script</a> that can take care of some of the
@@ -119,8 +108,7 @@ is generated on the fly by front-end code. For more information, read the <a hre
 </p>
 
 **Install depot_tools**<br/>
-You will need to [install the
-depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools) in
+You will need to [install the depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools) in
 order to upload your patch once your changes are completed. The
 **[depot_tools](http://dev.chromium.org/developers/how-tos/depottools)** are a
 package of scripts used to manage checkouts and code reviews, and it includes
@@ -142,9 +130,7 @@ shell's equivalent at the end of the file. This way you won't need to reset your
 **Windows**
 This guide is currently not tested on Windows due to not being able to
 successfully add `depot_tools` to the PATH while using the default CMD line of
-Windows. However, you can try Cygwin as an alternative solution. Here you can find [steps for installing
-depot_tools on Windows with
-Cygwin](http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-).
+Windows. However, you can try Cygwin as an alternative solution. Here you can find [steps for installing depot_tools on Windows with Cygwin](http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-).
 
 <p class="note"><strong>Note:</strong> This guide includes steps for Windows throughout it, but has not been
 confirmed to work due to the inability to `add depot_tools` to the PATH, while
@@ -153,16 +139,12 @@ using the Windows CMD line.
 
 ### Step 2: Running an edge-build of Chromium
 
-To begin, get an
-[edge-build](http://www.chromium.org/getting-involved/download-chromium) of
+To begin, get an [edge-build](http://www.chromium.org/getting-involved/download-chromium) of
 Chromium. These are available for all platforms.
 
-There are a couple of [command line
-flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags) (or
-switches) that are needed when running Chromium for developing DevTools.<br/>
+There are a couple of [command line flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags) (or switches) that are needed when running Chromium for developing DevTools.<br/>
 **<br/>
-**[Running Canary with
-flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):<br/>
+**[Running Canary with flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):<br/>
 <br/>
 **On Windows**
 
@@ -248,8 +230,7 @@ Clicking on the thumbnail of the tab you opened. You'll then have a full tab of 
 
 Nice job, so far!
 
-Notice that the URL address of this DevTools instance points to
-[http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html).
+Notice that the URL address of this DevTools instance points to [http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html).
 This is because of the inspector URL `http://localhost:9222#http://localhost:8000/front_end/inspector.html`
 that was passed as a hash to the "Inspectable Pages" URL. It connects to
 your local repo through a websocket, which you may notice, is part of the URL
@@ -261,8 +242,7 @@ Now, use your keyboard shortcut to open DevTools within this window. You now hav
 <img src="contributing-files/image00.png" alt="inspector inception" width="700"/>
 
 
-Well done. Now you can [start
-contributing](http://dev.chromium.org/developers/contributing-code) and
+Well done. Now you can [start contributing](http://dev.chromium.org/developers/contributing-code) and
 developing the DevTools front-end code located in the directory
 `/blink/Source/devtools/front_end`.<br/><br/>
 
@@ -271,27 +251,21 @@ developing the DevTools front-end code located in the directory
 
 Now that you are ready to dig into the code and start developing the DevTools
 source, head over to [http://crbug.com](http://crbug.com) and find the ticket
-for your change and leave a comment saying you will be writing a patch for it.
-If you haven't decided on what you to change look through the open issues and
+for your change and leave a comment saying you will be writing a patch for it. If you haven't decided on what you to change look through the open issues and
 choose one you would like to do and leave a comment on it asking for it to be
 assigned to you.
 
 <p class="note"><strong>Note:</strong> We occasionally label bugs that require a small patch but make for
-good first-time contributions with GoodFirstBug. You can
-[filter](https://code.google.com/p/chromium/issues/list?q=label:GoodFirstBug)
-down the issues list to only display these.
+good first-time contributions with GoodFirstBug. You can [filter](https://code.google.com/p/chromium/issues/list?q=label:GoodFirstBug) down the issues list to only display these.
 </p>
 
-Alternatively, if there is no existing ticket for the change, then [create a new
-issue](http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&role=&continue=https%3A//code.google.com/p/chromium/issues/entry.do).
-Be sure to describe what the change is and justify why it was needed, adding
+Alternatively, if there is no existing ticket for the change, then [create a new issue](http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&role=&continue=https%3A//code.google.com/p/chromium/issues/entry.do). Be sure to describe what the change is and justify why it was needed, adding
 "patch to follow" to the end.
 
 **Communicate**<br/>
 Before you start
 [contributing](http://dev.chromium.org/developers/contributing-code) on a
-ticket, it's a good idea to open a new thread on the [DevTools Google
-Group](https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools)
+ticket, it's a good idea to open a new thread on the [DevTools Google Group](https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools)
 so you can discuss anything you are unsure of or may not know about regarding
 the particular ticket you will be working on. You can never over communicate.
 
@@ -322,8 +296,7 @@ You should see "0 error(s), 0 warning(s)".
 
 **Your code:**
 
-1. Should conform to the [Blink Coding Style
-   Guidelines](http://dev.chromium.org/blink/coding-style)
+1. Should conform to the [Blink Coding Style    Guidelines](http://dev.chromium.org/blink/coding-style)
 2. Must be
    [tested](http://www.chromium.org/developers/testing/webkit-layout-tests)
 3. Should pass the closure compiler tests
@@ -339,8 +312,7 @@ did one and merge them with your branch.
 
 Once everything for your patch is complete, you will want to write and run
 relevant layout tests. To get started with layout tests for the DevTools see the
-[WebKit layout
-tests](http://www.chromium.org/developers/testing/webkit-layout-tests) guide.
+[WebKit layout tests](http://www.chromium.org/developers/testing/webkit-layout-tests) guide.
 
 <p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or
 UI tests, they will need to be created and included as part of the patch.</p>
