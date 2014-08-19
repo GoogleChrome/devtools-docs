@@ -74,28 +74,27 @@ enable automatic reloading of generated CSS files. </p>
 
 <p>To live-edit Sass files in Chrome you need to have the <a href="http://sass-lang.com/download.html">pre-release version of the Sass compiler</a>, which is the only version that currently supports source map generation.</p>
 
-<pre class="prettyprint">gem install sass -v '>=3.3.0alpha' --pre</pre>
+<pre class="prettyprint">gem install sass</pre>
 
 
 <p>Once Sass is installed, start the Sass compiler to watch for changes to your Sass source files and create source map files for each generated CSS file, for example: </p>
 
 <pre class="prettyprint">sass --watch <b>--sourcemap</b> sass/styles.scss:styles.css</pre>
 
-<p>If you are using Compass, note that Compass doesn’t yet support the pre-release version of Sass, so you can’t use Sass debugging with Compass.</p>
 
 </div>
 <div class="collapsible">
 <h2 id="toc-css-preprocessor-support">CSS preprocessor support</h2>
 
-<p>DevTools supports the <a href="https://docs.google.com/a/google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#">Source Map Revision 3 proposal</a>. This proposal is being implemented in several CSS preprocessors:</p>
+<p>DevTools supports the <a href="https://docs.google.com/a/google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#">Source Map Revision 3 proposal</a>. This proposal is being implemented in several CSS preprocessors (Updated August 2014):</p>
 
 <ul>
-<li>Sass: As described above, this is supported in the prerelease version of Sass.</li>
-<li>Compass: <a href="https://github.com/chriseppstein/compass/blob/master/compass-style.org/content/CHANGELOG.markdown#100alpha16-12052013">Implemented in compass 1.0.0.alpha.16.</a>
-<li>Less: Implemented in 1.5.0. See <a href="https://github.com/less/less.js/issues/1050#issuecomment-25566463">issue #1050</a> for details and usage patterns.</li>
-<li>Autoprefixer: Implemented in 1.0. <a href="https://github.com/ai/autoprefixer#source-map">Autoprefixer docs</a> explain how to use it, along with absorbing an input sourcemap (from another preprocessor).</li>
-<li>Libsass: <a href="https://github.com/hcatlin/libsass/commit/366bc110c39c26c9267a1cc06e578beb94cd93ef">Implemented</a>.
-<li>Stylus: Under consideration. See <a href="https://github.com/LearnBoost/stylus/issues/1072">issue #1072</a>.</li>
+<li><strong>Sass</strong>: As described above, this is supported in Sass 3.3.</li>
+<li><strong>Compass</strong>: The <code>--sourcemap</code> flag was <a href="http://compass-style.org/blog/2014/08/15/omg-compass-1-0/">implemented in Compass 1.0</a>. Alternatively you can add <code>sourcemap: true</code> to your config.rb file. <a href="https://github.com/grayghostvisuals/sourcemaps">Demo repo here</a>. Development notes are in <a href="https://github.com/Compass/compass/issues/1108#issuecomment-52432075">issue 1108</a>.
+<li><strong>Less</strong>: Implemented in 1.5.0. See <a href="https://github.com/less/less.js/issues/1050#issuecomment-25566463">issue #1050</a> for details and usage patterns.</li>
+<li><strong>Autoprefixer</strong>: Implemented in 1.0. <a href="https://github.com/ai/autoprefixer#source-map">Autoprefixer docs</a> explain how to use it, along with absorbing an input sourcemap (from another preprocessor).</li>
+<li><strong>Libsass</strong>: <a href="https://github.com/hcatlin/libsass/commit/366bc110c39c26c9267a1cc06e578beb94cd93ef">Implemented</a>.
+<li><strong>Stylus</strong>: Under development. See the latest in <a href="https://github.com/LearnBoost/stylus/issues/1072">issue #1072</a>.</li>
 </ul>
 
 </div>
