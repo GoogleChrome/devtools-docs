@@ -274,7 +274,7 @@ the particular ticket you will be working on. You can never over communicate.
 Pull the latest files from the repository and sync to be sure you are working
 with the latest code.<br/>
 
-    git pull --rebase && gclient sync
+    git pull --rebase
 
 Then create a new branch which you can make your changes on.<br/>
 
@@ -284,7 +284,7 @@ Open the DevTools on your DevTools, open your favorite code editor and start
 digging through the files in your local repository directory
 `/blink/Source/devtools/front_end`.
 
-<p class="note"><strong>Note:</strong> During development use the Refresh icon or <span class="kbd">Alt</a> + <span class="kbd">R</span> instead
+<p class="note"><strong>Note:</strong> During development use the Refresh icon or <span class="kbd">Alt</span> + <span class="kbd">R</span> instead
 of <span class="kbd">F5</span>, <span class="kbd">Ctrl</span> + <span class="kbd">R</span> or <span class="kbd">Cmd</span> + <span class="kbd">R</span> as they are bound to refresh the host page which you
 are using to develop the DevTools instance.</p>
 
