@@ -297,8 +297,8 @@ You should see "0 error(s), 0 warning(s)".
 **Your code:**
 
 1. Should conform to the [Blink Coding Style    Guidelines](http://dev.chromium.org/blink/coding-style)
-2. Must be
-   [tested](http://www.chromium.org/developers/testing/webkit-layout-tests)
+2. Be
+   [tested](http://www.chromium.org/developers/testing/webkit-layout-tests) if appropriate
 3. Should pass the closure compiler tests
 4. Should be a reasonable size to review (larger patches take longer)
 
@@ -341,18 +341,7 @@ things out to make sure it's all good.
 Go back to master branch.
 
 `git checkout master`<br/><br/>
-**The**** 'cr' bash script**
 
-As mentioned earlier, [ `cr`](https://github.com/jankeromnes/cr) is a bash script compiling steps from
-several Chromium wiki pages into a simple, easy-to-use command line tool. It is
-able to grab the source code of the browser, making sure along the way that you
-have all the dependencies you need, and sets everything up so that you can go
-ahead and build your very own browser!
-
-Its commands, like `cr clone` or `cr update`, do all the work for you, while
-asking you the important questions. You can find more information and
-installation instructions at
-[https://github.com/jankeromnes/cr](https://github.com/jankeromnes/cr).
 
 ## Troubleshooting workflows
 
@@ -434,5 +423,23 @@ are on Windows. Some failures are expected! (unfortunatly). A good process here
 is to run them before you make any changes, then run them after you make your
 changes. It can also take an argument to a directory so you can just point it to
 the `LayoutTests/inspector` directory to run.
+
+### Frequently Asked Questions
+
+*What is the architecture?*
+
+ DevTools front-end and core/inspector backend use wire protocol (aka remote debugging protocol) to interact. Some older docs (2012) about it:
+
+* https://www.webkit.org/blog/1875/announcing-remote-debugging-protocol-v1-0/
+* https://developer.chrome.com/devtools/docs/debugger-protocol
+
+All the code that touches DOM and other properties of the page is native. Console the only thing that touches the running page JS because it absolutely needs to.
+
+*When adding a new feature where should it be impleemented?*
+
+If it depends on renderer information, you should add a new method into the protocol (protocol.json), for example into the DOM agent. That would generate JS bindings on the front-end part and corresponding handler functions in InspectorDOMAgent interface. Then you implement them on the backend part and call from the front-end.
+
+Look at any methods in [protocol.json](https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=file:protocol.json&sq=package:chromium&type=cs) to see how they are used.
+
 
 {{/partials.standard_devtools_article}}
