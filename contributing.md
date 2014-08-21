@@ -65,3 +65,4 @@ For image compression the following tools are available
   * you can navigate to this directly if you like
   * it looks like this ![image](https://cloud.githubusercontent.com/assets/39191/3017506/831921a8-df7a-11e3-8faa-8dc957057248.png)
   * Things mostly work but is not exactly the same as viewing the production site.
+    * In production the site is rendered via ["docserver"](https://code.google.com/p/chromium/codesearch#chromium/src/chrome/common/extensions/docs/server2/&q=file:docs/server2&sq=package:chromium). Markdown is parsed via the [python-markdown library](https://pythonhosted.org/Markdown/reference.html).
