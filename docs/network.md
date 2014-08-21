@@ -43,7 +43,7 @@ Each requested resource is added as a row to the Network table, which contains t
 
 * Not all columns listed below are visible by default; you can easily [show or hide columns](#adding-and-removing-table-columns).
 * Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-sizes) both fields are shown; when using small resource rows only the primary field is shown.
-* You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
+* You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Waterfall view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
 
 <table>
 <thead>
@@ -109,7 +109,7 @@ Latency is the time to load the first byte in the response.</td>
 </tr>
 <tr>
 <td><strong>Timeline</strong></td>
-<td>The Timeline column displays a <a href="#timeline-view">timeline view</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See Timeline view and Sorting and filtering for details.</td>
+<td>The Timeline column displays a <a href="#timeline-view">visual waterfall</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See <a href="#timeline-view">Waterfall view</a> and <a href="#sorting-and-filtering">Sorting and filtering</a> for more information</td>
 </tr>
 </tbody>
 </table>
@@ -155,26 +155,26 @@ In the following screenshot, the Network table is viewed with small resource row
 
 <img src="network-files/small-rows.png" alt="Resized resource rows">
 
-### Timeline view
+### Waterfall view
 
-The Timeline view in the Network panel graphs the time it took to load each resource, from the start of the HTTP request to the receipt of the final byte of the response. Each resource loading time is represented as a bar, color-coded according to the resource type. The length of the lighter-shaded part of each bar represents the request's latency, while the length of the darker-shaded part represents the time spent receiving the response data.
+The waterfall view in the Network panel graphs the time it took to load each resource, from the start of the HTTP request to the receipt of the final byte of the response. Each resource loading time is represented as a bar, color-coded according to the resource type. The length of the lighter-shaded part of each bar represents the request's latency, while the length of the darker-shaded part represents the time spent receiving the response data.
 
 <img src="network-files/network-timeline.png" alt="Network timeline view">
 
-When you hover your mouse over a timeline row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
+When you hover your mouse over a row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
 
 <img src="network-files/timeline-view-1.png" alt="Timeline view"/>
 
-If you hover your mouse over the timeline bar itself, the complete timing data for the resource is presented in a pop-up. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
+If you hover your mouse over the bar itself, the complete timing data for the resource is presented in a tooltip. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
 
 <img src="network-files/timeline-view-hover.png" alt="Timeline view on hover"/>
 
-The timeline indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
+The waterfall indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
 and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded.
 
 <img src="network-files/dom-lines.png" alt="DOM event lines"/>
 
-Timeline bars are color-coded as follows:
+Waterfall bars are color-coded as follows:
 
 <style>
 
@@ -403,7 +403,7 @@ Errors are light-red.
 
 ### Resource network timing
 
-The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline-view).
+The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [waterfall view](#timeline-view).
 
 <img src="network-files/timing.png" alt="Resource network timing graph"/>
 
