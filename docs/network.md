@@ -409,38 +409,63 @@ The Timing tab graphs the time spent on the various network phases involved load
 
 The table below lists the network phases shown in the Timing tab and their descriptions.
 
-<!-- TODO: Fix formatting of cells -->
+
+<style>
+  th.stripe, td.stripe {
+    padding: 0;
+  }
+  th.stripe {
+    width: 7px;
+  }
+  th.property {
+    width: 31%;
+  }
+</style>
+
 <table>
 <tr>
-<th style="width:20%">Property</th>
+<th class=stripe></th>
+<th class=property>Property</th>
 <th>Description</th>
 </tr>
 <tr>
-<td><strong>Proxy</strong></td>
+<td style="background: rgb(205, 205, 205)" class=stripe></td>
+<td><strong>Stalled / Blocking</strong></td>
+<td>Time the request spent waiting before it could be sent. This time is inclusive of any time spent in proxy negotiation. Additionally, this time will include when the browser is waiting for an already established connection to become available for re-use, obeying Chrome's <a href="https://code.google.com/p/chromium/issues/detail?id=12066">maximum six</a> TCP connection per origin rule.</td>
+</tr>
+<tr>
+<td style="background: rgb(205, 205, 205)" class=stripe></td>
+<td><strong>Proxy negotiation</strong></td>
 <td>Time spent negotiating with a proxy server connection.</td>
 </tr>
 <tr>
+<td style="background: rgb(31, 124, 131)" class=stripe></td>
 <td><strong>DNS Lookup</strong></td>
-<td>Time spent performing the DNS lookup. You want to minimize DNS look ups.</td>
+<td>Time spent performing the DNS lookup. Every new domain on a page requires a full roundtrip to do the DNS lookup.</td>
 </tr>
 <tr>
-<td><strong>Blocking</strong></td>
-<td>Time the request spent waiting for an already established connection to become available for re-use.</td>
+<td style="background: rgb(229, 130, 38)" class=stripe></td>
+<td><strong>Initial Connection / Connecting</strong></td>
+<td>Time it took to establish a connection, including TCP handshakes/retries and negotiating a secure-socket layer (SSL). </td>
 </tr>
 <tr>
-<td><strong>Connecting</strong></td>
-<td>Time it took to establish a connection, including TCP handshakes/retries, DNS lookup, and time connecting to a proxy or negotiating a secure-socket layer (SSL). </td>
+<td style="background: rgb(229, 130, 38)" class=stripe></td>
+<td><strong>SSL</strong></td>
+<td>Time spent completing a secure-socket layer (SSL) handshake.</td>
 </tr>
 <tr>
-<td><strong>Sending</strong></td>
-<td>Time spent sending the request.</td>
+<td style="background: rgb(95, 221, 95)" class=stripe></td>
+<td><strong>Request sent / Sending</strong></td>
+<td>Time spent issuing the network request. Typically a fraction of a millisecond.</td>
 </tr>
 <tr>
-<td><strong>Waiting</strong></td>
-<td>Time spent waiting for the initial response.</td>
+<td style="background: rgb(95, 221, 95)" class=stripe></td>
+<td><strong>Waiting (TTFB)</strong></td>
+<td>Time spent waiting for the initial response, also known as the Time To First Byte. This time captures the latency of a round trip to the server in addition to the time spent waiting for the server to deliver the response.</td>
 </tr>
 <tr>
-<td><strong>Receiving</strong></td>
+<td style="background: rgb(65, 137, 215)" class=stripe></td>
+<td><strong>Content Download / Receiving</strong></td>
 <td>Time spent receiving the response data. </td>
 </tr>
 </table>
