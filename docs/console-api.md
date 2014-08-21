@@ -83,10 +83,11 @@ Compare this with the behavior of `console.log()`, which displays the element in
 Prints an XML representation of the specified object, as it would appear in the Elements panel. For HTML elements, calling this method is equivalent to calling `console.log()`.
 
     var list = document.querySelector("#myList");
+
     console.dirxml();
 
-%O is a shortcut for dir
-%o acts either as dir or dirxml depending on the object type (non-dom or dom)
+* `%O` is a shortcut for dir
+* `%o` acts either as dir or dirxml depending on the object type (non-dom or dom)
 
 
 ## console.error(object [, object, ...])
