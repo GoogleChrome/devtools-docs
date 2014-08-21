@@ -42,3 +42,7 @@ ul.tabs li.active {
 .gallery img{
 	width: 426px;
 }
+
+table {
+	font-size: inherit;
+}

@@ -180,7 +180,7 @@ The Timeline annotates each recording with a blue and a red line that indicate, 
 
 ### Locating forced synchronous layouts
 
-Layout is the process by which Chrome calculates the positions and sizes of all the elements on the page. Normally, Chrome performs layouts "lazily" in response to CSS or DOM updates from your application. This allows Chrome to batch style and layout changes rather than reacting to each on demand. However, an application can force Chrome to perform a layout immediately and asynchronously by querying the value of certain layout-dependent element properties such as `element.offsetWidth`. These so called "forced synchronous layouts" can be a big performance bottleneck if repeated frequently or performed for large DOM tree.
+Layout is the process by which Chrome calculates the positions and sizes of all the elements on the page. Normally, Chrome performs layouts "lazily" in response to CSS or DOM updates from your application. This allows Chrome to batch style and layout changes rather than reacting to each on demand. However, an application can force Chrome to perform a layout immediately and synchronously by querying the value of certain layout-dependent element properties such as `element.offsetWidth`. These so called "forced synchronous layouts" can be a big performance bottleneck if repeated frequently or performed for large DOM tree.
 
 The Timeline identifies when your application causes a forced asynchronous layout and marks such records with yellow warning icon (![](timeline-images/image25.png)). When you select the record, the details pane contains a stack trace of the offending code.
 

@@ -43,7 +43,7 @@ Each requested resource is added as a row to the Network table, which contains t
 
 * Not all columns listed below are visible by default; you can easily [show or hide columns](#adding-and-removing-table-columns).
 * Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-sizes) both fields are shown; when using small resource rows only the primary field is shown.
-* You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Timeline view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
+* You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Waterfall view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
 
 <table>
 <thead>
@@ -109,7 +109,7 @@ Latency is the time to load the first byte in the response.</td>
 </tr>
 <tr>
 <td><strong>Timeline</strong></td>
-<td>The Timeline column displays a <a href="#timeline-view">timeline view</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See Timeline view and Sorting and filtering for details.</td>
+<td>The Timeline column displays a <a href="#timeline-view">visual waterfall</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See <a href="#timeline-view">Waterfall view</a> and <a href="#sorting-and-filtering">Sorting and filtering</a> for more information</td>
 </tr>
 </tbody>
 </table>
@@ -155,26 +155,26 @@ In the following screenshot, the Network table is viewed with small resource row
 
 <img src="network-files/small-rows.png" alt="Resized resource rows">
 
-### Timeline view
+### Waterfall view
 
-The Timeline view in the Network panel graphs the time it took to load each resource, from the start of the HTTP request to the receipt of the final byte of the response. Each resource loading time is represented as a bar, color-coded according to the resource type. The length of the lighter-shaded part of each bar represents the request's latency, while the length of the darker-shaded part represents the time spent receiving the response data.
+The waterfall view in the Network panel graphs the time it took to load each resource, from the start of the HTTP request to the receipt of the final byte of the response. Each resource loading time is represented as a bar, color-coded according to the resource type. The length of the lighter-shaded part of each bar represents the request's latency, while the length of the darker-shaded part represents the time spent receiving the response data.
 
 <img src="network-files/network-timeline.png" alt="Network timeline view">
 
-When you hover your mouse over a timeline row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
+When you hover your mouse over a row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
 
 <img src="network-files/timeline-view-1.png" alt="Timeline view"/>
 
-If you hover your mouse over the timeline bar itself, the complete timing data for the resource is presented in a pop-up. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
+If you hover your mouse over the bar itself, the complete timing data for the resource is presented in a tooltip. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
 
 <img src="network-files/timeline-view-hover.png" alt="Timeline view on hover"/>
 
-The timeline indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
+The waterfall indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
 and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded.
 
 <img src="network-files/dom-lines.png" alt="DOM event lines"/>
 
-Timeline bars are color-coded as follows:
+Waterfall bars are color-coded as follows:
 
 <style>
 
@@ -403,44 +403,69 @@ Errors are light-red.
 
 ### Resource network timing
 
-The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [Timeline view](#timeline-view).
+The Timing tab graphs the time spent on the various network phases involved loading the resource. This is the same data displayed when you hover over a resource bar in the [waterfall view](#timeline-view).
 
 <img src="network-files/timing.png" alt="Resource network timing graph"/>
 
 The table below lists the network phases shown in the Timing tab and their descriptions.
 
-<!-- TODO: Fix formatting of cells -->
+
+<style>
+  th.stripe, td.stripe {
+    padding: 0;
+  }
+  th.stripe {
+    width: 7px;
+  }
+  th.property {
+    width: 31%;
+  }
+</style>
+
 <table>
 <tr>
-<th style="width:20%">Property</th>
+<th class=stripe></th>
+<th class=property>Property</th>
 <th>Description</th>
 </tr>
 <tr>
-<td><strong>Proxy</strong></td>
+<td style="background: rgb(205, 205, 205)" class=stripe></td>
+<td><strong>Stalled / Blocking</strong></td>
+<td>Time the request spent waiting before it could be sent. This time is inclusive of any time spent in proxy negotiation. Additionally, this time will include when the browser is waiting for an already established connection to become available for re-use, obeying Chrome's <a href="https://code.google.com/p/chromium/issues/detail?id=12066">maximum six</a> TCP connection per origin rule.</td>
+</tr>
+<tr>
+<td style="background: rgb(205, 205, 205)" class=stripe></td>
+<td><strong>Proxy negotiation</strong></td>
 <td>Time spent negotiating with a proxy server connection.</td>
 </tr>
 <tr>
+<td style="background: rgb(31, 124, 131)" class=stripe></td>
 <td><strong>DNS Lookup</strong></td>
-<td>Time spent performing the DNS lookup. You want to minimize DNS look ups.</td>
+<td>Time spent performing the DNS lookup. Every new domain on a page requires a full roundtrip to do the DNS lookup.</td>
 </tr>
 <tr>
-<td><strong>Blocking</strong></td>
-<td>Time the request spent waiting for an already established connection to become available for re-use.</td>
+<td style="background: rgb(229, 130, 38)" class=stripe></td>
+<td><strong>Initial Connection / Connecting</strong></td>
+<td>Time it took to establish a connection, including TCP handshakes/retries and negotiating a secure-socket layer (SSL). </td>
 </tr>
 <tr>
-<td><strong>Connecting</strong></td>
-<td>Time it took to establish a connection, including TCP handshakes/retries, DNS lookup, and time connecting to a proxy or negotiating a secure-socket layer (SSL). </td>
+<td style="background: rgb(229, 130, 38)" class=stripe></td>
+<td><strong>SSL</strong></td>
+<td>Time spent completing a secure-socket layer (SSL) handshake.</td>
 </tr>
 <tr>
-<td><strong>Sending</strong></td>
-<td>Time spent sending the request.</td>
+<td style="background: rgb(95, 221, 95)" class=stripe></td>
+<td><strong>Request sent / Sending</strong></td>
+<td>Time spent issuing the network request. Typically a fraction of a millisecond.</td>
 </tr>
 <tr>
-<td><strong>Waiting</strong></td>
-<td>Time spent waiting for the initial response.</td>
+<td style="background: rgb(95, 221, 95)" class=stripe></td>
+<td><strong>Waiting (TTFB)</strong></td>
+<td>Time spent waiting for the initial response, also known as the Time To First Byte. This time captures the latency of a round trip to the server in addition to the time spent waiting for the server to deliver the response.</td>
 </tr>
 <tr>
-<td><strong>Receiving</strong></td>
+<td style="background: rgb(65, 137, 215)" class=stripe></td>
+<td><strong>Content Download / Receiving</strong></td>
 <td>Time spent receiving the response data. </td>
 </tr>
 </table>
