@@ -407,69 +407,66 @@ The Timing tab graphs the time spent on the various network phases involved load
 
 <img src="network-files/timing.png" alt="Resource network timing graph"/>
 
-The table below lists the network phases shown in the Timing tab and their descriptions.
-
-
 <style>
-  th.stripe, td.stripe {
-    padding: 0;
-  }
-  th.stripe {
-    width: 7px;
-  }
-  th.property {
-    width: 31%;
-  }
+dt:before {
+  content: "\00a0\00a0\00a0";
+  margin-right: 5px;
+}
+dt.stalled:before, dt.proxy-negotiation:before {
+  background-color: #cdcdcd;
+}
+dt.dns-lookup:before {
+  background-color: #1f7c83;
+}
+dt.initial-connection:before, dt.ssl:before {
+  background-color: #e58226;
+}
+dt.request-sent:before, dt.ttfb:before {
+  background-color: #5fdd5f;
+}
+dt.content-download:before {
+  background-color: #4189d7;
+}
 </style>
 
-<table>
-<tr>
-<th class=stripe></th>
-<th class=property>Property</th>
-<th>Description</th>
-</tr>
-<tr>
-<td style="background: rgb(205, 205, 205)" class=stripe></td>
-<td><strong>Stalled / Blocking</strong></td>
-<td>Time the request spent waiting before it could be sent. This time is inclusive of any time spent in proxy negotiation. Additionally, this time will include when the browser is waiting for an already established connection to become available for re-use, obeying Chrome's <a href="https://code.google.com/p/chromium/issues/detail?id=12066">maximum six</a> TCP connection per origin rule.</td>
-</tr>
-<tr>
-<td style="background: rgb(205, 205, 205)" class=stripe></td>
-<td><strong>Proxy negotiation</strong></td>
-<td>Time spent negotiating with a proxy server connection.</td>
-</tr>
-<tr>
-<td style="background: rgb(31, 124, 131)" class=stripe></td>
-<td><strong>DNS Lookup</strong></td>
-<td>Time spent performing the DNS lookup. Every new domain on a page requires a full roundtrip to do the DNS lookup.</td>
-</tr>
-<tr>
-<td style="background: rgb(229, 130, 38)" class=stripe></td>
-<td><strong>Initial Connection / Connecting</strong></td>
-<td>Time it took to establish a connection, including TCP handshakes/retries and negotiating a secure-socket layer (SSL). </td>
-</tr>
-<tr>
-<td style="background: rgb(229, 130, 38)" class=stripe></td>
-<td><strong>SSL</strong></td>
-<td>Time spent completing a secure-socket layer (SSL) handshake.</td>
-</tr>
-<tr>
-<td style="background: rgb(95, 221, 95)" class=stripe></td>
-<td><strong>Request sent / Sending</strong></td>
-<td>Time spent issuing the network request. Typically a fraction of a millisecond.</td>
-</tr>
-<tr>
-<td style="background: rgb(95, 221, 95)" class=stripe></td>
-<td><strong>Waiting (TTFB)</strong></td>
-<td>Time spent waiting for the initial response, also known as the Time To First Byte. This time captures the latency of a round trip to the server in addition to the time spent waiting for the server to deliver the response.</td>
-</tr>
-<tr>
-<td style="background: rgb(65, 137, 215)" class=stripe></td>
-<td><strong>Content Download / Receiving</strong></td>
-<td>Time spent receiving the response data. </td>
-</tr>
-</table>
+<dl>
+  <dt class="stalled"><strong>Stalled/Blocking</strong></dt>
+  <dd>
+    Time the request spent waiting before it could be sent.
+    This time is inclusive of any time spent in proxy negotiation.
+    Additionally, this time will include when the browser is waiting for an already established connection to become available for re-use, obeying Chrome's <a href="https://code.google.com/p/chromium/issues/detail?id=12066">maximum six</a> <abbr title="Transmission Control Protocol">TCP</abbr> connection per origin rule.
+  </dd>
 
+  <dt class="proxy-negotiation"><strong>Proxy Negotiation</strong></dt>
+  <dd>Time spent negotiating with a proxy server connection.</dd>
+
+  <dt class="dns-lookup"><strong><abbr title="Domain Name System">DNS</abbr> Lookup</strong></dt>
+  <dd>
+    Time spent performing the <abbr title="Domain Name System">DNS</abbr> lookup.
+    Every new domain on a page requires a full roundtrip to do the <abbr title="Domain Name System">DNS</abbr> lookup.
+  </dd>
+
+  <dt class="initial-connection"><strong>Initial Connection / Connecting</strong></dt>
+  <dd>Time it took to establish a connection, including <abbr title="Transmission Control Protocol">TCP</abbr> handshakes/retries and negotiating a <abbr title="Secure Sockets Layer">SSL</abbr>.</dd>
+
+  <dt class="ssl"><strong><abbr title="Secure Sockets Layer">SSL</abbr></strong></dt>
+  <dd>Time spent completing a <abbr title="Secure Sockets Layer">SSL</abbr> handshake.</dd>
+
+  <dt class="request-sent"><strong>Request Sent / Sending</strong></dt>
+  <dd>
+    Time spent issuing the network request.
+    Typically a fraction of a millisecond.
+  </dd>
+
+  <dt class="ttfb"><strong>Waiting (<abbr title="Time To First Byte">TTFB</abbr>)</strong></dt>
+  <dd>
+    Time spent waiting for the initial response, also known as the Time To First Byte.
+    This time captures the latency of a round trip to the server in addition to the time spent waiting for the server to deliver the response.
+  </dd>
+
+  <dt class="content-download"><strong>Content Download / Downloading</strong></dt>
+  <dd>Time spent receiving the response data.</dd>
+</dl>
 
 
 ## Additional resources
