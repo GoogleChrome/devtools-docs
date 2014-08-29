@@ -6,7 +6,6 @@ There are many ways you can improve the productivity of your fellow developers.
 That could be by sharing what you know or helping out with documenting features
 or writing a patch to improve the tools we all use.
 
-
 ## How can you help?
 
 Aside from contributing to the source code for DevTools, all of the following
@@ -40,8 +39,12 @@ are different ways you could help contribute:
     * The codebase is just JavaScript and the contribution guide below can get
       you started quickly
 
-Read on to learn how to contribute a patch to DevTools source.
 
+## Keeping up-to-date
+
+The DevTools team values feedback from developers using the tools. If you want to keep updated, you can [subscribe at crbug](https://code.google.com/p/chromium/issues/subscriptions) to the channels below. Please remember to star issues that affect you as well. Finally, don't forget to submit feature requests or bug reports for things that you find as well. Not only in the DevTools, but for all of Chrome.
+
+<textarea readonly>Cr-Platform-DevTools Cr-Platform-DevTools-HTML Cr-Platform-DevTools-Memory Cr-Platform-DevTools-Mobile Cr-Platform-DevTools-Performance Cr-Platform-DevTools-UX</textarea>
 
 ## Contributing to DevTools source code
 
