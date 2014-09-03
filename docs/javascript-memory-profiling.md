@@ -6,9 +6,7 @@ A **memory leak** is a gradual loss of available computer memory. It occurs when
 
 Although JavaScript uses garbage collection for automatic memory management, [effective](http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/) memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the [supporting demos](#supporting-demos) when learning about features to improve your awareness of how the tools work in practice.
 
-<p>Read
-the <a href="memory-analysis-101.html">Memory 101</a> page to become
-familiar with the terms used in this document.</p>
+<p>Read the <a href="memory-analysis-101.html">Memory 101</a> page to become familiar with the terms used in this document.</p>
 <p class="note"><strong>Note:</strong> Some of these features we will be using are currently only available in <a href="http://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>. We recommend using this version to get the best memory profiling tooling for your applications.</p>
 
 
@@ -670,6 +668,11 @@ Additional demos are available for:
 
 * [Finding accumulation points](heap-profiling-dominators.html)
 
+
+## Extras
+
+[Memory Management Masterclass](http://youtu.be/LaxbdIyBkL0) with Addy Osmani gives you a crash-course in debugging memory issues. The [slides](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass) for the presentation are available as well as the [example code](https://github.com/addyosmani/memory-mysteries).
+<iframe width="560" height="315" src="//www.youtube.com/embed/LaxbdIyBkL0?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
 ## Community Resources
