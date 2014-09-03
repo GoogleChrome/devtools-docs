@@ -89,7 +89,7 @@ development.</figcaption>
 <ul>
   <li>On your device, verify you have <b>USB debugging</b> turned on. When you connect your device to a laptop, there will be a "USB debugging connected" item in the notification drawer of your phone or tablet.</li>
   <li>On your desktop, verify you are using Chrome version 32 or later. You can check the version number in <b>chrome://version</b>.</li>
-  <li>If USB debugging is on but <b>chrome://inspect</b> doesn't show your device, check that <b>Discover USB devices</b> is checked. If so, unplug the device and try revoking all the USB authorizations in the Android <b>Developer options</b> to retry.</li>
+  <li>If USB debugging is on but <b>chrome://inspect</b> doesn't show your device, check that <b>Discover USB devices</b> is checked. If so, unplug the device and try revoking all the USB authorizations in the Android <b>Developer options</b> to retry. Be sure to connect the device directly to your machine, bypassing any hubs.</li>
   <li>If you're running a web server on your development machine, and network restrictions prevent your mobile device from accessing the server, try <a href="#reverse-port-forwarding">enabling port forwarding</a> or setting up a <a href="#virtual-host-mapping">virtual host map</a>.</li>
   <li>Lastly, if things still are not working, you may have to try the <a href="remote-debugging-legacy">legacy workflow for remote debugging</a> via the <code>adb</code> binary from the Android SDK.</li>
 
