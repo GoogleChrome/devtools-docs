@@ -671,7 +671,7 @@ Additional demos are available for:
 
 ## Extras
 
-[Memory Management Masterclass](http://youtu.be/LaxbdIyBkL0) with Addy Osmani gives you a crash-course in debugging memory issues. The [slides](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass) for the presentation are available as well as the [example code](https://github.com/addyosmani/memory-mysteries).
+[Memory Management Masterclass](http://youtu.be/LaxbdIyBkL0) with Addy Osmani gives you a crash-course in debugging memory issues. The [slides for the presentation](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass) are available as well as the [example code](https://github.com/addyosmani/memory-mysteries).
 <iframe width="560" height="315" src="//www.youtube.com/embed/LaxbdIyBkL0?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
