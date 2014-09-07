@@ -139,12 +139,8 @@ For example:
 
 **On OS X<br/>
 **Run Canary in the terminal with the flags added at the end of the path to the program.<br/>
-<br/>
-`/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary \
---remote-debugging-port=9222 --no-first-run
---user-data-dir=blink/chromeServerProfile
-http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
-<br/>
+
+    /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as shown in above.</p>
 
@@ -152,9 +148,7 @@ http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
 **On Linux:<br/>
 **Run the chromium-browser command with the flags added after it:<br/>
 
-`chromium-browser --remote-debugging-port=9222 --no-first-run
---user-data-dir=blink/chromeServerProfile
-http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
+    chromium-browser --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 
 **What do these switches do?**
