@@ -110,8 +110,6 @@
   </figure>
 </div>
 
-
-
 <div class="collapsible">
   <h2 id="clearing-emulations">Clearing Emulations</h2>
   <p>
@@ -119,7 +117,6 @@
     This will reset everything to no emulation; remember to refresh the page also.
   </p>
 </div>
-
 
 <div class="collapsible">
   <h2 id="network-conditions">Network Conditioning</h2>
@@ -142,7 +139,6 @@
     </figcaption>
   </figure>
 </div>
-
 
 <div class="collapsible">
   <h2 id="more-controls">More controls</h2>
@@ -171,6 +167,27 @@
     Then it  makes sure scrollbars overlay (as they do on mobile and OS X),
     Values such as <code>window.screen</code> are in CSS pixels.
     Finally, the default body width is set to 980 pixels.
+  </p>
+</div>
+
+<div class="collapsible">
+  <h3 id="dpr-emulation"><abbr title="Device Pixel Ratio">DPR</abbr> Emulation</h3>
+  <p>
+    The <strong>device pixel ratio</strong> is the ratio between logical pixels and physical pixels.
+    Device mode allows you to test a ratio that is not native to your device.
+    This allows for you to see resources for high <abbr title="Device Pixel ratio">DPR</abbr> displays on any display.
+    Some examples of what are affected by this are:
+  </p>
+  <ul>
+    <li>CSS media queries such as <code>@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { … }</code></li>
+    <li>CSS <a href="http://dev.w3.org/csswg/css-images/#image-set-notation">image-set</a> rules.</li>
+    <li>The <a href="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#attr-img-srcset">srcset</a> attribute on images.</li>
+    <li>JavaScripts <code>window.devicePixelRatio</code></li>
+  </ul>
+  <p>
+    If you have a native retina display then you will notice low <abbr title="Dots Per Inch">dpi</abbr> assets are not sharp.
+    On normal screens when you fit the viewport and set a 2 time ratio you will notice the same effects.
+    Normal assets get pixilated while higher-dpi assets are sharp.
   </p>
 </div>
 
@@ -250,6 +267,7 @@
     <li><a href="hhttps://github.com/scottjehl/device-bugs/issues/2">iOS5 orientation zoom bug</a> is not emulated.</li>
     <li>CSS rule limits such as those in <a href="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx">Internet Explorer</a>.</li>
     <li>GPU and CPU behavior of devices.</li>
+    <li>Some browsers, such as the Android Browser, also change <code>window.outerWidth/window.outerHeight</code> values based on the <abbr title="Device Pixel Ratio">DPR</abbr>. Chrome does not emulate it.</li>
     <li>Browser UI
       <ul>
         <li>System displays like the address bar.</li>
