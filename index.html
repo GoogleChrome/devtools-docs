@@ -3,7 +3,7 @@
 <h1>Chrome DevTools Overview</h1>
 
 <p>
-    The Chrome Developer Tools (DevTools for short), are a set web authoring and debugging tools built into Google Chrome.
+    The Chrome Developer Tools (DevTools for short), are a set of web authoring and debugging tools built into Google Chrome.
     The DevTools provide web developers deep access into the internals of the browser and their web application.
     Use the DevTools to efficiently track down layout issues, set JavaScript breakpoints, and get insights for code optimization.
 </p>
@@ -32,7 +32,7 @@
     <li>Use <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">Shift</kbd>+<kbd class="kbd">C</kbd> (or <kbd class="kbd">Cmd</kbd>+<kbd class="kbd">Shift</kbd>+<kbd class="kbd">C</kbd> on Mac) to open the DevTools in Inspect Element mode, or toggle Inspect Element mode if the DevTools are already open.</li>
 </ul>
 
-<p>For your day-to-day workflow, <a href="devtools/docs/shortcuts.html">learning the shortcuts</a> will save you time.</p>
+<p>For your day-to-day workflow, <a href="devtools/docs/shortcuts">learning the shortcuts</a> will save you time.</p>
 
 
 <h2 id="devtools-window">The DevTools window</h2>
@@ -50,50 +50,52 @@
 
 <p>Overall, there are eight main groups of tools available view Developer Tools:<p>
 <ul>
-    <li><a href="devtools/docs/dom-and-styles.html">Elements</a></li>
-    <li><a href="devtools/docs/resource-panel.md">Resources</a></li>
-    <li><a href="devtools/docs/network.md">Network</a></li>
+    <li><a href="devtools/docs/dom-and-styles">Elements</a></li>
+    <li><a href="devtools/docs/resource-panel">Resources</a></li>
+    <li><a href="devtools/docs/network">Network</a></li>
     <li>Sources</li>
-    <li><a href="devtools/docs/timeline.md">Timeline</a></li>
-    <li><a href="devtools/docs/profiles.html">Profiles</a></li>
+    <li><a href="devtools/docs/timeline">Timeline</a></li>
+    <li><a href="devtools/docs/profiles">Profiles</a></li>
     <li>Storage</li>
     <li>Audits</li>
-    <li><a href="devtools/docs/console.md">Console</a></li>
+    <li><a href="devtools/docs/console">Console</a></li>
 </ul>
 
 <p>You can use the <kbd><kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">[</kbd></kbd> and <kbd><kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">]</kbd></kbd> shortcuts to move between panels.</p>
 
 
-<h2 id="dom-and-styles">Inspecting the <abbr title="Document Object Model">DOM</abbr> and styles</h2>
+<h2 id="dom-and-styles">Inspecting the DOM and styles</h2>
 
 <p>
-    The <strong><a href="devtools/docs/dom-and-styles.html">Elements</a></strong> panel lets you see everything in one <abbr title="Document Object Model">DOM</abbr> tree, and allows inspection and on-the-fly editing of <abbr title="Document Object Model">DOM</abbr> elements.
-    You will often visit the Elements tabs when you need to identify the HTML snippet for some aspect of the page.
-    For example, you may be curious if an image has an <abbr title="HyperText Markup Language">HTML</abbr> id attribute and what the value is.
+    The <strong><a href="devtools/docs/dom-and-styles">Elements</a></strong> panel lets you see everything in one DOM tree, and allows inspection and on-the-fly editing of DOM elements.
+    You will often visit the Elements tabs when you need to identify the <abbr title="HyperText Markup Language">HTML</abbr> snippet for some aspect of the page.
+    For example, you may be curious if an image has an HTML id attribute and what the value is.
 </p>
 
 <figure>
     <img  class="screenshot" src="devtools/images/elements-panel.png"/></p>
     <figure>
-        Viewing a heading element in the <abbr title="Document Object Model">DOM</abbr>.
+        Viewing a heading element in the DOM.
     </figure>
 </figure>
 
-<p><a href="devtools/docs/dom-and-styles.html">Read more about inspecting the <abbr title="Document Object Model">DOM</abbr> and styles</a></p>
+<p><a href="devtools/docs/dom-and-styles">Read more about inspecting the DOM and styles</a></p>
 
 
 <h2 id="console">Working with the Console</h2>
 
-<p>The <a href="devtools/docs/console.md">JavaScript Console</a> provides two primary functions for developers testing web pages and applications.</p>
-
+<p>The <a href="devtools/docs/console">JavaScript Console</a> provides two primary functions for developers testing web pages and applications. It is a place to:</p>
+<ul>
+    <li>Log diagnostic information in the development process.</li>
+    <li>A shell prompt which can be used to interact with the document and DevTools.
+</ul>
 <p>
-    It is a place to log diagnostic information using methods provided by the <a href="devtools/docs/console-api.md">Console <abbr title="Application Programming Interface">API</abbr></a>.
-    Such as <a href="devtools/docs/console-api.md#consolelogobject-object">console.log()</a> or <a href="devtools/docs/console-api.md#consoleprofilelabel">console.profile()</a>.
+    You may log diagnostic information using methods provided by the <a href="devtools/docs/console-api">Console <abbr title="Application Programming Interface">API</abbr></a>.
+    Such as <a href="devtools/docs/console-api#consolelogobject-object">console.log()</a> or <a href="devtools/docs/console-api#consoleprofilelabel">console.profile()</a>.
 </p>
 <p>
-    A shell prompt where you can enter commands and interact with the document and the Chrome DevTools.
-    You can evaluate expressions directly in the Console, and can also use the methods provided by the <a href="devtools/docs/commandline-api.md">Command Line <abbr title="Application Programming Interface">API</abbr></a>.
-    These include <a href="devtools/docs/commandline-api.md#selector">$()</a> command for selecting elements, or <a href="devtools/docs/commandline-api.md#profilename">profile()</a> to start the <abbr title="Central Processing Unit">CPU</abbr> profiler.</li>
+    You can evaluate expressions directly in the console and use the methods provided by the <a href="devtools/docs/commandline-api">Command Line API</a>.
+    These include <a href="devtools/docs/commandline-api#selector">$()</a> command for selecting elements or <a href="devtools/docs/commandline-api#profilename">profile()</a> to start the <abbr title="Central Processing Unit">CPU</abbr> profiler.
 </p>
 
 <figure>
@@ -103,7 +105,7 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/console.md">Read more about working with the console</a></p>
+<p><a href="devtools/docs/console">Read more about working with the console</a></p>
 
 
 <h2 id="debugging-javascript">Debugging JavaScript</h2>
@@ -120,7 +122,7 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/javascript-debugging.html">Read more about how to debug JavaScript with the DevTools  &raquo;</a></p>
+<p><a href="devtools/docs/javascript-debugging">Read more about how to debug JavaScript with the DevTools  &raquo;</a></p>
 
 
 <h2 id="improving-network-performance">Improving network performance</h2>
@@ -137,7 +139,7 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/network.md">Read more about how to improve your network performance  &raquo;</a></p>
+<p><a href="devtools/docs/network">Read more about how to improve your network performance  &raquo;</a></p>
 
 
 <h2 id="audits">Audits</h2>
@@ -170,7 +172,7 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/timeline.md">Read more about how to improve rendering performance  &raquo;</a></p>
+<p><a href="devtools/docs/timeline">Read more about how to improve rendering performance  &raquo;</a></p>
 
 
 <h2 id="javascript-performance">JavaScript &amp; <abbr title="Cascading StyleSheets">CSS</abbr> performance</h2>
@@ -182,8 +184,8 @@
 </p>
 
 <ul>
-    <li>The <strong><abbr title="Central Processing Unit">CPU</abbr> profiler</strong> shows where execution time is spent in your page's JavaScript functions.</li>
-    <li>The <strong>Heap profiler</strong> shows memory distribution by your page's JavaScript objects and related <abbr title="Document Object Model">DOM</abbr> nodes.</li>
+    <li>The <strong>CPU profiler</strong> shows where execution time is spent in your page's JavaScript functions.</li>
+    <li>The <strong>Heap profiler</strong> shows memory distribution by your page's JavaScript objects and related DOM nodes.</li>
     <li>The <strong>JavaScript</strong> profile shows where execution time is spent in your scripts</li>
 </ul>
 
@@ -194,7 +196,7 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/profiles.html">Read more about using how to improve JavaScript and CSS performance  &raquo;</a></p>
+<p><a href="devtools/docs/profiles">Read more about using how to improve JavaScript and CSS performance  &raquo;</a></p>
 
 
 <h2 id="inspecting-storage">Inspecting storage</h2>
@@ -211,19 +213,19 @@
     </figcaption>
 </figure>
 
-<p><a href="devtools/docs/resource-panel.md">Read more about inspecting storage resources  &raquo;</a></p>
+<p><a href="devtools/docs/resource-panel">Read more about inspecting storage resources  &raquo;</a></p>
 
 
 <h2 id="further-reading">Further reading</h2>
 
-<p>There are several other areas of the DevTools documentation that you might find of benefit to review. These include:</p>
+<p>There are several other areas of the DevTools documentation that you might find beneficial to review. These include:</p>
 
 <ul>
-    <li><a href="devtools/docs/heap-profiling.html">Heap Profiling</a></li>
-    <li><a href="devtools/docs/cpu-profiling.html"><abbr title="Central Processing Unit">CPU</abbr> Profiling</a></li>
-    <li><a href="devtools/docs/device-mode.html">Device Mode & Mobile Emulation</a></li>
-    <li><a href="devtools/docs/remote-debugging.html">Remote Debugging</a></li>
-    <li><a href="devtools/docs/videos.html">DevTools Videos</a></li>
+    <li><a href="devtools/docs/heap-profiling">Heap Profiling</a></li>
+    <li><a href="devtools/docs/cpu-profiling">CPU Profiling</a></li>
+    <li><a href="devtools/docs/device-mode">Device Mode & Mobile Emulation</a></li>
+    <li><a href="devtools/docs/remote-debugging">Remote Debugging</a></li>
+    <li><a href="devtools/docs/videos">DevTools Videos</a></li>
 </ul>
 
 
@@ -280,7 +282,7 @@
 
 <p>
     Looking to use the DevTools to debug Chrome extensions? Watch <a href="http://www.youtube.com/watch?v=IP0nMv_NI1s">Developing and Debugging extensions</a>.
-    A <a href="https://developer.chrome.com/extensions/tut_debugging.html">Debugging</a> tutorial is also available.
+    A <a href="https://developer.chrome.com/extensions/tut_debugging">Debugging</a> tutorial is also available.
 </p>
 
 
