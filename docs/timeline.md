@@ -194,29 +194,19 @@ of detecting and fixing these kinds of performance issues.</p>
 Events in Timeline recordings sometimes are nested visually beneath another event. You expand the "parent" event to view its nested "child" events. There are two reasons why the Timeline nests events:
 
 *  Synchronous events that occurred during the processing of an event that occurred previously. Each event internally generates two atomic events, one for the start and one for the end, that are converted to a single "continuous" event. Any other events that occur between these two atomic events become children of the outer event.
-*  Asynchronous events that occurred as a result of another event when [glue mode](#about-glue-mode) is enabled.
-
-Note: Glue mode is automatically disabled in [Frames mode](#frames-mode).
 
 The following screenshot shows an example of nested synchronous events. In this case, Chrome was parsing some HTML (the Parse HTML event) when it found several external resources that needed to be loaded. Those requests were made before Chrome has finished the parsing, so the Send Request events are displayed as children of the Parse HTML event.
 
 ![](timeline-images/sync_events.png)
 
-#### About glue mode ####
-
-Many events in an application are the result of asynchronous operations. A loading of an image resource  page results in a Send Request, followed by a Receive Response event, one or more Receive Data loading events, and a Finish Loading event. Sometimes, async events are separated from their causes by enough time to make correlating them difficult.
-
-The **Glue asynchronous events to causes** toggle at the bottom of the Timeline panel causes asynchronous events to be nested as children of the event that caused them.
-
-![](timeline-images/glue_mode.png)
 
 #### Coloring of Timeline records with nested events
 
 Timeline bars are color coded as follows:
 
 *  The **first, darkest part** of the bar represents how long the parent event and all of its _synchronous_ children took.
-*  The **next, slightly paler color** represents the CPU time that the event and all its _asynchronous_ children took. This would be the same as above if [glue mode](#about-glue-mode) is off, and for events that don't have asynchronous children.
-*  The **palest bars** represent the time from the start of first asynchronous event to the end of last of its asynchronous children (only visible for events with asynchronous children while in glue mode).
+*  The **next, slightly paler color** represents the CPU time that the event and all its _asynchronous_ children took.
+*  The **palest bars** represent the time from the start of first asynchronous event to the end of last of its asynchronous children.
 
 ![](timeline-images/image16.png)
 
@@ -280,8 +270,7 @@ Applications can add their own events to Timeline recordings. You can use the
 [console.timeStamp()](console-api.md#consoletimestamplabel) method to add an atomic event to a recording, or the
 [console.time()](console-api.md#consoletimelabel) and
 [console.timeEnd()](console-api.md#consoletimeendlabel) methods
-to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console.md#marking-the-timeline) in
-[Using the Console](console.md) for more information.
+to mark a range of time that code was executing. For example, in the following recording the `console.timeStamp()` was used to display an "Adding result" event. See [Marking the Timeline](console.md#marking-the-timeline) in [Using the Console](console.md) for more information.
 
 
 ![](timeline-images/adding-result.png)
