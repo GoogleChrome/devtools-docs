@@ -57,8 +57,7 @@ The time to render a frame is displayed atop of the Records view. If you hover o
 
 ![](timeline-images/frames_mode.png)
 
-See [Timeline demo: Diagnosing and fixing forced synchronous
-layout](demos/too-much-layout/) for a demonstration of using Frames mode.
+See [Timeline demo: Diagnosing and fixing forced synchronous layout](demos/too-much-layout/) for a demonstration of using Frames mode.
 
 #### About clear or light-gray frames ####
 
@@ -149,11 +148,8 @@ Here are some tips for making recordings:
 * **Avoid unnecessary actions**. Try to avoid actions (mouse clicks, network loads, and so forth) that are extraneous to the activity you want to record and analyze. For instance, if you want to record events that occur after you click a “Login” button, don’t also scroll the page, load an image and so forth.
 *  **Disable the browser cache**. When recording network operations, it’s a good idea to disable the browser’s cache in the DevTools Settings panel.
 * **Disable extensions**. Chrome extensions can add unrelated noise to Timeline recordings of your application. You can do one of the following:
-    * Open a Chrome window in [incognito
-    mode](http://support.google.com/chrome/bin/answer.py?hl=en&answer=95464)
-    * Create a new [Chrome user
-    profile](http://support.google.com/chrome/bin/answer.py?hl=en&answer=142059) for
-    testing.
+    * Open a Chrome window in [incognito mode](http://support.google.com/chrome/bin/answer.py?hl=en&answer=95464)
+    * Create a new [Chrome user profile](http://support.google.com/chrome/bin/answer.py?hl=en&answer=142059) for testing.
 
 ## Analyzing Timeline recordings ##
 
@@ -189,8 +185,7 @@ The Timeline identifies when your application causes a forced asynchronous layou
 If a record contains a [child record](#about-nested-events) that forced a layout, the parent record is marked with a slightly dimmed yellow icon. Expand the parent record to locate the child record that caused the forced layout.
 
 
-<p class="note">See the [Forced Synchronous Layout
-demo](demos/too-much-layout/index.html) for a demonstration
+<p class="note">See the <a href="demos/too-much-layout/index.html">Forced Synchronous Layout demo</a> for a demonstration
 of detecting and fixing these kinds of performance issues.</p>
 
 
