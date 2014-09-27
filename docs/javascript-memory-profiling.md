@@ -14,7 +14,7 @@ Although JavaScript uses garbage collection for automatic memory management, [ef
 
 In general, there are three questions you will want to answer when you think you have a memory leak:
 
-* **Is my page using too much memory?** - the [Timeline memory view](#memory_mode) and [Chrome task manager](#chrome_task_manager) can help you identify if you’re using too much memory. Memory view can track the number of live DOM nodes, documents and JS event listeners in the inspected render process. As a rule of thumb: avoid holding references to DOM elements you no longer need to use, unbind unneeded event listeners and take care when storing large chunks of date you aren't going to use.
+* **Is my page using too much memory?** - the [Timeline memory view](#memory_mode) and [Chrome task manager](#chrome_task_manager) can help you identify if you’re using too much memory. Memory view can track the number of live DOM nodes, documents and JS event listeners in the inspected render process. As a rule of thumb: avoid holding references to DOM elements you no longer need to use, unbind unneeded event listeners and take care when storing large chunks of data you aren't going to use.
 
 * **Is my page free of memory leaks?** - the [Object allocation tracker](#object_allocation_tracker) can help you narrow down leaks by looking at JS object allocation in real-time. You can also use the [heap profiler](#heap_profiler) to take JS heap snapshots, analyze memory graphs and compare snapshots to discover what objects are not being cleaned up by garbage collection.
 
