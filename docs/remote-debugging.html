@@ -27,7 +27,7 @@
 
   <figure style="text-align: center;">
     <video loop muted controls src="remote-debugging/7tap-optimized.mp4" onended="this.play()"></video>
-    <figcaption>Watch how to enable the developer options on Android 4.2.</figcaption>
+    <figcaption>How to enable the Android developer options on Android 4.2+.</figcaption>
   </figure>
 </div>
 
@@ -166,15 +166,12 @@ if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
 <h3 id="open-webview">Open a WebView in DevTools</h3>
 
-<p>Go to <b>chrome://inspect</b> in Chrome to get a list of debuggable WebViews. Click <b>inspect</b> on the WebView you wish to debug and use the DevTools as you would for a remote browser tab.</p>
+<p>Go to <b>chrome://inspect</b> in Chrome to get a list of debuggable WebViews, along with a graphic representing the WebView'ssize and position relative to the device's screen. If your WebViews have titles set, those will show as well. Click <b>inspect</b> on the WebView you wish to debug and use the DevTools as you would for a remote browser tab.</p>
 
 <figure>
   <img src="remote-debugging/about-inspect-webview.gif">
 </figure>
 
-<aside class="note"><b>Note:</b> In Chrome 31 and later, the <b>chrome://inspect</b> page provides a graphic representing the WebView's
-size and position relative to the device's screen. Prior to Chrome 31, the <b>chrome://inspect</b> page only supplied the WebView's title.
-Setting a title on all of your WebViews simpifies the process of picking the correct WebView.</aside>
 
 </section>
 
@@ -218,7 +215,7 @@ Setting a title on all of your WebViews simpifies the process of picking the cor
   <li><strong>Transparent</strong> portions of the screencast are covered by things like the omnibox and keyboard. Only page content is being screencasted.</li>
 </ul>
 
-<p class="note"><strong>Note:</strong> The screencast feature repeatedly snaps screenshots on the device to give you the live view, but this does have a performance overhead. Disable screencast if you're testing framerate-sensitive situations.</p>
+<p class="note"><strong>Note:</strong> The screencast feature does have a performance overhead, due to continuously capturing frames. Disable screencast if you're testing framerate-sensitive situations.</p>
 
 </section>
 
@@ -312,7 +309,7 @@ Now, enter in your local URL into the <b>Open tab</b> field and hit <b>Go</b> to
 
 <h3>Remote debugging and ADB</h3>
 
-<p>DevTools now supports <strong>native USB debugging</strong> of connected devices. You no longer need to configure ADB or the ADB plugin to see all instances of Chrome and the Chrome-powered WebView on devices connected to your system. This functionality works on all operating systems: Windows, Mac, Linux and Chrome OS.</p>
+<p>DevTools supports direct USB debugging of connected devices. You no longer need to configure ADB or the ADB plugin to see all instances of Chrome and the Chrome-powered WebView on devices connected to your system. This functionality works on all operating systems: Windows, Mac, Linux and Chrome OS.</p>
 
 <aside class="note">However, if you do encounter problems, you can try the legacy workflow for connectivity which uses the <code>adb</code> binary from the Android SDK:
 <a href="remote-debugging-legacy">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
