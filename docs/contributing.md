@@ -37,7 +37,7 @@ Aside from contributing to the source code for DevTools, all of the following ar
 
 The DevTools team values feedback from developers using the tools. If you want to keep updated, you can [subscribe at crbug](https://code.google.com/p/chromium/issues/subscriptions) to the channels below. Please remember to star issues that affect you as well. Finally, don't forget to submit feature requests or bug reports for things that you find as well. Not only in the DevTools, but for all of Chrome.
 
-<textarea readonly>Cr-Platform-DevTools Cr-Platform-DevTools-HTML Cr-Platform-DevTools-Memory Cr-Platform-DevTools-Mobile Cr-Platform-DevTools-Performance Cr-Platform-DevTools-UX</textarea>
+<textarea readonly style="width: 100%">Cr-Platform-DevTools Cr-Platform-DevTools-HTML Cr-Platform-DevTools-Memory Cr-Platform-DevTools-Mobile Cr-Platform-DevTools-Performance Cr-Platform-DevTools-UX</textarea>
 
 ## Contributing to DevTools source code
 
@@ -64,8 +64,6 @@ Download the [Blink](http://www.chromium.org/blink) source code by [cloning the 
 
 While Blink downloads, install Chrome Canary on [Mac OS / Windows](https://tools.google.com/dlpage/chromesxs) or download [the latest Chromium build](https://download-chromium.appspot.com/).
 
-<p class="note"><strong>Note:</strong> To save you time, we created a <a href="https://github.com/jankeromnes/cr">helpful bash script</a> that can take care of some of the grunt work for you.
-</p>
 
 **Serve devtools frontend**
 
@@ -98,24 +96,6 @@ If your feature requires changes to the back-end code then you definitely need t
 <p class="note"><strong>Note:</strong> `protocol.json` describes the API between front-end and back-end. It is used for generating API stubs for the front-end and back-end at the build stage. When remote debugging the front-end part of the API, <code>InspectorBackendCommands.js</code> is generated on the fly by front-end code. For more information, read the <a href="http://www.chromium.org/developers/how-tos">Chromium How-tos</a>.
 </p>
 
-**Install depot_tools**
-
-You will need to [install the depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools) in order to upload your patch once your changes are completed. The **[depot_tools](http://dev.chromium.org/developers/how-tos/depottools)** are a package of scripts used to manage checkouts and code reviews, and it includes commands `gclient`, `gcl`, and `git-cl` and will be useful later on. You will still want to sync your Chromium checkout with all its dependencies however.
-
-Download `depot_tools` by cloning the repository:
-
-    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-
-Then you will need to add it to your 
-[PATH](http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&sa=D&sntz=1&usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA). Do this by adding the following to your `.bashrc` or `.bashprofile` file or your shell's equivalent at the end of the file. This way you won't need to reset your `$PATH` manually each time you open a new shell.
-
-    export PATH="$PATH":`pwd`/depot_tools
-
-
-
-<p class="note"><strong>Note:</strong> This guide includes steps for <strong>Windows</strong> throughout it, but has not been confirmed to work due to the inability to add <code>depot_tools</code> to the PATH of Windows command line. However, you can try Cygwin as an alternative solution. Here you can find <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-">steps for installing depot_tools on Windows with Cygwin</a>.
-</p>
-
 ### Step 2: Running an edge-build of Chromium
 
 To begin, get an [edge-build](http://www.chromium.org/getting-involved/download-chromium) of Chromium. These are available for all platforms.
@@ -132,7 +112,7 @@ From [Running Canary with flags](http://www.chromium.org/developers/how-tos/run-
 
 For example:
 
-    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=C:\Users\%username%\chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
 
 <img src="contributing-files/image02.png" alt="Command-line flags" width="700"/>
 
@@ -142,39 +122,31 @@ For example:
 
 Run Canary in the terminal with the flags added at the end of the path to the program.
 
-    /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as shown in above.</p>
 
-**On Linux:
+**On Linux**
 
 Run the chromium-browser command with the flags added after it:
 
-    chromium-browser --remote-debugging-port=9222 --no-first-run --user-data-dir=blink/chromeServerProfile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    chromium-browser --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
 
 
 **What do these switches do?**
 
-* `--user-data-dir=blink/chromeServerProfile`<br/>
-  This specifies where the browser will look for all of its state. This can be a
-  relative path to the directory that you're running the web server from which
-  should be blink/Source/devtools.
+* `--user-data-dir=~/temp/chrome-dev-profile`<br/>
+  This specifies where the browser will look for all of its state. This can be a relative path to the directory that you're running the web server from. This can point anywhere. You can wipe out your profile at any time.
 * `--remote-debugging-port=9222`<br/>
-  Enables remote debug over HTTP on the specified port. This is the port used
-  when running localhost.
+  Enables remote debug over HTTP on the specified port. This is the port used when running localhost.
 * `--no-first-run`<br/>
   Skip First Run tasks, whether or not it's actually the First Run.
-* `--remote-debugging-frontend`<br/>
-  <del>Uses a custom front-end URL for remote debugging. </del> <ins>
-   The `--remote-debugging-frontend` flag was retired. You now specify the frontend URL in the URL hash: `http://localhost:9222#<front_end url>`.</ins>
-  The port in the URL should
-  match the port number used for the running the local web server and the path
-  should point to the correct location of the devtools.html file assuming that
-  your web server is running from the Source directory.
+* `http://localhost:9222#http://localhost:8000/front_end/devtools.html`<br/>
+  We're loading our inspection dashboard on port 9222 but we're specifying the devtools frontend to then use in the URL hash: `http://localhost:9222#<front_end url>`.  Since we launched the devtools frontend on port 8000 we want to match that here. The path should point to the correct location of the devtools.html file assuming that
+  your web server is running from the Source directory. The older `--remote-debugging-frontend` flag was retired.
 
 These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a [full list of command line switches](http://peter.sh/experiments/chromium-command-line-switches/) and what they do.
 
-Adjust the path to `chromeServerProfile` to be some writable directory in your system. This refers to the `--user-data-dir` flag value mentioned above, which specifies a directory where the browser profile will be stored. You may wish to adjust the actual location of this profile directory to be something other than the `blink` folder.
 
 ### Step 3: Inspector inception
 
@@ -213,16 +185,13 @@ Well done. Now you can [start contributing](http://dev.chromium.org/developers/c
 
 Now that you are ready to dig into the code and start developing the DevTools source, head over to [http://crbug.com](http://crbug.com) and find the ticket for your change and leave a comment saying you will be writing a patch for it. If you haven't decided on what you to change look through the open issues and choose one you would like to do and leave a comment on it asking for it to be assigned to you.
 
-<p class="note"><strong>Note:</strong> We occasionally label bugs that require a small patch but make for good first-time contributions with GoodFirstBug. You can [filter](https://code.google.com/p/chromium/issues/list?q=label:GoodFirstBug) down the issues list to only display these.
-</p>
 
 Alternatively, if there is no existing ticket for the change, then [create a new issue](http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&role=&continue=https%3A//code.google.com/p/chromium/issues/entry.do). Be sure to describe what the change is and justify why it was needed, adding 
 "patch to follow" to the end.
 
 **Communicate**
 
-Before you start
-[contributing](http://dev.chromium.org/developers/contributing-code) on a ticket, it's a good idea to open a new thread on the [DevTools Google Group](https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools) so you can discuss anything you are unsure of or may not know about regarding the particular ticket you will be working on. You can never over communicate.
+Before you start [contributing](http://dev.chromium.org/developers/contributing-code) on a ticket, it's a good idea to open a new thread on the [DevTools Google Group](https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools) so you can discuss anything you are unsure of or may not know about regarding the particular ticket you will be working on. You can never over communicate.
 
 ### Step 5: Pull, Develop, Branch, Commit
 
@@ -263,6 +232,28 @@ Once everything for your patch is complete, you will want to write and run relev
 <p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or UI tests, they will need to be created and included as part of the patch.</p>
 
 ### Step 6: Upload your Patch
+
+
+**Install depot_tools**
+
+You will need to [install the depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools) in order to upload your patch once your changes are completed. The **[depot_tools](http://dev.chromium.org/developers/how-tos/depottools)** are a package of scripts used to manage checkouts and code reviews, and it includes commands `gclient`, `gcl`, and `git-cl` and will be useful later on. You will still want to sync your Chromium checkout with all its dependencies however.
+
+Download `depot_tools` by cloning the repository:
+
+    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+
+Then you will need to add it to your 
+[PATH](http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&sa=D&sntz=1&usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA). Do this by adding the following to your `.bashrc` or `.bashprofile` file or your shell's equivalent at the end of the file. This way you won't need to reset your `$PATH` manually each time you open a new shell.
+
+    export PATH="$PATH":`pwd`/depot_tools
+
+
+
+<p class="note"><strong>Note:</strong> This guide includes steps for <strong>Windows</strong> throughout it, but has not been confirmed to work due to the inability to add <code>depot_tools</code> to the PATH of Windows command line. However, you can try Cygwin as an alternative solution. Here you can find <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-">steps for installing depot_tools on Windows with Cygwin</a>.
+</p>
+
+
+**Uploading the patch for review**
 
 If your patch is finished and all tests pass, upload your changes:
 
