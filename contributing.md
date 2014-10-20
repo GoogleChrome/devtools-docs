@@ -23,7 +23,7 @@ A few guidelines to follow when writing are:
   <dd> Contains all the working files. Each document page has its own HTML file. If a page has files specific to its content, then a resources folder exists for that page.</dd>
 
   <dt> index.html</dt>
-  <dd> Contains the project [overview](https://developer.chrome.com/devtools/index) page.</dd>
+  <dd> Contains the project <a href="https://developer.chrome.com/devtools/index">overview</a> page.</dd>
 
   <dt> images</dt>
   <dd> Contains images for index.html and minor images used within the documents.</dd>
