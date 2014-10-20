@@ -14,7 +14,7 @@ Covered in the [DevTools Content Inventory](https://github.com/GoogleChrome/devt
 
 Once pushed to master, updates will go live to the DCC site within a few minutes or so.
 
-### Troublshooting
+### Troubleshooting
 * Make sure you've created CLs with any imported GH changes.
 * If you can't find the content with the devtools-docs repo, it might be part of the Chromium repo
   * CSS, JavaScript, and navigation bugs related to developer.chrome.com can be logged to the [Chromium issue tracker](http://crbug.com)
