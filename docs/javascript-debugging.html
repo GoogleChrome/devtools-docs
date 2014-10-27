@@ -134,6 +134,18 @@ Variables</b> panels in the right-hand side bar.</p>
 
 <p>Further information and examples using async call stacks can be found in <a href="http://www.html5rocks.com/en/tutorials/developertools/async-call-stack/">Debugging Asynchronous JavaScript with Chrome DevTools</a> on HTML5Rocks.com.</p>
 
+<h4 id="blackboxing-js">Blackbox JavaScript files</h4>
+
+<p>When you blackbox a JavaScript source file, you will not jump into that file when stepping through code you're debugging. You are able to debug just the code you are interested in.</p>
+
+<div class="screenshot"><img src="blackboxing-files/blackboxing-expanded.png"/></div>
+
+<p>You can use the Settings panel to blackbox scripts, or right-click in the sources panel on a file and choose Blackbox Script from the context menu.</p>
+
+<div class="screenshot"><img src="blackboxing-files/blackboxing-dialog.png"/></div>
+
+<p>More information on blackboxing and how to use it can be found in the <a href="https://developer.chrome.com/devtools/docs/blackboxing">Blackboxing JavaScript files</a>.</p>
+
 <h4 id="mini-console-panel">Console drawer</h4>
 
 <p>The DevTools <b>console drawer</b> will allow you to experiment within the scope of where the debugger is currently paused. Hit the <span class="kbd">Esc</span> key to bring the console into view. The <span class="kbd">Esc</span> key also closes this drawer.
@@ -651,7 +663,6 @@ abstractions.</li>
 <p><h4>Read more</h4></p>
 
 <ul>
-<li><a href="https://developer.chrome.com/devtools/docs/blackboxing">Blackboxing JavaScript files</a></li>
 <li>Conditional breakpoints
 
 <li><a href="http://www.randomthink.net/blog/2012/11/breakpoint-actions-in-javascript/">Breakpoint actions in
