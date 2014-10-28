@@ -20,7 +20,7 @@ Aside from contributing to the source code for DevTools, all of the following ar
 * **Coverage of new experimental features**
     * Subscribe to [devtools-reviews@chromium.org mailing list](https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews)
       for all reviews of pending code
-    * Subscribe to the [RSS feed of devtools commits](http://commits.peter.sh/feed/?tracker=devtools).
+    * Subscribe to the [RSS feed of devtools commits](https://feeds.peter.sh/chrome-devtools/).
     * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) on Twitter which also includes a feed of all commits.
     * There's plenty of action and developers are eager to hear what's landing
 * **Designing improved UX for all parts of DevTools**
