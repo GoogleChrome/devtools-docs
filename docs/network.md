@@ -149,8 +149,8 @@ In addition to resource type filtering, you can narrow down resources by filter 
 Take note of the following behaviour:
 * A filter query includes a **type** (`StatusCode`) and **value** (`200`).
 * The filter type gives you autocomplete suggestions. Use the arrows keys to form a selection and press <span class="kbd">Tab</span> to select it.
-* The filter value also has autocomplete which shows you values **present** in the current network recording.
-* To quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
+* The filter value has autocomplete which shows you values **present** in the current network recording.
+* Quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
 
 The following table contains the current available filter types.
 
@@ -209,7 +209,7 @@ The following table contains the current available filter types.
   </tbody>
 </table>
 
-To use a query shown in the above table, construct it in the format of: `<Filter Type>:<Description>`, however you will almost always want to use the autocomplete suggestions which also ensures your query is valid.
+To use a query shown in the above table, construct it in the format of: `<Filter Type>:<Description>`. You will almost always want to use the autocomplete suggestions which ensures your query is valid.
 
 ### Adding and removing table columns
 
