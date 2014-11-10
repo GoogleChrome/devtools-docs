@@ -2,7 +2,7 @@
 
 <h1>Blackbox JavaScript Source Files</h1>
 
-<p>When you are developing an application, there are times when you will need to debug your code. While doing this, you could be stepping through the code you are writing line by line when suddenly the debugger will jump into a source file that you are not actually working in, like a third-party library you are using for instance. The lines of code in that library are not what you are trying to debug so stepping through the code in it is not important to you. If you have ever had to do this before while debugging an application you probably know how much of a pain this is. It can take a long time for you to step through the code in a library before you get back to stepping through the code you are developing.</p>
+<p>When you are developing an application, there are times when you will need to debug your code. While doing this, you could be stepping through the code you are writing line by line when suddenly, the debugger will jump into a source file that you are not actually working in. This could be a third-party library you are using for instance. The lines of code in that library are not what you are trying to debug, so stepping through that code is not important to you. If you have ever had to do this before while debugging an application you probably know how much of a pain this is. It can take a long time for you to step through the code in a library before you get back to stepping through the code you are developing.</p>
 
 <p>This is where blackboxing scripts becomes useful. When you blackbox a source file, you will not jump into that file when stepping through code you're debugging. You are able to debug just the code you are interested in.</p>
 
@@ -16,7 +16,7 @@
 
 <figure class="screenshot">
   <img src="blackboxing-files/blackboxing-unblackboxed.png" />
-  <figcaption>The screenshot above shows that app.js was opened, where a breakpoint was set. When stepping into that code, backbone.js was opened, then underscore.js. This can be a time consuming process and an undesirable one, too.</figcaption>
+  <figcaption>The screenshot above shows that app.js was opened, where a breakpoint was set. When stepping into that code, backbone.js was opened, then underscore.js. This can be a time-consuming process and an undesirable one, too.</figcaption>
 </figure>
 
 <div class="collapsible">
@@ -43,18 +43,18 @@
 
 <h3 id="context-menu">Context menus</h3>
 
-<p>In addition to using the Settings panel for adding files to the blacklist, you can use the context menu when working in the Sources panel. You can either right-click on a file in the file navigator or when viewing a file you can right-click in the editor and choose Blackbox Script. This will add the file to the list in the Settings panel.</p>
+<p>In addition to using the Settings panel for adding files to the blacklist, you can use the context menu when working in the Sources panel. You can either right-click on a file in the file navigator or when viewing a file you can right-click in the editor and choose <strong>Blackbox Script</strong>. This will add the file to the list in the Settings panel.</p>
 
 <figure class="screenshot">
   <img src="blackboxing-files/blackboxing-nav-menu.png" /> &nbsp;
   <img src="blackboxing-files/blackboxing-text-menu.png" />
 </figure>
 
-<p>Once you have blackboxed a script, when you view it in the editor on the Sources panel, you will see a yellow bar indicating that it is blackboxed. Clicking on more expands the bar showing a bit more info about what it means, and how you can disable it.</p>
+<p>Once you have blackboxed a script, when you view it in the editor on the Sources panel, you will see a yellow bar indicating that it is blackboxed. Clicking on <strong>more</strong> expands the bar showing a bit more info about what it means, and how you can disable it.</p>
 
 <figure class="screenshot"><img src="blackboxing-files/blackboxing-expanded.png" /></figure>
 
-<p>When paused on a breakpoint, in the call stack you will see a message stating there are x number of frames which are blackboxed. You can show these frames if you want, but since they are calls made from a blackboxed script they are hidden unless you click show.</p>
+<p>When paused on a breakpoint, in the call stack you will see a message stating the number of frames which are blackboxed. You can show these frames if you want, but since they are calls made from a blackboxed script they are hidden unless you click <strong>show</strong>.</p>
 
 <figure class="screenshot">
   <img src="blackboxing-files/blackboxing-call-stack.png" /> &nbsp;
@@ -72,13 +72,13 @@
   <li>Any previously set breakpoints in library code will not be paused on.</li>
 </ul>
 
-<p>The end result being that you're debugging your application code instead of the layers of backbone/underscore/jquery/lo-dash or whatever script file you blackbox.</p>
+<p>The end result is you are debugging your application code instead of third party resources.</p>
 
 </div>
 <div class="collapsible">
 <h2 id="toc-conclusion">Conclusion</h2>
 
-<p>To sum things up, while debugging your application code blackboxing the third-party libraries and other scripts which you are not actively developing can help increase your productivity and help keep your focus on the code you really care about. It is easy to enable using any workflow and just as easy to disable if the need to do so arises.</p>
+<p>While debugging your application code, blackboxing the third-party libraries and other scripts which you are not actively developing can help increase your productivity and help keep your focus on the code you really care about. It is easy to enable using any workflow and just as easy to disable if the need to do so arises.</p>
 
 <p>We want to make sure your debugging experience when working with JS frameworks is excellent. Please <a href="http://crbug.com">file a ticket</a> after trying blackboxing if you have ideas on how it can be improved or address your use cases better.</p>
 </div>
