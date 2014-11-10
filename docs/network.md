@@ -146,68 +146,45 @@ To filter the Network table to only show certain types of resources, click one o
 
 In addition to resource type filtering, you can narrow down resources by filter queries. For example, to find **all resources** which have a status code of `200`, you can enter the query `StatusCode:200` in the filter input field.
 
+<img src="network-files/network-advanced-filter.png" alt="Advanced filtering in the Network Panel"/>
+
 Take note of the following behaviour:
 * A filter query includes a **type** (`StatusCode`) and **value** (`200`).
+* A filter query is case insensitive, so you can type uppercase or lowercase.
 * The filter type gives you autocomplete suggestions. Use the arrows keys to form a selection and press <span class="kbd">Tab</span> to select it.
 * The filter value has autocomplete which shows you values **present** in the current network recording.
 * Quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
 
-The following table contains the current available filter types.
+The following list contains the current available filter types.
 
-<table>
-  <thead>
-    <tr>
-      <th width="20%">Filter Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Domain</strong></td>
-      <td>The <strong>domain</strong> portion from the URL of the resource. E.g. `www.google-analytics.com`.</td>
-    </tr>
+<dl>
+  <dt><strong>Domain</strong></dt>
+  <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. `www.google-analytics.com`.</dd>
 
-    <tr>
-      <td><strong>HasResponseHeader</strong></td>
-      <td>Checks the resource has a response header, regardless of the value. E.g. `Access-Control-Allow-Origin`.</td>
-    </tr>
+  <dt><strong>HasResponseHeader</strong></dt>
+  <dd>Checks the resource has a response header, regardless of the value. E.g. `Access-Control-Allow-Origin`.</dd>
 
-    <tr>
-      <td><strong>Is</strong></td>
-      <td>Shows requests running at the current point in time. Current available value: `running` </td>
-    </tr>
+  <dt><strong>Is</strong></dt>
+  <dd>Shows requests running at the current point in time. Current available value: `running`</dd>
 
-    <tr>
-      <td><strong>Method</strong></td>
-      <td>The HTTP method used, e.g. `GET`.</td>
-    </tr>
+  <dt><strong>Method</strong></dt>
+  <dd>The HTTP method used, e.g. `GET`.</dd>
 
-    <tr>
-      <td><strong>MimeType</strong></td>
-      <td>Also known as `Content-type` - the identifier for the type of resource. E.g. `text/html`.</td>
-    </tr>
+  <dt><strong>MimeType</strong></dt>
+  <dd>Also known as `Content-type` - the identifier for the type of resource. E.g. `text/html`.</dd>
 
-    <tr>
-      <td><strong>Scheme</strong></td>
-      <td>The scheme portion in a URL. E.g. `https`.</td>
-    </tr>
+  <dt><strong>Scheme</strong></dt>
+  <dd>The scheme portion in a URL. E.g. `https`.</dd>
 
-    <tr>
-      <td><strong>SetCookieName</strong></td>
-      <td>The name of the cookie as set by the server E.g. `loggedIn` (assuming a cookie like `loggedIn=true`).</td>
-    </tr>
+  <dt><strong>SetCookieName</strong></dt>
+  <dd>The name of the cookie as set by the server E.g. `loggedIn` (assuming a cookie like `loggedIn=true`).</dd>
 
-    <tr>
-      <td><strong>SetCookieValue</strong></td>
-      <td>The value of the cookie set by the server. E.g. `true` (assuming a cookie like `loggedIn=true`).</td>
-    </tr>
+  <dt><strong>SetCookieValue</strong></dt>
+  <dd>The value of the cookie set by the server. E.g. `true` (assuming a cookie like `loggedIn=true`).</dd>
 
-    <tr>
-      <td><strong>StatusCode</strong></td>
-      <td>The status code in the HTTP response e.g. `200`.</td>
-    </tr>
-  </tbody>
-</table>
+  <dt><strong>StatusCode</strong></dt>
+  <dd>The status code in the HTTP response e.g. `200`.</dd>
+</dl>
 
 To use a query shown in the above table, construct it in the format of: `<Filter Type>:<Description>`. You will almost always want to use the autocomplete suggestions which ensures your query is valid.
 
