@@ -2,17 +2,10 @@
 
 <h1>Blackbox JavaScript Source Files</h1>
 
-<p>When you are developing an application, there are times when you will need to debug your code. When you are stepping through your code line by line the debugger will sometimes jump into a source file that you are not working in. This could be a third-party library you are using for instance. The lines of code in that library are not what you are trying to debug, so stepping through that code is not important to you. If you have ever had to do this before while debugging an application you know how much of a pain this is. It can take a long time for you to step through the code in a library before you get back to stepping through the code you are developing.</p>
+<p>Like everyone, you get bugs in your application code. You start debugging, but when you step through your code line-by-line, the debugger sometimes jumps into a source file that's not your focus (such as a third-party JS library). I'm sure you've experienced the annoyance of stepping through the library code before getting back to your own application code.</p>
 
-<p>This is where blackboxing scripts becomes useful. When you blackbox a source file, you will not jump into that file when stepping through code you're debugging. You are able to debug just the code you are most interested in.</p>
+<p>Blackboxing gives you a first-class way to denote library (or other abtraction) code so that the debugger can route around it. When you blackbox a source file, the debugger  will not jump into that file when stepping through code you're debugging. </p>
 
-<p>When a script is not blackboxed, it is likely something like this will happen:</p>
-
-<ul>
-  <li>You set a breakpoint in your application.</li>
-  <li>When the debugger stops at that line, you then step into the function on it, which opens up a third-party library you are using in the app.</li>
-  <li>You have to step through that code so you can get back to your application code. While doing this another third-party library opens up and you have to step through that code too.</li>
-</ul>
 
 <figure class="screenshot">
   <img src="blackboxing-files/blackboxing-unblackboxed.png" />
@@ -20,14 +13,28 @@
 </figure>
 
 <div class="collapsible">
+<h2 id="what-happens">What happens when you blackbox a script?</h2>
+
+<ul>
+  <li>Exceptions thrown from library code will not pause (if pause on exceptions is set to enabled),</li>
+  <li>Stepping into/out/over bypasses the library code,</li>
+  <li>Event listener breakpoints don't break in library code,</li>
+  <li>The debugger will not pause on any breakpoints set in library code.</li>
+</ul>
+
+<p>The end result is you are debugging your application code instead of third party resources.</p>
+
+</div>
+
+<div class="collapsible">
 <h2 id="how-to-blackbox">How to blackbox scripts</h2>
 
 <p>There are two ways you can add scripts to the blackbox blacklist:</p>
 
-<ul>
+<ol>
   <li>Using the Settings panel</li>
   <li>Right-clicking on any script in the Sources panel</li>
-</ul>
+</ol>
 
 <h3 id="settings-panel">Settings panel</h3>
 
@@ -73,19 +80,7 @@
 </figure>
 
 </div>
-<div class="collapsible">
-<h2 id="what-happens">What happens when you blackbox a script?</h2>
 
-<ul>
-  <li>Event listener breakpoints don't break in library code,</li>
-  <li>Stepping into/out/over bypasses the library code,</li>
-  <li>Exceptions thrown from library code will not pause (if pause on exceptions is set to enabled),</li>
-  <li>The debugger will not pause on any breakpoints set in library code.</li>
-</ul>
-
-<p>The end result is you are debugging your application code instead of third party resources.</p>
-
-</div>
 <div class="collapsible">
 <h2 id="toc-conclusion">Conclusion</h2>
 
