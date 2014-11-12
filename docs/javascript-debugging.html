@@ -562,16 +562,16 @@ readable and more importantly debuggable even after you've combined and minified
 it, without impacting performance? Well now you can through the magic of <a href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;pli=1&amp;pli=1">source
 maps</a>.</p>
 
-<p>Source Maps are a generic mapping format (that are JSON-based) which can be used by any processed file to create
-relations between files that are pre-processed and those that are post-processed. Of most relevance to us is that they can be used to map combined/minified scripts back to an unbuilt state for debugging.</p>
+<p>Source maps are a JSON-based mapping format that creates a relationship 
+between a minified file and its sources.</p>
 
-<p>A source map itself can look as simple as the following:</p>
+<p>Here's an example of a simple source map:</p>
 
 <p>
 <pre>
   {
     version : 3,
-    file: "out.js",
+    file: "out.min.js",
     sourceRoot : "",
     sources: ["foo.js", "bar.js"],
     names: ["src", "maps", "are", "fun"],
@@ -580,73 +580,86 @@ relations between files that are pre-processed and those that are post-processed
 </pre>
 </p>
 <p>The idea is that when you build for production, along with minifying and
-combining your JavaScript files, you generate a Source Map which holds
-information about your original files. The Source Map causes DevTools to load
-your orignal files rather than your original ones. This allows you can set
-breakpoints and watch expressions as though you were running the original
-files.</p>
+combining your JavaScript files, you generate a source map that holds
+information about your original files. The source map causes DevTools to load
+your orignal files in addition to your minified ones. You then use the originals 
+to set breakpoints and for stepping through code. Meanwhile, Chrome is actually 
+running your minified code. This gives you the illusion of running a development 
+site in production.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/source-mapping.jpg"/></div></p>
+<h3>Using Source Maps</h3>
 
-<p>For an illustration of Source Maps take a look at the special build of
-the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome. To view it
-you'll need to enable it by clicking the settings
-cog <img src="../images/gear.png" alt="gear"> in the dev tools panel and
-checking the "Enable JavaScript source maps" option. you'll notice that the
-JavaScript isn't compiled and you can see all the individual JavaScript files it
-references. You're using mapping. Behind the scenes Chrome is running compiled
-code, but any errors, logs, or breakpoints are displayed in your development
-code. This gives you the illusion of running a development site in
-production.</p>
+<p><strong>Use the Right Minifier</strong></p>
 
-<p>With the settings box still open, click "Workspace". Click "Add Folder" and
-find the directory containing your javascript files, both minified and
-unminified and the source map itself. DevTools will request access to said
-folder by displaying a yellow bar on the main DevTools window. Click "Allow"
-before closing the settings box.</p>
+<p>You need to use a minifier that's capable of creating source maps. Closure 
+Compiler and UglifyJS 2.0 are two such tools but there are also tools available 
+that create source maps for CoffeeScript and SASS. </p>
 
-<p class="note"><strong>Note:</strong> If your site isn't completely static,
-select the actual directory containing your files. If you select the root
-directory of your site, DevTools may not be able to match URLs to file
-paths.</p>
+<p><strong>Configure DevTools</strong></p>
 
-<p>Back in DevTools, find the "Sources" tab and expand the localhost
-item. Right-click the name of the minified file and click "Map to File System
-Resource". In the dialog box that appears, click the name of the unminified
-version of the file. You'll be prompted to "restart inspector" by DevTools. When
-you click "OK", Chrome will restart. You'll see a new tab showing the address
-'chrome-devtools://'. It will be the active tab. Leave it open.</p>
-
-<p>In DevTools, look under localhost again. In addition to your minified file, it
-shows your original file or files. If you poke around the navigation tree,
-you'll find duplicates of your sources under a different label. Make sure
-you're using the one under localhost. Set your breakpoints as needed.</p>
-
-<p>Now switch to the browser tab containing your page and reload. If you've done
-everything right, JavaScript execution will stop on your breakpoint.</p> 
+<p>To configure DevTools, start by openning DevTools and clicking the settings 
+cog <img src="../images/gear.png" alt="gear">. Under "Sources", check "Enable 
+JavaScript source maps". You might also check "Enable CSS source maps" but you 
+do not need to for this example.</p>
 
 <p><div class="screenshot"><img src="javascript-debugging/source-maps.png"/></div></p>
 
+<p>With the settings box still open, click <strong>Workspace</strong>. Use this 
+panel to find the folder containing your source map and your JavaScript files, 
+both minified and unminified. </p>
 
-<h3>How do Source Maps work?</h3>
+<p class="note"><strong>Note:</strong> If your site isn't completely static,
+select the actual directory containing your JavaScript source. If you select the root
+directory of your site, DevTools may not be able to match URLs to file
+paths.</p>
 
-<p>Use a minifier that outputs a Source Map. At present, Closure Compiler and
-UglifyJS 2.0 are two such tools but there are also tools available that support
-outputting Source Maps for CoffeeScript and SASS. To tell DevTools that a source
-map is available, add the folowing line to the end of the minified file.</p>
+<p>DevTools will request access to this folder by displaying a yellow bar on the 
+main DevTools window as shown below. Click "Allow" then close the settings box.</p>
+
+<p><div class="screenshot"><img src="javascript-debugging/workspace.png"/></div></p>
+
+<p><strong>Make the Source Map Accessible</strong></p>
+
+<p>To tell DevTools that a source map is available, add the folowing line to the 
+end of the minified file.</p>
 
 <p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
 
-<p>This enables DevTools to map calls back to their location in original source
-files. If you don't like the idea of the weird comment you can alternatively set
-a special header on your compiled JavaScript file:</p>
+<p>This is what enables DevTools to associate minified with unminified files. 
+If you don't want an extra comment in your file you can use an HTTP header field 
+on the minified JavaScript file to tell DevTools where to find the source map. 
+This requires configuration or customization of your web server and is beyond 
+the scope of this document.</p>
 
 <p><code>X-SourceMap: /path/to/file.js.map</code></p>
 
-<p>Like the comment this will tell your source map consumer where to look for the
-source map associated with a JavaScript file. This header also gets around the
-issue of referencing Source Maps in languages that don't support single-line
-comments.</p>
+<p>Like the comment this tells DevTools where to look for the source map 
+associated with a JavaScript file. This header also gets around the issue of 
+referencing source maps in languages that don't support single-line comments.</p>
+
+<p><strong>Debug Your JavaScript</strong></p>
+
+<p>Back in DevTools, find the <strong>Sources</strong> panel and expand the 
+localhost item. Right-click the name of the minified file and click "Map to File 
+SystemResource". </p>
+
+<p><div class="screenshot"><img src="javascript-debugging/map-to-file.png"/></div></p>
+
+</p>In the dialog box that appears, click the name of the unminified
+version of the file. You'll be prompted to "restart inspector". When you click 
+"OK", Chrome will restart. You'll see a new tab showing the address
+'chrome-devtools://'. It doesn't need to be the active tab, but it does need
+to stay open.</p>
+
+<p>In DevTools, look under localhost again. In addition to your minified file, 
+it shows your original file or files. If you poke around the navigation tree,
+you'll find duplicates of your sources under a different label. Make sure
+you're using the one under localhost. Set your breakpoints as needed.</p>
+
+<p><div class="screenshot"><img src="javascript-debugging/duplication.png"/></div></p>
+
+<p>Now switch to the browser tab containing your page and reload. If you've done
+everything right, JavaScript execution will stop on your breakpoint.</p> 
 
 <h3>@sourceURL and displayName in action</h3>
 
