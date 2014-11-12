@@ -581,36 +581,60 @@ relations between files that are pre-processed and those that are post-processed
 </p>
 <p>
 The idea is when you build for production, along with minifying and combining your
-JavaScript files, you generate a source map which holds information about your
-original files. When you query a certain line and column number in your
-generated JavaScript you can do a lookup in the source map which returns the
-original location. The DevTools can parse the source map automatically and make
-it appear as though you're running unminified and uncombined files.</p>
+JavaScript files, you generate a Source Map which holds information about your
+original files. The Source Map causes DevTools to load your orignal, meaning
+unminified and uncombined files where you can set breakpoints and watch
+expressions as though you were running the original files.</p>
 
 <p><div class="screenshot"><img src="javascript-debugging/source-mapping.jpg"/></div></p>
 
-<p>Before you view the following real world implementation of Source Maps make sure
-you've enabled the Source Maps feature by clicking the settings cog in the dev
-tools panel and checking the "Enable source maps" option.</p>
+<p>For an illustration of Source Maps take a look at the special build of
+the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome. To view it
+you'll need to enable it by clicking the settings
+cog <img src="../images/gear.png" alt="gear"> in the dev tools panel and
+checking the "Enable JavaScript source maps" option. you'll notice that the
+JavaScript isn't compiled and you can see all the individual JavaScript files it
+references. You're using mapping. Behind the scenes Chrome is running compiled
+code, but any errors, logs, or breakpoints are displayed in your development
+code. This gives you the illusion of running a development site in
+production.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/source-maps.jpg"/></div></p>
+<p>With the settings box still open, click "Workspace". Click "Add Folder" and
+  find the directory containing your javascript files, both minimized and
+  unminimized and the source map itself. DevTools will request access to said
+  folder by displaying a yellow bar on the main DevTools window. Click "Allow"
+  before closing the settings box.</p>
 
-<p>Take a look at the special build of the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome,
-with source mapping enabled, and you'll notice that the JavaScript isn't
-compiled and you can see all the individual JavaScript files it references. This
-is using source mapping, but behind the scenes actually running the compiled
-code. Any errors, logs and breakpoints will map to the dev code for awesome
-debugging! So in effect it gives you the illusion that you're running a dev site
-in production.</p>
+<p class="note"><strong>Note:</strong> If your site isn't completely static,
+  select the actual directory containing your files. If you select the root
+  directory of your site, DevTools may not be able to match URLs to file
+  paths.</p>
+
+<p>Back in DevTools, find the "Sources" tab and expand the localhost
+  item. Right-click the name of the minified file and click "Map to File System
+  Resource". In the dialog box that appears, click the name of the unminified
+  version of the file. You'll be prompted to "restart inspector" by
+  DevTools. When you click "OK", Chrome will restart. You'll see a new tab
+  showing the address 'chrome-devtools://'. It will be the active tab. Leave it
+  open.</p>
+
+<p>In DevTools, look under localhost again. In addition to your minified file, it
+  shows your original file or files. The navigation tree also shows duplicates
+  under a different lable. Make sure you're using the one under localhost. Set
+  your breakpoints as needed</p>
+
+<p>Now switch to the browser tab containing your page and reload. If you've done
+  everything right, JavaScript execution will stop on your breakpoint.</p> 
+
+<p><div class="screenshot"><img src="javascript-debugging/source-maps.png"/></div></p>
+
 
 <h3>How do Source Maps work?</h3>
 
-<p>Once you've combined and minified your JavaScript with a tool that supports
-outputting Source Maps, alongside it will exist a sourcemap file. At present,
-Closure Compiler and UglifyJS 2.0 are two such tools for achieving this but
-there are also tools available that support outputting Source Maps for
-CoffeeScript and SASS. A special comment is placed at the end of the file, signifying to the DevTools
-that a source map is available.</p>
+<p>Use a minifier that outputs a Source Maps. At present, Closure Compiler and
+UglifyJS 2.0 are two such tools but there are also tools available that support
+outputting Source Maps for CoffeeScript and SASS. To tell DevTools that a source
+map is available, add the folowing line to the end of the minified file.</p>
 
 <p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
 
