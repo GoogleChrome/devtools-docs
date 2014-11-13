@@ -2,74 +2,91 @@
 
 <h1>Blackbox JavaScript Source Files</h1>
 
-<p>When you are developing an application, there are times when you will need to debug your code. While doing this, you could be stepping through the code you are writing line by line when suddenly the debugger will jump into a source file that you are not actually working in, like a third-party library you are using for instance. The lines of code in that library are not what you are trying to debug so stepping through the code in it is not important to you. If you have ever had to do this before while debugging an application you probably know how much of a pain this is. It can take a long time for you to step through the code in a library before you get back to stepping through the code you are developing.</p>
+<p>Like everyone, you get bugs in your application code. You start debugging, but when you step through your code line-by-line, the debugger sometimes jumps into a source file that's not your focus (such as a third-party JS library). I'm sure you've experienced the annoyance of stepping through the library code before getting back to your own application code.</p>
 
-<p>This is where blackboxing scripts becomes useful. When you blackbox a source file, you will not jump into that file when stepping through code you're debugging. You are able to debug just the code you are interested in.</p>
+<p>Blackboxing gives you a first-class way to denote library (or other abstraction) code so that the debugger can route around it. When you blackbox a source file, the debugger  will not jump into that file when stepping through code you're debugging. </p>
 
-<p>When a script is not blackboxed, it is very likely something like this will happen:</p>
-
-<ul>
-  <li>You set a breakpoint in your application.</li>
-  <li>When the debugger stops at that line, you then step into the function that is called on it, which opens up a third-party library you are using in the app.</li>
-  <li>You start stepping through that code so you can get back to your application code, when yet another third-party library is opened up and you have to step through that code too.</li>
-</ul>
 
 <figure class="screenshot">
   <img src="blackboxing-files/blackboxing-unblackboxed.png" />
-  <figcaption>The screenshot above shows that app.js was opened, where a breakpoint was set. When stepping into that code, backbone.js was opened, then underscore.js. This can be a time consuming process and an undesirable one, too.</figcaption>
+  <figcaption>The screenshot above shows that app.js opened, where a breakpoint was set. When stepping into that code, backbone.js opened, then underscore.js. This can be a time-consuming process and an undesirable one, too.</figcaption>
 </figure>
 
+<div class="collapsible">
+<h2 id="what-happens">What happens when you blackbox a script?</h2>
+
+<ul>
+  <li>Exceptions thrown from library code will not pause (if <b>Pause on exceptions</b> is  enabled),</li>
+  <li>Stepping into/out/over bypasses the library code,</li>
+  <li>Event listener breakpoints don't break in library code,</li>
+  <li>The debugger will not pause on any breakpoints set in library code.</li>
+</ul>
+
+<p>The end result is you are debugging your application code instead of third party resources.</p>
+
+</div>
+
+<div class="collapsible">
+<h2 id="how-to-blackbox">How to blackbox scripts</h2>
 
 <p>There are two ways you can add scripts to the blackbox blacklist:</p>
 
-<ul>
+<ol>
   <li>Using the Settings panel</li>
   <li>Right-clicking on any script in the Sources panel</li>
-</ul>
+</ol>
 
-<p>To configure blackboxing of scripts in the Settings panel open the DevTools Settings and under Sources click <strong>Manage framework blackboxing</strong>.</p>
+<h3 id="settings-panel">Settings panel</h3>
+
+<p>Use the Settings panel to configure blackboxed scripts. Open the DevTools Settings and under Sources click <strong>Manage framework blackboxing</strong>.</p>
 
 <figure class="screenshot"><img src="blackboxing-files/blackboxing-setting.png" /></figure>
 
-<p>This will open up a dialog where you can input file names of scripts that you would like to add to the blacklist. You can enter just the name of a file, or to be more specific you can use regular expressions to blackbox files that contain a specific name <code>/backbone\.js$</code> or certain types of files like <code>\.min\.js$</code>. Lastly, you can enter in an entire folder that contains scripts you want to blackbox such as <code>bower_components</code>.</p>
+<p>This will open up a dialog where you can input file names of scripts that you would like to add to the blacklist. You can do this a couple of ways:</p>
+
+<ul>
+  <li>enter the name of a file,</li>
+  <li>use regular expressions to target:
+    <ul>
+      <li>files that contain a specific name <code>/backbone\.js$</code>,</li>
+      <li>certain types of files like <code>\.min\.js$</code></li>
+    </ul>
+  </li>
+  <li>or enter in an entire folder that contains scripts you want to blackbox such as <code>bower_components</code>.</li>
+</ul>
 
 <figure class="screenshot"><img src="blackboxing-files/blackboxing-dialog.png" /></figure>
 
 <p>You may want to temporarily unblackbox a rule for testing purposes. You can do this by changing the behavior to Disabled. If you wanted to remove a rule entirely you can click X to delete it.</p>
 
-<p>In addition to using the Settings panel for adding files to the blacklist, you can use the context menu when working in the Sources panel. You can either right-click on a file in the file navigator or when viewing a file you can right-click in the editor and choose Blackbox Script. This will add the file to the list in the Settings panel.</p>
+<h3 id="context-menu">Context menus</h3>
+
+<p>To use the Settings panel for adding files to the blacklist, you can use the context menu when working in the Sources panel. When viewing a file you can right-click in the editor. And you can right-click on a file in the file navigator. From there choose <strong>Blackbox Script</strong>. This will add the file to the list in the Settings panel.</p>
 
 <figure class="screenshot">
-  <img src="blackboxing-files/blackboxing-nav-menu.png" />
+  <img src="blackboxing-files/blackboxing-nav-menu.png" /> &nbsp;
   <img src="blackboxing-files/blackboxing-text-menu.png" />
 </figure>
 
-<p>Once you have blackboxed a script, when you view it in the editor on the Sources panel, you will see a yellow bar indicating that it is blackboxed. Clicking on more expands the bar showing a bit more info about what it means, and how you can disable it.</p>
+<p>When you view a blackboxed script in the editor on the Sources panel, you will see a yellow bar indicating that it's blackboxed. Clicking on more expands the bar showing a bit more info about what it means, and how you can disable it.</p>
 
 <figure class="screenshot"><img src="blackboxing-files/blackboxing-expanded.png" /></figure>
 
-<p>When paused on a breakpoint, in the call stack you will see a message stating there are x number of frames which are blackboxed. You can show these frames if you want, but since they are calls made from a blackboxed script they are hidden unless you click show.</p>
+<p>When paused on a breakpoint, in the call stack you will see a message stating the number of frames which are blackboxed. You can show these frames if you want, but since they are calls made from a blackboxed script they are hidden unless you click <strong>show</strong>.</p>
 
 <figure class="screenshot">
-  <img src="blackboxing-files/blackboxing-call-stack.png" />
+  <img src="blackboxing-files/blackboxing-call-stack.png" /> &nbsp;
   <img src="blackboxing-files/blackboxing-stack-expanded.png" />
 </figure>
 
-<p>So what happens when a script is blackboxed?</p>
+</div>
 
-<ul>
-  <li>Event listener breakpoints don't break in library code,</li>
-  <li>Stepping into/out/over bypasses the library code,</li>
-  <li>Exceptions thrown from library code will not pause (if pause on exceptions is enabled),</li>
-  <li>Any previously set breakpoints in library code will not be paused on.</li>
-</ul>
-
-<p>The end result being that you're debugging your application code instead of the layers of backbone/underscore/jquery/lo-dash or whatever script file you blackbox.</p>
-
+<div class="collapsible">
 <h2 id="toc-conclusion">Conclusion</h2>
 
-<p>To sum things up, while debugging your application code blackboxing the third-party libraries and other scripts which you are not actively developing can help increase your productivity and help keep your focus on the code you really care about. It is easy to enable using any workflow and just as easy to disable if the need to do so arises.</p>
+<p>Blackboxing scripts can help increase your productivity and help keep your focus on the code you care about. It is easy to enable using any workflow and just as easy to disable if the need to do so arises.</p>
 
 <p>We want to make sure your debugging experience when working with JS frameworks is excellent. Please <a href="http://crbug.com">file a ticket</a> after trying blackboxing if you have ideas on how it can be improved or address your use cases better.</p>
+</div>
 
 {{/partials.standard_devtools_article}}
