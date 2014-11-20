@@ -24,6 +24,14 @@
     <li><strong>For browser debugging</strong>: Android 4.0+ and <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Chrome for Android</a>.</li>
     <li><strong>For app debugging</strong>: Android 4.4+ and a WebView <a href="#debugging-webviews">configured for debugging</a>.</li>
   </ul>
+  <p class="note">
+    <b>Note</b>: Remote debugging requires your version of desktop Chrome to be newer than the version of Chrome for Android on your device.
+    For best results, use <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> (Mac/Windows) or the Chrome <a href="http://www.chromium.org/getting-involved/dev-channel">Dev channel</a> release (Linux) on desktop.
+  </p>
+  <p>
+    If at any time you encounter problems with remote debugging, refer to the <a href="#troubleshooting">Troubleshooting</a> section.
+  </p>
+
 </section>
 
 <section class="collapsible">
@@ -123,12 +131,6 @@
   <p>Here are a few tips to help get you started with remote debugging:</p>
   <ul>
     <li>Use <span class="kbd">F5</span> (or <span class="kbd">Cmd</span>+<span class="kbd">r</span> on Mac) to reload a remote page from the DevTools window.</li>
-    <li>Open a new remote tab by entering a URL in the text field and clicking <b>Open</b>.
-      <figure>
-        <img alt="Open a new remote tab." src="remote-debugging/chrome-open-remote-tab.png">
-        <figcaption>Opening a new remote browser tab.</figcaption>
-      </figure>
-    </li>
     <li>Keep the device on a cellular network. Use the <a href="network"><b>Network</b> panel</a> to view the network waterfall under actual mobile conditions.</li>
     <li>Use the <a href="timeline"><b>Timeline</b> panel</a> to analyze rendering and CPU usage. Hardware on mobile devices often runs much slower than on your development machine.</li>
     <li>If you’re running a local web server, use <a href="#port-forwarding">port forwarding</a> or <a href="#virtual-host-mapping">virtual host mapping</a> to access the site on your device.</li>
@@ -334,11 +336,13 @@
   <h2 id="troubleshooting">Troubleshooting</h2>
   <h3 id="no-device">I can't see my device on the <b>chrome://inspect page</b>.</h3>
   <ul>
-    <li>Verify that your device is connected and that <b>USB debugging</b> is enabled. Remember to accept the USB debugging permission alerts on your device.</li>
-    <li>On your desktop browser, navigate to <b>chrome://version</b> and verify that you are using Chrome version 32 or later.</li>
-    <li>On your desktop browser, navigate to <b>chrome://inspect</b> and verify that <b>Discover USB devices</b> is checked.</li>
+    <li>If you are developing on <b>Windows</b>, verify that the appropriate USB driver for your device is installed. See <a href="http://developer.android.com/tools/extras/oem-usb.html">OEM USB Drivers</a> on the Android Developers' site.</li>
     <li>Verify that the device is connected directly to your machine, bypassing any hubs.</li>
+    <li>Verify that <b>USB debugging</b> is enabled on your device. Remember to accept the USB debugging permission alerts on your device.</li>
+    <li>On your desktop browser, navigate to <b>chrome://inspect</b> and verify that <b>Discover USB devices</b> is checked.</li>
+    <li>Remote debugging requires your version of desktop Chrome to be newer than the version of Chrome for Android on your device. Try using <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> (Mac/Windows) or the Chrome <a href="http://www.chromium.org/getting-involved/dev-channel">Dev channel</a> release (Linux) on desktop.</li>
   </ul>
+
   <p>If you still can't see your device, unplug it. On your device, select <b>Settings > Developer options</b>. Tap <b>Revoke USB debugging authorizations</b>. Then, retry the <a href="#setting-up-device">device setup</a> and <a href="#discovering-devices">discovery processes</a>.</p>
   <h3 id="no-tabs">I can't see my browser tabs on the <b>chrome://inspect</b> page.</h3>
   <ul>
