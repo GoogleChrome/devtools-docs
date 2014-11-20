@@ -38,7 +38,7 @@
   <h2 id="setting-up-device">Setting up your Android device</h2>
   <p>Follow these instructions to set up your Android device for remote debugging.</p>
 
-  <h3>1. Enable USB debugging</h3>
+  <h3 id="enable-usb-debug">1. Enable USB debugging</h3>
   <p>On your Android device, select <b>Settings > Developer options</b>.</p>
 
   <figure>
@@ -66,7 +66,7 @@
   </figure>
 
 
-  <h3>2. Connect your device</h3>
+  <h3 id="connect-device">2. Connect your device</h3>
   <p>Connect the Android device to your development machine using a USB cable.</p>
   <p class="note"><b>Note</b>: If you are developing on <strong>Windows</strong>, install the appropriate USB driver for your device. See <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">OEM USB Drivers</a> on the Android Developers' site.</p>
 </section>
@@ -363,7 +363,7 @@
 <section class="collapsible">
   <h2 id="additional-info">Additional information</h2>
 
-  <h3>Remote debugging and ADB</h3>
+  <h3 id="adb-debug">Remote debugging and ADB</h3>
 
   <p>You no longer need to configure <abbr title="Android Debug Bridge">ADB</abbr> or the ADB plugin to debug remote browser tabs and WebViews. Remote debugging for Android is now part of the standard Chrome DevTools. It works on all operating systems: Windows, Mac, Linux, and Chrome OS.</p>
 
@@ -371,7 +371,7 @@
 
   <p class="note"><b>Note</b>: The direct USB connection between Chrome and the device might interrupt your <code>adb</code> connection. Before establishing your <code>adb</code> connection, uncheck <b>Discover USB devices</b> on <b>chrome://inspect</b>. Then, disconnect and reconnect the device.</p>
 
-  <h3>Remote debugging for DevTools extension developers</h3>
+  <h3 id="extension-developers">Remote debugging for DevTools extension developers</h3>
 
   <p>For information about the remote debugging interaction protocol, refer to the <a href="debugger-protocol">Debugger Protocol</a> documentation and <a href="/extensions/debugger">chrome.debugger</a>.</p>
 
