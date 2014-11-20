@@ -564,7 +564,7 @@ it, without impacting performance? Well now you can through the magic
 of <a href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;pli=1&amp;pli=1">source
 maps</a>.</p>
 
-<p>A source map is a JSON-based mapping format that creates a relationship 
+<p>A source map is JSON-based mapping format that creates a relationship 
 between a minified file and its sources.</p>
 
 <p>Here's an example of a simple source map:</p>
