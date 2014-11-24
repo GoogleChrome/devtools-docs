@@ -148,13 +148,19 @@ In addition to resource type filtering, you can narrow down resources by filter 
 
 <img src="network-files/network-advanced-filter.png" alt="Advanced filtering in the Network Panel"/>
 
+<style>
+.negate-example {
+  white-space: nowrap
+}
+</style>
+
 Take note of the following behaviour:
 * A filter query includes a **type** (`StatusCode`) and **value** (`200`).
 * A filter query is case insensitive, so you can type uppercase or lowercase.
 * The filter type gives you autocomplete suggestions. Use the arrows keys to form a selection and press <span class="kbd">Tab</span> to select it.
 * The filter value has autocomplete which shows you values **present** in the current network recording.
 * Quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
-* To negate a filter query, prepend the query with a dash (`-`), for example `-StatusCode:200`.
+* To negate a filter query, prepend the query with a dash (`-`), for example <code class="negate-example">-StatusCode:200</code>.
 
 The following list contains the current available filter types.
 
