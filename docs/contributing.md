@@ -78,7 +78,7 @@ From there you can run a local server on port 8000 with the following command:
 
     python -m SimpleHTTPServer
 
-Then, open `http://localhost:8000/front_end/devtools.html` in your favorite browser and start debugging!
+Then, open `http://localhost:8000/front_end/inspector.html` in your favorite browser and start debugging!
 
 **Why does the server need to run from the devtools directory?**
 
@@ -112,7 +112,7 @@ From [Running Canary with flags](http://www.chromium.org/developers/how-tos/run-
 
 For example:
 
-    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=C:\Users\%username%\chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=C:\Users\%username%\chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 <img src="contributing-files/image02.png" alt="Command-line flags" width="700"/>
 
@@ -122,7 +122,7 @@ For example:
 
 Run Canary in the terminal with the flags added at the end of the path to the program.
 
-    /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 <p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as shown in above.</p>
 
@@ -130,7 +130,7 @@ Run Canary in the terminal with the flags added at the end of the path to the pr
 
 Run the chromium-browser command with the flags added after it:
 
-    chromium-browser --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/devtools.html
+    chromium-browser --remote-debugging-port=9222 --no-first-run --user-data-dir=~/temp/chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/inspector.html
 
 
 **What do these switches do?**
@@ -141,8 +141,8 @@ Run the chromium-browser command with the flags added after it:
   Enables remote debug over HTTP on the specified port. This is the port used when running localhost.
 * `--no-first-run`<br/>
   Skip First Run tasks, whether or not it's actually the First Run.
-* `http://localhost:9222#http://localhost:8000/front_end/devtools.html`<br/>
-  We're loading our inspection dashboard on port 9222 but we're specifying the devtools frontend to then use in the URL hash: `http://localhost:9222#<front_end url>`.  Since we launched the devtools frontend on port 8000 we want to match that here. The path should point to the correct location of the devtools.html file assuming that
+* `http://localhost:9222#http://localhost:8000/front_end/inspector.html`<br/>
+  We're loading our inspection dashboard on port 9222 but we're specifying the devtools frontend to then use in the URL hash: `http://localhost:9222#<front_end url>`.  Since we launched the devtools frontend on port 8000 we want to match that here. The path should point to the correct location of the inspector.html file assuming that
   your web server is running from the Source directory. The older `--remote-debugging-frontend` flag was retired.
 
 These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a [full list of command line switches](http://peter.sh/experiments/chromium-command-line-switches/) and what they do.
@@ -168,7 +168,7 @@ Clicking on the thumbnail of the tab you opened. You'll then have a full tab of 
 
 Nice job, so far!
 
-Notice that the URL address of this DevTools instance points to [http://localhost:8000/front_end/devtools.html](http://localhost:8000/front_end/devtools.html). This is because of the inspector URL `http://localhost:9222#http://localhost:8000/front_end/devtools.html` that was passed as a hash to the "Inspectable Pages" URL. It connects to your local repo through a websocket, which you may notice, is part of the URL
+Notice that the URL address of this DevTools instance points to [http://localhost:8000/front_end/inspector.html](http://localhost:8000/front_end/inspector.html). This is because of the inspector URL `http://localhost:9222#http://localhost:8000/front_end/inspector.html` that was passed as a hash to the "Inspectable Pages" URL. It connects to your local repo through a websocket, which you may notice, is part of the URL
 `?ws=localhost:9222/devtools/`. (You can also use DevTools to look at this WebSocket frame data). Back to hacking…
 
 
