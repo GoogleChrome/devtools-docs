@@ -141,6 +141,60 @@ To filter the Network table to only show certain types of resources, click one o
 
 <img src="network-files/filter-type.png" alt="Filter type"/>
 
+
+<h4 id="advanced-filtering">Advanced filtering</h4>
+
+In addition to resource type filtering, you can narrow down resources by filter queries. For example, to find **all resources** which have a status code of `200`, you can enter the query `StatusCode:200` in the filter input field.
+
+<img src="network-files/network-advanced-filter.png" alt="Advanced filtering in the Network Panel"/>
+
+<style>
+.negate-example {
+  white-space: nowrap
+}
+</style>
+
+Take note of the following behaviour:
+* A filter query includes a **type** (`StatusCode`) and **value** (`200`).
+* A filter query is case insensitive, so you can type uppercase or lowercase.
+* The filter type gives you autocomplete suggestions. Use the arrows keys to form a selection and press <span class="kbd">Tab</span> to select it.
+* The filter value has autocomplete which shows you values **present** in the current network recording.
+* Quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
+* To negate a filter query, prepend the query with a dash (`-`), for example <code class="negate-example">-StatusCode:200</code>.
+
+The following list contains the current available filter types.
+
+<dl>
+  <dt><strong>Domain</strong></dt>
+  <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. `www.google-analytics.com`.</dd>
+
+  <dt><strong>HasResponseHeader</strong></dt>
+  <dd>Checks the resource has a response header, regardless of the value. E.g. `Access-Control-Allow-Origin`.</dd>
+
+  <dt><strong>Is</strong></dt>
+  <dd>Shows requests running at the current point in time. Current available value: `running`</dd>
+
+  <dt><strong>Method</strong></dt>
+  <dd>The HTTP method used. E.g. `GET`.</dd>
+
+  <dt><strong>MimeType</strong></dt>
+  <dd>Also known as `Content-type` - the identifier for the type of resource. E.g. `text/html`.</dd>
+
+  <dt><strong>Scheme</strong></dt>
+  <dd>The scheme portion in a URL. E.g. `https`.</dd>
+
+  <dt><strong>SetCookieName</strong></dt>
+  <dd>The name of the cookie as set by the server. E.g. `loggedIn` (assuming a cookie like `loggedIn=true`).</dd>
+
+  <dt><strong>SetCookieValue</strong></dt>
+  <dd>The value of the cookie set by the server. E.g. `true` (assuming a cookie like `loggedIn=true`).</dd>
+
+  <dt><strong>StatusCode</strong></dt>
+  <dd>The status code in the HTTP response. E.g. `200`.</dd>
+</dl>
+
+To use a query shown in the above list, construct it in the format of: `<Filter Type>:<Description>`. You will almost always want to use the autocomplete suggestions which ensures your query is valid.
+
 ### Adding and removing table columns
 
 You can change the default set of columns displayed by the Network table. To show or hide a column, Right+click or Control+click (Mac only) in the table header and select or deselect column names from the list.
