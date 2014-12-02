@@ -562,19 +562,19 @@ also more easy for debugging and setting breakpoints.</p>
 
 <p>Have you ever found yourself wishing you could keep your client-side code
 readable and more importantly debuggable even after you've combined and minified
-it, without impacting performance? Well now you can through the magic of <a href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;pli=1&amp;pli=1">source
+it? Well now you can through the magic of <a href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;pli=1&amp;pli=1">source
 maps</a>.</p>
 
-<p>Source Maps are a generic mapping format (that are JSON-based) which can be used by any processed file to create
-relations between files that are pre-processed and those that are post-processed. Of most relevance to us is that they can be used to map combined/minified scripts back to an unbuilt state for debugging.</p>
+<p>A source map is a JSON-based mapping format that creates a relationship 
+between a minified file and its sources.</p>
 
-<p>A source map itself can look as simple as the following:</p>
+<p>Here's an example of a simple source map:</p>
 
 <p>
 <pre>
   {
     version : 3,
-    file: "out.js",
+    file: "out.min.js",
     sourceRoot : "",
     sources: ["foo.js", "bar.js"],
     names: ["src", "maps", "are", "fun"],
@@ -582,21 +582,55 @@ relations between files that are pre-processed and those that are post-processed
 }
 </pre>
 </p>
-<p>
-The idea is when you build for production, along with minifying and combining your
-JavaScript files, you generate a source map which holds information about your
-original files. When you query a certain line and column number in your
-generated JavaScript you can do a lookup in the source map which returns the
-original location. The DevTools can parse the source map automatically and make
-it appear as though you're running unminified and uncombined files.</p>
+<p>The idea is that when you build for production, along with minifying and
+combining your JavaScript files, you generate a source map that holds
+information about your original files. The source map causes DevTools to load
+your original files in addition to your minified ones. You then use the 
+originals to set breakpoints and step through code. Meanwhile, Chrome is 
+actually running your minified code. This gives you the illusion of running a 
+development site in production.</p>
 
-<p><div class="screenshot"><img src="javascript-debugging/source-mapping.jpg"/></div></p>
 
-<p>Before you view the following real world implementation of Source Maps make sure
-you've enabled the Source Maps feature by clicking the settings cog in the dev
-tools panel and checking the "Enable source maps" option.</p>
+<h3>Using Source Maps</h3>
 
-<p><div class="screenshot"><img src="javascript-debugging/source-maps.jpg"/></div></p>
+<p><strong>Use the Right Minifier</strong></p>
+
+<p>You need to use a minifier that's capable of creating source maps. Closure 
+Compiler and UglifyJS 2.0 are two such tools but there are also tools available 
+that create source maps for CoffeeScript and SASS. See the <a href="https://github.com/ryanseddon/source-map/wiki/Source-maps:-languages,-tools-and-other-info">Source maps: languages, tools and other info
+</a> wiki page.</p>
+
+
+<p><strong>Configure DevTools</strong></p>
+
+<p>To configure DevTools, start by opening DevTools and clicking the settings
+cog <img src="../images/gear.png" alt="gear">. Under <strong>Sources</strong>,
+check <strong>Enable  JavaScript source maps</strong>. You might also
+check <strong>Enable CSS source maps</strong> but you  do not need to for this
+example.</p>
+
+<p><div class="screenshot"><img src="javascript-debugging/source-maps.png"/></div></p>
+
+
+<p><strong>Make the Source Map Accessible</strong></p>
+
+<p>To tell DevTools that a source map is available, add the folowing line to the 
+end of the minified file.</p>
+
+<p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
+
+<p>This is what enables DevTools to associate minified with unminified files. 
+If you don't want an extra comment in your file you can use an HTTP header field 
+on the minified JavaScript file to tell DevTools where to find the source map. 
+This requires configuration or customization of your web server and is beyond 
+the scope of this document.</p>
+
+<p><code>X-SourceMap: /path/to/file.js.map</code></p>
+
+<p>Like the comment this tells DevTools where to look for the source map 
+associated with a JavaScript file. This header also gets around the issue of 
+referencing source maps in languages that don't support single-line comments.</p>
+
 
 <p>Take a look at the special build of the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome,
 with source mapping enabled, and you'll notice that the JavaScript isn't
@@ -606,27 +640,6 @@ code. Any errors, logs and breakpoints will map to the dev code for awesome
 debugging! So in effect it gives you the illusion that you're running a dev site
 in production.</p>
 
-<h3>How do Source Maps work?</h3>
-
-<p>Once you've combined and minified your JavaScript with a tool that supports
-outputting Source Maps, alongside it will exist a sourcemap file. At present,
-Closure Compiler and UglifyJS 2.0 are two such tools for achieving this but
-there are also tools available that support outputting Source Maps for
-CoffeeScript and SASS. A special comment is placed at the end of the file, signifying to the DevTools
-that a source map is available.</p>
-
-<p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
-
-<p>This enables DevTools to map calls back to their location in original source
-files. If you don't like the idea of the weird comment you can alternatively set
-a special header on your compiled JavaScript file:</p>
-
-<p><code>X-SourceMap: /path/to/file.js.map</code></p>
-
-<p>Like the comment this will tell your source map consumer where to look for the
-source map associated with a JavaScript file. This header also gets around the
-issue of referencing Source Maps in languages that don't support single-line
-comments.</p>
 
 <h3>@sourceURL and displayName in action</h3>
 
@@ -635,7 +648,7 @@ make development much easier when working with evals.</p>
 
 <p>This helper looks very similar to the <code>//# sourceMappingURL</code> property and is
 actually mentioned in the source map V3 specifications. By including the
-following special comment in your code, which will be evaled, you can name evals
+following special comment in your code, which will be evaled, you can name evals and inline scripts and styles
 so they appear as more logical names in your dev tools.</p>
 
 <p><code>//# sourceURL=source.coffee</code></p>
