@@ -597,13 +597,14 @@ development site in production.</p>
 
 <p>You need to use a minifier that's capable of creating source maps. Closure 
 Compiler and UglifyJS 2.0 are two such tools but there are also tools available 
-that create source maps for CoffeeScript and SASS. See the <a href="https://github.com/ryanseddon/source-map/wiki/Source-maps:-languages,-tools-and-other-info">Source maps: languages, tools and other info
+that create source maps for CoffeeScript, SASS and many others. See the <a href="https://github.com/ryanseddon/source-map/wiki/Source-maps:-languages,-tools-and-other-info">Source maps: languages, tools and other info
 </a> wiki page.</p>
 
 
 <p><strong>Configure DevTools</strong></p>
 
-<p>To configure DevTools, start by opening DevTools and clicking the settings
+<p>Sourcemaps are enabled by default (as of Chrome 39), but if you'd like to double-check our enable them, 
+first open DevTools and click the settings
 cog <img src="../images/gear.png" alt="gear">. Under <strong>Sources</strong>,
 check <strong>Enable  JavaScript source maps</strong>. You might also
 check <strong>Enable CSS source maps</strong> but you  do not need to for this
@@ -614,12 +615,15 @@ example.</p>
 
 <p><strong>Make the Source Map Accessible</strong></p>
 
-<p>To tell DevTools that a source map is available, add the folowing line to the 
+<p>To tell DevTools that a source map is available, verify the following line is at the 
 end of the minified file.</p>
 
 <p><code>//# sourceMappingURL=/path/to/file.js.map</code></p>
 
-<p>This is what enables DevTools to associate minified with unminified files. 
+<p>This line, usuallx added by whatever tool generated the map, is what enables DevTools to associate minified with unminified files. 
+In CSS, the line would look like <code>/*# sourceMappingURL=style.css.map */</code>.</p>
+
+<p>
 If you don't want an extra comment in your file you can use an HTTP header field 
 on the minified JavaScript file to tell DevTools where to find the source map. 
 This requires configuration or customization of your web server and is beyond 
