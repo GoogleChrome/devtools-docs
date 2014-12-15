@@ -69,7 +69,7 @@ You can also use the object formatter (`%O`) in a `console.log()` statement to p
 
 ![Using the object formatter on a DOM element](console-files/consolelog-object-formatter.png)
 
-Calling `console.dir()` on a JavaScript object is equivalent to calling `console.log()` on the same object&mdash;they both print out the object's JavaScript properites in a tree format.
+Calling `console.dir()` on a JavaScript object is equivalent to calling `console.log()` on the same object&mdash;they both print out the object's JavaScript properties in a tree format.
 
 Compare this with the behavior of `console.log()`, which displays the element in an XML format as it would appear in the Elements panel:
 

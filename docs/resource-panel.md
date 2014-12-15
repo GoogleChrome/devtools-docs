@@ -87,7 +87,7 @@ You can clear (delete) a single cookies, all cookies in the selected frame group
 **To clear all cookies from a specific domain:**
 
 1. Right+click (or Ctrl+click) a cookie in the table from the target domain.
-2. From the context menu, seect **Clear All from _domain_**, where 
+2. From the context menu, select **Clear All from _domain_**, where
    _domain_ is the target domain. 
 
 <img src="resources-files/clear-all-cookies.png" />

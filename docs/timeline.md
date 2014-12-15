@@ -278,7 +278,7 @@ to mark a range of time that code was executing. For example, in the following r
 
 ### View CPU time in recordings ###
 
-You will see ight gray bars appearing above the Timeline records, indicating when the CPU was busy. Hovering over a CPU bar highlights the Timeline region during which the CPU was active (as shown below). The length of a CPU bar is typically the sum of all the (highlighted) events below it in the Timeline. If these don't match, it may be due to one of the following:
+You will see light gray bars appearing above the Timeline records, indicating when the CPU was busy. Hovering over a CPU bar highlights the Timeline region during which the CPU was active (as shown below). The length of a CPU bar is typically the sum of all the (highlighted) events below it in the Timeline. If these don't match, it may be due to one of the following:
 
 * Other pages running on the same threads as the page being inspected (for example, two tabs open from the same site, with one site doing something in a `setTimeout()` call).
 * Un-instrumented activity.
@@ -409,7 +409,7 @@ This section lists events that belong to the Scripting category and their proper
     </tr>
     <tr>
         <td>Function Call</td>
-        <td>A top-level JavaScirpt function call was made (only appears when browser enters JavaScript engine).</td>
+        <td>A top-level JavaScript function call was made (only appears when browser enters JavaScript engine).</td>
     </tr>
     <tr>
         <td>Install Timer</td>
