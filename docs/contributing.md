@@ -341,7 +341,7 @@ If you have problems with this step you can look at [Clang](https://code.google.
 
 
 This will also take some time. Once it has finished providing you with warmth from your laptop then you are good to run the layout tests which can be run with from your src directory 
-`webkit/tools/layout_tests/run_webkit_tests.sh`. Replace the .sh with .bat if you are on Windows. Some failures are expected! (unfortunatly). A good process here is to run them before you make any changes, then run them after you make your changes. It can also take an argument to a directory so you can just point it to the `LayoutTests/inspector` directory to run.
+`webkit/tools/layout_tests/run_webkit_tests.sh`. Replace the .sh with .bat if you are on Windows. Some failures are expected! (unfortunately). A good process here is to run them before you make any changes, then run them after you make your changes. It can also take an argument to a directory so you can just point it to the `LayoutTests/inspector` directory to run.
 
 ### Frequently Asked Questions
 

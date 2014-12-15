@@ -137,7 +137,7 @@ They cannot reference other values and are always leafs or terminating nodes.
 
 * externally in the **renderer’s memory**. A *wrapper object* is created and used for accessing external storage where, for example, script sources and other content that is received from the Web is stored, rather than copied onto the VM heap.
 
-Memory for new JavaScript objects is allocated from a dedicated JavaScript heap (or **VM heap**).These objects are managed by V8's garbage collector and therefore, will stay alive as long as there is at least one strong reference to them.
+Memory for new JavaScript objects is allocated from a dedicated JavaScript heap (or **VM heap**). These objects are managed by V8's garbage collector and therefore, will stay alive as long as there is at least one strong reference to them.
 
 **Native objects **are everything else which is not in the JavaScript heap. Native object, in contrast to heap object, is not managed by the V8 garbage collector throughout it’s lifetime, and can only be accessed from JavaScript using its JavaScript wrapper object.
 
@@ -145,7 +145,7 @@ Memory for new JavaScript objects is allocated from a dedicated JavaScript heap 
 
 For example, if you concatenate **a** and **b**, you get a string (a, b) which represents the result of concatenation. If you later concatenated **d** with that result, you get another cons string ((a, b), d).
 
-**Arrays** - An Array is an Objectwith numeric keys. They are used extensively in the V8 VM for storing large amounts of data. Sets of key-value pairs used like dictionaries are backed up by arrays.
+**Arrays** - An Array is an Object with numeric keys. They are used extensively in the V8 VM for storing large amounts of data. Sets of key-value pairs used like dictionaries are backed up by arrays.
 
 A typical JavaScript object can be one of two array types used for storing:
 
