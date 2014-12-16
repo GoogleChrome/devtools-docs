@@ -72,6 +72,23 @@ The frames in the recording below show both un-instrumented activity and idle ti
 
 <p class="note">Want more details on the empty white space within the bars? Read <a href="https://plus.google.com/+NatDuca/posts/BvMgvdnBvaQ?e=-RedirectToSandbox">Chrome Engineer Nat Duca's explanation</a>, which describes how you can evaluate if you were bottlnecked by the GPU. </p>
 
+
+#### About the green bars ###
+
+Painting is a two-step process that includes: draw calls and rasterization.
+
+ - **Draw calls**. This is a list of things you'd like to draw, and its derived from the CSS applied to your elements. Ultimately there is a list of draw calls not dissimilar to the Canvas element's: moveTo, lineTo, fillRect. Although, they have different names in <a href="https://code.google.com/p/skia/">Skia</a>, Chrome's painting backend, it's a similar concept.
+ - **Rasterization**. The process of stepping through those draw calls and filling out actual pixels into buffers that can be uploaded to the GPU for compositing.
+
+So, with that background what is the difference between the solid green bars and empty green bars?
+
+![](timeline-images/hollow-green-bars.png)
+
+ - The **solid green bars** are the draw calls recorded by Chrome. This happens on the main thread alongside JavaScript, style calculations, and layout. These draw calls are grouped together as a data structure and passed to the compositor thread.
+ - The **empty green bars** are the rasterization. These are handled by a worker thread spawned by the compositor.
+
+Essentially, both are paint, they just represent different sub-tasks of the job. If you're having performance issues you can look at what properties you're changing with CSS or JavaScript. Then, see if there is a compositor-only way to achieve the same ends. <a href="http://csstriggers.com/">CSS Triggers</a> can help here.
+
 #### Viewing frame rate statistics ###
 
 The average frame rate and its standard deviation represented are displayed along the bottom of the Timeline panel for the selected frame range. If you hover over the average frame rate, a pop-up appears with additional information about the frame selection:
