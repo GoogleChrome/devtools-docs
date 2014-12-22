@@ -77,17 +77,18 @@ The frames in the recording below show both un-instrumented activity and idle ti
 
 Painting is a two-step process that includes: draw calls and rasterization.
 
- - **Draw calls**. This is a list of things you'd like to draw, and its derived from the CSS applied to your elements. Ultimately there is a list of draw calls not dissimilar to the Canvas element's: moveTo, lineTo, fillRect. Although, they have different names in <a href="https://code.google.com/p/skia/">Skia</a>, Chrome's painting backend, it's a similar concept.
+ - **Draw calls**. This is a list of things you'd like to draw, and its derived from the CSS applied to your elements. Ultimately there is a list of draw calls not dissimilar to the Canvas element's: moveTo, lineTo, and fillRect. Although, they have different names in <a href="https://code.google.com/p/skia/">Skia</a>, Chrome's painting backend, it's a similar concept.
  - **Rasterization**. The process of stepping through those draw calls and filling out actual pixels into buffers that can be uploaded to the GPU for compositing.
 
 So, with that background what is the difference between the solid green bars and empty green bars?
 
 ![](timeline-images/hollow-green-bars.png)
 
- - The **solid green bars** are the draw calls recorded by Chrome. This happens on the main thread alongside JavaScript, style calculations, and layout. These draw calls are grouped together as a data structure and passed to the compositor thread.
- - The **empty green bars** are the rasterization. These are handled by a worker thread spawned by the compositor.
+ - The **solid green bars** are the draw calls recorded by Chrome. This happens on the main thread alongside JavaScript, style calculations, and layout. The compositor thread gets passed a data structure grouping of draw calls.
 
-Essentially, both are paint, they just represent different sub-tasks of the job. If you're having performance issues you can look at what properties you're changing with CSS or JavaScript. Then, see if there is a compositor-only way to achieve the same ends. <a href="http://csstriggers.com/">CSS Triggers</a> can help here.
+ - The **empty green bars** are the rasterization. A worker thread spawned by the compositor is what handles these.
+
+Both are paint, they just represent different sub-tasks of the job. If you're having performance issues you can look at what properties you're changing. Then, see if there is a compositor-only way to achieve the same ends. <a href="http://csstriggers.com/">CSS Triggers</a> can help here.
 
 #### Viewing frame rate statistics ###
 
