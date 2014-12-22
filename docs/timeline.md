@@ -88,7 +88,7 @@ So, with that background what is the difference between the solid green bars and
 
  - The **empty green bars** are the rasterization. A worker thread spawned by the compositor is what handles these.
 
-Both are paint, they just represent different sub-tasks of the job. If you're having performance issues you can look at what properties you're changing. Then, see if there is a compositor-only way to achieve the same ends. <a href="http://csstriggers.com/">CSS Triggers</a> can help here.
+Both are paint, they just represent different sub-tasks of the job. If you're having performance issues you can look at what properties you're changing. Then, see if there is a compositor-only way to achieve the same ends. <a href="http://csstriggers.com/">CSS Triggers</a> can help with identifying a solution to this.
 
 #### Viewing frame rate statistics ###
 
