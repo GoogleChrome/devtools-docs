@@ -635,6 +635,7 @@ the scope of this document.</p>
 associated with a JavaScript file. This header also gets around the issue of 
 referencing source maps in languages that don't support single-line comments.</p>
 
+<p>You should also verify that your web server is configured to serve source maps. Some web servers, like Google appengine for example, require explicit configuration for each file type served. Regardless of the web server, source maps should have a mime type of <code>application/json</code>.</p>
 
 <p>Take a look at the special build of the <a href="http://dev.fontdragr.com">font dragr tool</a> in Chrome,
 with source mapping enabled, and you'll notice that the JavaScript isn't
