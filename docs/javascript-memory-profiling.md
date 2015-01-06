@@ -202,7 +202,7 @@ When investigating memory issues, the Timeline panel’s **Memory view** can be 
 
 The first thing to do is identify a sequence of actions you suspect is leaking memory. This could be anything from navigating around a site, hovering, clicking, or otherwise somehow interacting with page in a way that seems to negatively impact performance more over time.
 
-On the Timeline panel start recording (<span class="kbd">Ctrl</span> + <span class="kbd">E</span> or <span class="kbd">Cmd</span> + <span class="kbd">E</span>) and perform the sequence of actions you want to test. To force a full garbage collection click the trash icon (![](../../images/collect-garbage.png)) at the bottom.
+On the Timeline panel start recording (<span class="kbd">Ctrl</span> + <span class="kbd">E</span> or <span class="kbd">Cmd</span> + <span class="kbd">E</span>) and perform the sequence of actions you want to test. To force a full garbage collection click the trash icon (![](../images/collect-garbage.png)) at the bottom.
 
 Below we see a memory leak pattern, where some nodes are not being collected:
 
@@ -251,13 +251,13 @@ On the Profiles panel, choose ** *Take Heap Snapshot* **, then click **Start** o
 
 ### Clearing snapshots
 
-Snapshots can be removed (both from DevTools and renderers memory) by pressing the Clear all profiles icon (![](../../images/clear.png)):
+Snapshots can be removed (both from DevTools and renderers memory) by pressing the Clear all profiles icon (![](../images/clear.png)):
 
 ![](memory-profiling-files/image_15.png)
 
-<p class="note"><strong>Note:</strong> Closing the DevTools window will not delete collected profiles from the renderers memory. When reopening DevTools, all previously taken snapshots will reappear in the list of snapshots.</p>
+<p class="note"><strong>Note:</strong> Closing the DevTools window will not delete ed profiles from the renderers memory. When reopening DevTools, all previously taken snapshots will reappear in the list of snapshots.</p>
 
-Remember that we mentioned earlier you can force GC from the DevTools as part of your snapshot workflow. When taking a Heap Snapshot, it is automatically forced. In Timeline it can be very convenient to force a GC by clicking on the trash can (Collect Garbage) button (<img src="../images/collect-garbage.png"/>).
+Remember that we mentioned earlier you can force GC from the DevTools as part of your snapshot workflow. When taking a Heap Snapshot, it is automatically forced. In Timeline it can be very convenient to force a GC by clicking on the trash can ( Garbage) button (<img src="../images/-garbage.png"/>).
 
 <img src="memory-profiling-files/force.png"/>
 
@@ -348,7 +348,7 @@ The view provides several entry points:
 
 * **DOMWindow**** objects** — these are objects considered as "global" objects for JavaScript code;
 
-* **GC roots** — actual GC roots used by VM's garbage collector;
+* **GC roots** — actual GC roots used by VM's garbage or;
 
 * **Native objects** — browser objects that are "pushed" inside the JavaScript virtual machine to allow automation, e.g. DOM nodes, CSS rules (see the next section for more details.)
 
