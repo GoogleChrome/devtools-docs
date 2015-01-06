@@ -162,34 +162,40 @@ Take note of the following behaviour:
 * Quickly preview the results of your query, use the <span class="kbd">Up</span> / <span class="kbd">Down</span> arrow keys to cycle through the autocomplete suggestions. The results appear immediately even you do not press enter or tab to complete the selection.
 * To negate a filter query, prepend the query with a dash (`-`), for example <code class="negate-example">-StatusCode:200</code>.
 
-The following list contains the current available filter types.
+Available filter types:
 
 <dl>
-  <dt><strong>Domain</strong></dt>
+  <dt><strong>domain</strong></dt>
   <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. `www.google-analytics.com`.</dd>
 
-  <dt><strong>HasResponseHeader</strong></dt>
+  <dt><strong>has-response-header</strong></dt>
   <dd>Checks the resource has a response header, regardless of the value. E.g. `Access-Control-Allow-Origin`.</dd>
 
-  <dt><strong>Is</strong></dt>
+  <dt><strong>is</strong></dt>
   <dd>Shows requests running at the current point in time. Current available value: `running`</dd>
 
-  <dt><strong>Method</strong></dt>
+  <dt><strong>larger-than</strong></dt>
+  <dd>Shows requests with a transfer size larger than the specified amount. Units assumed in bytes, but kilobyte (`k`) & megabyte (`m`) units also allowed: E.g. `larger-than:50`, `larger-than:150k`, `larger-than:2m` </dd>
+
+  <dt><strong>method</strong></dt>
   <dd>The HTTP method used. E.g. `GET`.</dd>
 
-  <dt><strong>MimeType</strong></dt>
+  <dt><strong>mime-type</strong></dt>
   <dd>Also known as `Content-type` - the identifier for the type of resource. E.g. `text/html`.</dd>
 
-  <dt><strong>Scheme</strong></dt>
+  <dt><strong>scheme</strong></dt>
   <dd>The scheme portion in a URL. E.g. `https`.</dd>
 
-  <dt><strong>SetCookieName</strong></dt>
+  <dt><strong>set-cookie-name</strong></dt>
   <dd>The name of the cookie as set by the server. E.g. `loggedIn` (assuming a cookie like `loggedIn=true`).</dd>
 
-  <dt><strong>SetCookieValue</strong></dt>
+  <dt><strong>set-cookie-value</strong></dt>
   <dd>The value of the cookie set by the server. E.g. `true` (assuming a cookie like `loggedIn=true`).</dd>
 
-  <dt><strong>StatusCode</strong></dt>
+  <dt><strong>set-cookie-domain</strong></dt>
+  <dd>The domain of the cookie as set by the server. E.g. `foo.com` (assuming a cookie like `loggedIn=true; Domain=foo.com; Path=/; Expires=Wed, 13 Jan 2021 22:23:01 GMT; HttpOnly`).</dd>
+  
+  <dt><strong>status-code</strong></dt>
   <dd>The status code in the HTTP response. E.g. `200`.</dd>
 </dl>
 
