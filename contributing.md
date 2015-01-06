@@ -31,6 +31,8 @@ A few guidelines to follow when writing are:
   <dt> docs/redirects.json</dt>
   <dd> Contains redirects from one location to another.</dd>
 </dl>
+
+
 ## Tips
 
 When making a big change to the documentation, please write your draft in a Google Doc and make it open for public commenting.
@@ -38,6 +40,10 @@ It is easier to provide feedback and to find errors in a doc rather than a web p
 Once someone has given a LGTM (looks good to me) response then you are safe to code up the change and submit a pull request.
 
 Small changes can go in as a pull request directly.
+
+## Images
+
+* [contributing-images.md](contributing-images.md) details our policy for images and callout style.
 
 
 ## Tools
