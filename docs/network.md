@@ -166,37 +166,37 @@ Available filter types:
 
 <dl>
   <dt><strong>domain</strong></dt>
-  <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. `www.google-analytics.com`.</dd>
+  <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. <code>www.google-analytics.com</code>.</dd>
 
   <dt><strong>has-response-header</strong></dt>
-  <dd>Checks the resource has a response header, regardless of the value. E.g. `Access-Control-Allow-Origin`.</dd>
+  <dd>Checks the resource has a response header, regardless of the value. E.g. <code>Access-Control-Allow-Origin</code>.</dd>
 
   <dt><strong>is</strong></dt>
-  <dd>Shows requests running at the current point in time. Current available value: `running`</dd>
+  <dd>Shows requests running at the current point in time. Current available value: <code>running</code></dd>
 
   <dt><strong>larger-than</strong></dt>
-  <dd>Shows requests with a transfer size larger than the specified amount. Units assumed in bytes, but kilobyte (`k`) & megabyte (`m`) units also allowed: E.g. `larger-than:50`, `larger-than:150k`, `larger-than:2m` </dd>
+  <dd>Shows requests with a transfer size larger than the specified amount. Units assumed in bytes, but kilobyte (<code>k</code>) & megabyte (<code>m</code>) units also allowed: E.g. <code>larger-than:50</code>, <code>larger-than:150k</code>, <code>larger-than:2m</code> </dd>
 
   <dt><strong>method</strong></dt>
-  <dd>The HTTP method used. E.g. `GET`.</dd>
+  <dd>The HTTP method used. E.g. <code>GET</code>.</dd>
 
   <dt><strong>mime-type</strong></dt>
-  <dd>Also known as `Content-type` - the identifier for the type of resource. E.g. `text/html`.</dd>
+  <dd>Also known as <code>Content-type</code> - the identifier for the type of resource. E.g. <code>text/html</code>.</dd>
 
   <dt><strong>scheme</strong></dt>
-  <dd>The scheme portion in a URL. E.g. `https`.</dd>
+  <dd>The scheme portion in a URL. E.g. <code>https</code>.</dd>
 
   <dt><strong>set-cookie-name</strong></dt>
-  <dd>The name of the cookie as set by the server. E.g. `loggedIn` (assuming a cookie like `loggedIn=true`).</dd>
+  <dd>The name of the cookie as set by the server. E.g. <code>loggedIn</code> (assuming a cookie like <code>loggedIn=true</code>).</dd>
 
   <dt><strong>set-cookie-value</strong></dt>
-  <dd>The value of the cookie set by the server. E.g. `true` (assuming a cookie like `loggedIn=true`).</dd>
+  <dd>The value of the cookie set by the server. E.g. <code>true</code> (assuming a cookie like <code>loggedIn=true</code>).</dd>
 
   <dt><strong>set-cookie-domain</strong></dt>
-  <dd>The domain of the cookie as set by the server. E.g. `foo.com` (assuming a cookie like `loggedIn=true; Domain=foo.com; Path=/; Expires=Wed, 13 Jan 2021 22:23:01 GMT; HttpOnly`).</dd>
+  <dd>The domain of the cookie as set by the server. E.g. <code>foo.com</code> (assuming a cookie like <code>loggedIn=true; Domain=foo.com; Path=/; Expires=Wed, 13 Jan 2021 22:23:01 GMT; HttpOnly</code>).</dd>
   
   <dt><strong>status-code</strong></dt>
-  <dd>The status code in the HTTP response. E.g. `200`.</dd>
+  <dd>The status code in the HTTP response. E.g. <code>200</code>.</dd>
 </dl>
 
 To use a query shown in the above list, construct it in the format of: `<Filter Type>:<Description>`. You will almost always want to use the autocomplete suggestions which ensures your query is valid.
