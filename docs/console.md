@@ -118,37 +118,40 @@ Filter options:
 
 You can visually group related console output statements together in the console with the [`console.group()`](console-api.md#consolegroupobject-object) and [`groupEnd()`](console-api.md#consolegroupend) commands.
 
-<pre class ="prettyprint">
-    var user = "jsmith", authenticated = false;
-    console.group("Authentication phase");
-    console.log("Authenticating user '%s'", user);
-    // authentication code here...
-    if (!authenticated) {
-        console.log("User '%s' not authenticated.", user)
-    }
-    console.groupEnd();
+<pre class="prettyprint">
+    var user = "jsmith", authenticated = false;     <br>
+    console.group("Authentication phase");  <br>
+    console.log("Authenticating user '%s'", user);  <br>
+    // authentication code here...    <br>
+    if (!authenticated) {  <br>
+        console.log("User '%s' not authenticated.", user)  <br>
+    }  <br>
+    console.groupEnd();  <br>
 </pre>
 
 ![Logging group example](console-files/group.png)
 
 You can also nest logging groups. In the following example a logging group is created for the authentication phase of a login process. If the user is authenticated, a nested group is created for the authorization phase.
 
-    var user = "jsmith", authenticated = true, authorized = true;
-    // Top-level group
-    console.group("Authenticating user '%s'", user);
-    if (authenticated) {
-        console.log("User '%s' was authenticated", user);
-        // Start nested group
-        console.group("Authorizing user '%s'", user);
-        if (authorized) {
-            console.log("User '%s' was authorized.", user);
-        }
-        // End nested group
-        console.groupEnd();
-    }
-    // End top-level group
-    console.groupEnd();
-    console.log("A group-less log trace.");
+<pre class="prettyprint">
+    var user = "jsmith", authenticated = true, authorized = true;     <br>
+    // Top-level group     <br>
+    console.group("Authenticating user '%s'", user);     <br>
+    if (authenticated) {     <br>
+        console.log("User '%s' was authenticated", user);     <br>
+        // Start nested group     <br>
+        console.group("Authorizing user '%s'", user);     <br>
+        if (authorized) {     <br>
+            console.log("User '%s' was authorized.", user);     <br>
+        }     <br>
+        // End nested group     <br>
+        console.groupEnd();     <br>
+    }     <br>
+    // End top-level group     <br>
+    console.groupEnd();     <br>
+    console.log("A group-less log trace.");     <br>
+</pre>
+
 
 ![Nested logging group example](console-files/nestedgroup.png)
 
