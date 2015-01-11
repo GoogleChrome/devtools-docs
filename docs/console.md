@@ -7,7 +7,7 @@ The JavaScript Console provides two primary functions for developers  testing we
 * A place to log diagnostic information using methods provided by the [Console API](console-api.md), such as [console.log()](console-api.md#consolelogobject-object), or [console.profile()](console-api.md#consoleprofilelabel).
 * A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the [Command Line API](commandline-api.md), such as [$()](commandline-api.md#selector) command for selecting elements, or [profile()](commandline-api.md#profilename) to start the CPU profiler.
 
-This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api.md) and [Command Line API](commandline-api.md) reference guides.
+This documentation provides an overview and common uses of these two APIs. You can also browse the [Console API](console-api.md) and [Command Line API](commandline-api.md) reference guides. And a change there.
 
 
 
