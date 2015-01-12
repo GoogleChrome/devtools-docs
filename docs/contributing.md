@@ -21,7 +21,7 @@ Aside from contributing to the source code for DevTools, all of the following ar
     * Subscribe to [devtools-reviews@chromium.org mailing list](https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews)
       for all reviews of pending code
     * Subscribe to the [RSS feed of devtools commits](https://feeds.peter.sh/chrome-devtools/).
-    * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) on Twitter which also includes a feed of all commits.
+    * Follow [@ChromeDevTools](http://twitter.com/ChromeDevTools) and [@DevToolsCommits](http://twitter.com/DevToolsCommits) on Twitter which includes a feed of all commits.
     * There's plenty of action and developers are eager to hear what's landing
 * **Designing improved UX for all parts of DevTools**
     * Your ideas on the design and UX are quite welcome.
@@ -243,9 +243,9 @@ Download `depot_tools` by cloning the repository:
     git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 Then you will need to add it to your 
-[PATH](http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&sa=D&sntz=1&usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA). Do this by adding the following to your `.bashrc` or `.bashprofile` file or your shell's equivalent at the end of the file. This way you won't need to reset your `$PATH` manually each time you open a new shell.
+[PATH](http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&sa=D&sntz=1&usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA). Do this by adding the following to your `.bashrc`,  `.bash_profile` or your shell's equivalent. This way you won't need to reset your `$PATH` manually each time you open a new shell.
 
-    export PATH="$PATH":`pwd`/depot_tools
+    export PATH="$PATH":path/to/the/depot_tools
 
 
 
@@ -329,7 +329,7 @@ While waiting for comments you can switch to another branch and work on a fix fo
 
 To setup a build that can run the layout tests read about [layout tests](http://www.chromium.org/developers/testing/webkit-layout-tests) over on Chromium.org. Depending on the type of patch you are submitting, there may be Chrome DevTools layout tests you will want to run before submission.
 
-First, run `gclient` to use `git`. You can follow the steps located in the Chromium [Using Git guide](https://code.google.com/p/chromium/wiki/UsingGit) to walk you through this process. In summary make sure depot_tools is in your path. Run `fetch blink --nosvn=True` in a directory you wish to store the Chromium source (perhaps get a snack or one of those paddles with a ball on it, this will take some time).
+First, run `gclient` to use `git`. You can follow the steps located in the Chromium [Using Git guide](https://code.google.com/p/chromium/wiki/UsingGit) to walk you through this process. In summary, make sure depot_tools is in your path. Run `fetch blink --nosvn=True` in a directory you wish to store the Chromium source (perhaps get a snack or one of those paddles with a ball on it, this will take some time).
 
 When this has finished you can speed up the build process by building the content shell.
 
@@ -341,7 +341,7 @@ If you have problems with this step you can look at [Clang](https://code.google.
 
 
 This will also take some time. Once it has finished providing you with warmth from your laptop then you are good to run the layout tests which can be run with from your src directory 
-`webkit/tools/layout_tests/run_webkit_tests.sh`. Replace the .sh with .bat if you are on Windows. Some failures are expected! (unfortunately). A good process here is to run them before you make any changes, then run them after you make your changes. It can also take an argument to a directory so you can just point it to the `LayoutTests/inspector` directory to run.
+`blink/tools/run_layout_tests.sh`. Replace the .sh with .bat if you are on Windows. Some failures are expected! (unfortunately). A good process here is to run them before you make any changes, then run them after you make your changes. It can also take an argument to a directory so you can just point it to the `LayoutTests/inspector` directory to run.
 
 ### Frequently Asked Questions
 
