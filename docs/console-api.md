@@ -8,7 +8,7 @@ The Console API provides web applications with methods for writing information t
 
 ## console.assert(expression, object) ##
 
-If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than five child nodes:
+If the specified expression is `false`, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the `document` contains fewer than ten child nodes:
 
     var list = document.querySelector('#myList');
     console.assert(list.childNodes.length < 10, "List item count is >= 10");
