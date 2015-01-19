@@ -1,3 +1,4 @@
 {
-  "mobile-emulation": "device-mode"
+  "mobile-emulation": "device-mode",
+  "elements": "dom-and-styles"
 }
