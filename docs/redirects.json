@@ -1,4 +1,5 @@
 {
   "mobile-emulation": "device-mode",
-  "elements": "dom-and-styles"
+  "elements": "dom-and-styles",
+  "": "index"
 }
