@@ -14,7 +14,7 @@ this protocol, there are ways for third parties to bypass it and start
 instrumenting browser pages explicitly. We will describe the ways it could be
 done below.</p>
 
-<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the instructions below.</p>
+<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the guide below.</p>
 
 <div class="collapsible">
 <h2 id="protocol">Protocol</h2>
@@ -22,39 +22,38 @@ done below.</p>
 events that the page is generating. We define this protocol in Blink
 ("upstream") so that any Blink-based browser supported it.</p>
 
+<h3>Stable</h3>
 <p>
+    <a href="protocol/1.1/index.html">Debugger protocol version 1.1</a> is the most recent stable release of the protocol. 
+</p>
+<p>
+    As of Google Chrome 31, we commit to supporting v1.1. All subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1. Our protocol backwards compatibility commitment is:
   <ul>
-<li>As of Google Chrome M31, we commit to supporting the version
-<a href="protocol/1.1/index.html">1.1</a> of the protocol. All
-subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1.</li>
-  <li>As of Google Chrome M18, we commit to supporting the version
-<a href="protocol/1.0/index.html">1.0</a> of the protocol. All
-subsequent 1.* versions of the protocol are going to be backwards compatible with 1.0.</li>
-  <li>As of Google Chrome M16, we commit to supporting the version
-<a href="protocol/0.1/index.html">0.1</a> of the protocol. All
-subsequent 0.* versions of the protocol are going to be backwards compatible with 0.1.</li>
-</li>
+    <li>No commands or events are removed from the protocol.</li>
+    <li>No required parameters are added to the commands.</li>
+    <li>No required parameters are removed from command responses or events.</li>
 </ul>
 
 </p>
-<p>
-Protocol backwards compatibility is defined as follows:
-  <ul>
-<li>No commands or events are removed from the protocol</li>
-  <li>No required parameters are added to the commands</li>
-  <li>No required parameters are removed from command responses or events</li>
-</ul>
+
+
+<p> <b>Previous versions</b>:
+<a href="protocol/1.0/index.html">Protocol v1.0</a> was shipped and supported as of Chrome 18.
+<a href="protocol/0.1/index.html">Protocol v0.1</a> was shipped and supported as of Chrome 16.
 </p>
 
-<p>There also is a <a href="protocol/tot/index.html">tip-of-tree</a> version of the
-protocol that reflects present state of the protocol in Blink repository. You can
+
+<h3>Alpha</h3>
+
+<p>
+The <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">tip-of-tree protocol</a> is volatile and may break at any time. However it captures the full capabilities of the Protocol, whereas the stable release is a subset. There is no backwards compatibility support guaranteed for the capabilities it introduces. You can
 use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
-builds at your own risk. Note that unless tip of the tree revision is promoted to the
-draft, there is no backwards compatibility support guaranteed for the capabilities it
-introduces.</p>
+builds at your own risk.  
 
+A <i>portion</i> of the tip-of-tree protocol is documented in the <a href="protocol/tot/index.html">tot section here</a>; it may be slightly more complete than what's in <a href="protocol/1.1/index.html">1.1</a>.
+</p>
 
-<p>DevTools may introduce new features that are not currently documented under the tip-of-tree protocol documentation. You can discover these if you want to try using features, however, the <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">undocumented protocol</a> is volatile and may break at any time. First, <a href="https://developers.google.com/chrome-developer-tools/docs/contributing#step_3_inspector_inception">inspect the inspector</a> and reload the inspector so your attached one can view its WebSocket connection (<code>Network > Filter > WebSockets</code>). Then view the frames of WebSocket activity as you use the host DevTools. You may need to re-click the WebSocket item to have the Frame activity update.</p>
+<p>You can inspect how the Chrome DevTools uses the protocol. Especially handy when looking up newer features. First, <a href="https://developers.google.com/chrome-developer-tools/docs/contributing#step_3_inspector_inception">inspect the inspector</a> and reload the inspector so your attached one can view its WebSocket connection (<code>Network > Filter > WebSockets</code>). Then view the frames of WebSocket activity as you use the host DevTools. You may need to re-click the WebSocket item to have the Frame activity update.</p>
 
 <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.jpg"><img src="debugger-protocol/debugger-protocol-sniffing.jpg" alt="Sniffing the debugger protocol" /></a></figure>
 
@@ -66,22 +65,18 @@ For this scenario to work, you should start your
 <i>host</i> Chrome instance with the remote-debugging-port
 command line switch:</p>
 
-<div class="summary">
+<pre class="summary">
 chrome.exe --remote-debugging-port=9222
-</div>
+</pre>
 
 <p>Then you can start a <i>client</i> Chrome instance, using a separate user profile:</p>
 
-<div class="summary">
+<pre class="summary">
 chrome.exe --user-data-dir=&lt;some directory&gt;
-</div>
+</pre>
 
 <p>And now you can navigate to the given port from your <i>client</i> and attach to
-any of the discovered tabs for debugging.</p>
-
-<div class="summary">
-http://localhost:9222
-</div>
+any of the discovered tabs for debugging: <a href="http://localhost:9222">http://localhost:9222</a></p>
 
 <p>You will find Developer Tools interface identical to the embedded one and
 here is why:</p>
@@ -98,11 +93,10 @@ host and starts interchanging JSON messages with it.
 <p>In this scenario, you can substitute Developer Tools front-end with your
 own implementation. Instead of navigating to the HTML page at
 http://localhost:9222, your application can discover available
-pages by issuing the following HTTP request to the browser:</p>
+pages by requesting:</p>
 
-<div class="summary">
-http://localhost:9222/json
-</div>
+<a href="http://localhost:9222/json">http://localhost:9222/json</a>
+
 
 <p>and getting a JSON object with information about inspectable pages along
 with the WebSocket addresses that you could use in order to start
@@ -116,6 +110,22 @@ owners are responsible for exposing debugging connections to the external
 users.</p>
 
 </div>
+
+
+
+<div class="collapsible">
+<h2 id="extension">Debugging Protocol Clients</h2>
+<p>Many applications and libraries already use the protocol. Some to collect 
+performance data, others to breakpoint debug from another editor. There are 
+libraries to access the raw protocol from Node.js and Python.</p>
+
+<p>Many of these clients are showcased here: <a href="https://developer.chrome.com/devtools/docs/debugging-clients">Showcased Debugging Protocol Clients</a>.
+
+
+</div>
+
+
+
 <div class="collapsible">
 <h2 id="extension">Using debugger extension API</h2>
 <p>To allow third parties to interact with the protocol, we introduced
