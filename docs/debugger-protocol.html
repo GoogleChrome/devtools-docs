@@ -2,19 +2,15 @@
 <h1>Remote debugging protocol</h1>
 
 
-
-
-
 <p>Under the hood, Chrome Developer Tools is a web application written in HTML,
 JavaScript and CSS. It has a special binding available at JavaScript runtime
 that allows interacting with chrome pages and instrumenting them. Interaction
 protocol consists of commands that are sent to the page and events that
-the page is generating. Although Chrome Developer Tools is the only client of
-this protocol, there are ways for third parties to bypass it and start
+the page is generating. Although Chrome Developer Tools is the primary client of
+this protocol, including for <a href="remote-debugging.html">remote debugging</a>, there are ways for third parties to use it and start
 instrumenting browser pages explicitly. We will describe the ways it could be
 done below.</p>
 
-<p class="note"><b>Note:</b> If you are interested in inspecting remote pages on Chrome for Android, please see the <a href="remote-debugging.html">remote debugging documentation</a>. For users wishing to implement custom inspection code using our debugger protocol instead, please use the guide below.</p>
 
 <div class="collapsible">
 <h2 id="protocol">Protocol</h2>
@@ -101,8 +97,6 @@ pages by requesting:</p>
 <p>and getting a JSON object with information about inspectable pages along
 with the WebSocket addresses that you could use in order to start
 instrumenting them.</p>
-<p class="note">Note that we are currently working on exposing an HTTP-based
-protocol that does not require client WebSocket implementation.</p>
 
 <p>Remote debugging is especially useful when debugging remote
 instances of the browser or attaching to the embedded devices. Blink port
@@ -114,7 +108,7 @@ users.</p>
 
 
 <div class="collapsible">
-<h2 id="extension">Debugging Protocol Clients</h2>
+<h2 id="clients">Debugging Protocol Clients</h2>
 <p>Many applications and libraries already use the protocol. Some to collect 
 performance data, others to breakpoint debug from another editor. There are 
 libraries to access the raw protocol from Node.js and Python.</p>
@@ -148,10 +142,29 @@ pages with the target application, set breakpoints there, evaluate expressions
 in console, live edit JavaScript and CSS, display live DOM, network interaction
 and any other aspect that Developer Tools is instrumenting today.</p>
 
-<p class="note">Note: opening embedded Developer Tools will terminate the
-remote connection / detach the extension and will replace active debugger with
-itself. We are working on allowing several clients to instrument the page
-simultaneously.</p>
+<p>Opening embedded Developer Tools will <a href="#simultaneous">terminate</a> the
+remote connection and thus detach the extension.</p>
+
+
+
+</div>
+
+
+
+<div class="collapsible">
+<h2 id="simultaneous">Simultaneous protocol clients</h2>
+We currently do not support multiple clients connected to the protocol simultaneously. <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> tracks the issue.
+
+<p>
+Upon disconnnection, a <a href="https://code.google.com/p/chromium/codesearch#chromium/src/out/Debug/gen/chrome/common/extensions/api/debugger.cc&q=file:debugger.cc%20Reason%20ParseReason&sq=package:chromium&type=cs&">reason is provided to the outgoing client.</a>  (<a href="https://chromiumcodereview.appspot.com/11361034/">original patch</a>).
+</p> 
+
+<p>
+The third-party <a href="https://github.com/sidorares/crmux">crmux</a> project multiplexes incoming connections into single websocket connection and transparently matches and translates JSON-RPC request and response message IDs from single local range to multiple remote ranges of ID'. Events are dispatched to all clients.</p>
+
+
+
+</p>
 <p></p>
 
 
