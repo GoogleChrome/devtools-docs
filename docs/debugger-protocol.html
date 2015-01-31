@@ -154,14 +154,13 @@ remote connection and thus detach the extension.</p>
 <div class="collapsible">
 <h2 id="simultaneous">Simultaneous protocol clients</h2>
 <p>
-We currently do not support multiple clients connected to the protocol simultaneously. On the bug tracker, <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> follows the issue. Star it for updates.
+We currently do not support multiple clients connected to the protocol simultaneously. That includes the DevTools opening while another client is connected. On the bug tracker, <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> follows the issue; you can star it for email updates.
 </p>
 <p>
 Upon disconnnection, the outgoing client will receive a <code>detached</code> event. For example: <code>{"method":"Inspector.detached","params":{"reason":"replaced_with_devtools"}}</code>. View the <a href="https://code.google.com/p/chromium/codesearch#chromium/src/out/Debug/gen/chrome/common/extensions/api/debugger.cc&q=file:debugger.cc%20Reason%20ParseReason&sq=package:chromium&type=cs&">enum of possible reasons.</a>  (For reference: the <a href="https://chromiumcodereview.appspot.com/11361034/">original patch</a>). After disconnection, some apps have chosen to pause their state and offer a reconnect button. 
 </p> 
 
-<p>
-The third-party <a href="https://github.com/sidorares/crmux">crmux</a> project multiplexes incoming connections into single websocket connection and transparently matches and translates JSON-RPC request and response message IDs from single local range to multiple remote ranges of ID'. Events are dispatched to all clients.</p>
+
 
 
 
