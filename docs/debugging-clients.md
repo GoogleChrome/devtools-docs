@@ -17,7 +17,7 @@ debugging and live HTML/CSS development.<br/>
 
 ## DevTools App
 
-[DevTools App](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm) is a Chrome application that allows your to easily try out different developer tool versions.
+[DevTools App](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm) is a Chrome application that allows you to easily try out different versions of the DevTools.
 
 <img src="debugging-clients-files/devtoolsapp.png" width="800px" alt=""/> 
 
