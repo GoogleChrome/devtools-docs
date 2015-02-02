@@ -15,6 +15,22 @@ debugging and live HTML/CSS development.<br/>
   DuBois](http://www.markdubois.info/weblog/2013/03/adobe-brackets-revisited/) 
   gives an overview of working in Brackets.
 
+## DevTools App
+
+[DevTools App](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm) is a Chrome application that allows your to easily try out different developer tool versions.
+
+<img src="debugging-clients-files/devtoolsapp.png" width="800px" alt=""/> 
+
+For example you can easily try 
+
+* the [latest devtools code](http://src.chromium.org/blink/trunk/Source/devtools/front_end/inspector.html) from the repository
+* the Builtin devtools
+* devtools being served from a local server
+
+To use it you have to launch Chrome with `--remote-debugging-port=9222`.
+
+Install the DevTools App into Chrome from [Chrome Web Store](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm). Source code available on [GitHub](https://github.com/sandipchitale/DevToolsApp)
+
 ## Light Table
 
 Light Table is a new IDE that takes a novel approach to arranging the 
