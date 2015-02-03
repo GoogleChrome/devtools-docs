@@ -1,6 +1,6 @@
 {{+bindTo:partials.standard_devtools_article}}
 
-# Sample Debugging Protocol Clients
+# Showcase Chrome Debugging Protocol Clients
 
 There are a number third-party clients for the Chrome debugging protocol. This section presents a sample.
 
@@ -9,15 +9,27 @@ There are a number third-party clients for the Chrome debugging protocol. This s
 Brackets is a web-based IDE that uses the Chrome debugging protocol to enable 
 debugging and live HTML/CSS development.<br/>
 <img src="debugging-clients-files/brackets.png" width="632px" alt=""/> 
-
-More information:
-
-* [Official site](http://brackets.io/).
+ 
+* [Brackets site](http://brackets.io/). Download from [download.brackets.io](http://download.brackets.io/). Source code available on [GitHub](https://github.com/adobe/brackets).
 * This [blog post from Mark 
   DuBois](http://www.markdubois.info/weblog/2013/03/adobe-brackets-revisited/) 
   gives an overview of working in Brackets.
-* Download from [download.brackets.io](http://download.brackets.io/).
-* Source code available on [GitHub](https://github.com/adobe/brackets).
+
+## DevTools App
+
+[DevTools App](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm) is a Chrome application that allows you to easily try out different versions of the DevTools.
+
+<img src="debugging-clients-files/devtoolsapp.png" width="800px" alt=""/> 
+
+For example you can easily try 
+
+* the [latest devtools code](http://src.chromium.org/blink/trunk/Source/devtools/front_end/inspector.html) from the repository
+* the Builtin devtools
+* devtools being served from a local server
+
+To use it you have to launch Chrome with `--remote-debugging-port=9222`.
+
+Install the DevTools App into Chrome from [Chrome Web Store](https://chrome.google.com/webstore/detail/dev-tools-app/eichfopopofffkbhjgbabdegakcdmpkm). Source code available on [GitHub](https://github.com/sandipchitale/DevToolsApp)
 
 ## Light Table
 
@@ -27,11 +39,9 @@ but the alpha version is available for free at this time.
 
 <img src="debugging-clients-files/lighttable.png" width="551px" alt=""/> 
 
-More information:
-
+* Download from the [official site.](http://www.lighttable.com/)
 * Read the [blog post](http://www.chris-granger.com/2013/04/28/light-table-040/) 
   describing new features in 0.4.0, including DevTools integration.
-* Download from the [official site.](http://www.lighttable.com/)
 
 ## NodeJS
 
@@ -40,33 +50,25 @@ Node scripts.
 
 ### chrome-remote-interface
 
-The `chrome-remote-interface` module wraps the debugger protocol with a Node-style 
+The [`chrome-remote-interface` module](https://github.com/cyrus-and/chrome-remote-interface) wraps the debugger protocol with a Node-style 
 JavaScript API.
-
-<img src="debugging-clients-files/chrome-remote.png" alt=""/> 
-
-More information:<br/>
-
-*   Install using `npm`:
 
         npm install -g chrome-remote-interface
 
-*   Source code available on 
-    [GitHub.](https://github.com/cyrus-and/chrome-remote-interface) 
+<img src="debugging-clients-files/chrome-remote.png" alt=""/> 
+
+Take a look at [which NPM projects use chrome-remote-interface](https://www.npmjs.com/browse/depended/chrome-remote-interface).
+
 
 ### crconsole
 
-The `crconsole` module provides a command-line interface to the Chrome console. It 
-uses the `chrome-remote-interface` module to communicate with the Chrome debugger 
+The [`crconsole` module](https://github.com/sidorares/crconsole) provides a command-line interface to the Chrome console. It uses the `chrome-remote-interface` module to communicate with the Chrome debugger 
 protocol.
 
-More information:
+### automated-chrome-profiling
 
-*   Install using `npm`:
-  
-        npm install -g crconsole
+A basic [recipe for automating JS profiling through Node.js](https://github.com/paulirish/automated-chrome-profiling#readme). See the [other apps mentioned](https://github.com/paulirish/automated-chrome-profiling/blob/master/readme.md#way-more-is-possible) that live in the protocol ecosystem.
 
-*   Source code available on [GitHub](https://github.com/sidorares/crconsole).
 
 ## Sublime Text
 
@@ -75,8 +77,6 @@ popular Sublime Text editor. You can install it from the Sublime Text package
 manager.
 
 <img src="debugging-clients-files/sublime.png" alt=""/> 
-
-More information:
 
 * See the [official page](http://sokolovstas.github.io/SublimeWebInspector/) for 
   an overview and installation instructions.
@@ -89,19 +89,14 @@ Telemetry is a performance testing framework used by the Chromium project to
 test multiple versions of the Chrome browser. It uses the debugging protocol to 
 remotely control instances of Chrome.
 
-More information:
-
-* [Introduction to Telemetry on 
-  Chromium.org.](http://www.chromium.org/developers/telemetry)
+* [Introduction to Telemetry on Chromium.org.](http://www.chromium.org/developers/telemetry)
 
 ## Vim
 
 Chrome.vim is an experimental plugin for the Vim editor that provides some basic 
 Chrome operations as Vim commands.
 
-More information:
-
-* [https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome](https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome) 
+* [vim-chrome on Github](https://github.com/mklabs/vimfiles/tree/master/custom-bundle/vim-chrome) 
 
 ## WebDriver
 
@@ -109,12 +104,8 @@ The Selenium browser automation tools use WebDriver API to abstract interactions
 with different browsers. The WebDriver implementation for Chrome uses the Chrome 
 debugging protocol.
 
-More information:
+* [Selenium WebDriver project](http://docs.seleniumhq.org/projects/webdriver/) 
 
-* [Selenium WebDriver project.](http://docs.seleniumhq.org/projects/webdriver/) 
-
-If you know of more, please let us know using the Feedback tool at the top right 
-of this page!
 
 ## WebStorm
 
@@ -125,10 +116,12 @@ integrate with the Chrome debugger.
 
 <img src="debugging-clients-files/webstorm.png" alt=""/> 
 
-More information:
-
 * Download from [JetBrains](http://www.jetbrains.com/webstorm/).
 * [Screencast describing the latest debugging 
   features.](http://tv.jetbrains.net/videocontent/improved-javascript-debugger-in-webstorm-7)
 
+
+## Python
+
+[chrome_remote_shell](https://github.com/minektur/chrome_remote_shell) provides a nice API layer for python apps.
 {{/partials.standard_devtools_article}}
