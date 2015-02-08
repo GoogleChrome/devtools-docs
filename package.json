@@ -1,0 +1,9 @@
+{
+  "name": "devtools-docs",
+  "devDependencies": {
+    "proofreader": ">=0.5.5"
+  },
+  "scripts": {
+    "test": "proofreader -c proofreader-settings.json --file-list modified_files"
+  }
+}
