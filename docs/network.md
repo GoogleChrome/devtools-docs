@@ -45,74 +45,62 @@ Each requested resource is added as a row to the Network table, which contains t
 * Some columns contain a primary field and a secondary field (**Time** and **Latency**, for example). When viewing the Network table with [large resource rows](#changing-resource-row-sizes) both fields are shown; when using small resource rows only the primary field is shown.
 * You can [sort](#sorting-and-filtering) the table by a column's value by clicking the column header. The [the Timeline column](#timeline-view) behaves a bit differently: clicking its column header displays a menu of additional sort fields. See [Waterfall view](#timeline-view) and [Sorting and filtering](#sorting-and-filtering) for more information.
 
-<table>
-<thead>
-<tr>
-<th width="20%">Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Name</strong> and <strong>Path</strong></td>
-<td>The name and URL path of the resource, respectively.</td>
-</tr>
-<tr>
-<td><strong>Method</strong></td>
-<td>The HTTP method used for the request (GET or POST, for example).</td>
-</tr>
-<tr>
-<td><strong>Status</strong> and <strong>Text</strong></td>
-<td>The HTTP status code and text message, respectively.</td>
-</tr>
-<tr>
-<td><strong>Domain</strong></td>
-<td>The domain of the resource request.</td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>The MIME type of the requested resource.</td>
-</tr>
-<tr>
-<td><strong>Initiator</strong></td>
-<td>The object or process that initiated the request. It can have one of the following values:
-  <dl>
-    <dt>Parser</dt>
-    <dd>Chrome's HTML parser initiated the request.</dd>
-    <dt>Redirect</dt>
-    <dd>A HTTP redirect initiated the request.</dd>
-    <dt>Script</dt>
-    <dd>A script initiated the request.</dd>
-    <dt>Other</dt>
-    <dd>Some other process or action initiated the request, such as the user navigating to a page via a link, or by entering a URL in the address bar.</dd>
-  </dl>
-</td>
-</tr>
-<tr>
-<td><strong>Cookies</strong></td>
-<td>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#cookies">Cookies tab</a> when viewing details for a given resource.</td>
-</tr>
-<tr>
-<td><strong>Set-Cookies</strong></td>
-<td>The number of cookies set in the HTTP request.</td>
-</tr>
-<tr>
-<td><strong>Size</strong> and <strong>Content</strong></td>
-<td>Size is the combined size of the response headers (usually a few hundred bytes) plus the response body, as delivered by the server.
-Content is the size of the resource's decoded content.
-If the resource was loaded from the browser's cache rather than over the network, this field will contain the text (from cache).</td>
-</tr>
-<tr>
-<td><strong>Time</strong> and <strong>Latency</strong></td>
-<td>Time is total duration, from the start of the request to the receipt of the final byte in the response.
-Latency is the time to load the first byte in the response.</td>
-</tr>
-<tr>
-<td><strong>Timeline</strong></td>
-<td>The Timeline column displays a <a href="#timeline-view">visual waterfall</a> of all network requests. Clicking the header of this column reveals a menu of additional sorting fields. See <a href="#timeline-view">Waterfall view</a> and <a href="#sorting-and-filtering">Sorting and filtering</a> for more information</td>
-</tr>
-</tbody>
-</table>
+<dl class="nice">
+  <dt>Name and Path</dt>
+  <dd>The name and URL path of the resource, respectively.</dd>
+
+  <dt>Method</dt>
+  <dd>The HTTP method used for the request. For example: GET or POST.</dd>
+
+  <dt>Status and Text</dt>
+  <dd>The HTTP status code and text message.</dd>
+
+  <dt>Domain</dt>
+  <dd>The domain of the resource request.</dd>
+
+  <dt>Type</dt>
+  <dd>The MIME type of the requested resource.</dd>
+
+  <dt>Initiator</dt>
+  <dd>
+    The object or process that initiated the request. It can have one of the following values:
+    <dl class="nice">
+      <dt>Parser</dt>
+      <dd>Chrome's HTML parser initiated the request.</dd>
+      <dt>Redirect</dt>
+      <dd>A HTTP redirect initiated the request.</dd>
+      <dt>Script</dt>
+      <dd>A script initiated the request.</dd>
+      <dt>Other</dt>
+      <dd>Some other process or action initiated the request, such as the user navigating to a page via a link, or by entering a URL in the address bar.</dd>
+    </dl>
+  </dd>
+
+  <dt>Cookies</dt>
+  <dd>The number of cookies transferred in the request. These correspond to the cookies shown in the <a href="#cookies">Cookies tab</a> when viewing details for a given resource.</dd>
+
+  <dt>Set-Cookies</dt>
+  <dd>The number of cookies set in the HTTP request.</dd>
+
+  <dt>Size and Content</dt>
+  <dd>
+    Size is the combined size of the response headers (usually a few hundred bytes) plus the response body, as delivered by the server.
+    Content is the size of the resource's decoded content.
+    If the resource was loaded from the browser's cache rather than over the network, this field will contain the text (from cache).
+  </dd>
+
+  <dt>Time and Latency</dt>
+  <dd>
+    Time is total duration, from the start of the request to the receipt of the final byte in the response.
+    Latency is the time to load the first byte in the response.
+  </dd>
+
+  <dt>Timeline</dt>
+  <dd>
+    The Timeline column displays a <a href="#timeline-view">visual waterfall</a> of all network requests.
+    Clicking the header of this column reveals a menu of additional <a href="#sorting-and-filtering">sorting fields</a>.
+  </dd>
+</dl>
 
 ### Preserving the network log upon navigation
 
@@ -164,7 +152,7 @@ Take note of the following behaviour:
 
 Available filter types:
 
-<dl>
+<dl class="nice">
   <dt><strong>domain</strong></dt>
   <dd>The <strong>domain</strong> portion from the URL of the resource. E.g. <code>www.google-analytics.com</code>.</dd>
 
@@ -194,7 +182,7 @@ Available filter types:
 
   <dt><strong>set-cookie-domain</strong></dt>
   <dd>The domain of the cookie as set by the server. E.g. <code>foo.com</code> (assuming a cookie like <code>loggedIn=true; Domain=foo.com; Path=/; Expires=Wed, 13 Jan 2021 22:23:01 GMT; HttpOnly</code>).</dd>
-  
+
   <dt><strong>status-code</strong></dt>
   <dd>The status code in the HTTP response. E.g. <code>200</code>.</dd>
 </dl>
@@ -374,77 +362,58 @@ resource's HTTP request and response headers. You can also clear all cookies.
 
 The Cookies table contain the following columns:
 
-<!-- TODO: Fix formatting of cells -->
-<table>
-<tr>
-<th width="20%">Property</th>
-<th>Description</th>
-</tr>
-<tbody>
-<tr>
-<td><strong>Name</strong></td>
-<td>The cookie's name.</td>
-</tr>
-<tr>
-<td><strong>Value</strong></td>
-<td>The cookie's value.</td>
-</tr>
-<tr>
-<td><strong>Domain</strong></td>
-<td>The cookie's domain.</td>
-</tr>
-<tr>
-<td><strong>Path</strong></td>
-<td>The cookie's URL path.</td>
-</tr>
-<tr>
-<td><strong>Expires / Max-Age</strong></td>
-<td>The value of the cookie's expires or max-age properties.</td>
-</tr>
-<tr>
-<td><strong>Size</strong></td>
-<td>The size of the cookie in bytes.</td>
-</tr>
-<tr>
-<td><strong>HTTP</strong></td>
-<td>This indicates that the cookie should only be set by the browser in the HTTP request, and cannot be accessed with JavaScript. </td>
-</tr>
-<tr>
-<td><strong>Secure</strong></td>
-<td>The presence of this attribute indicates that the cookie should only be transmitted over a secure connection.</td>
-</tr>
-</tbody>
-</table>
+<dl class="nice">
+  <dt>Name</dt>
+  <dd>The cookie's name.</dd>
+
+  <dt>Value</dt>
+  <dd>The value of the cookie.</dd>
+
+  <dt>Domain</dt>
+  <dd>The domain the cookie belongs to.</dd>
+
+  <dt>Path</dt>
+  <dd>The URL path the cookie came from.</dd>
+
+  <dt>Expires / Max-Age</dt>
+  <dd>The value of the cookie's expires or max-age properties.</dd>
+
+  <dt>Size</dt>
+  <dd>The size of the cookie in bytes.</dd>
+
+  <dt>HTTP</dt>
+  <dd>This indicates that the cookie should only be set by the browser in the HTTP request, and cannot be accessed with JavaScript.</dd>
+
+  <dt>Secure</dt>
+  <dd>The presence of this attribute indicates that the cookie should only be transmitted over a secure connection.</dd>
+</dl>
 
 ### WebSocket frames
 
 The Frames tab shows messages sent or received over a WebSocket connection. This tab is only visible when the selected resource initiated a WebSocket connection. The table contains the following columns:
 
-<table>
-<tr>
-<th width="20%">Name</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>Data</td>
-<td>The message payload. If the message is plain text, it's displayed here. For binary opcodes, this field displays the opcode's name and code. The following opcodes are supported:
-  <dl>
-    <dt>Continuation Frame</dt>
-    <dt>Binary Frame</dt>
-    <dt>Connection Close Frame</dt>
-    <dt>Ping Frame</dt>
-    <dt>Pong Frame</dt>
-  </dl>
-</tr>
-<tr>
-<td>Length</td>
-<td>The length of the message payload in bytes.</td>
-</tr>
-<tr>
-<td>Time</td>
-<td>The time stamp when the message was created.</td>
-</tr>
-</table>
+<dl class="nice">
+  <dt>Data</dt>
+  <dd>
+    The message payload.
+    If the message is plain text, it's displayed here.
+    For binary opcodes, this field displays the opcode's name and code.
+    The following opcodes are supported:
+    <ul>
+      <li>Continuation Frame</li>
+      <li>Binary Frame</li>
+      <li>Connection Close Frame</li>
+      <li>Ping Frame</li>
+      <li>Pong Frame</li>
+    </ul>
+  </dd>
+
+  <dt>Length</dt>
+  <dd>The length of the message payload in bytes.</dd>
+
+  <dt>Time</dt>
+  <dd>The time stamp when the message was created.</dd>
+</dl>
 
 Messages are color-coded according to their type. Outgoing text messages are color-coded light-green; incoming text messages are white:
 
@@ -489,7 +458,7 @@ dt.content-download:before {
 }
 </style>
 
-<dl>
+<dl class="nice">
   <dt class="stalled"><strong>Stalled/Blocking</strong></dt>
   <dd>
     Time the request spent waiting before it could be sent.
@@ -502,15 +471,15 @@ dt.content-download:before {
 
   <dt class="dns-lookup"><strong><abbr title="Domain Name System">DNS</abbr> Lookup</strong></dt>
   <dd>
-    Time spent performing the <abbr title="Domain Name System">DNS</abbr> lookup.
-    Every new domain on a page requires a full roundtrip to do the <abbr title="Domain Name System">DNS</abbr> lookup.
+    Time spent performing the DNS lookup.
+    Every new domain on a page requires a full roundtrip to do the DNS lookup.
   </dd>
 
   <dt class="initial-connection"><strong>Initial Connection / Connecting</strong></dt>
   <dd>Time it took to establish a connection, including <abbr title="Transmission Control Protocol">TCP</abbr> handshakes/retries and negotiating a <abbr title="Secure Sockets Layer">SSL</abbr>.</dd>
 
-  <dt class="ssl"><strong><abbr title="Secure Sockets Layer">SSL</abbr></strong></dt>
-  <dd>Time spent completing a <abbr title="Secure Sockets Layer">SSL</abbr> handshake.</dd>
+  <dt class="ssl"><strong>SSL</strong></dt>
+  <dd>Time spent completing a SSL handshake.</dd>
 
   <dt class="request-sent"><strong>Request Sent / Sending</strong></dt>
   <dd>
