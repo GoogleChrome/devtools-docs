@@ -94,19 +94,6 @@
     <img src="cpu-profiling-files/flamechart02.png">
   </div>
 
-
-  <p>You may even want to do a Timeline recording simultaneously while you do a recording with the JavaScript Profiler. Here’s a snippet you can use to do this:</p>
-
-  <pre class="prettyprint">
-    <code>(function() {
-      console.timeline();
-      console.profile();
-      setTimeout(function() {
-          console.timelineEnd();
-          console.profileEnd();
-      }, 3000);
-    })();</code></pre>
-
   <p class="note"><strong>Note</strong>: The horizontal axis is time and vertical axis is the call stack. Expensive functions are wide. Call stacks are represented on the Y axis, so a tall flame is not necessarily significant. Pay close attention to wide bars, no matter their position in the call stack.</p>
 
 

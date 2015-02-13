@@ -235,16 +235,6 @@ Stops the timer with the specified label and prints the elapsed time.
 For example usage, see [console.time()](#consoletimelabel).
 
 
-## console.timeline(label)
-
-Starts a Timeline recording with an optional label.
-
-
-## console.timelineEnd()
-
-Stops the Timeline recording if one is in progress.
-
-
 ## console.timeStamp([label]) ##
 
 This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.
