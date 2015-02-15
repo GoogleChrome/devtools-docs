@@ -211,29 +211,59 @@ You can change the default set of columns displayed by the Network table. To sho
 
 You can view the Network table with large resource rows (the default), or small resource rows. Click the blue **Use small resource rows** toggle button <img src="../images/small-resource-rows.png" alt="Small resource rows"/> at the bottom of the panel to view small rows. Click the same button (now gray <img src="../images/large-resource-rows.png" alt="Large resource rows"/>) to view large resource rows again. Large rows enable some columns to display two text fields: a primary field and a secondary field (Time and Latency, for instance). When viewing small rows only the primary field is displayed.
 
-In the following screenshot, the Network table is viewed with small resource rows and just the Timeline column.
 
-<img src="network-files/small-rows.png" alt="Resized resource rows">
+<figure>
+  <img src="network-files/small-rows.png" alt="Resized resource rows">
+  <figcaption>
+    The network table with small resource rows and just the timeline column.
+  </figcaption>
+</figure>
+
 
 ### Waterfall view
 
-The waterfall view in the Network panel graphs the time it took to load each resource, from the start of the HTTP request to the receipt of the final byte of the response. Each resource loading time is represented as a bar, color-coded according to the resource type. The length of the lighter-shaded part of each bar represents the request's latency, while the length of the darker-shaded part represents the time spent receiving the response data.
+The waterfall view in the network panel graphs the time it took to load each resource.
+From the start of the HTTP request to the receipt of the final byte of the response.
 
-<img src="network-files/network-timeline.png" alt="Network timeline view">
+Each resource loading time is represented as a bar.
+This has color-coded information related to each resource.
+Each color specifies a different step needed to recieve the resource.
+The larger the bar grows represents more data being trasmitted for the request.
 
-When you hover your mouse over a row (but not over an actual bar) the request's latency and receipt time are displayed above the corresponding bar's light- and dark-shaded areas, respectively, as shown below.
 
-<img src="network-files/timeline-view-1.png" alt="Timeline view"/>
+<figure>
+  <img src="network-files/network-timeline.png" alt="Network timeline view">
+  <figcaption>
+    The network timeline for a simple web page.
+  </figcaption>
+</figure>
 
-If you hover your mouse over the bar itself, the complete timing data for the resource is presented in a tooltip. This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
 
-<img src="network-files/timeline-view-hover.png" alt="Timeline view on hover"/>
+Hovering your mouse over the bar itself will present the complete timing data.
+This is the same information that's presented in the [Timing details tab](#resource-network-timing) for a given resource.
 
-The waterfall indicates when the the [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded)
-and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events were fired with blue and red vertical lines, respectively. The `DOMContentLoaded` event is fired when the main document had been loaded and parsed. The `load` event is fired when all of the page's resources have been downloaded.
 
-<img src="network-files/dom-lines.png" alt="DOM event lines"/>
+<figure>
+  <img src="network-files/timeline-view-hover.png" alt="Timeline view on hover"/>
+  <figcaption>
+    Network timing details revealed on hover.
+  </figcaption>
+</figure>
 
+
+The waterfall highlights [`DOMContentLoaded`](http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded) and [`load`](http://docs.webplatform.org/wiki/dom/events/load) events display with blue and red vertical lines. When the engine has completed parsing of the main document the `DOMContentLoaded` event fires. Upon retrieving all the page's resources the `load` event will fire.
+
+
+<figure>
+  <img src="network-files/dom-lines.png" alt="DOM event lines"/>
+  <figcaption>
+    The event lines as displayed over the timeline.
+  </figcaption>
+</figure>
+
+
+You may enable in the network settings to view the timeline as color-coded by resource type.
+If you do the network timing information is still accessible through the tooltip.
 Waterfall bars are color-coded as follows:
 
 <style>
