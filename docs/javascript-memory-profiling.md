@@ -295,6 +295,10 @@ Properties and property values of objects have different types and are colored a
 
 Objects designated as `System `do not have a corresponding JavaScript type. They are part of JavaScript VM's object system implementation. V8 allocates most of its internal objects in the same heap as the user's JS objects. So these are just v8 internals.
 
+### Finding a specific object
+
+To find an object in the collected heap you can search using <kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">F</kbd></kbd> and giving the <a href="#memory-profiling-faq">object ID</a>.
+
 
 ## Views in detail
 
