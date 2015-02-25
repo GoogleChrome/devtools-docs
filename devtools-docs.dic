@@ -1,4 +1,4 @@
-127
+136
 minifier
 minifying
 minified
@@ -126,3 +126,12 @@ polyfill
 SSL
 DOM
 API's
+console.log
+console.groupCollapsed
+formatters
+initializer
+console.group
+console.time
+console.profile
+console.profileEnd
+Timeline's
