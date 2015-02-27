@@ -58,7 +58,7 @@ There are a few things you need in order to contribute to DevTools.
 
 Download the [Blink](http://www.chromium.org/blink) source code by [cloning the git repository](https://chromium.googlesource.com/chromium/blink). This process can take anywhere between 30-60 minutes (depending on your connection).
 
-`git clone https://chromium.googlesource.com/chromium/blink`
+`git clone https://chromium.googlesource.com/chromium/blink.git`
 
 **Install Canary**<br/>
 
