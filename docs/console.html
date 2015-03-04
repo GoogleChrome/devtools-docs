@@ -1,0 +1,909 @@
+{{+bindTo:partials.standard_devtools_article}}
+
+<h1 id="using-the-console">Using the Console</h1>
+
+<section>
+    <p>
+        Utilizing the console gives you the ability to:
+    </p>
+    <ul>
+        <li>Log diagnostic information to help debug your web page or application.</li>
+        <li>Enter commands that interact with the document and the Chrome DevTools.</li>
+    </ul>
+    <p>
+        You also may evaluate normal JavaScript expressions.
+        This documentation provides an overview and common uses of the console.
+        You may browse the <a href="console-api">Console API</a> and <a href="commandline-api">Command Line API</a> reference material to understand more functionality.
+    </p>
+</section>
+
+<div class="collapsible">
+    <h2 id="basic-operation">Basic Operation</h2>
+
+
+    <section>
+        <h3 id="opening-the-console">Opening the Console</h3>
+        <p>
+            The JavaScript Console is available in two places.
+            The Console panel provides primary access.
+            It also is available from within any other panel by using the Drawer.
+            To open the Console tab, do one of the following:
+        </p>
+        <ul>
+            <li>Use the keyboard shortcut <kbd><kbd class="kbd">Command</kbd> + <kbd class="kbd">Option</kbd> + <kbd class="kbd">J</kbd></kbd> (Mac) or <kbd><kbd class="kbd">Control</kbd> + <kbd class="kbd">Shift</kbd> + <kbd class="kbd">J</kbd></kbd> (Windows/Linux).</li>
+            <li>Select <samp><img src="devtools/images/chrome-menu.png" alt="Chrome Menu"> > More Tools > JavaScript Console</samp>.</li>
+        </ul>
+
+        <figure>
+            <img alt="Console panel view" src="console-files/console1.png">
+            <figcaption>
+                A clean console view.
+            </figcaption>
+        </figure>
+
+        <p>
+            To open the drawer console press the <kbd class="kbd">Esc</kbd> key on your keyboard or click the <samp>Show Drawer</samp> button in the upper right corner of the Chrome DevTools window.
+        </p>
+
+        <figure>
+            <img alt="Console split-view" src="console-files/console-in-drawer.png">
+            <figcaption>
+                The console in the drawer while on the elements panel.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="clearing-the-console-history">Clearing the console history</h3>
+        <p>
+            To clear the console's history, do one of the following:
+        </p>
+        <ul>
+            <li>Right-click or Ctrl-click anywhere in the Console and choose <samp>Clear Console</samp> from the context menu that appears.</li>
+            <li>Enter the <code><a href="commandline-api#clear">clear()</a></code> Command Line API at the shell prompt.</li>
+            <li>Invoke <code><a href="console-api#consoleclear">console.clear()</a></code> Console API from JavaScript.</li>
+            <li>Use the keyboard shortcut <kbd><kbd class="kbd">Cmd</kbd> + <kbd class="kbd">K</kbd></kbd>, <kbd><kbd class="kbd">^</kbd> + <kbd class="kbd">L</kbd></kbd> (Mac) <kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">L</kbd></kbd> (Windows and Linux).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 id="message-stacking">Message Stacking</h3>
+        <p>
+            The console will stack consecutive messages that contain the same output.
+            This helps keep the information provided to you as concise as possible.
+        </p>
+
+        <figure>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamps disabled (default)</th>
+                        <th>Timestamps enabled</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="console-files/timestamps-disabled.png" alt="Timestamps disabled"/></td>
+                        <td><img src="console-files/timestamps-enabled.png" alt="Timestamps enabled"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <figcaption>
+                Examples of the two stacking states.
+            </figcaption>
+        </figure>
+
+        <figure>
+            <figcaption>
+                Sample code for testing console stack modes.
+            </figcaption>
+            <pre class="prettyprint"><code class="language-javascript">msgs = ['hello', 'world', 'there'];
+for (i = 0; i &lt; 20; i++) console.log(msgs[Math.floor((i/3)%3)])
+</code></pre>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="frame-selection">Frame Selection</h3>
+        <p>
+            The console can operate within different frames of the page.
+            The primary page is the <samp>top frame</samp> for the document.
+            An <code>iframe</code> element for example would create its own frame context.
+            You may specify the frame by using the dropdown beside the filter button.
+        </p>
+
+        <figure>
+            <img src="console-files/frame-selection.png" alt="frame selection">
+            <figcaption>
+                Selecting a secondary frame.
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img src="console-files/locations-between-frames.png" alt="locations between frames">
+            <figcaption>
+                This image shows how the window origin has changed between the top frame and the selected secondary frame.
+            </figcaption>
+        </figure>
+    </section>
+</div>
+
+<div class="collapsible">
+    <h2 id="using-the-console-api">Using the Console API</h2>
+    <p>
+        The Console API is collection of methods provided by the global `console` object defined by DevTools.
+        One of the API's main purposes is to log information to the console while your application is running.
+        You can also group output visually in the console to reduce visual clutter.
+    </p>
+
+        <section>
+            <h3 id="writing-to-the-console">Writing to the console</h3>
+            <p>
+                The <a href="console-api#consolelogobject-object">console.log()</a> method takes one or more expressions as parameters and writes their current values to the console.
+            </p>
+
+            <figure id="simple-console-write">
+                <figcaption>A simple write to the console.</figcaption>
+                <figure>
+                    <pre class="prettyprint"><code class="language-javascript">var a = document.createElement('p');
+a.appendChild(document.createTextNode('foo'));
+a.appendChild(document.createTextNode('bar'));
+console.log("Node count: " + a.childNodes.length);
+</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/log-basic.png" alt="Basic log" />
+                    <figcaption>
+                        Display of the example code in the console.
+                    </figcaption>
+                </figure>
+            </figure>
+
+            <p>
+                Multiple parameters will concatenate into a space-delimited line.
+            </p>
+
+            <figure>
+                <figcaption><code>console.log()</code> with multiple parameters</figcaption>
+                <figure>
+                    <pre class="prettyprint"><code class="language-javascript">console.log("Node count:", a.childNodes.length, "and the current time is:", Date.now());</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/log-multiple.png" alt="Log Multiple"/>
+                    <figcaption>
+                        Output of multiple parameter <code>console.log()</code>
+                    </figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="errors-and-warnings">Errors and Warnings</h3>
+            <p>
+                Errors and warnings act the same way as normal logging.
+                The difference is <code>error()</code> and <code>warn()</code> have styles to bring attention to them.
+                The <code><a href="console-api#consoleerrorobject-object">console.error()</a></code> method displays a red icon along with red message text.
+                The <code><a href="console-api#consolewarnobject-object">console.warn()</a></code> method displays a yellow warning icon with the message text.
+            </p>
+
+            <figure>
+                <figcaption>Using console warn and error methods.</figcaption>
+                <figure>
+                    <figcaption>Using the <code>error()</code> method.</figcaption>
+                    <figure>
+                        <pre class="prettyprint"><code class="language-javascript">function connectToServer() {
+    console.error("Error: %s (%i)", "Server is  not responding",500);
+}
+connectToServer();
+</code></pre>
+                    </figure>
+                    <figure>
+                        <img src="console-files/error-server-not-resp.png" alt="Error example output"/>
+                        <figcaption>
+                           How <code>connectToServer()</code> displays in the console.
+                        </figcaption>
+                    </figure>
+                </figure>
+
+                <figure>
+                    <figcaption>Using the <code>warn()</code> method.</figcaption>
+                    <figure>
+                        <pre class="prettyprint"><code class="language-javascript">if(a.childNodes.length &lt; 3 ) {
+    console.warn('Warning! Too few nodes (%d)', a.childNodes.length);
+}
+</code></pre>
+                    </figure>
+                    <figure>
+                        <img src="console-files/warning-too-few-nodes.png" alt="Warn example" />
+                        <figcaption>
+                            Example warning output.
+                        </figcaption>
+                    </figure>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="assertions">Assertions</h3>
+            <p>
+                The <code><a href="console-api#consoleassertexpression-object">console.assert()</a></code> method conditionally displays an error string (its second parameter) only if its first parameter evaluates to <samp>false</samp>.
+            </p>
+            <figure>
+                <figcaption>A simple assertion and how it displays.</figcaption>
+                <figure>
+                    <figcaption>The following code will cause an error message in the console only if the number of child nodes belonging to the <code>list</code> element is greater than 500.</figcaption>
+                    <figure>
+                        <pre class="prettyprint"><code class="language-javascript">console.assert(list.childNodes.length &lt; 500, "Node count is > 500");</code></pre>
+                    </figure>
+                </figure>
+                <figure>
+                    <img src="console-files/assert-failed.png" alt="Assertion failed" />
+                    <figcaption>
+                        How an assertion failure displays in the console.
+                    </figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="filtering-console-output">Filtering console output</h3>
+            <p>
+                You can filter console output by its severity level by selecting one of the filter options.
+                Activate filters under the filter funnel icon located in the upper-left corner of the console panel.
+                The following filter options are available:
+            </p>
+
+            <dl>
+                <dt>All</dt>
+                <dd>Shows all console output.</dd>
+
+                <dt>Errors</dt>
+                <dd>Only show output from <code>console.error()</code>.</dd>
+
+                <dt>Warnings</dt>
+                <dd>Only show output from <code>console.warn()</code>.</dd>
+
+                <dt>Info</dt>
+                <dd>Only show output from <code>console.info()</code>.
+
+                <dt>Logs</dt>
+                <dd>Only show output from <code>console.log()</code>.</dd>
+
+                <dt>Debug</dt>
+                <dd>Only show output from <code>console.timeEnd()</code> and <code>console.debug()</code>.</dd>
+            </dl>
+
+            <figure>
+                <img src="console-files/filter-errors.png" alt="Filtering errors" />
+                <figcaption>
+                    Filter enabled for showing only errors.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="grouping-output">Grouping Output</h3>
+            <p>
+                You can group related output together with the group commands.
+                The <code><a href="console-api#consolegroupobject-object">group</a></code> command takes a single string parameter to set the name of the group.
+                The console will begin to group all subsequent output together.
+                To end the grouping you only need to call <code><a href="console-api#consolegroupend">groupEnd()</a></code>.
+            </p>
+
+            <figure>
+                <figcaption>Simple grouping example</figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">var user = "jsmith", authenticated = false;
+console.group("Authentication phase");
+console.log("Authenticating user '%s'", user);
+// authentication code here...
+if (!authenticated) {
+    console.log("User '%s' not authenticated.", user)
+}
+console.groupEnd();
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>Example output</figcaption>
+                    <img src="console-files/group.png" alt="Simple console group output" />
+                </figure>
+            </figure>
+
+            <p>
+                Log groups may also nest within each other.
+                This is useful to see a large group in smaller pieces at a time.
+            </p>
+
+            <figure>
+                <figcaption>
+                    This example shows a log group for the authentication phase of a login process.
+                </figcaption>
+                <figure>
+                    <figcaption>The code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">var user = "jsmith", authenticated = true, authorized = true;
+// Top-level group
+console.group("Authenticating user '%s'", user);
+if (authenticated) {
+    console.log("User '%s' was authenticated", user);
+    // Start nested group
+    console.group("Authorizing user '%s'", user);
+    if (authorized) {
+        console.log("User '%s' was authorized.", user);
+    }
+    // End nested group
+    console.groupEnd();
+}
+// End top-level group
+console.groupEnd();
+console.log("A group-less log trace.");
+</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/nestedgroup.png" alt="Nested console group output"/>
+                    <figcaption>
+                        Nested groups output in the console.
+                    </figcaption>
+                </figure>
+            </figure>
+
+            <p>
+                When you are using groups heavily it can be very useful to not see everything as it happens.
+                For these times you can automatically collapse groups by calling <code><a href="console-api#consolegroupcollapsed">groupCollapsed()</a></code> instead of <code>group()</code>.
+            </p>
+
+            <figure>
+                <figcaption>console.groupCollapsed() usage</figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">console.groupCollapsed("Authenticating user '%s'", user);
+if (authenticated) {
+    ...
+}
+console.groupEnd();
+</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/groupcollapsed.png" alt="Initially collapsed group" />
+                    <figcaption>
+                        <code>groupCollapsed()</code> output.
+                    </figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="viewing-structured-data">Viewing structured data</h3>
+
+            <p>
+                The <code>table()</code> method provides an easy way to view similar data objects.
+                This will take the properties of an object and create a header.
+                Row data comes from each indexes properties value.
+            </p>
+
+            <figure>
+                <figcaption>
+                    A table in the console using two arrays.
+                </figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">console.table([{a:1, b:2, c:3}, {a:"foo", b:false, c:undefined}]);
+console.table([[1,2,3], [2,3,4]]);
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>The output of the example code.</figcaption>
+                    <img src="console-files/table-arrays.png" alt="console table display">
+                </figure>
+            </figure>
+
+            <p>
+                The second parameter to <code>table()</code> is optional.
+                You may define an array containing the property strings you wish to display.
+            </p>
+
+            <figure>
+                <figcaption>
+                    A console table using a collection of objects.
+                </figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+
+var family = {};
+family.mother = new Person("Susan", "Doyle", 32);
+family.father = new Person("John", "Doyle", 33);
+family.daughter = new Person("Lily", "Doyle", 5);
+family.son = new Person("Mike", "Doyle", 8);
+
+console.table(family, ["firstName", "lastName", "age"]);
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>The output of the example code.</figcaption>
+                    <img src="console-files/table-people-objects.png" alt="console output with table objects">
+                </figure>
+            </figure>
+
+        </section>
+
+        <section>
+            <h3 id="string-substitution-and-formatting">String substitution and formatting</h3>
+
+            <p>
+                The first parameter passed to any of the logging methods may contain one or more <i>format specifiers</i>.
+                A format specifier consists of a <code>%</code> symbol followed by a letter that indicates the formatting that applies to the value.
+                The parameters following the string apply to the placeholders in order.
+            </p>
+
+            <figure>
+                <figcaption>
+                    The following example uses the string and digit formatters to insert values into the output string.
+                    You will see <samp>Sam has 100 points</samp> in the console.
+                </figcaption>
+                <pre class="prettyprint"><code class="language-javascript">console.log("%s has %d points", "Sam", 100);</code></pre>
+            </figure>
+
+            <p>The full list of format specifiers are as follows:</p>
+
+            <dl>
+                <dt><code>%s</code></dt>
+                <dd>Formats the value as a string</dd>
+
+                <dt><code>%d</code></dt>
+                <dt><code>%i</code></dt>
+                <dd>Formats the value as an integer.</dd>
+
+                <dt><code>%f</code></dt>
+                <dd>Formats the value as a floating point value.</dd>
+
+                <dt><code>%o</code></dt>
+                <dd>Formats the value as an expandable DOM element. As seen in the Elements panel.</dd>
+
+                <dt><code>%O</code></dt>
+                <dd>Formats the value as an expandable JavaScript object.</dd>
+
+                <dt><code>%c</code></dt>
+                <dd>Applies CSS style rules to the output string as specified by the second parameter.</dd>
+            </dl>
+
+            <figure>
+                <figcaption>
+                    This example uses the digit specifier to format the value of <code>document.childNodes.length</code>.
+                    It also uses the floating point specifier to format the value of <code>Date.now()</code>.
+                </figcaption>
+                <figure>
+                    <figcaption>The code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">console.log("Node count: %d, and the time is %f.", document.childNodes.length, Date.now());</code></pre>
+                </figure>
+                <figure>
+                    <img class="console-files/format-substitution.png" alt="Example subsitution output" />
+                    <figcaption>
+                        The output of the previous code sample.
+                    </figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="formatting-dom-elements-as-javascript-objects">Formatting DOM elements as JavaScript objects</h3>
+
+            <p>
+                When you log a DOM element to the console it displays in an XML format.
+                This is the same view as the Elements panel.
+                To display the JavaScript representation you may either use the <code>dir()</code> method or the object format specifier in a <code>log()</code> statement.
+            </p>
+
+            <figure>
+                <figcaption>The different views for logging an element.</figcaption>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th><code>log()</code> view</th>
+                            <th><code>dir()</code> view</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="console-files/log-element.png" alt="Element logged" /></td>
+                            <td><img src="console-files/dir-element.png" alt="Element logged using dir()" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="styling-console-output-with-css">Styling console output with CSS</h3>
+            <p>
+                The CSS format specifier allows you to customize the display in the console.
+                Start the string with the specifier and give the style you wish to apply as the second parameter.
+            </p>
+
+            <figure>
+                <figcaption>Styling log information</figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">console.log("%cThis will be formatted with large, blue text", "color: blue; font-size: x-large");</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/format-string.png" alt="Formatted string" />
+                    <figcaption>Example code output.</figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="measuring-how-long-something-takes">Measuring how long something takes</h3>
+            <p>
+                A timer starts by calling the <code><a href="console-api#consoletimelabel">time()</a></code> method.
+                You must pass a string to the method to identify the time marker.
+                When you want to end the measurement call <code><a href="console-api#consoletimeendlabel">timeEnd()</a></code> and pass it the same string passed to the initializer.
+                The console logs the label and time elapsed when the <code>timeEnd()</code> method fires.
+            </p>
+
+            <figure>
+                <figcaption>Example code and output for timing JavaScript execution.</figcaption>
+                <figure>
+                    <figcaption>Example Code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">console.time("Array initialize");
+    var array= new Array(1000000);
+    for (var i = array.length - 1; i >= 0; i--) {
+        array[i] = new Object();
+    };
+console.timeEnd("Array initialize");
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>Output in the console:</figcaption>
+                    <img src="console-files/time-duration.png" alt="Time elapsed" />
+                </figure>
+            </figure>
+
+            <p>
+                When a <a href="timeline">Timeline</a> recording is taking place during a <code>time()</code> operation it will annotate the timeline as well.
+                This is useful when tracing what your application does and where it comes from.
+            </p>
+            <figure>
+                <img src="console-files/time-annotation-on-timeline.png" alt="Time annotation on timeline">
+                <figcaption>
+                    How an annotation on the timeline looks from <code>time()</code>.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="marking-the-timeline">Marking the Timeline</h3>
+            <p>
+                The <a href="timeline">Timeline panel</a> provides a complete overview of where the engine spends time.
+                You can add a mark to the timeline from the console with the <code><a href="console-api#consoletimestamplabel">timeStamp()</a></code>.
+                This is a simple way to correlate events in your application with other events.
+            </p>
+
+            <p class="note"><b>Note:</b> The <code>timeStamp()</code> method only functions while a Timeline recording is in progress.</p>
+
+            <p>
+                The <code>timeStamp()</code> annotates the Timeline in the following places:
+            </p>
+            <ul>
+                <li>A yellow vertical line in the Timeline's summary and details view.</li>
+                <li>It adds a record to the list of events.</li>
+            </ul>
+
+            <figure>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">function AddResult(name, result) {
+    console.timeStamp("Adding result");
+    var text = name + ': ' + result;
+    var results = document.getElementById("results");
+    results.innerHTML += (text + "&lt;br>");
+}
+</code></pre>
+                </figure>
+                <figure>
+                    <img src="console-files/timestamp2.png" alt="timestamps in the timeline" />
+                    <figcaption>
+                        Timestamps in the timeline.
+                    </figcaption>
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="setting-breakpoints-in-javascript">Setting breakpoints in JavaScript</h3>
+            <p>
+                The <code><a href="console-api#debugger">debugger;</a></code> statement will begin a debugging session.
+                This is equivalent to setting a breakpoint at this line in the script.
+            </p>
+
+            <figure>
+                <figcaption>Calling <code>brightness()</code> begins the debug session.</figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettify"><code class="language-javascript">brightness : function() {
+    debugger;
+    var r = Math.floor(this.red*255);
+    var g = Math.floor(this.green*255);
+    var b = Math.floor(this.blue*255);
+    return (r * 77 + g * 150 + b * 29) >> 8;
+}
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>Example output:</figcaption>
+                    <img src="console-files/debugger.png" alt="Debugger activated" />
+                </figure>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="counting-statement-execution">Counting statement executions</h3>
+
+            <p>
+                The <code>count()</code> method will log the provided string along with the number of times the same string has been provided.
+                The string may have dynamic content.
+                When the exact statement is given to <code>count()</code> on the same line the number will increment.
+            </p>
+
+            <figure>
+                <figcaption>
+                    An example <code>count()</code> with some dynamic content.
+                </figcaption>
+                <figure>
+                    <figcaption>Example code:</figcaption>
+                    <pre class="prettyprint"><code class="language-javascript">function login(user) {
+    console.count("Login called for user " + user);
+}
+
+users = [ // by last name since we have too many Pauls.
+    'Irish',
+    'Bakaus',
+    'Kinlan'
+];
+
+users.forEach(function(element, index, array) {
+    login(element);
+});
+
+login(users[0]);
+</code></pre>
+                </figure>
+                <figure>
+                    <figcaption>Output of the code sample:</figcaption>
+                    <img src="console-files/console-count.png" alt="console count example output">
+                </figure>
+            </figure>
+        </section>
+</div>
+
+<div class="collapsible">
+    <h2 id="using-the-command-line-api">Using the Command Line API</h2>
+    <p>
+        The console is more powerful than a simple log output directory.
+        It also is a full terminal prompt in the scope of the current web page.
+        The <a href="commandline-api">Command Line API</a> offers the following features:
+    </p>
+    <ul>
+        <li>Convenience functions for selecting DOM elements</li>
+        <li>Methods for controlling the CPU profiler</li>
+        <li>Aliases for a number of Console API methods</li>
+        <li>Monitoring events</li>
+        <li>View event listeners registered on objects</li>
+    </ul>
+
+    <section>
+        <h3 id="evaluating-expressions">Evaluating expressions</h3>
+        <p>
+            The console will evaluate any JavaScript expression you provide when pressing <kbd class="kbd">Enter</kbd>.
+            It provides auto-completion and tab-completion.
+            As you type an expression property name suggestions appear.
+            If there are multiple matches <kbd class="kbd">&#8593;</kbd> and <kbd class="kbd">&#8595;</kbd> will cycle through them.
+            Pressing <kbd class="kbd">&#8594;</kbd> will select the current suggestion.
+            For a single suggestion <kbd class="kbd">Tab</kbd> will also select the suggestion.
+        </p>
+        <figure>
+            <img alt="Simple expressions in the console." src="console-files/evaluate-expressions.png">
+            <figcaption>
+                Some simple expressions in the console.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="selecting-elements">Selecting Elements</h3>
+        <p>
+            There are a few shortcuts for selecting elements.
+            These save you valuable time when compared to typing out their standard counterparts.
+        </p>
+
+        <dl>
+            <dt><code><a href="commandline-api#selector">$()</a></code></dt>
+            <dd>
+                Returns the first element that matches the specified CSS selector.
+                It is a shortcut for <code><a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelector">document.querySelector()</a></code>.
+            </dd>
+
+            <dt><code><a href="commandline-api#selector-1">$$()</a></code></dt>
+            <dd>
+                Returns an array of all the elements that match the specified CSS selector.
+                This is an alias for <code><a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll">document.querySelectorAll()</a></code>
+            </dd>
+
+            <dt><code><a href="commandline-api#xpath">$x()</a></code></dt>
+            <dd>
+                Returns an array of elements that match the specified <a href="http://en.wikipedia.org/wiki/XPath">XPath</a>.
+            </dd>
+        </dl>
+
+        <figure>
+            <figcaption>Examples of target selection:</figcaption>
+            <pre class="prettyprint"><code class="language-javascript">$('code') // Returns the first code element in the document.
+$$('figure') // Returns an array of all figure elements in the document.
+$x('html/body/p') // Returns an array of all paragraphs in the document body.
+</code></pre>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="inspecting-dom-elements-and-javascript-heap-objects">Inspecting DOM elements and JavaScript heap objects</h3>
+        <p>
+            The <code><a href="commandline-api#inspectobject">inspect()</a></code> function takes a DOM element or JavaScript reference as a parameter.
+            If you provide a DOM element the DevTools will go to the Elements panel and display that element.
+            If you provide a JavaScript reference then it will go to the Profile panel.
+        </p>
+        <figure data-target="inspecting-dom-elements-example">
+            <figcaption>
+                When this code executes in your console on this page, it will grab this figure and display it on the Elements panel.
+                This takes advantage of the <code<a href="commandline-api#_">$_</a></code> property to get the output of the last evaluated expression.
+            </figcaption>
+            <pre class="prettyprint"><code class="language-javascript">$('[data-target="inspecting-dom-elements-example"]')
+inspect($_)
+</code></pre>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="accessing-recently-selected-elements-and-objects">Accessing recently selected elements and objects</h3>
+        <p>
+            The console stores the last five element and object selections.
+            As you select an element in the Elements panel or an object in the Profiles panel, that pushes onto the history stack.
+            <code><a href="commandline-api#0-4">$<var>x</var></a></code> provides access to the history stack.
+            Remember computers begin counting from 0; this means the latest item is <code>$0</code> and the oldest item is <code>$4</code>.
+        </p>
+    </section>
+
+    <section>
+        <h3 id="monitoring-events">Monitoring events</h3>
+        <p>
+            The <code><a href="commandline-api#monitoreventsobject-events">monitorEvents()</a></code> method instructs the DevTools to log information on the specified targets.
+            The first parameter is the object to monitor.
+            All events return if the second parameter is not provided.
+            To specify the events to listen to you may pass either a string or an array of strings as the second parameter.
+        </p>
+        <figure>
+            <figcaption>Listen to click events on the body of the page.</figcaption>
+            <pre class="prettify"><code class="language-javascript">monitorEvents(document.body, "click");</code></pre>
+        </figure>
+        <p>
+            If a supported <i>event type</i> that the DevTools maps to a set of standard event names then it will listen to the events for that type.
+            The <a href="commandline-api#monitoreventsobject-events">Command Line API</a> has a full mapping of <i>event types</i> to the events they cover.
+        </p>
+        <p>
+            To stop monitoring events you call the <code>unmonitorEvents()</code> method and give it the object to stop monitoring.
+        </p>
+        <figure>
+            <figcaption>
+                Stop listening to events on the <var>body</var> object.
+            </figcaption>
+            <pre class="prettify"><code class="language-javascript">unmonitorEvents(document.body);</code></pre>
+        </figure>
+    </section>
+
+    <section>
+        <h3 id="controlling-the-cpu-profiler">Controlling the CPU Profiler</h3>
+        <p>
+            The <code>profile()</code> function begins a JavaScript CPU profile.
+            You may pass in a string to name the profile as well.
+            To stop a profile call <code>profileEnd()</code> in the same way you called the initializer.
+        </p>
+        <figure>
+            <figure>
+            <figcaption>
+                Create a new profile without providing a name.
+            </figcaption>
+            <pre class="prettyprint"><code class="language-javascript">profile()
+profileEnd()
+</code></pre>
+            </figure>
+            <figure>
+                <figcaption>Example profile</figcaption>
+                <img alt="Profile panel" src="commandline-api-files/profile-panel.png">
+            </figure>
+        </figure>
+        <p>
+            If you provide a label that is the heading.
+            Profiles group together if you create multiple profiles with the same label.
+        </p>
+        <figure>
+            <figure>
+                <figcaption>
+                    Example code:
+                </figcaption>
+                <pre class="prettyprint"><code class="language-javascript">profile("init")
+profileEnd("init")
+profile("init")
+profileEnd("init")
+</code></pre>
+            </figure>
+            <figure>
+                <figcaption>Result in the profiles panel:</figcaption>
+                <img alt="Grouped profiles created by the example code." src="commandline-api-files/profile-panel-2.png">
+            </figure>
+        </figure>
+        <p>
+            Multiple CPU profiles can operate at once.
+            You also are not required to close them out in creation order.
+        </p>
+        <figure>
+            <figure>
+                <figcaption>Nested profiles closed in same order:</figcaption>
+                <pre class="prettyprint"><code class="language-javascript">profile("A")
+profile("B")
+profileEnd("A")
+profileEnd("B")
+</code></pre>
+            </figure>
+            <figure>
+                <figcaption>Nested profiles closed in alternate order:</figcaption>
+                <pre class="prettyprint"><code class="language-javascript">profile("A")
+profile("B")
+profileEnd("B")
+profileEnd("A")
+</code></pre>
+            </figure>
+        </figure>
+    </section>
+
+</div>
+
+<div class="collapsible">
+    <section>
+        <h2 id="settings">Settings</h2>
+        <p>
+            The Console has four settings you can modify in the general tab of the DevTools settings dialog:
+        </p>
+        <dl>
+            <dt>Hide network messages</dt>
+            <dd>Instructs the console to not show logs from network issues. For example, 404 and 500 series errors will not be logged.</dd>
+
+            <dt>Log XMLHttpRequests</dt>
+            <dd>Determines if the console logs each XMLHttpRequest.</dd>
+
+            <dt>Preserve log upon navigation</dt>
+            <dd>Determines if the console history is not deleted when you navigate to another page.</dd>
+
+            <dt>Show timestamps</dt>
+            <dd>When a statement is made to the console this will display the timestamp for the call. This will disable <a href="#message-stacking">message stacking</a>.</dd>
+        </dl>
+    </section>
+</div>
+
+<div class="collapsible">
+    <h2 id="summary">Summary</h2>
+    <p>
+        The Chrome DevTools provides a robust console.
+        You should now understand how to begin using this to store information and grab elements.
+        This functionality is still scratching the surface of possibilities.
+        The web is your playground and these are your building blocks.
+    </p>
+</div>
+
+
+{{/partials.standard_devtools_article}}
