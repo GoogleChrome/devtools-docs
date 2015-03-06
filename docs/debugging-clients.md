@@ -69,6 +69,14 @@ protocol.
 
 A basic [recipe for automating JS profiling through Node.js](https://github.com/paulirish/automated-chrome-profiling#readme). See the [other apps mentioned](https://github.com/paulirish/automated-chrome-profiling/blob/master/readme.md#way-more-is-possible) that live in the protocol ecosystem.
 
+### chrome-debug-protocol
+
+The [`chrome-debug-protocol` module](https://github.com/DickvdBrink/chrome-debug-protocol) is a NodeJS module consumable with JavaScript and [TypeScript](http://www.typescriptlang.org/) making automated tests and profiling on Chrome easy to implement.
+
+    npm install -g chrome-debug-protocol
+
+<img src="debugging-clients-files/chrome-debug-protocol.png" alt=""/>
+
 
 ## Sublime Text
 
