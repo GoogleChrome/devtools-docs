@@ -71,12 +71,9 @@ A basic [recipe for automating JS profiling through Node.js](https://github.com/
 
 ### chrome-debug-protocol
 
-The [`chrome-debug-protocol` module](https://github.com/DickvdBrink/chrome-debug-protocol) is a NodeJS module consumable with JavaScript and [TypeScript](http://www.typescriptlang.org/) making automated tests and profiling on Chrome easy to implement.
+The [`chrome-debug-protocol` module](https://github.com/DickvdBrink/chrome-debug-protocol) is consumable with JavaScript and [TypeScript](http://www.typescriptlang.org/) making automated tests and profiling on Chrome easy to implement.
 
     npm install -g chrome-debug-protocol
-
-<img src="debugging-clients-files/chrome-debug-protocol.png" alt=""/>
-
 
 ## Sublime Text
 
