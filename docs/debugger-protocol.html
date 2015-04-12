@@ -47,11 +47,11 @@
     The <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">tip-of-tree protocol</a> is volatile and may break at any time. However it captures the full capabilities of the Protocol, whereas the stable release is a subset. There is no backwards compatibility support guaranteed for the capabilities it introduces. You can
     use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
     builds at your own risk.  
-
-    A <i>portion</i> of the tip-of-tree protocol is documented in the <a href="protocol/tot/index.html">tot section here</a>; it may be slightly more complete than what's in <a href="protocol/1.1/index.html">1.1</a>.
-  </p>
-
-  <p>You can inspect how the Chrome DevTools uses the protocol. Especially handy when looking up newer features. First, <a href="https://developers.google.com/chrome-developer-tools/docs/contributing#step_3_inspector_inception">inspect the inspector</a> and reload the inspector so your attached one can view its WebSocket connection (<code>Network > Filter > WebSockets</code>). Then view the frames of WebSocket activity as you use the host DevTools. You may need to re-click the WebSocket item to have the Frame activity update.</p>
+<p>
+    The tip-of-tree protocol is more readable in the <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">debugger protocol viewer</a>.
+  
+<h4>Sniffing the protocol</h4>
+  <p>You can inspect how the Chrome DevTools uses the protocol. Especially handy when looking up newer features. First, run Chrome with the debugging port open: <code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code>.  Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
 
   <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.jpg"><img src="debugger-protocol/debugger-protocol-sniffing.jpg" alt="Sniffing the debugger protocol" /></a></figure>
 </div>
