@@ -43,12 +43,9 @@ The DevTools team values feedback from developers using the tools. If you want t
 
 The Chrome DevTools are actually a web app written in JavaScript and CSS. If you're familiar with these technologies, you know enough to write a patch. A few folks have already done this, giving us a colorpicker, a file picker and other features, all contributed by developers just like you.
 
-IRC channel on [Freenode](http://webchat.freenode.net/?channels=blink): #chrome-devtools and #blink
+IRC channel on [Freenode](http://webchat.freenode.net/?channels=chrome-devtools): #chrome-devtools
 
-In this guide, we'll cover how to get set up and running locally so you can start developing and contributing to the DevTools. You may also find it helpful to read the [Chromium guide for contributing code](http://dev.chromium.org/developers/contributing-code).
-
-<p class="note"><strong>Note:</strong> You will need to sign and submit a completed <a href="https://developers.google.com/open-source/cla/individual">CLA (Contributor License Agreement)</a> before we are able to consider any contributions you may wish to make.
-</p>
+<p class="note">We're currently rewriting this contribution guide. If you'd like to follow along with the early work, please read and comment on <a href="https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/edit#">DevTools Contributing (draft)</a></p>
 
 ### Step 1: Getting set up
 
@@ -107,16 +104,11 @@ From [Running Canary with flags](http://www.chromium.org/developers/how-tos/run-
 **On Windows**
 
 1. **Right-click** on your "Google Chrome Canary" icon
-2. Select  **Properties**
-3. At the end of the **Target field** add the command line flags
+2. Select  **Properties**, and command line flags to the end of the **Target field** 
 
 For example:
 
     "C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --user-data-dir=C:\Users\%username%\chrome-dev-profile http://localhost:9222#http://localhost:8000/front_end/inspector.html
-
-<img src="contributing-files/image02.png" alt="Command-line flags" width="700"/>
-
-<p class="note"><strong>Note:</strong> It is a good idea if you copy the path in Target to a text editor so you can see the full value while adding the flags with a space between each one to the end of the path. Then paste the entire line into the field.</p>
 
 **On OS X**
 
@@ -195,6 +187,9 @@ Before you start [contributing](http://dev.chromium.org/developers/contributing-
 
 ### Step 5: Pull, Develop, Branch, Commit
 
+ You may also find it helpful to read the [Chromium guide for contributing code](http://dev.chromium.org/developers/contributing-code). 
+
+
 Pull the latest files from the repository and sync to be sure you are working with the latest code.
 
     git pull --rebase
@@ -232,6 +227,9 @@ Once everything for your patch is complete, you will want to write and run relev
 <p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or UI tests, they will need to be created and included as part of the patch.</p>
 
 ### Step 6: Upload your Patch
+
+
+ You will need to sign and submit a completed [CLA (Contributor License Agreement)](https://developers.google.com/open-source/cla/individual) before we are able to consider any contributions you may wish to make.
 
 
 **Install depot_tools**
