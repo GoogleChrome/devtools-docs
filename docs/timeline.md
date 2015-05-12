@@ -443,7 +443,7 @@ This section lists events that belong to the Scripting category and their proper
     </tr>
     <tr>
         <td>Time</td>
-        <td>A script called <a href="console-api.md#consoletimelabel">console.time()</a>)</td>
+        <td>A script called <a href="console-api.md#consoletimelabel">console.time()</a></td>
     </tr>
     <tr>
         <td>Time End</td>
