@@ -223,7 +223,8 @@ function raiseAndCatchException() {
 </script>
 <ul>
 <li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-gray.png"/>button at the bottom of the window to switch to
-<strong>Pause on all exceptions</strong> mode</li>
+<strong>Pause on exceptions</strong> mode</li>
+<li>Check the <strong>Pause On Caught Exceptions</strong> checkbox</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
 <li>You should stop in <span class=
@@ -253,8 +254,8 @@ function raiseException() {
 }
 </script>
 <ul>
-<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-blue.png"/>button again to switch to <strong>Pause on uncaught
-exceptions</strong> mode</li>
+<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-blue.png"/>button</li>
+<li>Disable the <strong>Pause On Caught Exceptions</strong> checkbox</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
 <li>You should not stop in raiseAndCatchException function since exception is
