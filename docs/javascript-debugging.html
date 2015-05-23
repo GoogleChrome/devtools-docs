@@ -23,7 +23,7 @@ graphical interface to the <a href="https://code.google.com/p/v8/">V8</a> debugg
 <strong>Sources</strong> panel:</p>
 
 <ul>
-<li>Open a site such as the <a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html">Google Closure hovercard demo
+<li>Open a site such as the <a href="https://rawgit.com/google/closure-library/master/closure/goog/demos/hovercard.html">Google Closure hovercard demo
 page</a> or the <a href="http://todomvc.com/examples/angularjs/">TodoMVC</a> Angular app.</li>
 <li>Open the DevTools window.</li>
 <li>If it is not already selected, select <strong>Sources</strong>.</li>
@@ -52,7 +52,7 @@ which will display all open scripts.</p>
 <p>There are also several related keyboard shortcuts available in the <strong>Sources</strong> panel:</p>
 
 <ul>
-    <li><strong>Continue</strong>: <kbd class="kbd">F8</kbd> or <kbd><kbd class="kbd">Command</kbd> + <kbd class="kbd">/</kbd></kbd> on Mac or <kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">/</kbd></kbd> on other platforms.</li>
+    <li><strong>Continue</strong>: <kbd class="kbd">F8</kbd> or <kbd><kbd class="kbd">Command</kbd> + <kbd class="kbd">\</kbd></kbd> on Mac or <kbd><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">\</kbd></kbd> on other platforms.</li>
     <li><strong>Step over</strong>: <kbd class="kbd">F10</kbd> or <kbd><kbd class="kbd">Command</kbd>+<kbd class="kbd">'</kbd></kbd> on Mac or <kbd><kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">'</kbd></kbd> on other platforms.</li>
     <li><strong>Step into</strong>: <kbd class="kbd">F11</kbd> or <kbd><kbd class="kbd">Command</kbd>+<kbd class="kbd">;</kbd></kbd> on Mac or <kbd><kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">;</kbd></kbd> on other platforms.</li>
     <li><strong>Step out</strong>: <kbd><kbd class="kbd">Shift</kbd>+<kbd class="kbd">F11</kbd></kbd> or <kbd><kbd class="kbd">Shift</kbd>+<kbd class="kbd">Command</kbd>+<kbd class="kbd">;</kbd></kbd> on Mac or <kbd><kbd class="kbd">Shift</kbd>+<kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">;</kbd></kbd> on other platforms.</li>
@@ -72,7 +72,7 @@ which will display all open scripts.</p>
 
 <h3 id="add-remove-breakpoints">Add and remove breakpoints</h3>
 
-<p>In the <b>Sources</b> panel, open a JavaScript file for debugging. In the example below, we are debugging the <b>todoCtrl.js</b> file from the <a href="http://todomvc.com/architecture-examples/angularjs/">AngularJS version of TodoMVC</a>.</p>
+<p>In the <b>Sources</b> panel, open a JavaScript file for debugging. In the example below, we are debugging the <b>todoCtrl.js</b> file from the <a href="http://todomvc.com/examples/angularjs/">AngularJS version of TodoMVC</a>.</p>
 
 <div class="screenshot"><img src="javascript-debugging/sources-select-todoCtrl-js.png"/></div>
 
@@ -223,7 +223,8 @@ function raiseAndCatchException() {
 </script>
 <ul>
 <li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-gray.png"/>button at the bottom of the window to switch to
-<strong>Pause on all exceptions</strong> mode</li>
+<strong>Pause on exceptions</strong> mode</li>
+<li>Check the <strong>Pause On Caught Exceptions</strong> checkbox</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
 <li>You should stop in <span class=
@@ -253,8 +254,8 @@ function raiseException() {
 }
 </script>
 <ul>
-<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-blue.png"/>button again to switch to <strong>Pause on uncaught
-exceptions</strong> mode</li>
+<li>Click the <strong>Pause on exceptions</strong> <img class="ui" src="../images/pause-blue.png"/>button</li>
+<li>Disable the <strong>Pause On Caught Exceptions</strong> checkbox</li>
 <li><button onclick="raiseAndCatchException()">Raise
   exception!</button></li>
 <li>You should not stop in raiseAndCatchException function since exception is
@@ -377,7 +378,7 @@ function hovermeMouseOut(event) {
 <p><div class="screenshot"><img src="javascript-debugging/continue-to-resume.jpg"/></div></p>
 
 
-<p class="note"><b>Note: Following events are supported</b>
+<p class="note"><b>Note: Following events are supported</b><br>
 &nbsp;&nbsp;<b>Keyboard:</b> keydown, keypress, keyup, textInput<br>
 &nbsp;&nbsp;<b>Mouse:</b> click, dblclick, mousedown, mouseup, mouseover,
 mousemove, mouseout, mousewheel<br>
