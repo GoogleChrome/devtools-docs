@@ -294,6 +294,6 @@ Returns an array containing the values of all properties belonging to the specif
 
 ## Additional APIs
 
-Chrome extensions can inject additional helper methods into the commandline API. For example, the [Debug Utils extension](https://chrome.google.com/webstore/detail/debug-utils/djailkkojeahmihdpcelmmobkpepmkcl) ([github](https://github.com/amasad/debug_utils))  offers hooks for breaking on property access, event firings, amd method calls.
+Chrome extensions can inject additional helper methods into the commandline API. For example, the [Debug Utils extension](https://chrome.google.com/webstore/detail/debug-utils/djailkkojeahmihdpcelmmobkpepmkcl) ([github](https://github.com/amasad/debug_utils))  offers hooks for breaking on property access, event firings, and method calls.
 
 {{/partials.standard_devtools_article}}
