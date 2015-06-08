@@ -4,8 +4,8 @@
 
 <p>Under the hood, Chrome Developer Tools is a web application written in HTML,
   JavaScript and CSS. It has a special binding available at JavaScript runtime
-  that allows interacting with chrome pages and instrumenting them. Interaction
-  protocol consists of commands that are sent to the page and events that
+  that allows interacting with chrome pages and instrumenting them. The interaction
+  protocol consists of commands that are sent to the page, and events that
   the page is generating. Although Chrome Developer Tools is the primary client of
   this protocol, including for <a href="remote-debugging.html">remote debugging</a>, there are ways for third parties to use it and start
   instrumenting browser pages explicitly. We will describe the ways it could be
@@ -51,14 +51,14 @@
     The tip-of-tree protocol is more readable in the <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">debugger protocol viewer</a>.
   
 <h4>Sniffing the protocol</h4>
-  <p>You can inspect how the Chrome DevTools uses the protocol. Especially handy when looking up newer features. First, run Chrome with the debugging port open: <pre><code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code></pre> Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
+  <p>You can inspect how the Chrome DevTools uses the protocol. This is especially handy when looking up newer features. First, run Chrome with the debugging port open: <pre><code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code></pre> Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
 
   <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.jpg"><img src="debugger-protocol/debugger-protocol-sniffing.jpg" alt="Sniffing the debugger protocol" /></a></figure>
 </div>
 
 <div class="collapsible">
   <h2 id="remote">Debugging over the wire</h2>
-  <p>Today Developer Tools front-end can attach to a remotely running Chrome
+  <p>The Developer Tools front-end can attach to a remotely running Chrome
     instance for debugging.
 
     For this scenario to work, you should start your
@@ -74,11 +74,11 @@
   <pre class="summary">
     chrome.exe --user-data-dir=&lt;some directory&gt;</pre>
 
-  <p>And now you can navigate to the given port from your <i>client</i> and attach to
+  <p>Now you can navigate to the given port from your <i>client</i> and attach to
     any of the discovered tabs for debugging: <a href="http://localhost:9222">http://localhost:9222</a>
   </p>
 
-  <p>You will find Developer Tools interface identical to the embedded one and
+  <p>You will find the Developer Tools interface identical to the embedded one and
     here is why:
   </p>
   <ul>
@@ -89,7 +89,7 @@
     <li>It fetches HTML, JavaScript and CSS files over HTTP
     </li>
     <li>Once loaded, Developer Tools establishes a Web Socket connection to its
-      host and starts interchanging JSON messages with it.
+      host and starts exchanging JSON messages with it.
     </li>
   </ul>
 
@@ -169,7 +169,7 @@
 <div class="collapsible">
   <h2 id="simultaneous">Simultaneous protocol clients</h2>
   <p>
-    We currently do not support multiple clients connected to the protocol simultaneously. That includes the DevTools opening while another client is connected. On the bug tracker, <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> follows the issue; you can star it for email updates.
+    We currently do not support multiple clients connected to the protocol simultaneously. This includes opening DevTools while another client is connected. On the bug tracker, <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> follows the issue; you can star it for email updates.
   </p>
   <p>
     Upon disconnnection, the outgoing client will receive a <code>detached</code> event. For example: <code>{"method":"Inspector.detached","params":{"reason":"replaced_with_devtools"&#125;}</code>. View the <a href="https://code.google.com/p/chromium/codesearch#chromium/src/out/Debug/gen/chrome/common/extensions/api/debugger.cc&q=file:debugger.cc%20Reason%20ParseReason&sq=package:chromium&type=cs&">enum of possible reasons.</a>  (For reference: the <a href="https://chromiumcodereview.appspot.com/11361034/">original patch</a>). After disconnection, some apps have chosen to pause their state and offer a reconnect button. 
