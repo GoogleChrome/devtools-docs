@@ -197,7 +197,7 @@ You can also specify one of the available event "types", strings that map to pre
 
 |Event type|Corresponding mapped events
 -----|---------------
-**mouse**| "`mousedown`", "`mouseup`", "`click`", "`dblclick`", "`mousemove`", "`mouseover`", "`mouseout`", "`mousewheel`"
+**mouse**| "`click`", "`dblclick`", "`mousedown`", "`mouseeenter`", "`mouseleave`", "`mousemove`", "`mouseout`", "`mouseover`", "`mouseup`", "`mouseleave`", "`mousewheel`"
 **key** | "`keydown`", "`keyup`", "`keypress`", "`textInput`"
 **touch** | "`touchstart`", "`touchmove`", "`touchend`", "`touchcancel`"
 **control**| "`resize`", "`scroll`", "`zoom`", "`focus`", "`blur`", "`select`", "`change`", "`submit`", "`reset`"
