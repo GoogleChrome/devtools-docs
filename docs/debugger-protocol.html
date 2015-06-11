@@ -22,7 +22,7 @@
 
   <h3>Stable</h3>
   <p>
-    <a href="protocol/1.1/index.html">Debugger protocol version 1.1</a> is the most recent stable release of the protocol. 
+    <a href="protocol/1.1/index.html">Debugger protocol version 1.1</a> is the most recent stable release of the protocol.
   </p>
   <p>
     As of Google Chrome 31, we commit to supporting v1.1. All subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1. Our protocol backwards compatibility commitment is:
@@ -46,14 +46,14 @@
   <p>
     The <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">tip-of-tree protocol</a> is volatile and may break at any time. However it captures the full capabilities of the Protocol, whereas the stable release is a subset. There is no backwards compatibility support guaranteed for the capabilities it introduces. You can
     use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
-    builds at your own risk.  
+    builds at your own risk.
 <p>
     The tip-of-tree protocol is more readable in the <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">debugger protocol viewer</a>.
-  
+
 <h4>Sniffing the protocol</h4>
   <p>You can inspect how the Chrome DevTools uses the protocol. This is especially handy when looking up newer features. First, run Chrome with the debugging port open: <pre><code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code></pre> Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
 
-  <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.jpg"><img src="debugger-protocol/debugger-protocol-sniffing.jpg" alt="Sniffing the debugger protocol" /></a></figure>
+  <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.png"><img src="debugger-protocol/debugger-protocol-sniffing.png" alt="Sniffing the debugger protocol" /></a></figure>
 </div>
 
 <div class="collapsible">
@@ -119,8 +119,8 @@
 
 <div class="collapsible">
   <h2 id="clients">Debugging Protocol Clients</h2>
-  <p>Many applications and libraries already use the protocol. Some to collect 
-    performance data, others to breakpoint debug from another editor. There are 
+  <p>Many applications and libraries already use the protocol. Some to collect
+    performance data, others to breakpoint debug from another editor. There are
     libraries to access the raw protocol from Node.js and Python.
   </p>
 
@@ -135,7 +135,7 @@
   <h2 id="extension">Using debugger extension API</h2>
   <p>
     To allow third parties to interact with the protocol, we introduced
-    <a href="https://developer.chrome.com/extensions/debugger.html">chrome.debugger</a> 
+    <a href="https://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>
     extension API that exposes this JSON message
     transport interface. As a result, you can not only attach to the remotely
     running Chrome instance, but also instrument it from its own extension.
@@ -172,8 +172,8 @@
     We currently do not support multiple clients connected to the protocol simultaneously. This includes opening DevTools while another client is connected. On the bug tracker, <a href="https://code.google.com/p/chromium/issues/detail?id=129539">crbug.com/129539</a> follows the issue; you can star it for email updates.
   </p>
   <p>
-    Upon disconnnection, the outgoing client will receive a <code>detached</code> event. For example: <code>{"method":"Inspector.detached","params":{"reason":"replaced_with_devtools"&#125;}</code>. View the <a href="https://code.google.com/p/chromium/codesearch#chromium/src/out/Debug/gen/chrome/common/extensions/api/debugger.cc&q=file:debugger.cc%20Reason%20ParseReason&sq=package:chromium&type=cs&">enum of possible reasons.</a>  (For reference: the <a href="https://chromiumcodereview.appspot.com/11361034/">original patch</a>). After disconnection, some apps have chosen to pause their state and offer a reconnect button. 
-  </p> 
+    Upon disconnnection, the outgoing client will receive a <code>detached</code> event. For example: <code>{"method":"Inspector.detached","params":{"reason":"replaced_with_devtools"&#125;}</code>. View the <a href="https://code.google.com/p/chromium/codesearch#chromium/src/out/Debug/gen/chrome/common/extensions/api/debugger.cc&q=file:debugger.cc%20Reason%20ParseReason&sq=package:chromium&type=cs&">enum of possible reasons.</a>  (For reference: the <a href="https://chromiumcodereview.appspot.com/11361034/">original patch</a>). After disconnection, some apps have chosen to pause their state and offer a reconnect button.
+  </p>
 
 
 </div>
