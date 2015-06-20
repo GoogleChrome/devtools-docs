@@ -12,18 +12,18 @@
 
   <h4>Show paint rectangles</h4>
   <p>
-    When this is enabled you be able to see the regions where Chrome paints. This can help diagnose and ultimately <a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary paints</a> on a page. You can also use this to <a href="http://www.paulirish.com/2011/viewing-chromes-paint-cycle/">study painting behaviors</a> just by hovering over links, popups, or some content which dynamically updates.
+    When Show paint rectangles is enabled you be able to see the regions where Chrome paints. This can help to diagnose and ultimately <a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary paints</a> on a page. You can also use this to <a href="http://www.paulirish.com/2011/viewing-chromes-paint-cycle/">study painting behaviors</a> just by hovering over links, popups, or content which dynamically updates.
   </p>
 
   <div class="screenshot">
     <img src="rendering-settings-files/show-paint-rects.png">
   </div>
 
-  <p>Furthermore, showing paint rectangles shows repainted areas for each frame making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
+  <p>Furthermore, showing paint rectangles shows repainted areas for each frame, making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
 
 
   <h4>Show composited layer borders</h4>
-  <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
+  <p>Show composited layer borders highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
 
   <p class="note"><strong>Note:</strong> The blue grid represents tiles, which you can think of as sub-units of a layer that Chrome uses to upload parts of a large layer at a time to the GPU. They aren't really too important in most cases.</p>
 
@@ -48,14 +48,14 @@
   <p>When running Chrome on Android you may also <strong>show a GPU memory meter</strong> as part of the overlay. Enabling the FPS meter is <em></em>specially helpful when developing pages that have animations.</p>
 
   <h4>Enable continuous page repainting</h4>
-  <p>This is a tool that helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
+  <p>>Enable continuous page repainting helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
 
   <div class="screenshot">
     <img src="rendering-settings-files/continuous-page-repainting.png">
   </div>
 
   <h4>Show potential scroll bottlenecks</h4>
-  <p>Shows area of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled. <a href="https://code.google.com/p/chromium/issues/detail?id=253552#c13">Additional details on causes in this ticket.</a></p>
+  <p>Show potential scroll bottlenecks shows areas of the page that slow down scrolling. Touch and mousewheel event listeners can delay scrolling. Some areas need to repaint their content when scrolled. <a href="https://code.google.com/p/chromium/issues/detail?id=253552#c13">Additional details on causes in this ticket.</a></p>
 
 
 
