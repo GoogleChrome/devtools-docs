@@ -2,5 +2,8 @@ OWNERS
 google*.html
 _local_variables.html
 _project.yaml
-_README
+_README 
+_log/log-id 
+_googleID 
+
 
