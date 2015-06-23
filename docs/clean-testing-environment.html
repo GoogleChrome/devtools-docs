@@ -25,7 +25,7 @@ Ensure Chrome is being run with a clean profile:
 
         <p><img src="clean-testing-environment/screenprofile.jpg"/></p>
         <p>&nbsp;</p>
-       <p>To guarantee a clean profile that doesn't inherit
+       <p>To guarantee a clean profile doesn't inherit
        any extensions or settings, launch Chrome using the <code>--user-data-dir</code>
        switch with the path <code>'/dev/null'</code>.  e.g:</p>
 
@@ -38,14 +38,14 @@ Ensure Chrome is being run with a clean profile:
         </ul>
       </p>
 
-<p>This will ensure you get a completely empty profile instead of loading the user's profile as read-only.</p><br/>
+<p>Launching Chrome like this will ensure you get a completely empty profile instead of loading the user's profile as read-only.</p><br/>
 </li>
 
-<li>Close other tabs and processes/applications you may have running in the background. If these apps need to run in the background, use your system monitor to ensure apps are not stealing too much CPU or RAM. <img
+<li>Close other tabs and processes/applications that may be running in the background. If these apps need to run in the background, use your system monitor to ensure apps are not utilizing too much CPU or RAM. <img
   src="clean-testing-environment/activity.png"/></li>
 
-<li>Disable any Dynamic CPU overclocking you may have enabled on your system.</li>
-<li>Make sure you are up to date with the latest builds of Chrome. You can use <a href="http://download-chromium.appspot.com">http://download-chromium.appspot.com</a> to grab edge builds.</li>
+<li>Disable any Dynamic CPU overclocking that may be enabled on your system.</li>
+<li>Make sure you are up-to-date with the latest build of Chrome. You can use <a href="http://download-chromium.appspot.com">http://download-chromium.appspot.com</a> to grab an edge build.</li>
 
 <li>If you are running into a bug and generally use Chrome Canary as your
   development browser, it is worth testing in Chrome Stable to ensure the issue
