@@ -2,10 +2,8 @@
 
 # Managing application storage
 
-The Resources panel lets you inspect your application's local data sources, including IndexedDB or Web SQL databases, local and session storage, cookies, and Application Cache resources. You can also quickly inspect your application's visual resources, including images, fonts and and style sheets.
+The Resources panel lets you inspect your application's local data sources, including IndexedDB, Web SQL databases, local and session storage, cookies, and Application Cache resources. You can also quickly inspect your application's visual resources, including images, fonts, and stylesheets.
 
-
-The Resources panel reveals your application's local data stores, including IndexedDB and WebSQL databases, local and session storage, cookies and Application Cache resources. 
 
 ## IndexedDB
 
@@ -36,22 +34,22 @@ their contents.
 
 * **To view the available Web SQL databases**, expand the Web SQL item in the tree control.
 * **To view available tables in a database**, expand the database tree item.
-* **To view a table's records**, select the table. It's properties appear in the right-hand pane.
+* **To view a table's records**, select the table. Its properties appear in the right-hand pane.
 * **To refresh the view of the database**, click the Refresh button <img src="../images/refresh.png" /> at the bottom of the panel. 
 
-You can query a Web SQL database's tables with SQL commands and view 
+You can query a Web SQL database's tables with SQL commands, and view 
 query results in a tabular format. As you type out a command or table name, code hints are provided for the names of supported SQL commands and clauses, and the names of tables that the database contains.
 
 **To run a SQL command against a database**:
 
 1. Select the database containing the table you want to query.
-2. At the prompt that appears in the right-hand panel, enter the SQL statement you want to execute.
+2. In the prompt that appears in the right-hand panel, enter the SQL statement you want to execute.
 
 <img src="resources-files/sql.png" />
 
 ## Cookies
 
-You can view detailed information about cookies that have been created by an HTTP header or with JavaScript. You can also clear individual cookies, groups of cookies from the same origin, or clear all cookies from a specific domain.
+The cookies resource tab allows you to view detailed information about cookies that have been created by an HTTP header or with JavaScript. You can clear individual cookies or groups of cookies from the same origin, or clear all cookies from a specific domain.
 
 <img src="resources-files/cookies.png" />
 
@@ -71,7 +69,7 @@ The following fields are displayed for each cookie in the selected frame group:
 * **HTTP** — If present, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
 * **Secure** — If present, indicates that communication for this cookie must be over an encrypted transmission.
 
-You can clear (delete) a single cookies, all cookies in the selected frame group, or cookies from a specific domain. Recall the same cookie may appear in more than one frame group, as discussed previously. If the same cookie for a given domain is referenced in two frame groups, deleting all cookies for that domain will affect both groups.
+You can clear (delete) a single cookie, all cookies in the selected frame group, or cookies from a specific domain. If the same cookie for a given domain is referenced in two frame groups, deleting all cookies for that domain will affect both groups.
 
 **To clear a single cookie**, do one of the following:
 
@@ -113,7 +111,7 @@ The table of cached resources includes the following properties for each resourc
 * **Resource** — The URL of the resource.
 * **Type** — The type of cached resource, which can have one of the following 
   values:
-    * **Master** — The resource was added to the cache because it's 
+    * **Master** — The resource was added to the cache because its 
       [manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest) 
       attribute indicated that this was its cache.
     * **Explicit** — The resource was explicitly listed in the application's 
@@ -156,13 +154,13 @@ of the application cache along with a colored status icon (green, yellow, or red
 
 ## Local and session storage
 
-You can view and edit local and session storage key/value pairs you've created using the [Web Storage APIs](http://www.w3.org/TR/webstorage/). You can edit, delete, and create both local and session storage data.
+The Local and session storage pane lets you to view, edit, create, and delete local and session storage key/value pairs that have been created using the [Web Storage APIs](http://www.w3.org/TR/webstorage/). 
 
 **To delete a key/value pair**, do one of the following:
 
 * Select the item in the data table and do one of the following:
-    2. Click the Delete button.
-    3. Press the Delete key on your keyboard.
+    1. Click the Delete button.
+    2. Press the Delete key on your keyboard.
 * Right-click or Control-click on the data item and choose Delete from the context menu.
 
 **To add a new key/value pair:**
@@ -194,7 +192,7 @@ Image previews include the dimensions, file size, MIME type, and URL of the imag
 
 Other tips:
 
-* **To open a resource in the Network panel**, right-click or control-click the resource and select **Reveal In Resources Panel**. From the same menu you can copy the resource's URL to the system clipboard, or open it in a new browser tab.
+* **To open a resource in the Network panel**, right-click or control-click the resource and select **Reveal In Resources Panel**. From the same menu you can then copy the resource's URL to the system clipboard, or open it in a new browser tab.
 
 <img src="resources-files/reveal-in-network.png" />
 
