@@ -1,7 +1,7 @@
 {{+bindTo:partials.standard_devtools_article}}
 <h1>Working with CSS Preprocessors</h1>
 
-<p>Many developers generate CSS style sheets using a CSS preprocessor, such as Sass, Less, or Stylus. Because the
+<p>Many developers generate CSS stylesheets using a CSS preprocessor, such as <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less</a>, or <a href="https://learnboost.github.io/stylus/" target="_blank">Stylus</a>. Because the
 CSS files are generated, editing the CSS files directly is not as helpful.</p>
 
 <p>For preprocessors that support CSS source maps, DevTools lets you live-edit
@@ -29,7 +29,7 @@ containing the associated source file regains focus. Also, manual editing of a C
 <div class="collapsible">
 <h2 id="toc-requirements">Requirements</h2>
 
-<p>There are a few requirements to note when working with a CSS preprocessor:</p>
+<p>There are a few requirements to keep in mind when working with a CSS preprocessor:</p>
 
 <ul>
 <li><p>To use this workflow, your CSS preprocessor must support CSS source maps, specifically the Source Map v3 proposal. The CSS source maps must be built
@@ -72,7 +72,7 @@ enable automatic reloading of generated CSS files. </p>
 <div class="collapsible">
 <h2 id="toc-using-css-source-maps">Using Sass with CSS source maps</h2>
 
-<p>To live-edit Sass files in Chrome you need to have the <a href="http://sass-lang.com/download.html">pre-release version of the Sass compiler</a>, which is the only version that currently supports source map generation.</p>
+<p>To live-edit Sass files in Chrome you need to have a version past 3.3, which added support for source map generation.</p>
 
 <pre class="prettyprint">gem install sass</pre>
 
