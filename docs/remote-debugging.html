@@ -7,7 +7,7 @@
 <img alt="Debugging Chrome for Android using the Chrome Developer Tools" src="remote-debugging/remote-debug-banner.png"  style="max-width: 480px">
 
 <p>Remote debugging on Android supports:</p>
-<ul> 
+<ul>
   <li>Debugging websites in <a href="#debugging-tabs">browser tabs</a>.</li>
   <li>Debugging <a href="#debugging-webviews">WebViews</a> in native Android apps.</li>
   <li><a href="#screencasting">Screencasting</a> live to your development machine from your Android device.</li>
@@ -97,7 +97,7 @@
     <img alt="The chrome://inspect page." src="remote-debugging/chrome-inspect-devices.png">
     <figcaption>Viewing connected devices from the <b>chrome://inspect</b> page.</figcaption>
   </figure>
-  
+
   <p>If you have problems finding your device on the <b>chrome://inspect page</b>, see the <a href="#troubleshooting">Troubleshooting</a> section.</p>
 
 </section>
@@ -124,7 +124,7 @@
     <li>When you mouse over an element in the <b>Elements</b> panel, DevTools highlights the element on your device.</li>
     <li>You can also click the <b>Inspect Element</b> <img src="../images/inspect-icon.png" class="inspect-icon" alt="inspect element icon"> icon in DevTools and tap your device screen. DevTools highlights the tapped element in the <b>Elements</b> panel.</li>
   </ul>
-  
+
   <p class="note"><b>Note</b>: The version of Chrome on your device determines the version of DevTools used during remote debugging. For this reason, the remote debugging DevTools might differ from the version that you normally use.</p>
 
   <h3 id="tips">Debugging tips</h3>
@@ -151,7 +151,7 @@
       WebView.setWebContentsDebuggingEnabled(true);
   }</pre>
 
-  <p>This setting applies to all of the application's WebViews.</p> 
+  <p>This setting applies to all of the application's WebViews.</p>
 
   <p><b>Tip</b>: WebView debugging is <strong>not</strong> affected by the state of the <code>debuggable</code> flag in the application's manifest. If you want to enable WebView debugging only when <code>debuggable</code> is <code>true</code>, test the flag at runtime.</p>
 
@@ -220,7 +220,7 @@
 <section class="collapsible">
   <h2 id="port-forwarding">Port forwarding</h2>
 
-  <p>Your phone can't always reach the content on your development server. They might be on different networks. Moreover, you might be developing on a restricted corporate network.</p> 
+  <p>Your phone can't always reach the content on your development server. They might be on different networks. Moreover, you might be developing on a restricted corporate network.</p>
 
   <p>Port forwarding on Chrome for Android makes it easy to test your development site on mobile. It works by creating a listening TCP port on your mobile device that maps to a particular TCP port on your development machine. Traffic between these ports travels through USB, so the connection doesn't depend on your network configuration.</p>
 
@@ -236,7 +236,7 @@
     <li>In the <b>Device port</b> field, enter the port number you want your Android device to listen on.
       <br>(The default port is 8080.)
     <li>In the <b>Host</b> field, enter the IP address (or hostname) and port number where your web application is running.
-      <br>This address can be any local location accessible from your development machine. Currently, port numbers must be between 1024 and 65535 (inclusive).</li>
+      <br>This address can be any local location accessible from your development machine. Currently, port numbers must be between 1024 and 32767 (inclusive).</li>
     <li>Check <b>Enable port forwarding</b>.
     <li>Click <b>Done</b>.
       <figure>
@@ -258,8 +258,8 @@
 <section class="collapsible">
   <h2 id="virtual-host-mapping">Virtual host mapping</h2>
 
-  <p>Port forwarding works great when you're developing on <code>localhost</code>. But there are cases when you might be using a customized local domain.</p> 
-  <p>For example, suppose you're using a third party JavaScript SDK that only works on whitelisted domains. So you added an entry, such as <code>127.0.0.1 production.com</code>, to your <a href="http://en.wikipedia.org/wiki/Hosts_(file)">hosts file</a>. Or maybe you configured a customized domain using virtual hosts on your web server (<a href="http://www.mamp.info/en/">MAMP</a>).</p> 
+  <p>Port forwarding works great when you're developing on <code>localhost</code>. But there are cases when you might be using a customized local domain.</p>
+  <p>For example, suppose you're using a third party JavaScript SDK that only works on whitelisted domains. So you added an entry, such as <code>127.0.0.1 production.com</code>, to your <a href="http://en.wikipedia.org/wiki/Hosts_(file)">hosts file</a>. Or maybe you configured a customized domain using virtual hosts on your web server (<a href="http://www.mamp.info/en/">MAMP</a>).</p>
   <p>If you want your phone to reach content on your customized domain, you can use port forwarding in combination with a proxy server. The proxy maps requests from your device to the correct location on the host machine.</p>
 
 
@@ -320,7 +320,7 @@
   </ol>
 
   <p>With these settings, your device forwards all of its requests to the proxy on the host machine. The proxy makes requests on behalf of your device, so requests to your customized local domain are properly resolved.</p>
-  
+
   <p>Now you can load local domains on Chrome for Android just as you would on the host machine.</p>
   <figure>
     <img src="remote-debugging/virtual-host-mapping.png" alt="virtual host mapping">
@@ -367,7 +367,7 @@
 
   <p>You no longer need to configure <abbr title="Android Debug Bridge">ADB</abbr> or the ADB plugin to debug remote browser tabs and WebViews. Remote debugging for Android is now part of the standard Chrome DevTools. It works on all operating systems: Windows, Mac, Linux, and Chrome OS.</p>
 
-  <p>If you do encounter problems with remote debugging, you can try the <a href="remote-debugging-legacy">legacy workflow</a> using the <code>adb</code> binary from the Android SDK.</p> 
+  <p>If you do encounter problems with remote debugging, you can try the <a href="remote-debugging-legacy">legacy workflow</a> using the <code>adb</code> binary from the Android SDK.</p>
 
   <p class="note"><b>Note</b>: The direct USB connection between Chrome and the device might interrupt your <code>adb</code> connection. Before establishing your <code>adb</code> connection, uncheck <b>Discover USB devices</b> on <b>chrome://inspect</b>. Then, disconnect and reconnect the device.</p>
 
