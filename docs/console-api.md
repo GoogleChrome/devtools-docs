@@ -1,7 +1,7 @@
 {{+bindTo:partials.standard_devtools_article}}
 <p class="caution">
-  <strong>The DevTools docs have moved!</strong><br>
-  <a href="https://developers.google.com/web/tools/chrome-devtools">Head over to the new home for Chrome DevTools</a> for the latest tutorials, docs and updates.
+  <strong style="font-weight: normal; font-size: 110%; display:block;">The DevTools docs have moved!</strong>
+  For the latest tutorials, docs and updates <a href="https://developers.google.com/web/tools/chrome-devtools">head over to the new home of Chrome DevTools</a>.
 </p>
 
 # Console API Reference
