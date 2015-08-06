@@ -1,7 +1,7 @@
 {{+bindTo:partials.standard_devtools_article}}
 <p class="caution">
   <strong>The DevTools docs have moved!</strong><br>
-  You are looking at the old documentation site. This content is stale and won't be updated any longer. <a href="https://developers.google.com/web/tools/chrome-devtools">Head over to our new home</a> for the latest tutorials, docs and updates.
+  <a href="https://developers.google.com/web/tools/chrome-devtools">Head over to the new home for Chrome DevTools</a> for the latest tutorials, docs and updates.
 </p>
 
 # Managing application storage
@@ -16,7 +16,7 @@ You can inspect IndexedDB databases and object stores, page through an object st
 * **To view a list of available database**, expand the IndexedDB category.
 * **To view a database's object stores**, select it from the list of available databases.
 
-<img src="resources-files/indexeddb.png"/> 
+<img src="resources-files/indexeddb.png"/>
 
 **To page through records in the object store**, click the Previous and Next page buttons. You can also specify the record where paging starts by specifying the record's key.
 
@@ -29,19 +29,19 @@ You can inspect IndexedDB databases and object stores, page through an object st
 
 **To view properties of a database**, select it from the list of databases.
 
-<img src="resources-files/database-properties.png"/> 
+<img src="resources-files/database-properties.png"/>
 
 ## Web SQL
 
-You can inspect the content of Web SQL databases, and run SQL commands against 
+You can inspect the content of Web SQL databases, and run SQL commands against
 their contents.
 
 * **To view the available Web SQL databases**, expand the Web SQL item in the tree control.
 * **To view available tables in a database**, expand the database tree item.
 * **To view a table's records**, select the table. Its properties appear in the right-hand pane.
-* **To refresh the view of the database**, click the Refresh button <img src="../images/refresh.png" /> at the bottom of the panel. 
+* **To refresh the view of the database**, click the Refresh button <img src="../images/refresh.png" /> at the bottom of the panel.
 
-You can query a Web SQL database's tables with SQL commands, and view 
+You can query a Web SQL database's tables with SQL commands, and view
 query results in a tabular format. As you type out a command or table name, code hints are provided for the names of supported SQL commands and clauses, and the names of tables that the database contains.
 
 **To run a SQL command against a database**:
@@ -59,7 +59,7 @@ The cookies resource tab allows you to view detailed information about cookies t
 
 When you expand the Cookies category, it displays a list of domains of the main document and those of all loaded frames. Selecting one of these "frame groups" displays all cookies, for all resources, for all frames in that group. There are two consequences of this grouping to be aware of:
 
-* Cookies from different domains may appear in the same frame group. 
+* Cookies from different domains may appear in the same frame group.
 * The same cookie may appear in several frame groups.
 
 The following fields are displayed for each cookie in the selected frame group:
@@ -67,7 +67,7 @@ The following fields are displayed for each cookie in the selected frame group:
 * **Name** — The cookie's name.
 * **Value** — The cookie's value.
 * **Domain** — The domain that the cookie applies to.
-* **Path** — The path that the cookie applies to.  
+* **Path** — The path that the cookie applies to.
 * **Expires / Maximum Age**— The cookie's expiration time, or maximum age. For session cookies, this field is always "Session".
 * **Size** — The size of the cookie's data in bytes.
 * **HTTP** — If present, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.
@@ -90,42 +90,42 @@ You can clear (delete) a single cookie, all cookies in the selected frame group,
 
 1. Right+click (or Ctrl+click) a cookie in the table from the target domain.
 2. From the context menu, select **Clear All from _domain_**, where
-   _domain_ is the target domain. 
+   _domain_ is the target domain.
 
 <img src="resources-files/clear-all-cookies.png" />
 
 Note the following about this operation:
 
-* Only cookies with exactly the same domain name are removed; sub- and top-level domains are unaffected. 
+* Only cookies with exactly the same domain name are removed; sub- and top-level domains are unaffected.
 * It only works on domains visible in the cookies table.
 
 You can also refresh the table to reflect any changes to the page's cookies.
 
-**To refresh the cookies table**, click the refresh button <img 
-src="../images/refresh.png" /> at the bottom of the Resources panel. 
+**To refresh the cookies table**, click the refresh button <img
+src="../images/refresh.png" /> at the bottom of the Resources panel.
 
 ## Application Cache
 
-You can examine resources that Chrome has cached according to the Application Cache manifest file specified by the current document. You can view the current status of the Application Cache (idle or downloading, for 
+You can examine resources that Chrome has cached according to the Application Cache manifest file specified by the current document. You can view the current status of the Application Cache (idle or downloading, for
 example), and the browser's connection status (online or offline).<br/>
-<img src="resources-files/app-cache.png" /> 
+<img src="resources-files/app-cache.png" />
 
 The table of cached resources includes the following properties for each resource:
 
 * **Resource** — The URL of the resource.
-* **Type** — The type of cached resource, which can have one of the following 
+* **Type** — The type of cached resource, which can have one of the following
   values:
-    * **Master** — The resource was added to the cache because its 
-      [manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest) 
+    * **Master** — The resource was added to the cache because its
+      [manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest)
       attribute indicated that this was its cache.
-    * **Explicit** — The resource was explicitly listed in the application's 
+    * **Explicit** — The resource was explicitly listed in the application's
       cache manifest file.
-    * **Network** — The resources was listed in the application's cache manifest 
-      file as a network entry. 
+    * **Network** — The resources was listed in the application's cache manifest
+      file as a network entry.
     * **Fallback** — The resource was specified as a fallback if a resource is inaccessible.
 * **Size** — Size of the cached resource.
 
-The Resources panel displays the current [status](http://www.whatwg.org/specs/web-apps/current-work/#dom-appcache-status) 
+The Resources panel displays the current [status](http://www.whatwg.org/specs/web-apps/current-work/#dom-appcache-status)
 of the application cache along with a colored status icon (green, yellow, or red). The following are the possible status values and their descriptions:
 
 <!-- TODO: Fix formatting of cells -->
@@ -158,7 +158,7 @@ of the application cache along with a colored status icon (green, yellow, or red
 
 ## Local and session storage
 
-The Local and session storage pane lets you to view, edit, create, and delete local and session storage key/value pairs that have been created using the [Web Storage APIs](http://www.w3.org/TR/webstorage/). 
+The Local and session storage pane lets you to view, edit, create, and delete local and session storage key/value pairs that have been created using the [Web Storage APIs](http://www.w3.org/TR/webstorage/).
 
 **To delete a key/value pair**, do one of the following:
 
