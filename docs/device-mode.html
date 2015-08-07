@@ -1,4 +1,9 @@
 {{+bindTo:partials.standard_devtools_article}}
+<p class="caution">
+  <strong style="font-weight: normal; font-size: 110%; display:block;">The DevTools docs have moved!</strong>
+  For the latest tutorials, docs and updates <a href="https://developers.google.com/web/tools/chrome-devtools">head over to the new home of Chrome DevTools</a>.
+</p>
+
 <h1>Device Mode &amp; Mobile Emulation</h1>
   <p>
     As your mobile audience grows, responsive mobile-friendly web design becomes all the more important. Web content needs to look and feel great across a wide variety of devices and network conditions. But testing the quality of your mobile experiences takes longer and makes debugging more complex.
@@ -40,7 +45,7 @@
     <h2 id="enable-device-mode">Enabling device mode</h2>
     <p>
       Turn on device mode by pressing the <b>Toggle device mode</b> <img src="device-mode-files/icon-device-mode-off.png" alt="toggle device mode icon off"> icon.
-      When device mode is enabled, the icon turns blue and the viewport transforms into a device emulator. 
+      When device mode is enabled, the icon turns blue and the viewport transforms into a device emulator.
     </p>
     <p>
       You can also toggle device mode on and off using the keyboard shortcut:</br>
@@ -57,7 +62,7 @@
   <div class="collapsible">
     <h2 id="screen-emulator">Using the screen emulator</h2>
       <p>
-        Device mode's screen emulator helps you test the responsiveness of your site, without the hassle of switching between multiple devices. 
+        Device mode's screen emulator helps you test the responsiveness of your site, without the hassle of switching between multiple devices.
       </p>
 
       <div class="collapsible">
@@ -80,14 +85,14 @@
             <li>Autosizes (boosts) text for pages without a defined viewport.</li>
           </ul>
         <p>
-          <b>Tips:</b> Toggle the screen resolution emulator on and off using the <b>Emulate screen resolution</b> <img src="device-mode-files/icon-emulate-resolution.png" alt="emulate resolution icon"> checkbox. Alternate between portrait and landscape views by clicking the <b>Swap dimensions</b> <img src="device-mode-files/icon-swap-dimensions.png" alt="swap dimensions icon"> icon. Select the <b>Fit</b> checkbox to ensure that the emulated screen remains fully visible inside your browser viewport, shrinking to fit if necessary. (This setting is for convenience and does not emulate the device differently.) 
+          <b>Tips:</b> Toggle the screen resolution emulator on and off using the <b>Emulate screen resolution</b> <img src="device-mode-files/icon-emulate-resolution.png" alt="emulate resolution icon"> checkbox. Alternate between portrait and landscape views by clicking the <b>Swap dimensions</b> <img src="device-mode-files/icon-swap-dimensions.png" alt="swap dimensions icon"> icon. Select the <b>Fit</b> checkbox to ensure that the emulated screen remains fully visible inside your browser viewport, shrinking to fit if necessary. (This setting is for convenience and does not emulate the device differently.)
         </p>
       </div>
 
       <div class="collapsible">
         <h3 id="customize-screen-settings">Customize the screen settings</h3>
         <p>
-          To get more granular control over the screen emulator, you can tune the resolution settings below the device preset dropdown. 
+          To get more granular control over the screen emulator, you can tune the resolution settings below the device preset dropdown.
         </p>
         <figure>
           <img src="device-mode-files/screen-controls.png" alt="screen controls">
@@ -113,7 +118,7 @@
           </ul>
         <p class="note">
           <b>Note: </b> If you have a native Retina display, you'll notice that low <abbr title="Dots Per Inch">dpi</abbr> assets look pixelated while higher-dpi assets are sharp. To simulate this effect on a standard display, set the <abbr title="Device Pixel Ratio">DPR</abbr> to 2 and scale the viewport by zooming. A 2x asset will continue to look sharp, while a 1x one will look pixelated.
-        </p> 
+        </p>
       </div>
 
       <!--<div class="collapsible">
@@ -127,9 +132,9 @@
         <figure>
           <img src="device-mode-files/emulation-drawer-UI-location.png" alt="opening the emulation drawer"/>
           <figcaption>
-            Tip: You can also use the keyboard shortcut <kbd class="kbd">Esc</kbd> to open the emulation drawer. 
+            Tip: You can also use the keyboard shortcut <kbd class="kbd">Esc</kbd> to open the emulation drawer.
           </figcaption>
-        </figure> 
+        </figure>
         <p>
           In the device pane of the emulation drawer, click <b>Save as</b> and give your preset a name.
         </p>
@@ -138,7 +143,7 @@
           <figcaption>
             The device pane.
           </figcaption>
-        </figure> 
+        </figure>
         <p>Now you can quickly select your custom screen emulation from the device preset dropdown.</p>
         <p>
           <b>Tip:</b> The emulation drawer contains the same controls as the main device mode interface, plus some extras (<a href="#more-media-types">media type</a> and <a href="#device-sensors">sensor </a>controls).
@@ -149,7 +154,7 @@
   <div class="collapsible">
     <h2 id="network-conditions">Emulating network connectivity</h2>
     <p>
-      Optimizing your site's performance under varying network conditions is a key aspect of developing for a mobile audience. 
+      Optimizing your site's performance under varying network conditions is a key aspect of developing for a mobile audience.
     </p>
     <p>
       Device mode's network conditioning allows you to test your site on a variety of network connections, including Edge, 3G, and even offline. Select a connection from the preset dropdown to apply network throttling and latency manipulation.
@@ -180,7 +185,7 @@
     </figure>
 
       <p>
-        To view the media query inspector, click the <b>Media queries</b> <img src="device-mode-files/icon-media-query.png" alt="media queries icon"> icon in the upper left corner of the viewport. The DevTools detect media queries in your stylesheets and display them as colored bars in the top ruler. 
+        To view the media query inspector, click the <b>Media queries</b> <img src="device-mode-files/icon-media-query.png" alt="media queries icon"> icon in the upper left corner of the viewport. The DevTools detect media queries in your stylesheets and display them as colored bars in the top ruler.
       </p>
     <figure>
       <img src="device-mode-files/media-query-inspector-ruler.png" alt="media query inspector">
@@ -253,7 +258,7 @@
         <figcaption>
           The media pane.
         </figcaption>
-      </figure> 
+      </figure>
       <p>
         Select the <b>CSS media</b> checkbox, and choose a media type from the dropdown list.
       </p>
@@ -273,7 +278,7 @@
       <figcaption>
         The sensors pane.
       </figcaption>
-    </figure> 
+    </figure>
 
     <p class="note">
       <b>Note:</b> If your app detects sensors onload using JavaScript (such as Modernizr), make sure that you reload the page after enabling sensor emulators.
@@ -288,7 +293,7 @@
         Enable touch emulation by selecting the <b>Emulate touch screen</b> checkbox in the sensors pane of the emulation drawer.
       </p>
       <p>
-        When you interact with the emulated viewport, the cursor changes into a fingertip-sized circle and touch events (such as <code>touchstart</code>, <code>touchmove</code>, and <code>touchend</code>) fire as they would on a mobile device. 
+        When you interact with the emulated viewport, the cursor changes into a fingertip-sized circle and touch events (such as <code>touchstart</code>, <code>touchmove</code>, and <code>touchend</code>) fire as they would on a mobile device.
       </p>
 
       <p class="note">
@@ -305,7 +310,7 @@
           <b>Tip:</b> Hold <kbd class="kbd">Shift</kbd> while dragging the mouse to emulate a pinch gesture.
         </figcaption>
       </figure>
-      
+
       <p>
         Because mouse events can still fire on touch devices, the touch emulator does not disable mouse events entirely.
       </p>
@@ -335,7 +340,7 @@
         <figcaption>
           Geolocation emulator enabled.
         </figcaption>
-      </figure> 
+      </figure>
       <p>
         You can use this emulator to override position values for <code>navigator.geolocation</code>, as well as simulate cases when geolocation data is unavailable.
       </p>
@@ -350,13 +355,13 @@
         If you need to test accelerometer data used with the <a href="http://www.w3.org/TR/screen-orientation/">Orientation API</a>, you can simulate the data using the accelerometer emulator.
       </p>
       <p>
-        Enable the accelerometer emulator by selecting the <b>Accelerometer</b> checkbox in the sensors pane of the emulation drawer. 
+        Enable the accelerometer emulator by selecting the <b>Accelerometer</b> checkbox in the sensors pane of the emulation drawer.
       </p>
       <figure>
         <img src="device-mode-files/emulation-drawer-accelerometer.png" alt="Accelerometer control">
       </figure>
       <p>
-        You can manipulate the following orientation parameters: 
+        You can manipulate the following orientation parameters:
       </p>
       <dl>
         <dt><b><abbr title="alpha">α</abbr></b></dt>
