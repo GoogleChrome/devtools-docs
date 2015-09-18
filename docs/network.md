@@ -1,4 +1,4 @@
-{{+bindTo:partials.standard_devtools_article}}
+{{+bindTo:partials.standard_devtools_article canonical:strings.canonicalDevToolsNetwork}}
 <p class="caution">
   <strong style="font-weight: normal; font-size: 110%; display:block;">The DevTools docs have moved!</strong>
   <a href="https://developers.google.com/web/tools/profile-performance/network-performance/resource-loading">Read the latest version</a> of this article and <a href="https://developers.google.com/web/tools/chrome-devtools">head over to the new home of Chrome DevTools</a> for the latest tutorials, docs and updates.
