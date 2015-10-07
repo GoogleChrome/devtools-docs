@@ -45,15 +45,15 @@
 
   <p>
     The <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">tip-of-tree protocol</a> is volatile and may break at any time. However it captures the full capabilities of the Protocol, whereas the stable release is a subset. There is no backwards compatibility support guaranteed for the capabilities it introduces. You can
-    use it with <a href="http://tools.google.com/dlpage/chromesxs">Google Canary</a>
-    builds at your own risk.
+    use it with <a href="http://tools.google.com/dlpage/chromesxs">Chrome Canary</a>
+    builds at your own risk. See the <em>Sniffing the protocol</em> section below to identify the protocol commands used by Chrome.
 <p>
-    The tip-of-tree protocol is more readable in the <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">debugger protocol viewer</a>.
+    The <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">Chrome debugger protocol viewer</a> offers a more readable view of the tip-of-tree protocol.
 
-<h4>Sniffing the protocol</h4>
-  <p>You can inspect how the Chrome DevTools uses the protocol. This is especially handy when looking up newer features. First, run Chrome with the debugging port open: <pre><code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code></pre> Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
+<p> The tip-of-tree protocol <a href="https://chromium.googlesource.com/chromium/src/+log/master/third_party/WebKit/Source/devtools/protocol.json">changes frequently</a>. If you need the protocol version for a specific Chrome client, this <a href="https://github.com/cyrus-and/chrome-remote-interface/issues/10#issuecomment-146032907
+">snippet will provide the protocol JSON</a> based on the client's <code>/json/version</code>.
 
-  <figure class="screenshot"> <a href="debugger-protocol/debugger-protocol-sniffing-full.png"><img src="debugger-protocol/debugger-protocol-sniffing.png" alt="Sniffing the debugger protocol" /></a></figure>
+
 </div>
 
 <div class="collapsible">
@@ -69,7 +69,7 @@
   <pre class="summary">
     chrome.exe --remote-debugging-port=9222</pre>
 
-  <p>Then you can start a <i>client</i> Chrome instance, using a separate user profile:</p>
+  <p>Then you can start a separate <i>client</i> Chrome instance, using a distinct user profile:</p>
 
   <pre class="summary">
     chrome.exe --user-data-dir=&lt;some directory&gt;</pre>
@@ -96,13 +96,7 @@
   <p>In this scenario, you can substitute Developer Tools front-end with your
     own implementation. Instead of navigating to the HTML page at
     http://localhost:9222, your application can discover available
-    pages by requesting:
-  </p>
-
-  <a href="http://localhost:9222/json">http://localhost:9222/json</a>
-
-
-  <p>and getting a JSON object with information about inspectable pages along
+    pages by requesting: <a href="http://localhost:9222/json">http://localhost:9222/json</a> and getting a JSON object with information about inspectable pages along
     with the WebSocket addresses that you could use in order to start
     instrumenting them.
   </p>
@@ -112,6 +106,24 @@
     owners are responsible for exposing debugging connections to the external
     users.
   </p>
+
+<h4>Sniffing the protocol</h4>
+  <p>You can inspect how the Chrome DevTools uses the protocol. This is especially handy when looking up newer features. First, run Chrome with the debugging port open: <pre><code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222 http://localhost:9222 http://chromium.org</code></pre> Then, select the Chromium Projects item in the <em>Inspectable Pages</em> list. Now that DevTools is up and fullscreen, open DevTools to inspect it. Cmd-R in the new inspector to make the first restart. Now head to Network Panel, filter by Websocket, select the connection and click the Frames tab. Now you can easily see the frames of WebSocket activity as you use the first instance of the DevTools. </p>
+
+  <figure class="screenshot">
+    <a href="debugger-protocol/debugger-protocol-sniffing-full.png" style="text-align: center; display:block;">
+  <div style="
+      background: url(https://developer.chrome.com/devtools/docs/debugger-protocol/debugger-protocol-sniffing-full.png) no-repeat;
+      text-indent: -999em;
+      background-size: cover;
+      height: 260px;
+      background-position-y: -122px;
+  ">
+      <img src="debugger-protocol/debugger-protocol-sniffing.png" alt="Sniffing the debugger protocol">
+      </div>
+      Screenshot of sniffing the DevTools protocol with DevTools
+    </a>
+  </figure>
 
 </div>
 
