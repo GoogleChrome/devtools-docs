@@ -42,7 +42,9 @@ IRC channel on [Freenode](http://webchat.freenode.net/?channels=chrome-devtools)
 
 ## Please view the revised contribution guide!
 
-We're currently rewriting this contribution guide. If you'd like to follow along with the early work, please read and comment on <a href="https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/edit#">DevTools Contributing (draft)</a>
+We're currently rewriting this contribution guide. 
+
+### ⇒ [Revised Contribution Guide for Chrome DevTools](https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/edit#)
 
 The [old contributing guide is available here](contributing-legacy).
 

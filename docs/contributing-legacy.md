@@ -1,5 +1,6 @@
 {{+bindTo:partials.standard_devtools_article}}
 
+This guide is valuable, but it represents the 2014-ish pre-Blink/Chromium merge view of things.
 
 ### Step 1: Getting set up
 
@@ -16,7 +17,7 @@ Download [the latest Chromium build](https://download-chromium.appspot.com/).
 
 **Serve devtools frontend**
 
-Run a local web server. The local web server will serve files from the directory 
+Run a local web server. The local web server will serve files from the directory
 `WebKit/Source/devtools` on some port (e.g. `8000`).
 
 Go to the `devtools` folder:
@@ -31,10 +32,10 @@ Then, open `http://localhost:8000/front_end/inspector.html` in your favorite bro
 
 **Why does the server need to run from the devtools directory?**
 
-When remotely debugging and developing the front-end of Blink, the content of the 
-`InspectorBackendCommands.js` file is generated based on the content of 
-`protocol.json` instead as a fallback of the Chromium build system. The 
-`protocol.json` file is in the parent folder of the `front_end` folder which is 
+When remotely debugging and developing the front-end of Blink, the content of the
+`InspectorBackendCommands.js` file is generated based on the content of
+`protocol.json` instead as a fallback of the Chromium build system. The
+`protocol.json` file is in the parent folder of the `front_end` folder which is
 `/devtools`. This is why you need to run the web server from within the `devtools` directory.
 
 
@@ -54,7 +55,7 @@ From [Running Canary with flags](http://www.chromium.org/developers/how-tos/run-
 **On Windows**
 
 1. **Right-click** on your "Google Chrome Canary" icon
-2. Select  **Properties**, and command line flags to the end of the **Target field** 
+2. Select  **Properties**, and command line flags to the end of the **Target field**
 
 For example:
 
@@ -103,7 +104,7 @@ Here you will see a grid menu of every open page that can be inspected. Refresh 
 
 <img src="contributing-files/image01.png" alt="Inspectable pages" width="700"/>
 
-This grid menu is served by a small web server running inside the first instance of Canary which the `--remote-debugging-port=9222` parameter was passed into. Since the web server is running from your local git repo in the 
+This grid menu is served by a small web server running inside the first instance of Canary which the `--remote-debugging-port=9222` parameter was passed into. Since the web server is running from your local git repo in the
 `/blink/Source/devtools` directory, so the files within the devtools folder will be used for the inspector you see when clicking any of one these pages.
 
 Clicking on the thumbnail of the tab you opened. You'll then have a full tab of DevTools that's inspecting your other tab.
@@ -119,7 +120,7 @@ Now, use your keyboard shortcut to open DevTools within this window. You now hav
 <img src="contributing-files/image00.png" alt="inspector inception" width="700"/>
 
 
-Well done. Now you can [start contributing](http://dev.chromium.org/developers/contributing-code) and developing the DevTools front-end code located in the directory 
+Well done. Now you can [start contributing](http://dev.chromium.org/developers/contributing-code) and developing the DevTools front-end code located in the directory
 `/blink/Source/devtools/front_end`.
 
 
@@ -128,7 +129,7 @@ Well done. Now you can [start contributing](http://dev.chromium.org/developers/c
 Now that you are ready to dig into the code and start developing the DevTools source, head over to [http://crbug.com](http://crbug.com) and find the ticket for your change and leave a comment saying you will be writing a patch for it. If you haven't decided on what you to change look through the open issues and choose one you would like to do and leave a comment on it asking for it to be assigned to you.
 
 
-Alternatively, if there is no existing ticket for the change, then [create a new issue](http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&role=&continue=https%3A//code.google.com/p/chromium/issues/entry.do). Be sure to describe what the change is and justify why it was needed, adding 
+Alternatively, if there is no existing ticket for the change, then [create a new issue](http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&role=&continue=https%3A//code.google.com/p/chromium/issues/entry.do). Be sure to describe what the change is and justify why it was needed, adding
 "patch to follow" to the end.
 
 **Communicate**
@@ -137,7 +138,7 @@ Before you start [contributing](http://dev.chromium.org/developers/contributing-
 
 ### Step 5: Pull, Develop, Branch, Commit
 
- You may also find it helpful to read the [Chromium guide for contributing code](http://dev.chromium.org/developers/contributing-code). 
+ You may also find it helpful to read the [Chromium guide for contributing code](http://dev.chromium.org/developers/contributing-code).
 
 
 Pull the latest files from the repository and sync to be sure you are working with the latest code.
@@ -171,7 +172,7 @@ Once you have made your change, commit it. In your commit message include the ti
 
 It is a good idea to pull down any changes that have been added since you last did one and merge them with your branch.
 
-Once everything for your patch is complete, you will want to write and run relevant layout tests. To get started with layout tests for the DevTools see the 
+Once everything for your patch is complete, you will want to write and run relevant layout tests. To get started with layout tests for the DevTools see the
 [WebKit layout tests](http://www.chromium.org/developers/testing/webkit-layout-tests) guide.
 
 <p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or UI tests, they will need to be created and included as part of the patch.</p>
@@ -182,40 +183,31 @@ Once everything for your patch is complete, you will want to write and run relev
  You will need to sign and submit a completed [CLA (Contributor License Agreement)](https://developers.google.com/open-source/cla/individual) before we are able to consider any contributions you may wish to make.
 
 
-**Install depot_tools**
-
-You will need to [install the depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools) in order to upload your patch once your changes are completed. The **[depot_tools](http://dev.chromium.org/developers/how-tos/depottools)** are a package of scripts used to manage checkouts and code reviews, and it includes commands `gclient`, `gcl`, and `git-cl` and will be useful later on. You will still want to sync your Chromium checkout with all its dependencies however.
-
-Download `depot_tools` by cloning the repository:
-
-    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-
-Then you will need to add it to your 
-[PATH](http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&sa=D&sntz=1&usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA). Do this by adding the following to your `.bashrc`,  `.bash_profile` or your shell's equivalent. This way you won't need to reset your `$PATH` manually each time you open a new shell.
-
-    export PATH="$PATH":path/to/the/depot_tools
-
-
-
-<p class="note"><strong>Note:</strong> This guide includes steps for <strong>Windows</strong> throughout it, but has not been confirmed to work due to the inability to add <code>depot_tools</code> to the PATH of Windows command line. However, you can try Cygwin as an alternative solution. Here you can find <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-">steps for installing depot_tools on Windows with Cygwin</a>.
-</p>
-
-
 **Uploading the patch for review**
 
 If your patch is finished and all tests pass, upload your changes:
 
-    git cl upload --bypass-hooks
+    git cl upload
 
-Your editor prompts you to write the patch description. Explain the change in much detail as you like. Save and exit the editor to finalize the patch submission.
+You may add `--bypass-hooks` to the command to avoid the presubmit tests like closure compiler.
+
+The first time you have to write the patch description and mention issue number, for example "`BUG=231904`". You will be asked for patch description later on and they all will be attached to the same codereview issue. See "Patch Set #1", "PatchSet #2"... at [https://chromiumcodereview.appspot.com/14329024/](https://chromiumcodereview.appspot.com/14329024/)
+
+Explain the change in much detail as you like. Save and exit the editor to finalize the patch submission.
 
 You must have an account for [codereview.chromium.org](https://codereview.chromium.org) and you'll enter in your credentials in this process. Afterwards, you'll get the codereview URL e.g.
 
     Issue created. URL: https://codereview.chromium.org/18173008".
 
-Take note of this URL, you can go to the page and view the status of it.`
+Take note of this URL, you can go to the page and view the status of it.
 
-Now you just have to wait for your friendly neighborhood reviewers to check things out to make sure it's all good.
+* Add reviewers to the changelist and ask them to review. You should pick reviewers from the OWNERS files. `git cl upload` suggests reviewers.
+* Now you just have to wait for your friendly neighborhood reviewers to check things out to make sure it's all good.
+* Receive comments from reviewers, argue if needed.
+* If received LGTM from owners - press commit button.
+* Otherwise, fix comments in local checkout in that branch and `git cl upload` again to provide an updated patch.
+* While waiting for comments you can switch to another branch and work on a fix for another issue while this one is "frozen", waiting for review.
+
 
 **Cleanup**
 
@@ -224,54 +216,6 @@ Go back to master branch.
 `git checkout master`<br/><br/>
 
 
-## Troubleshooting workflows
-
-Below are a couple alternative perspectives from some of the contributors who described their workflows and some tips you might find helpful along the way. If you run into any issues following the steps outlined in this document above, we've documented these to help you troubleshoot things should you run into any issues.
-
-### Alternative workflow #1
-
-You get to pick between two workflows: **merge** or **rebase**. Both are 
-"_mathematically equivalent_" but you use different commands. Unless you are a git uber-guru, the workflows and thinking for each are different.<br/>
-
-About half of the contributors to Chromium use this **rebase workflow**.
-
-1. git checkout -b myAwesomeBranch
-    * make a bunch of changes in the branch
-3. git commit -am "made some changes in branch"
-4. git checkout master
-5. gclient sync
-6. git checkout my_branch
-7. git rebase master
-8. Resolve any conflicts
-9. If you end up with lots of revisions in your branch, the rebase can be messy as it applies each change in order so you may need to resolve conflicts repeatedly. Git you **squash** a bunch of commits into one with `git rebase -i master`. It pops open an editor with a bunch of `pick XXXX` lines. Change all but the first _pick. _to _squash._ Use `s` to replace the word `pick`.
-10. git diff master
-    * should be the exact patch you're expecting to upload
-11. git cl upload
-
-The _merge workflow_ is slightly less work but you end up with merge revisions in your history. Also, it can be harder to think of it in such that the code/patch which you are authoring will eventually be something you apply to `master`.
-
-### Alternative workflow #2
-
-1. Create a new issue at
-   [https://code.google.com/p/chromium/issues/list](https://code.google.com/p/chromium/issues/list),
-   or find issue you want to fix.
-2. Create a branch in your local git checkout for that issue. Something like
-   `[verbose-name]-[issue-number]` (e.g. "drawer-status-bar-231904"). This makes
-   easier to find in which branch your issue lives and vice-versa. It'd be great
-   to assign issue to yourself and mark it as "started" so that nobody else
-   starts doing same job.
-3. Code and test in that branch.
-4. Commit changes in that branch. You can merge all commits into one. This makes
-   rebasing later easier if needed.
-5. `git cl upload`. The first time you have to fill in the commit description and mention issue number, for example "`BUG=231904`". You will be asked for patch description later on and they all will be attached to the same codereview issue. See "Patch Set #1", "PatchSet #2"... at [https://chromiumcodereview.appspot.com/14329024/](https://chromiumcodereview.appspot.com/14329024/)
-6. Add reviewers to the changelist and ask them to review. You should pick reviewers from the OWNERS files. `git cl upload` suggests reviewers.
-7. Receive comments from reviewers, argue if needed.
-8. If received LGTM from owners - press commit button.
-9. Otherwise, fix comments in local checkout in that branch and proceed to step 3.
-
-Sometimes you may need to rebase if the "commit" button fails on codereview page. Some reviewers don't like rebasing during a codereview since it makes reviewing harder for them.
-
-While waiting for comments you can switch to another branch and work on a fix for another issue while this one is "frozen", waiting for review.
 
 ### Running Layout tests
 
@@ -288,7 +232,7 @@ On a Mac or Linux machine you can simply run:
 If you have problems with this step you can look at [Clang](https://code.google.com/p/chromium/wiki/Clang) for Mac help and the [Linux build instructions](https://code.google.com/p/chromium/wiki/LinuxBuildInstructions) for Linux help.
 
 
-This will also take some time. Once it has finished providing you with warmth from your laptop then you are good to run the layout tests which can be run with from your src directory 
+This will also take some time. Once it has finished providing you with warmth from your laptop then you are good to run the layout tests which can be run with from your src directory
 `blink/tools/run_layout_tests.sh`. Replace the .sh with .bat if you are on Windows. Some failures are expected! (unfortunately). A good process here is to run them before you make any changes, then run them after you make your changes. It can also take an argument to a directory so you can just point it to the `LayoutTests/inspector` directory to run.
 
 ### Frequently Asked Questions
