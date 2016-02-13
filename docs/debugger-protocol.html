@@ -1,5 +1,5 @@
 {{+bindTo:partials.standard_devtools_article}}
-<h1>Remote debugging protocol</h1>
+<h1>Chrome Debugging Protocol</h1>
 
 
 <p>Under the hood, Chrome Developer Tools is a web application written in HTML,
@@ -16,28 +16,12 @@
 <div class="collapsible">
   <h2 id="protocol">Protocol</h2>
   <p>Interaction protocol consists of JSON commands that are sent to the page and
-    events that the page is generating. We define this protocol in Blink
-    ("upstream") so that any Blink-based browser supported it.
+    events that the page is generating. We define this protocol in Blink so that any Blink-based browser can support it.
   </p>
 
   <h3>Stable</h3>
   <p>
-    <a href="protocol/1.1/index.html">Debugger protocol version 1.1</a> is the most recent stable release of the protocol.
-  </p>
-  <p>
-    As of Google Chrome 31, we commit to supporting v1.1. All subsequent 1.* versions of the protocol are going to be backwards compatible with 1.1. Our protocol backwards compatibility commitment is:
-    <ul>
-      <li>No commands or events are removed from the protocol.</li>
-      <li>No required parameters are added to the commands.</li>
-      <li>No required parameters are removed from command responses or events.</li>
-    </ul>
-
-  </p>
-
-
-  <p> <b>Previous versions</b>:
-    <a href="protocol/1.0/index.html">Protocol v1.0</a> was shipped and supported as of Chrome 18.
-    <a href="protocol/0.1/index.html">Protocol v0.1</a> was shipped and supported as of Chrome 16.
+    <a href="protocol/1.1/index.html">Debugger protocol version 1.1</a> is the latest stable release of the protocol, tagged at Chrome 31.
   </p>
 
 
@@ -47,12 +31,15 @@
     The <a href="https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/devtools/protocol.json&q=protocol.json&sq=package:chromium&type=cs">tip-of-tree protocol</a> is volatile and may break at any time. However it captures the full capabilities of the Protocol, whereas the stable release is a subset. There is no backwards compatibility support guaranteed for the capabilities it introduces. You can
     use it with <a href="http://tools.google.com/dlpage/chromesxs">Chrome Canary</a>
     builds at your own risk. See the <em>Sniffing the protocol</em> section below to identify the protocol commands used by Chrome.
-<p>
-    The <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">Chrome debugger protocol viewer</a> offers a more readable view of the tip-of-tree protocol.
 
-<p> The tip-of-tree protocol <a href="https://chromium.googlesource.com/chromium/src/+log/master/third_party/WebKit/Source/devtools/protocol.json">changes frequently</a>. If you need the protocol version for a specific Chrome client, this <a href="https://github.com/cyrus-and/chrome-remote-interface/issues/10#issuecomment-146032907
+
+<p> The tip-of-tree protocol <a href="https://chromium.googlesource.com/chromium/src/third_party/WebKit/Source/devtools/+/master/protocol.json">changes frequently</a>. If you need the protocol version for a specific Chrome client, this <a href="https://github.com/cyrus-and/chrome-remote-interface/issues/10#issuecomment-146032907
 ">snippet will provide the protocol JSON</a> based on the client's <code>/json/version</code>.
 
+  <h3>Debugging Protocol Viewer</h3>
+  <center><a href="http://chromedevtools.github.io/debugger-protocol-viewer/"><img src="../images/protocol-viewer.png" height="327" width="500"></a></center>
+  <p>
+    The <a href="http://chromedevtools.github.io/debugger-protocol-viewer/">Chrome debugger protocol viewer</a> offers a more readable view of the tip-of-tree protocol.
 
 </div>
 
