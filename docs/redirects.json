@@ -1,5 +1,6 @@
 {
   "mobile-emulation": "device-mode",
   "elements": "dom-and-styles",
-  "index": "."
+  "index": ".",
+  "scripts-breakpoints": "https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints"
 }
