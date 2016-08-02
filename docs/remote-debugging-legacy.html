@@ -1,8 +1,4 @@
 {{+bindTo:partials.standard_devtools_article}}
-<p class="caution">
-  <strong style="font-weight: normal; font-size: 110%; display:block;">The DevTools docs have moved!</strong>
-  For the latest tutorials, docs and updates <a href="https://developers.google.com/web/tools/chrome-devtools">head over to the new home of Chrome DevTools</a>.
-</p>
 
 <h1>Remote Debugging on Android (Legacy Workflow)</h1>
 
@@ -19,8 +15,9 @@ For Chrome 32 or later, we recommend using the newer workflow described in  <a h
 
 <ul>
 <li>An Android phone or tablet with <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Google Chrome for Android</a> installed from Google Play.</li>
-<li>A USB cable to plug in your device. (Windows users will also need to install an <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">appropriate USB device driver</a>.)</li>
-<li>The <a href="http://developer.android.com/sdk/index.html#download" target="_blank">Android SDK</a> installed on your development machine.</li>
+<li>A USB cable to plug in your device. 
+<li>Windows users will also need to install an <a href="https://developer.android.com/studio/run/oem-usb.html" target="_blank">appropriate USB device driver</a>. Verify it's set up correctly with Windows Device Manager</li>
+<li>The <a href="http://developer.android.com/sdk/index.html#download" target="_blank">Android command line tools</a> installed on your development machine.</li>
 <li><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>
 installed on your development machine .</li>
 </ul>
@@ -29,17 +26,12 @@ installed on your development machine .</li>
 
 
 <section class="collapsible">
-<h2 id="installing-androidsdk">1. Install the Android SDK</h2>
+<h2 id="installing-androidsdk">1. Install the Android Command line tools</h2>
 
-<p>The  <a href="http://developer.android.com/sdk/index.html">Android Developer Tools</a> (ADT) bundle
-provides you with the Android SDK out of the box. Once you've downloaded the ADT,
-unzip it to a directory on your system (e.g "Downloads").</p>
+<p>The  <a href="https://developer.android.com/studio/index.html#downloads">Android Command Line Tools</a> (see "Get just the command line tools
+") provide the binaries you'll need.
 
-<p>You will initially see two sub-directories in the extracted folder - <strong>eclipse</strong> and
-<strong>sdk</strong>. To communicate with an Android device, you use the Android Debug Bridge (adb),
-a command-line tool included in Platform Tools (<code>&lt;sdk&gt;/platform-tools/</code>).</p>
-
-<p>For convenience, add Platform Tools to your <code>PATH</code> environment variable. If on Mac, run the following command from your terminal: <code>export PATH=$PATH:/&lt;path-to-SDK&gt;/platform-tools/</code>.</p>
+<p>For convenience, add Platform Tools to your <code>PATH</code> environment variable. </p>
 
 </section>
 
