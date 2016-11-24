@@ -8,7 +8,7 @@ There are many ways you can improve the productivity of your fellow developers. 
 
 Aside from contributing to the source code for DevTools, all of the following are different ways you could help contribute:
 
-* **Documentation authoring**: The source for developer.chrome.com [legacy documentation](https://github.com/GoogleChrome/devtools-docs) and the [developer.google.com docs](https://github.com/google/WebFundamentals/tree/material-branch/src/content/en/tools/chrome-devtools) are on GitHub. Contributions are always welcome.
+* **Documentation authoring**: The source for developer.chrome.com [legacy documentation](https://github.com/GoogleChrome/devtools-docs) and the [developer.google.com docs](https://github.com/google/WebFundamentals/tree/master/src/content/en/tools/chrome-devtools) are on GitHub. Contributions are always welcome.
 * **Share what you've learned**: Share what you've learned via GIFs, Vines or construction paper
 * **Coverage of new experimental features**
     * Subscribe to [devtools-reviews@chromium.org mailing list](https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews)
