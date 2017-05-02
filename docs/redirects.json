@@ -24,5 +24,6 @@
   "commandline-api": "https://developers.google.com/web/tools/chrome-devtools/debug/command-line/command-line-reference?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3",
   "shortcuts": "https://developers.google.com/web/tools/chrome-devtools/iterate/inspect-styles/shortcuts?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3",
   "settings": "https://developers.google.com/web/tools/chrome-devtools/settings?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3",
+  "debugger-protocol": "https://chromedevtools.github.io/devtools-protocol/",
   "protocol/1.1/index": "https://chromedevtools.github.io/debugger-protocol-viewer/"
 }
