@@ -103,5 +103,5 @@ integrate with the Chrome debugger.
 
 ## Python
 
-[chrome_remote_shell](https://github.com/minektur/chrome_remote_shell) provides a nice API layer for python apps.
+[chromote](https://github.com/iiSeymour/chromote) provides a nice API layer for python apps.
 {{/partials.standard_devtools_article}}
