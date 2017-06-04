@@ -189,7 +189,7 @@ An example of using the element formatter (`%o`) and object formatter (`%O`) on 
 
 The following example uses the **`%c`** format specifier to colorize the output string:
 
-    console.log("%cUser %s has %d points", "color:orange; background:blue; font-size: 16pt", userName, userPoints);
+    console.log("%cUser %s has %d points", "color:yellow; background:red; font-size: 16pt", userName, userPoints);
 
 ![Console output styled with %c](console-files/log-format-styling.png)
 
